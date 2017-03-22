@@ -25,16 +25,19 @@ module.exports = {
         });
         return ReturnMap;
     },
+    DiscordToken: fs.readFileSync('D:\\txt\\APIToken\\DiscordToken.txt').toString(),
+    osuAPI: fs.readFileSync('D:\\txt\\APIToken\\osu!API.txt').toString(),
+    IRCPassword: fs.readFileSync('D:\\txt\\APIToken\\osu!IRC.txt').toString(),
     SFWPath: 'D:\\Saves\\Cuccok\\Imgs\\',
-    NSFWPath: this.SFWPath + 'nsfw\\',
-    NekoPath: this.SFWPath + 'neko\\',
-    ChinoPath: this.SFWPath + 'Chino\\',
-    SFWFiles: fs.readdirSync(this.SFWPath),
-    NSFWFiles: fs.readdirSync(this.NSFWPath),
-    NekoFiles: fs.readdirSync(this.NekoPath),
-    ChinoFiles: fs.readdirSync(this.ChinoPath),
-    SFWCount: this.SFWFiles.length,
-    NSFWCount: this.NSFWFiles.length,
-    NekoCount: this.NekoFiles.length,
-    ChinoCount: this.ChinoFiles.length
+    NSFWPath: 'D:\\Saves\\Cuccok\\Imgs\\nsfw\\',
+    NekoPath: 'D:\\Saves\\Cuccok\\Imgs\\neko\\',
+    ChinoPath: 'D:\\Saves\\Cuccok\\Imgs\\Chino\\',
+    SFWFiles: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\'),
+    NSFWFiles: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\nsfw\\'),
+    NekoFiles: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\neko\\'),
+    ChinoFiles: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\Chino\\'),
+    SFWCount: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\').length,
+    NSFWCount: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\nsfw\\').length,
+    NekoCount: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\neko\\').length,
+    ChinoCount: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\Chino\\').length
 }

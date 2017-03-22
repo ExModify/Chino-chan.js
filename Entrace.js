@@ -8,14 +8,6 @@ var Process = undefined;
 LogEntrace('Starting ExMoBot...');
 RunBot();
 
-var Prefixes = {
-    Bot: chalk.cyan('[Bot]'),
-    IRC: chalk.blue('[IRC]'),
-    Git: chalk.blue('[Git]'),
-    Main: chalk.green('[Main]'),
-    Error: chalk.red('[ERROR]')
-};
-
 function RunBot(){
     if(Process !== undefined)
     {     
@@ -25,7 +17,8 @@ function RunBot(){
         }
     }
     Process = exec('node ExMoBot.js --color');
-    Process.on('message', (data, sendHandle) => {
+    Process.stdout.on('data', chunk => {
+        var data = chunk.toString();
         var message = data.substring(0, data.length - 1);
         if(message.startsWith('IRC: '))
             LogIRC(message.substring(message.indexOf(' ')));
@@ -48,7 +41,7 @@ function HandleExit(exitCode){
         process.exit(0);
         break;
         case 1: //Update
-        Update();
+        //Update();
         break;
         default: //Restart
         LogEntrace('Restarting ExMoBot..');
@@ -62,17 +55,17 @@ function Update(){
     RunBot();
 }
 function LogEntrace(Message){
-    console.log(Prefixes.Main + ' ' + Message);
+    console.log(chalk.green('[Main] ') + Message);
 }
 function LogBot(Message){
-    console.log(Prefixes.Bot + ' ' + Message);
+    console.log(chalk.cyan('[Bot] ') + Message);
 }
 function LogGit(Message){
-    console.log(Prefixes.Git + ' ' + Message);
+    console.log(chalk.blue('[Git]' ) + Message);
 }
 function LogIRC(Message){
-    console.log(Prefixes.IRC + ' ' + Message);
+    console.log(chalk.magenta('[IRC] ') + Message);
 }
 function LogError(Message){
-    console.log(Prefixes.Error + ' ' + Message);
+    console.log(chalk.red('[ERROR] ') + Message);
 }
