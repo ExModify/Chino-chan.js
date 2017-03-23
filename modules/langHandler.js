@@ -2,24 +2,18 @@ const fs = require('fs');
 
 module.exports = {
     languages: fs.readdirSync('./langs'),
-    getLanguage: (langID) => {
-        languages.forEach((v, i, a) => {
-            var lang = JSON.parse('.langs/' + v);
-            if(lang.id === langID)
+    getLanguage: (langIDOrName) => {
+        var ReturnValue = undefined;
+        fs.readdirSync('./langs').forEach((v, i, a) => {
+            if(!fs.statSync('./langs/' + v).isDirectory())
             {
-                lang.prepare = (txt, from, to) => {
-                    if(typeof(from) === string){
-                        if(txt.indexOf('%' + from.toUpperCase() + '%'))
-                        {
-                            
-                        }
-                    }else if (typeof(from) === string[]){
-
-                    }
-                };
-                return lang;
+                var lang = JSON.parse(fs.readFileSync('./langs/' + v, 'utf8').toString());
+                if(lang.id === langIDOrName || lang.id === langIDOrName)
+                {
+                    ReturnValue = lang;
+                }
             }
         });
-        return false;
+        return ReturnValue;
     }
 }

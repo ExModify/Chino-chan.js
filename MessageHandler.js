@@ -1,4 +1,5 @@
 const vars = require('./global/vars.js');
+const langHandler = require('./modules/langHandler.js');
 const chalk = require('chalk');
 const fs = require('fs');
 
@@ -21,7 +22,7 @@ module.exports = {
             vars.Languages.set(guildID, "en");
             vars.SaveMap(vars.Languages, './data/languages.txt');
         }
-        var Language = vars.Languages.get(guildID);
+        var Language = langHandler.getLanguage(vars.Languages.get(guildID));
 
         var SpaceIndex = message.content.indexOf(' ');
         var Command = message.content.substring(Prefix.length, SpaceIndex < 0 ? message.length : SpaceIndex);
@@ -38,9 +39,12 @@ module.exports = {
         });
 
         if(JSModule === undefined){
-            message.channel.sendMessage(Language.UnknownCommand);
+            if(Parameter !== "")
+                Command += ' ' + Parameter;
+
+            message.channel.sendMessage(Language.UnknownCommand.getPrepared('command', Command));
         }else{
-            JSModule.execute(bot, message, Command, Parameter);
+            JSModule.execute(bot, message, Command, Parameter, Language);
         }
     }
 }

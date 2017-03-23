@@ -1,5 +1,6 @@
 {
     "name": "English",
     "id": "en",
-    "Connected": ""
+    "Connected": "Not connected",
+    "UnknownCommand": "I don't know what to do with **%COMMAND%**!"
 }

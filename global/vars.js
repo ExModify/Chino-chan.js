@@ -1,5 +1,10 @@
 const fs = require('fs');
 
+var SFWPath = 'D:\\Saves\\Cuccok\\Imgs\\';
+var NSFWPath = SFWPath + 'nsfw\\';
+var NekoPath = SFWPath + 'neko\\';
+var ChinoPath = SFWPath + 'Chino\\';
+
 module.exports = {
     Prefixes: new Map(),
     Languages: new Map(),
@@ -28,16 +33,48 @@ module.exports = {
     DiscordToken: fs.readFileSync('D:\\txt\\APIToken\\DiscordToken.txt').toString(),
     osuAPI: fs.readFileSync('D:\\txt\\APIToken\\osu!API.txt').toString(),
     IRCPassword: fs.readFileSync('D:\\txt\\APIToken\\osu!IRC.txt').toString(),
-    SFWPath: 'D:\\Saves\\Cuccok\\Imgs\\',
-    NSFWPath: 'D:\\Saves\\Cuccok\\Imgs\\nsfw\\',
-    NekoPath: 'D:\\Saves\\Cuccok\\Imgs\\neko\\',
-    ChinoPath: 'D:\\Saves\\Cuccok\\Imgs\\Chino\\',
-    SFWFiles: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\'),
-    NSFWFiles: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\nsfw\\'),
-    NekoFiles: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\neko\\'),
-    ChinoFiles: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\Chino\\'),
-    SFWCount: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\').length,
-    NSFWCount: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\nsfw\\').length,
-    NekoCount: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\neko\\').length,
-    ChinoCount: fs.readdirSync('D:\\Saves\\Cuccok\\Imgs\\Chino\\').length
+    SFWPath: SFWPath,
+    NSFWPath: NSFWPath,
+    NekoPath: NekoPath,
+    ChinoPath: ChinoPath,
+    SFWFiles: fs.readdirSync(SFWPath).filter((v, i, a) => {
+        if (fs.statSync(SFWPath + v).isDirectory())
+            return false;
+        return true;
+    }),
+    NSFWFiles: fs.readdirSync(NSFWPath).filter((v, i, a) => {
+        if (fs.statSync(NSFWPath + v).isDirectory())
+            return false;
+        return true;
+    }),
+    NekoFiles: fs.readdirSync(NekoPath).filter((v, i, a) => {
+        if (fs.statSync(NekoPath + v).isDirectory())
+            return false;
+        return true;
+    }),
+    ChinoFiles: fs.readdirSync(ChinoPath).filter((v, i, a) => {
+        if (fs.statSync(ChinoPath + v).isDirectory())
+            return false;
+        return true;
+    }),
+    SFWCount: fs.readdirSync(SFWPath).filter((v, i, a) => {
+        if (fs.statSync(SFWPath + v).isDirectory())
+            return false;
+        return true;
+    }).length,
+    NSFWCount: fs.readdirSync(NSFWPath).filter((v, i, a) => {
+        if (fs.statSync(NSFWPath + v).isDirectory())
+            return false;
+        return true;
+    }).length,
+    NekoCount: fs.readdirSync(NekoPath).filter((v, i, a) => {
+        if (fs.statSync(NekoPath + v).isDirectory())
+            return false;
+        return true;
+    }).length,
+    ChinoCount: fs.readdirSync(ChinoPath).filter((v, i, a) => {
+        if (fs.statSync(ChinoPath + v).isDirectory())
+            return false;
+        return true;
+    }).length,
 }

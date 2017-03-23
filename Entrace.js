@@ -30,7 +30,7 @@ function RunBot(){
             LogBot(message);
     });
     Process.on('exit', (code, signal) => {
-       HandleExit(code); 
+        HandleExit(code); 
     });
     LogEntrace('ExMoBot started!');
 }
