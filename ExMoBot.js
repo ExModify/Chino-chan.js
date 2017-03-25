@@ -23,14 +23,18 @@ String.prototype.getPrepared = function (from, to) {
 };
 
 const Discord = require('discord.js');
-
+const rerequire = require('./modules/rerequire.js');
 
 var vars = require('./global/vars.js');
-var MessageHandler = require('./MessageHandler.js');
 
 var Client = new Discord.Client();
+Client.on('ready', () => {
+    if(Client.user.username !== 'ExMoBot')
+        Client.user.setUsername('ExMoBot');
+    Client.user.setGame('with ExMo');
+});
 Client.on('message', message => {
-    MessageHandler.handle(Client, message);
+    rerequire('./MessageHandler.js').handle(Client, message);
 });
 Client.login(vars.DiscordToken);
 console.log('ExMoBot logged in!');

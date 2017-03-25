@@ -9,9 +9,6 @@ module.exports = {
     Prefixes: new Map(),
     Languages: new Map(),
     SaveMap: (Map, fileName) => {
-        if(Map.length === 0)
-            return;
-        
         if(fs.existsSync(fileName))
             fs.unlinkSync(fileName);
         

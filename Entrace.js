@@ -41,7 +41,7 @@ function HandleExit(exitCode){
         process.exit(0);
         break;
         case 1: //Update
-        //Update();
+        Update();
         break;
         default: //Restart
         LogEntrace('Restarting ExMoBot..');

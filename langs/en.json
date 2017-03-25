@@ -2,5 +2,30 @@
     "name": "English",
     "id": "en",
     "Connected": "Not connected",
-    "UnknownCommand": "I don't know what to do with **%COMMAND%**!"
+    "UnknownCommand": "I don't know what to do with **%COMMAND%**!",
+    "Help": {
+        "Top": "```css",
+        "Command1": "%P%help - Send this guide",
+        "Command2": "%P%language (language ID or name) - If you don't give the id or name of the language, it's list will be sent.\n",
+        "Command3": "%P%sfw - I send an SFW image to the channel. If you type count after it, I'll send how many images are there I can choose from!",
+        "Command4": "%P%nsfw - I send an NSFW image to the channel. The count property is the same.",
+        "Command5": "%P%neko - I send a neko image to the channel. The count property is the same.",
+        "Command6": "%P%chino - I send a picture of my favourite character, Chino. The count property is the same.\n",
+        "Command7": "%P%prefix - You can change my prefix. It's server specific, so don't worry :v",
+        "Command8": "%P%reload - Reloads the bot",
+        "Command9": "%P%execute - You can execute node commands!\n",
+        "Command10": "%P%music - Type this command for further information!\n",
+        "Bottom": "Property in '()' is optional, and in '[]' is required!```"
+    },
+    "PrivateMessage": "%MENTION%, Check our private channel c:",
+    "ListLanguages": "These languages are available: ``%LANGUAGES%``",
+    "UnknownLanguage": "I didn't find the language you mentioned! For the list of the languages, please type ``%PREFIX%%COMMAND%``!",
+    "LanguageChanged": "You've changed the language to ``English``!",
+    "SFWCount": "I have ``%COUNT%`` SFW images!",
+    "NSFWCount": "I have ``%COUNT%`` NSFW images!",
+    "NekoCount": "I have ``%COUNT%`` Neko images!",
+    "ChinoCount": "I have ``%COUNT%`` images only of Chino :'c",
+    "CurrentPrefix": "The prefix that's in use is %PREFIX%!",
+    "PrefixChanged": "%USER% changed the prefix to ``%PREFIX%``!",
+    "MusicHelp": ""
 }
