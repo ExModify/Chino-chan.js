@@ -23,8 +23,7 @@ module.exports = {
                 message.channel.sendMessage(language.UnknownLanguage.getPrepared(['prefix', 'command'], [prefix, command]));
             }
             else{
-                vars.Languages.set(message.guild.id, lang.id);
-                vars.SaveMap(vars.Languages, 'languages');
+                vars.set(message.guild.id, lang.id, 'languages');
                 message.channel.sendMessage(lang.LanguageChanged);
             }
         }
