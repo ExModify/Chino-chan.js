@@ -31,10 +31,25 @@ function add (filename, guildID, value){
         values.push(guildID + ':' + value);
     }
 
+    if(filename == "prefixes"){
+        localPrefixes.set(guildID, value);
+    }
+    else if(filename == "languages"){
+        localLanguages.set(guildID, value);
+    }
     fs.writeFileSync(FilePath, values.join('\r\n'));
 }
 
 function LoadMap(filename){
+    if(filename == "prefixes"){
+        if(localPrefixes.size != 0)
+            return localPrefixes;
+    }
+    else if(filename == "languages"){
+        if(localLanguages.size != 0)
+            return localLanguages;
+    }
+
     var FilePath = "./data/" + filename + ".txt";
     var ReturnMap = new Map();
 
