@@ -5,28 +5,64 @@ var NSFWPath = SFWPath + 'nsfw\\';
 var NekoPath = SFWPath + 'neko\\';
 var ChinoPath = SFWPath + 'Chino\\';
 
+var localLanguages = new Map();
+var localPrefixes = new Map();
+
+function add (filename, guildID, value){
+    var FilePath = "./data/" + filename + ".txt";
+
+    var Content = [];
+    var values = [];
+
+    if(fs.existsSync(FilePath))
+    {
+        values = fs.readFileSync(FilePath).toString().split('\r\n');
+        values.forEach((v, i, a) => {
+            Content.push(v.split(':')[0]);
+        });
+
+        fs.unlinkSync(FilePath);
+    }
+
+    if(Content.indexOf(guildID) >= 0){
+        values[Content.indexOf(guildID)] = guildID + ":" + value;
+    }
+    else{
+        values.push(guildID + ':' + value);
+    }
+
+    fs.writeFileSync(FilePath, values.join('\r\n'));
+}
+
+function LoadMap(filename){
+    var FilePath = "./data/" + filename + ".txt";
+    var ReturnMap = new Map();
+
+    if(fs.existsSync(FilePath))
+    {
+        var Content = fs.readFileSync(FilePath, "utf8").toString().split('\r\n');
+
+        Content.forEach((v, i, a) => {
+            if(v.trim() != "" && v.indexOf(':') > 0)
+            {
+                var Value = v.split(':');
+                ReturnMap.set(Value[0], Value[1]);
+            }
+        });
+    }
+
+    ReturnMap.forEach((v, k, m) => {
+        console.log(k + ":" + v);
+    });
+
+    return ReturnMap;
+}
+
 module.exports = {
-    Prefixes: new Map(),
-    Languages: new Map(),
-    SaveMap: (Map, fileName) => {
-        if(fs.existsSync(fileName))
-            fs.unlinkSync(fileName);
-        
-        var content = '';
-        Map.forEach((v, k, m) => {
-            content += k + ':' + v + '\r\n';
-        });
-        fs.writeFileSync(fileName, content, 'utf8');
-    },
-    LoadMap: (fileName) => {
-        var content = fs.readFileSync(fileName, 'utf8').toString();
-        var ReturnMap = new Map();
-        content.split('\r\n').forEach((v, i, a) => {
-            var lines = v.split(':', 1);
-            ReturnMap.set(lines[0], lines[1]);
-        });
-        return ReturnMap;
-    },
+    Prefixes: LoadMap('prefixes'),
+    Languages: LoadMap('languages'),
+    set: (guildID, value, type) => add(type, guildID, value),
+    LoadMap: (fileName) => LoadMap(fileName),
     DiscordToken: fs.readFileSync('D:\\txt\\APIToken\\DiscordToken.txt').toString(),
     osuAPI: fs.readFileSync('D:\\txt\\APIToken\\osu!API.txt').toString(),
     IRCPassword: fs.readFileSync('D:\\txt\\APIToken\\osu!IRC.txt').toString(),

@@ -8,7 +8,7 @@ module.exports = {
             message.channel.sendMessage(language.CurrentPrefix.getPrepared('prefix', prefix));
         else{
             vars.Prefixes.set(message.guild.id, parameter);
-            vars.SaveMap(vars.Prefixes, './data/prefixes.txt');
+            vars.SaveMap(vars.Prefixes, 'prefixes');
             message.channel.sendMessage(language.PrefixChanged.getPrepared(['user', 'prefix'], [`<@${message.author.id}>`, parameter]));
         }
     }

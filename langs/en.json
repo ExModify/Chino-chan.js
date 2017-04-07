@@ -27,5 +27,25 @@
     "ChinoCount": "I have ``%COUNT%`` images only of Chino :'c",
     "CurrentPrefix": "The prefix that's in use is %PREFIX%!",
     "PrefixChanged": "%USER% changed the prefix to ``%PREFIX%``!",
-    "MusicHelp": ""
+    "MusicHelp": {
+        "Top": "```css",
+        "Command1": "%P%music - Displays this guide\n",
+        "Command2": "%P%music connect (Voice channel ID) - You can connect me to a voice channel. If you give no name or ID, I'll try to join to the same voice channel which you in",
+        "Command3": "%P%music play (YouTube link, remote file, where the URL ends with the extension, the query index or search patter in YouTube) - Starts playing the remote file, YouTube link, the query or starts to search, then plays it\n",
+        "Command4": "%P%music query - Displays the music query",
+        "Command5": "%P%music add [YouTube link, remote file, where the URL ends with the extension or the search pattern in YouTube] - Adds the YouTube video the remote file.",
+        "Command6": "%P%music remove [Query index] - Removes song from the query",
+        "Command7": "%P%music clear - Clears the query\n",
+        "Command8": "%P%music search [Response] - Cancels or selects from the search result\n",
+        "Command9": "%P%music next - If the query contains more items, then starts playing the next, otherwise it restarts the query.",
+        "Command10": "%P%music prev - If the query contains more items, then starts playing the previous, otherwise it restarts the query.",
+        "Command11": "%P%music stop - Stops playing",
+        "Command12": "%P%music pause - Pauses playing, if you want to continue, just type play with no parameteres\n",
+        "Bottom": "Property in '()' is optional, and in '[]' is required!```"
+    },
+    "MusicDownloading": "Downloading **%NAME%**...",
+    "MusicOnlyYouTubeSupported": "Sorry, but only **YouTube** videos supported yet!",
+    "MusicNotContainsAudio": "The downloaded file does **not** contain **audio**!",
+    "MusicConnectionRequired": "You have to connect to a voice channel, or connect the bot! See %P%music for furher information!",
+    "MusicStartedPlaying": "Currently playing: **%NAME%**!"
 }

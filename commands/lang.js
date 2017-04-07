@@ -24,7 +24,7 @@ module.exports = {
             }
             else{
                 vars.Languages.set(message.guild.id, lang.id);
-                vars.SaveMap(vars.Languages, './data/languages.txt');
+                vars.SaveMap(vars.Languages, 'languages');
                 message.channel.sendMessage(lang.LanguageChanged);
             }
         }

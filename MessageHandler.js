@@ -7,6 +7,9 @@ const fs = rerequire('fs');
 
 module.exports = {
     handle: (bot, message) => {
+        if(message.author.id === bot.user.id)
+            return;
+
         var Prefix = '$';
         var Language = langHandler.getLanguage('en');
 
@@ -15,18 +18,21 @@ module.exports = {
             
             if(!vars.Prefixes.has(guildID))
             {
-                vars.Prefixes.set(guildID, '$');
-                vars.SaveMap(vars.Prefixes, './data/prefixes.txt');
+                vars.set(guildID, '$', 'prefixes');
             }
-
-            var Prefix = vars.Prefixes.get(guildID);
+            else
+                Prefix = vars.Prefixes.get(guildID);
             
-            if(!vars.Languages.has(guildID))
+            if(vars.Languages.has(guildID))
             {
-                vars.Languages.set(guildID, "en");
-                vars.SaveMap(vars.Languages, './data/languages.txt');
+                Language = langHandler.getLanguage(vars.Languages.get(guildID));
             }
-            var Language = langHandler.getLanguage(vars.Languages.get(guildID));
+            else
+                vars.set(guildID, 'en', 'languages');
+        }
+        else{
+            message.channel.sendMessage("You can't begin invoking commands from private channel!");
+            return;
         }
 
         if(!message.content.startsWith(Prefix))

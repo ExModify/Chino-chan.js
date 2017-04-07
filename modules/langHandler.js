@@ -8,7 +8,9 @@ module.exports = {
             if(!fs.statSync('./langs/' + v).isDirectory())
             {
                 var lang = JSON.parse(fs.readFileSync('./langs/' + v, 'utf8').toString());
-                if(lang.id.toLowerCase() === langIDOrName.toLowerCase() || lang.name.toLowerCase() === langIDOrName.toLowerCase())
+
+                if(lang.id.toLowerCase() === langIDOrName.toLowerCase() 
+                || lang.name.toLowerCase() === langIDOrName.toLowerCase())
                 {
                     ReturnValue = lang;
                 }
