@@ -51,16 +51,12 @@ function LoadMap(filename){
         });
     }
 
-    ReturnMap.forEach((v, k, m) => {
-        console.log(k + ":" + v);
-    });
-
     return ReturnMap;
 }
 
 module.exports = {
-    Prefixes: LoadMap('prefixes'),
-    Languages: LoadMap('languages'),
+    Prefixes: () => { return LoadMap('prefixes'); },
+    Languages: () => { return LoadMap('languages'); },
     set: (guildID, value, type) => add(type, guildID, value),
     LoadMap: (fileName) => LoadMap(fileName),
     DiscordToken: fs.readFileSync('D:\\txt\\APIToken\\DiscordToken.txt').toString(),

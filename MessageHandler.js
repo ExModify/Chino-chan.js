@@ -16,16 +16,19 @@ module.exports = {
         if(message.channel.type != "dm"){
             var guildID = message.guild.id;
             
-            if(!vars.Prefixes.has(guildID))
+            if(vars.Prefixes().has(guildID))
             {
-                vars.set(guildID, '$', 'prefixes');
+                Prefix = vars.Prefixes().get(guildID);
             }
             else
-                Prefix = vars.Prefixes.get(guildID);
+                vars.set(guildID, '$', 'prefixes');
             
-            if(vars.Languages.has(guildID))
+            if(!message.content.startsWith(Prefix))
+                return;
+
+            if(vars.Languages().has(guildID))
             {
-                Language = langHandler.getLanguage(vars.Languages.get(guildID));
+                Language = langHandler.getLanguage(vars.Languages().get(guildID));
             }
             else
                 vars.set(guildID, 'en', 'languages');
@@ -34,9 +37,6 @@ module.exports = {
             message.channel.sendMessage("You can't begin invoking commands from private channel!");
             return;
         }
-
-        if(!message.content.startsWith(Prefix))
-            return;
 
         var SpaceIndex = message.content.indexOf(' ');
         var Command = message.content.substring(Prefix.length, SpaceIndex < 0 ? message.length : SpaceIndex);
