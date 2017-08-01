@@ -59,6 +59,13 @@
     "MusicNotContainsAudio": "The downloaded file does **not** contain **audio**!",
     "MusicConnectionRequired": "You have to connect to a voice channel, or connect the bot! See %P%music for furher information!",
     "MusicStartedPlaying": "Currently playing: **%NAME%**!",
+    "MusicFinishedPlaying": "Finished playing **%NAME%**!",
+    "MusicStoppedPlaying": "Stopped playing **%NAME%**!",
+    "MusicPausedPlaying": "Paused playing **%NAME%**!",
+    "MusicVolumeOnlyNumber": "Please provide only number to change the volume!",
+    "MusicCurrentVolume": "The volume is **%VOLUME%**!",
+    "MusicVolumeChanged": "Volume changed to **%VOLUME%**!",
+    "MusicLeftAlready": "I wasn't in any voice channels!",
     "MusicDisconnected": "I've disconnected from the voice channel!",
     "StalkParameterMissing": "Please give me a player name!",
     "StalkInvalidUser": "I didn't find the mentioned user! Please check the player's name again!",
@@ -113,5 +120,6 @@
     },
     "SayWrongServerID": "I can't find a server with %ID%  <- this id!",
     "SayWrongChannelID": "I can't find a channel with %ID% <- this id in %SERVERNAME% <- this server!",
-    "SayNoMessage": "Please give a message that you want to be said by me!"
+    "SayNoMessage": "Please give a message that you want to be said by me!",
+    "ModuleReloaded": "**%MODULE%** reloaded!"
 }

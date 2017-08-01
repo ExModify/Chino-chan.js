@@ -49,5 +49,6 @@ Client.on('message', message => {
     }
     rerequire('./MessageHandler.js').handle(Client, message, uptime);
 });
+
 Client.login(vars.DiscordToken);
 console.log('ExMoBot logged in!');

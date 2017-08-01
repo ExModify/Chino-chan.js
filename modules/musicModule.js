@@ -4,6 +4,10 @@ const crypto = require('crypto');
 
 var exec = require('child_process').exec;
 const execSync = require('child_process').execSync;
+const ytdl = require('ytdl-core');
+
+const url = require('url');
+var vars = require('./../global/vars.js');
 
 var query = new Map();
 var streams = new Map();
@@ -16,7 +20,13 @@ module.exports = {
     add: (bot, guildID, channelID, userID, prefix, link, language) => {
         
     },
+    remove: (bot, guildID, channelID, userID, prefix, linkOrID, language) => {
+
+    },
     play: (bot, guildID, channelID, userID, prefix, fileOrID, language) => {
+        if(!volumes.has(guildID))
+            volumes.set(guildID, 100);
+
         var channel = bot.channels.get(channelID);
 
         if(streams.has(guildID))
@@ -26,44 +36,59 @@ module.exports = {
         if(fileOrID == "") // query first
         {
             
-            console.log("query first");
         } 
-        else if(isNaN(parseInt(fileOrID))) // remote file, or youtube
+        else if(isNaN(parseInt(fileOrID))) // link
         {
-            fileOrID = fileOrID.trim();
-            isYouTube(fileOrID).then(result => {
-                if(result){
-                    getYouTubeTitle(fileOrID).then(name => {
-                        var stream = require('youtube-audio-stream')(fileOrID);
-                        channel.sendMessage(language.MusicStartedPlaying.getPrepared('name', name));
-                        
-                        setTimeout(() => {
-                            connect(bot, guildID, userID, channelID).then(voiceConnection => {
-                                var Dispatcher = voiceConnection.playStream(stream, 
-                                    {
-                                        "volume": volumes.get(guildID)
-                                    });
-                                streams.set(guildID, Dispatcher);
-                            });
-                        }, 2000);
-                    });
+            if(isYouTube(fileOrID)){
+                getYouTubeTitle(fileOrID).then(name => {
+                    var stream = require('youtube-audio-stream')(fileOrID);
+                    channel.sendMessage(language.MusicStartedPlaying.getPrepared('name', name));
                     
-                }
-                else{
-                    downloadFile(fileOrID).then(path => {
+                    setTimeout(() => {
+                        connect(bot, guildID, userID, channelID).then(voiceConnection => {
+                            var Dispatcher = voiceConnection.playStream(stream, 
+                            {
+                                "volume": volumes.get(guildID) / 100
+                            });
 
-                    }).catch(reason => {
+                            Dispatcher.on("end", () => {
+                                channel.sendMessage(language.MusicFinishedPlaying.getPrepared('name', name));
+                            });
+                            Dispatcher.on("stopped", () => {
+                                channel.sendMessage(language.MusicStoppedPlaying.getPrepared('name', name));
+                            });
+                            
+                            streams.set(guildID, Dispatcher);
+                        });
+                    }, 2000);
+                });
+            }
+            else{
+                downloadFile(fileOrID).then(path => {
 
-                    });
-                    channel.sendMessage(language.MusicOnlyYouTubeSupported);
-                    return;
-                }
-            })
+                }).catch(reason => {
+
+                });
+                channel.sendMessage(language.MusicOnlyYouTubeSupported);
+                return;
+            }
         }else{ //Query x item
             var ID = parseInt(fileOrID);
         }
     },
-    connect: (bot, guildID, userID, channelID) => connect(bot, guildID, userID, channelID)
+    connect: (bot, guildID, userID, channelID) => connect(bot, guildID, userID, channelID),
+    setVolume: (bot, guildID, channelID, volume, language) => {
+        var channel = bot.channels.get(channelID);
+        volumes.set(guildID, volume);
+        vars.set(guildID, volume, "volumes");
+        if(streams.has(guildID)){
+            var stream = streams.get(guildID);
+            if(stream != undefined){
+                stream.setVolume(parseFloat(volume) / 100);
+            }
+        }
+        channel.sendMessage(language.MusicVolumeChanged.getPrepared('volume', volume));
+    }
 };
 
 function startPlay(bot, guildID, channelID, userID, prefix, language, file, name){
@@ -139,108 +164,31 @@ function connect(bot, guildID, userID, channelID){
 }
 
 function isYouTube(link) {
-    return new Promise((resolve, reject) => {
-        request('http://www.youtubeinmp3.com/fetch/?format=json&video=' + link, (error, response, body) => {
-            if(response.statusCode >= 300)
-            {
-                resolve(false);
-            }
-            else
-            {
-                try{
-                    var json = JSON.parse(response.body);
-                    
-                    if(json.title != undefined && json.title != null)
-                        resolve(true);
-                    else
-                        resolve(false);
-                }
-                catch(err){
-                    resolve(false);
-                }
-            }
-        });
-    });
+    var idRegex = /^[a-zA-Z0-9-_]{11}$/;
+    if (idRegex.test(link)) {
+        return true;
+    }
+    var parsed = url.parse(link, true);
+    var id = parsed.query.v;
+    if (parsed.hostname === 'youtu.be' ||
+        (parsed.hostname === 'youtube.com' ||
+        parsed.hostname === 'www.youtube.com') && !id) {
+        var s = parsed.pathname.split('/');
+        id = s[s.length - 1];
+    }
+    if (!id) {
+        return false;
+    }
+    if (!idRegex.test(id)) {
+        return false;
+    }
+    return true;
 }
 
 function getYouTubeTitle(link) {
     return new Promise((resolve, reject) => {
-        request('http://www.youtubeinmp3.com/fetch/?format=json&video=' + link, (error, response, body) => {
-            var json = JSON.parse(response.body);
-            resolve(json.title);
-        });
-    });
-}
-function downloadFile(link, originalLink) {
-    return new Promise((resolve, reject) => {
-        if(originalLink == undefined)
-            originalLink = link;
-        
-        if(!fs.existsSync(__dirname + '/../Songs'))
-            fs.mkdirSync(__dirname + '/../Songs');
-
-        var fileName = crypto.createHash('md5').update(originalLink).digest('hex') + '.mp3';
-        var path = __dirname + '/../Songs/' + fileName;
-
-        if(fs.existsSync(path))
-        {
-            resolve(path);
-            return;
-        }
-        var download = request(link);
-
-        var downloadStream = fs.createWriteStream(path);
-
-        download.on('data', chunk => {
-            downloadStream.write(chunk);
-        });
-        download.on('complete', (resp, body) => {
-            downloadStream.end();
-            resolve(path);
-            var ffprobe = execSync('ffprobe -i "' + path + '"').toString();
-
-            ffprobe = ffprobe.substring(ffprobe.indexOf("Input #0"));
-
-            if(ffprobe.indexOf('Audio: mp3') < 0 || ffprobe.indexOf('Audio: aac') < 0 || ffprobe.indexOf('Audio: ogg') < 0  || ffprobe.indexOf('Audio: m4a') < 0){
-                resolve("");
-            }
-            else{
-                if(ffprobe.indexOf('Input #0, mp3') < 0 || ffprobe.indexOf('Input #0, aac') < 0 || ffprobe.indexOf('Input #0, ogg') < 0 || ffprobe.indexOf('Input #0, m4a') < 0){
-                    var TempPath = path + ".mp3_TEMP";
-                    var ffmpeg = execSync(`ffmpeg -i "${path}" -vn -ar 48000 -ac 2 -ab 192k -f mp3 "${TempPath}"`);
-
-                    if(!fs.existsSync(TempPath))
-                    {
-                        fs.unlinkSync(path);
-                        resolve("");
-                    }
-                    fs.unlink(path, (err) => {
-                        if(err)
-                            throw err;
-                        
-                        fs.rename(TempPath, path, (error) => {
-                            if(error)
-                                throw error;
-                            
-                            if(fs.existsSync(path))
-                            {    
-                                resolve(path);
-                            }
-                            else
-                            {    
-                                if(fs.existsSync(TempPath))
-                                {
-                                    resolve(TempPath);
-                                }
-                                resolve("");
-                            }
-                        });
-                    });
-                }
-                else{
-                    resolve(path);
-                }
-            }
+        ytdl.getInfo(link).then(gotingo => {
+            resolve(gotingo.title);
         });
     });
 }

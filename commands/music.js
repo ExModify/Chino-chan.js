@@ -1,4 +1,5 @@
 var musicModule = require('./../modules/musicModule.js');
+var vars = require('./../global/vars.js');
 
 module.exports = {
     name: 'music',
@@ -7,24 +8,7 @@ module.exports = {
     requirePrefix: true,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(parameter == ""){
-            var Message = language.MusicHelp.Top + '\n';
-            
-            var count = 1;
-            for(;;){
-                var CommandHelp = language.MusicHelp['Command' + count];
-
-                if(CommandHelp !== undefined)
-                    Message += CommandHelp + '\n';
-                else
-                    break;
-                
-                count++;
-            }
-
-            Message += language.MusicHelp.Bottom;
-            Message = Message.getPrepared(['prefix', 'p'], [prefix, prefix]);
-
-            message.channel.sendMessage(Message);
+            sendMusicHelp(language, message, prefix);
             return;
         }
         var parameters = parameter.split(' ');
@@ -54,14 +38,59 @@ module.exports = {
                 }
             });
         }
-        else if (property == "play"){
-            musicModule.play(bot, message.guild.id, message.channel.id, message.author.id, prefix, option, language);
-        }
         else if (property == "disconnect"){
             if(message.guild.voiceConnection != undefined || message.guild.voiceConnection != null){
                 message.guild.voiceConnection.disconnect();
                 message.channel.sendMessage(language.MusicDisconnected);
             }
+            else{
+                message.channel.sendMessage(language.MusicLeftAlready);
+            }
+        }
+        else if (property == "play"){
+            musicModule.play(bot, message.guild.id, message.channel.id, message.author.id, prefix, option, language);
+        }
+        else if (property == "volume"){
+            if(option.trim() == "")
+            {
+                if(!musicModule.volumes.has(message.guild.id)){
+                    musicModule.volumes.set(message.guild.id, 100);
+                    vars.set(message.guild.id, 100, "volumes");
+                }
+                message.channel.sendMessage(language.MusicCurrentVolume.getPrepared('volume', musicModule.volumes.get(message.guild.id)));
+            }
+            else{
+                var number = parseFloat(option);
+                if(isNaN(number)){
+                    message.channel.sendMessage(language.MusicVolumeOnlyNumber);
+                }
+                else{
+                    musicModule.setVolume(bot, message.guild.id, message.channel.id, number, language);
+                }
+            }
+        }
+        else{
+            sendMusicHelp(language, message, prefix);
         }
     }
 };
+function sendMusicHelp(language, message, prefix){
+    var Message = language.MusicHelp.Top + '\n';
+    
+    var count = 1;
+    for(;;){
+        var CommandHelp = language.MusicHelp['Command' + count];
+
+        if(CommandHelp !== undefined)
+            Message += CommandHelp + '\n';
+        else
+            break;
+        
+        count++;
+    }
+
+    Message += language.MusicHelp.Bottom;
+    Message = Message.getPrepared(['prefix', 'p'], [prefix, prefix]);
+
+    message.channel.sendMessage(Message);
+}
