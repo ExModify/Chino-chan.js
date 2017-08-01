@@ -2,7 +2,6 @@ process.on('uncaughtException', err => {
     console.log('Error: ' + err.stack);
     process.exit(2);
 });
-
 String.prototype.getPrepared = function (from, to) {
     var Prepared = this.toString();
     if(typeof from == "string"){
@@ -25,16 +24,30 @@ String.prototype.getPrepared = function (from, to) {
 const Discord = require('discord.js');
 const rerequire = require('./modules/rerequire.js');
 
+
 var vars = require('./global/vars.js');
 
 var Client = new Discord.Client();
+
+var uptime = 0;
+
+setInterval(() => {
+    uptime++;
+}, 1000);
+
 Client.on('ready', () => {
     if(Client.user.username !== 'ExMoBot')
         Client.user.setUsername('ExMoBot');
+    Client.user.setStatus("online");
     Client.user.setGame('with ExMo');
 });
 Client.on('message', message => {
-    rerequire('./MessageHandler.js').handle(Client, message);
-});
+    if(message.content == "/gamerescape")
+    {
+        message.delete();
+        message.channel.sendMessage(`\`${(message.member.nickname ? message.member.nickname : message.author.username)}\` ¯\\\_(ツ)_/¯`);
+    }
+    rerequire('./MessageHandler.js').handle(Client, message, uptime);
+}); 
 Client.login(vars.DiscordToken);
 console.log('ExMoBot logged in!');

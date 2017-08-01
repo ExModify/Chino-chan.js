@@ -3,6 +3,8 @@ var musicModule = require('./../modules/musicModule.js');
 module.exports = {
     name: 'music',
     aliases: [],
+    canPrivate: false,
+    requirePrefix: true,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(parameter == ""){
             var Message = language.MusicHelp.Top + '\n';
@@ -26,6 +28,44 @@ module.exports = {
             return;
         }
         var parameters = parameter.split(' ');
-        musicModule.singlePlay(bot, message.guild.id, message.channel.id, message.author.id, prefix, parameter, language);
+        var link = "";
+
+        var property = parameters[0];
+        var option = parameters.slice(1).join(" ");
+
+        if(property == "connect"){
+            var channelID;
+            if(isNaN(parseInt(option))){
+                message.guild.channels.findAll("type", "voice").forEach(t => {
+                    if(t.name.toLowerCase() == option.toLowerCase()){
+                        channelID = t.id;
+                    }
+                });
+            }
+            else{
+                channelID = option;
+            }
+            musicModule.connect(bot, message.guild.id, message.member.id, channelID).then(connection => {
+                if(connection == undefined || connection == null){
+                    message.channel.sendMessage(language.MusicCantConnect);
+                }
+                else{
+                    message.channel.sendMessage(language.MusicConnected.getPrepared("channel", connection.channel.name));
+                }
+            });
+        }
+        else if (property == "play"){
+            musicModule.singlePlay(bot, message.guild.id, message.channel.id, message.author.id, prefix, option, language);
+        }
+        else if (property == ""){
+
+        }
+
+        if(parameters.length == 1){ //link or query index
+
+        }
+        else if (parameters.length > 1){ //Link with name
+
+        }
     }
 };

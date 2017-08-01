@@ -1,6 +1,8 @@
 module.exports = {
     name: 'help',
     aliases: [],
+    canPrivate: true,
+    requirePrefix: true,
     execute: (bot, message, prefix, command, parameter, language) => {
         var Message = language.Help.Top + '\n';
         

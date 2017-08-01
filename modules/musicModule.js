@@ -15,6 +15,9 @@ module.exports = {
     query: query,
     streams: streams,
     volumes: volumes,
+    add: (bot, guildID, channelID, userID, prefix, link, language) => {
+        
+    },
     singlePlay: (bot, guildID, channelID, userID, prefix, fileOrID, language) => {
         var channel = bot.channels.get(channelID);
 
@@ -25,6 +28,7 @@ module.exports = {
         if(fileOrID == "") // query first
         {
             
+            console.log("query first");
         } 
         else if(isNaN(parseInt(fileOrID))) // remote file, or youtube
         {
@@ -41,6 +45,11 @@ module.exports = {
                     
                 }
                 else{
+                    downloadFile(fileOrID).then(path => {
+
+                    }).catch(reason => {
+
+                    });
                     channel.sendMessage(language.MusicOnlyYouTubeSupported);
                     return;
                 }
@@ -48,7 +57,8 @@ module.exports = {
         }else{ //Query x item
             var ID = parseInt(fileOrID);
         }
-    }
+    },
+    connect: (bot, guildID, userID, channelID) => connect(bot, guildID, userID, channelID)
 };
 
 function startPlay(bot, guildID, channelID, userID, prefix, language, file, name){
@@ -61,7 +71,6 @@ function startPlay(bot, guildID, channelID, userID, prefix, language, file, name
 
     connect(bot, guildID, userID).then(recievedConnection => {
         if(recievedConnection == null){
-            console.log('Connection: ' + recievedConnection);
             channel.sendMessage(language.MusicConnectionRequired.getPrepared('p', prefix));
             return;
         }
@@ -78,25 +87,49 @@ function startPlay(bot, guildID, channelID, userID, prefix, language, file, name
     });
 }
 
-function connect(bot, guildID, userID){
+function connect(bot, guildID, userID, channelID){
     return new Promise((resolve, reject) => {
         var guild = bot.guilds.get(guildID);
         var user = guild.members.get(userID);
+        var channel = user.voiceChannel;
+        
+        if(channelID != undefined)
+        {
+            var tempChannel = guild.channels.get(channelID);
+            if(tempChannel != undefined && tempChannel != null)
+            {
+                if(tempChannel.type == "voice")
+                {
+                    channel = tempChannel;
+                }
+            }
+        }
 
         if(guild.voiceConnection == undefined || guild.voiceConnection == null){
-            if(user.voiceChannel == undefined || user.voiceChannel == null){
-                resolve(null);
-            }
-            else{
-                user.voiceChannel.join().then(connection => {
+            if(channel != undefined && channel != null){
+                channel.join().then(connection => {
                     resolve(connection);
                 }).catch(err => {
                     reject(err);
                 });
             }
+            else {
+                resolve(null);
+            }
         }
         else
-            resolve(guild.voiceConnection);
+        {
+            if(channelID != guild.voiceConnection.channel.id){
+                channel.join().then(connection => {
+                    resolve(connection);
+                }).catch(err => {
+                    reject(err);
+                });
+            }
+            else{
+                resolve(guild.voiceConnection);
+            }
+        }
     });
 }
 
@@ -104,7 +137,9 @@ function isYouTube(link) {
     return new Promise((resolve, reject) => {
         request('http://www.youtubeinmp3.com/fetch/?format=json&video=' + link, (error, response, body) => {
             if(response.statusCode >= 300)
+            {
                 resolve(false);
+            }
             else
             {
                 try{
@@ -170,24 +205,58 @@ function downloadFile(link, originalLink) {
         }
         var download = request(link);
 
-        download.pipe(fs.createWriteStream(path));
+        var downloadStream = fs.createWriteStream(path);
+
+        download.on('data', chunk => {
+            downloadStream.write(chunk);
+        });
         download.on('complete', (resp, body) => {
+            downloadStream.end();
             resolve(path);
-            /*
-            var ffprobe = execSync('ffprobe -i "' + path + '"');
+            var ffprobe = execSync('ffprobe -i "' + path + '"').toString();
 
-            if(ffprobe.indexOf('Input #0, mp3') < 0 || ffprobe.indexOf('Audio: mp3') < 0){
-                var ffmpeg = execSync(`ffmpeg -i "${path}" -vn -ar 48000 -ac 2 -ab 192k -f mp3 "${path}"`);
+            ffprobe = ffprobe.substring(ffprobe.indexOf("Input #0"));
 
-                if(!fs.existsSync(path))
-                {
-                    resolve("");
-                }
+            if(ffprobe.indexOf('Audio: mp3') < 0 || ffprobe.indexOf('Audio: aac') < 0 || ffprobe.indexOf('Audio: ogg') < 0  || ffprobe.indexOf('Audio: m4a') < 0){
+                resolve("");
             }
             else{
-                resolve(path);
+                if(ffprobe.indexOf('Input #0, mp3') < 0 || ffprobe.indexOf('Input #0, aac') < 0 || ffprobe.indexOf('Input #0, ogg') < 0 || ffprobe.indexOf('Input #0, m4a') < 0){
+                    var TempPath = path + ".mp3_TEMP";
+                    var ffmpeg = execSync(`ffmpeg -i "${path}" -vn -ar 48000 -ac 2 -ab 192k -f mp3 "${TempPath}"`);
+
+                    if(!fs.existsSync(TempPath))
+                    {
+                        fs.unlinkSync(path);
+                        resolve("");
+                    }
+                    fs.unlink(path, (err) => {
+                        if(err)
+                            throw err;
+                        
+                        fs.rename(TempPath, path, (error) => {
+                            if(error)
+                                throw error;
+                            
+                            if(fs.existsSync(path))
+                            {    
+                                resolve(path);
+                            }
+                            else
+                            {    
+                                if(fs.existsSync(TempPath))
+                                {
+                                    resolve(TempPath);
+                                }
+                                resolve("");
+                            }
+                        });
+                    });
+                }
+                else{
+                    resolve(path);
+                }
             }
-            */
         });
     });
 }

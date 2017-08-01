@@ -6,45 +6,35 @@ const chalk = rerequire('chalk');
 const fs = rerequire('fs');
 
 module.exports = {
-    handle: (bot, message) => {
+    handle: (bot, message, uptime) => {
         if(message.author.id === bot.user.id)
             return;
 
         var Prefix = '$';
         var Language = langHandler.getLanguage('en');
 
-        if(message.channel.type != "dm"){
-            var guildID = message.guild.id;
-            
-            if(vars.Prefixes().has(guildID))
-            {
-                Prefix = vars.Prefixes().get(guildID);
-            }
-            else
-                vars.set(guildID, '$', 'prefixes');
-            
-            if(!message.content.startsWith(Prefix))
-                return;
-
-            if(vars.Languages().has(guildID))
-            {
-                Language = langHandler.getLanguage(vars.Languages().get(guildID));
-            }
-            else
-                vars.set(guildID, 'en', 'languages');
+        var guildID = message.guild != null ? message.guild.id : message.channel.id;
+        
+        if(vars.Prefixes().has(guildID))
+        {
+            Prefix = vars.Prefixes().get(guildID);
         }
-        else{
-            message.channel.sendMessage("You can't begin invoking commands from private channel!");
-            return;
+        else
+            vars.set(guildID, '$', 'prefixes');
+        
+        if(vars.Languages().has(guildID))
+        {
+            Language = langHandler.getLanguage(vars.Languages().get(guildID));
         }
+        else
+            vars.set(guildID, 'en', 'languages');
 
         var SpaceIndex = message.content.indexOf(' ');
-        var Command = message.content.substring(Prefix.length, SpaceIndex < 0 ? message.length : SpaceIndex);
+        var Command = GenerateCommand(message.content, Prefix);
         var Parameter = SpaceIndex > 0 ? message.content.substring(SpaceIndex + 1) : "";
         
         if(Parameter.trim() === "")
             Parameter = "";
-
 
         var JSModule = undefined;
 
@@ -56,12 +46,36 @@ module.exports = {
         });
 
         if(JSModule === undefined){
+            if(!HasPrefix(message.content, Prefix))
+                return;
+
             if(Parameter !== "")
                 Command += ' ' + Parameter;
 
             message.channel.sendMessage(Language.UnknownCommand.getPrepared('command', Command));
         }else{
-            JSModule.execute(bot, message, Prefix, Command, Parameter, Language);
+            if(!HasPrefix(message.content, Prefix) && JSModule.requirePrefix)
+                return;
+
+            if(message.channel.type == "dm" && !JSModule.canPrivate)
+            {
+                message.channel.sendMessage(Language.DMTriedExecute);
+                return;
+            }
+            JSModule.execute(bot, message, Prefix, Command, Parameter, Language, uptime);
         }
+    }
+}
+
+function HasPrefix(message, prefix){
+    return message.startsWith(prefix);
+}
+function GenerateCommand(message, prefix){
+    if(!HasPrefix(message, prefix))
+        return message;
+    else
+    {
+        var SpaceIndex = message.indexOf(' ');
+        return message.substring(prefix.length, SpaceIndex < 0 ? message.length : SpaceIndex)
     }
 }

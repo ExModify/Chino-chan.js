@@ -6,6 +6,8 @@ var langHandler = rerequire('./modules/langHandler.js');
 module.exports = {
     name: 'language',
     aliases: ['lang'],
+    canPrivate: true,
+    requirePrefix: true,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(parameter === ""){
             var langs = '';

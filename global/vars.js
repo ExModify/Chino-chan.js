@@ -1,12 +1,24 @@
 const fs = require('fs');
 
-var SFWPath = 'D:\\Saves\\Cuccok\\Imgs\\';
+var SFWPath = 'D:\\Saves\\Stuffs\\Imgs\\';
 var NSFWPath = SFWPath + 'nsfw\\';
 var NekoPath = SFWPath + 'neko\\';
 var ChinoPath = SFWPath + 'Chino\\';
+var MomijiPath = SFWPath + 'Momiji\\';
 
 var localLanguages = new Map();
 var localPrefixes = new Map();
+var localStalked = new Map();
+
+var admins = [];
+
+if(fs.existsSync('./data/admins.txt')){
+    admins = fs.readFileSync('./data/admins.txt').toString().split(';');
+}
+else{
+    admins = ['193356184806227969', '194159784948269056'];
+    saveAdmins();
+}
 
 function add (filename, guildID, value){
     var FilePath = "./data/" + filename + ".txt";
@@ -41,15 +53,6 @@ function add (filename, guildID, value){
 }
 
 function LoadMap(filename){
-    if(filename == "prefixes"){
-        if(localPrefixes.size != 0)
-            return localPrefixes;
-    }
-    else if(filename == "languages"){
-        if(localLanguages.size != 0)
-            return localLanguages;
-    }
-
     var FilePath = "./data/" + filename + ".txt";
     var ReturnMap = new Map();
 
@@ -69,9 +72,53 @@ function LoadMap(filename){
     return ReturnMap;
 }
 
+function LoadStalked(guildID){
+    var Stalked = [];
+    var filePath = './../data/' + guildID + '.txt';
+    if(fs.existsSync(filePath)){
+        var userNames = fs.readFileSync(filePath).toString().split("\r\n");
+        Stalked = userNames;
+    }
+    localStalked.set(guildID, Stalked);
+    return Stalked;
+}
+
+function SaveStalked(){
+    localStalked.forEach((v, k, m) => {
+        filePath = './../data/' + k + '.txt';
+        if(fs.existsSync(filePath))
+            fs.unlinkSync(filePath);
+        fs.writeFileSync(filePath, v.join("\r\n"));
+    });
+}
+
+function saveAdmins(){
+    if(fs.existsSync('./data/admins.txt'))
+       fs.unlinkSync('./data/admins.txt');
+    fs.writeFileSync('./data/admins.txt', admins.join(';'));
+}
+
 module.exports = {
     Prefixes: () => { return LoadMap('prefixes'); },
     Languages: () => { return LoadMap('languages'); },
+    StalkedPlayersSource: localStalked,
+    StalkedPlayers: (guildID) => { 
+        var Stalked = [];
+        if(localStalked.has(guildID)){
+            Stalked = localStalked.get(guildID);
+        }
+        return Stalked;
+    },
+    AddStalked: (guildID, playerName) => {
+        var Stalked = [];
+        if(localStalked.has(guildID)){
+            Stalked = localStalked.get(guildID);
+        }
+        Stalked.push(playerName);
+        localStalked.set(guildID, Stalked);
+    },
+    Admins: admins,
+    SaveAdmins: () => saveAdmins(),
     set: (guildID, value, type) => add(type, guildID, value),
     LoadMap: (fileName) => LoadMap(fileName),
     DiscordToken: fs.readFileSync('D:\\txt\\APIToken\\DiscordToken.txt').toString(),
@@ -81,6 +128,7 @@ module.exports = {
     NSFWPath: NSFWPath,
     NekoPath: NekoPath,
     ChinoPath: ChinoPath,
+    MomijiPath: MomijiPath,
     SFWFiles: fs.readdirSync(SFWPath).filter((v, i, a) => {
         if (fs.statSync(SFWPath + v).isDirectory())
             return false;
@@ -101,6 +149,11 @@ module.exports = {
             return false;
         return true;
     }),
+    MomijiFiles: fs.readdirSync(MomijiPath).filter((v, i, a) => {
+        if (fs.statSync(MomijiPath + v).isDirectory())
+            return false;
+        return true;
+    }),
     SFWCount: fs.readdirSync(SFWPath).filter((v, i, a) => {
         if (fs.statSync(SFWPath + v).isDirectory())
             return false;
@@ -118,6 +171,11 @@ module.exports = {
     }).length,
     ChinoCount: fs.readdirSync(ChinoPath).filter((v, i, a) => {
         if (fs.statSync(ChinoPath + v).isDirectory())
+            return false;
+        return true;
+    }).length,
+    MomijiCount: fs.readdirSync(MomijiPath).filter((v, i, a) => {
+        if (fs.statSync(MomijiPath + v).isDirectory())
             return false;
         return true;
     }).length,

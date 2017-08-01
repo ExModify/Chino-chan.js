@@ -1,0 +1,1487 @@
+<!DOCTYPE html><html lang="hu" data-cast-api-enabled="true"><head><style name="www-roboto" nonce="">@font-face{font-family:'Roboto';font-style:italic;font-weight:400;src:local('Roboto Italic'),local('Roboto-Italic'),url(//fonts.gstatic.com/s/roboto/v16/OKegwhKhBNN-dhuHI27Hy_esZW2xOQ-xsNqO47m55DA.ttf)format('truetype');}@font-face{font-family:'Roboto';font-style:italic;font-weight:500;src:local('Roboto Medium Italic'),local('Roboto-MediumItalic'),url(//fonts.gstatic.com/s/roboto/v16/OLffGBTaF0XFOW1gnuHF0V02b4v3fUxqf9CZJ1qUoIA.ttf)format('truetype');}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'),local('Roboto-Medium'),url(//fonts.gstatic.com/s/roboto/v16/oOeFwZNlrTefzLYmlVV1UKCWcynf_cDxXwCLxiixG1c.ttf)format('truetype');}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:local('Roboto Regular'),local('Roboto-Regular'),url(//fonts.gstatic.com/s/roboto/v16/5M21SdFLkD52QavfmHs6cA.ttf)format('truetype');}</style><script name="www-roboto" nonce="">if (document.fonts && document.fonts.load) {document.fonts.load("400 10pt Roboto", "M");document.fonts.load("500 10pt Roboto", "M");}</script><script >var ytcsi = {gt: function(n) {n = (n || '') + 'data_';return ytcsi[n] || (ytcsi[n] = {tick: {},info: {}});},now: window.performance && window.performance.timing &&window.performance.now ? function() {return window.performance.timing.navigationStart + window.performance.now();} : function() {return (new Date()).getTime();},tick: function(l, t, n) {ticks = ytcsi.gt(n).tick;var v = t || ytcsi.now();if (ticks[l]) {ticks['_' + l] = (ticks['_' + l] || [ticks[l]]);ticks['_' + l].push(v);}ticks[l] = v;},info: function(k, v, n) {ytcsi.gt(n).info[k] = v;},setStart: function(s, t, n) {ytcsi.info('yt_sts', s, n);ytcsi.tick('_start', t, n);}};(function(w, d) {ytcsi.setStart('dhs', w.performance ? w.performance.timing.responseStart : null);var isPrerender = (d.visibilityState || d.webkitVisibilityState) == 'prerender';var vName = d.webkitVisibilityState ? 'webkitvisibilitychange' : 'visibilitychange';if (isPrerender) {ytcsi.info('prerender', 1);var startTick = function() {ytcsi.setStart('dhs');d.removeEventListener(vName, startTick);};d.addEventListener(vName, startTick, false);}if (d.addEventListener) {d.addEventListener(vName, function() {ytcsi.tick('vc');}, false);}var slt = function(el, t) {setTimeout(function() {var n = ytcsi.now();el.loadTime = n;if (el.slt) {el.slt();}}, t);};w.__ytRIL = function(el) {if (!el.getAttribute('data-thumb')) {if (w.requestAnimationFrame) {w.requestAnimationFrame(function() {slt(el, 0);});} else {slt(el, 16);}}};})(window, document);</script><script >var ytcfg = {d: function() {return (window.yt && yt.config_) || ytcfg.data_ || (ytcfg.data_ = {});},get: function(k, o) {return (k in ytcfg.d()) ? ytcfg.d()[k] : o;},set: function() {var a = arguments;if (a.length > 1) {ytcfg.d()[a[0]] = a[1];} else {for (var k in a[0]) {ytcfg.d()[k] = a[0][k];}}}};</script>  <script>ytcfg.set("EXP_HTML5_SERVERSIDE_PAGEAD_ID_SETS_COOKIE", false);ytcfg.set("LACT", null);</script>
+  
+
+
+
+
+  <script>
+        (function(){var b={a:"content-snap-width-1",b:"content-snap-width-2",c:"content-snap-width-3"};function f(){var a=[],c;for(c in b)a.push(b[c]);return a}
+function h(a){var c=f().concat(["guide-pinned","show-guide"]),e=c.length,g=[];a.replace(/\S+/g,function(a){for(var d=0;d<e;d++)if(a==c[d])return;g.push(a)});
+return g}
+;function k(a,c,e){var g=document.getElementsByTagName("html")[0],d=h(g.className);a&&1251<=(window.innerWidth||document.documentElement.clientWidth)&&(d.push("guide-pinned"),c&&d.push("show-guide"));e&&(e=(window.innerWidth||document.documentElement.clientWidth)-21-50,1251<=(window.innerWidth||document.documentElement.clientWidth)&&a&&c&&(e-=230),d.push(1262<=e?"content-snap-width-3":1056<=e?"content-snap-width-2":"content-snap-width-1"));g.className=d.join(" ")}
+var l=["yt","www","masthead","sizing","runBeforeBodyIsReady"],m=this;l[0]in m||!m.execScript||m.execScript("var "+l[0]);for(var n;l.length&&(n=l.shift());)l.length||void 0===k?m[n]&&m[n]!==Object.prototype[n]?m=m[n]:m=m[n]={}:m[n]=k;}).call(this);
+
+      try {window.ytbuffer = {};ytbuffer.handleClick = function(e) {var element = e.target || e.srcElement;while (element.parentElement) {if (/(^| )yt-can-buffer( |$)/.test(element.className)) {window.ytbuffer = {bufferedClick: e};element.className += ' yt-is-buffered';break;}element = element.parentElement;}};if (document.addEventListener) {document.addEventListener('click', ytbuffer.handleClick);} else {document.attachEvent('onclick', ytbuffer.handleClick);}} catch(e) {}
+
+    yt.www.masthead.sizing.runBeforeBodyIsReady(false,false,true);
+  </script>
+
+      <script src="/yts/jsbin/scheduler-vfl7wjKSr/scheduler.js" type="text/javascript" name="scheduler/scheduler" ></script>
+
+
+    <script >var ytimg = {};ytimg.count = 1;ytimg.preload = function(src) {var img = new Image();var count = ++ytimg.count;ytimg[count] = img;img.onload = img.onerror = function() {delete ytimg[count];};img.src = src;};</script>
+
+
+          <script src="/yts/jsbin/www-pagead-id-vfloGuFR9/www-pagead-id.js" type="text/javascript" name="www-pagead-id/www-pagead-id"  async></script>
+
+      <script src="/yts/jsbin/player-vflMxBVb2/hu_HU/base.js"  name="player/base" ></script>
+
+
+
+  <link rel="stylesheet" href="/yts/cssbin/www-core-vflagqnnu.css" name="www-core">
+        <link rel="stylesheet" href="/yts/cssbin/player-vflAh7zUE/www-player.css" name="player/www-player">
+
+  <link rel="stylesheet" href="/yts/cssbin/www-pageframe-vflTsVTmL.css" name="www-pageframe">
+      <script>ytimg.preload("https:\/\/r1---sn-2guxaxjvh-c0ql.googlevideo.com\/generate_204?conn2");ytimg.preload("https:\/\/r1---sn-2guxaxjvh-c0ql.googlevideo.com\/generate_204");</script>
+
+
+<title>✩ Składanka DISCO/DISCO POLO ✩ NOWOŚĆ 2016 - 30 min ✩ - YouTube</title><link rel="canonical" href="https://www.youtube.com/watch?v=FDsdy61m0PI"><link rel="alternate" media="handheld" href="https://m.youtube.com/watch?v=FDsdy61m0PI"><link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.youtube.com/watch?v=FDsdy61m0PI">      <meta name="title" content="✩ Składanka DISCO/DISCO POLO ✩ NOWOŚĆ 2016 - 30 min ✩">
+
+      <meta name="description" content="Tytuły: 0:00 - 2:49 - Łobuzy- ona czuje mnie piniądz LINK: https://youtu.be/_YHa208H-Gc 2:50 - 6:05 - MIG- nie a mocnych Mariolę LINK: https://youtu.be/uF4Fp...">
+
+      <meta name="keywords" content="">
+
+<link rel="manifest" href="/manifest.json"><link rel="shortlink" href="https://youtu.be/FDsdy61m0PI"><link rel="search" type="application/opensearchdescription+xml" href="https://www.youtube.com/opensearch?locale=hu_HU" title="YouTube videokeresés"><link rel="shortcut icon" href="https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico" type="image/x-icon">     <link rel="icon" href="/yts/img/favicon_32-vfl8NGn4k.png" sizes="32x32"><link rel="icon" href="/yts/img/favicon_48-vfl1s0rGh.png" sizes="48x48"><link rel="icon" href="/yts/img/favicon_96-vfldSA3ca.png" sizes="96x96"><link rel="icon" href="/yts/img/favicon_144-vflWmzoXw.png" sizes="144x144"><meta name="theme-color" content="#e62117">        <link rel="alternate" href="android-app://com.google.android.youtube/http/www.youtube.com/watch?v=FDsdy61m0PI">
+    <link rel="alternate" href="ios-app://544007664/vnd.youtube/www.youtube.com/watch?v=FDsdy61m0PI">
+
+      <link rel="alternate" type="application/json+oembed" href="http://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DFDsdy61m0PI&amp;format=json" title="✩ Składanka DISCO/DISCO POLO ✩ NOWOŚĆ 2016 - 30 min ✩">
+  <link rel="alternate" type="text/xml+oembed" href="http://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DFDsdy61m0PI&amp;format=xml" title="✩ Składanka DISCO/DISCO POLO ✩ NOWOŚĆ 2016 - 30 min ✩">
+
+        <meta property="og:site_name" content="YouTube">
+      <meta property="og:url" content="https://www.youtube.com/watch?v=FDsdy61m0PI">
+    <meta property="og:title" content="✩ Składanka DISCO/DISCO POLO ✩ NOWOŚĆ 2016 - 30 min ✩">
+    <meta property="og:image" content="https://i.ytimg.com/vi/FDsdy61m0PI/maxresdefault.jpg">
+
+      <meta property="og:description" content="Tytuły: 0:00 - 2:49 - Łobuzy- ona czuje mnie piniądz LINK: https://youtu.be/_YHa208H-Gc 2:50 - 6:05 - MIG- nie a mocnych Mariolę LINK: https://youtu.be/uF4Fp...">
+
+    <meta property="al:ios:app_store_id" content="544007664">
+    <meta property="al:ios:app_name" content="YouTube">
+      <meta property="al:ios:url" content="vnd.youtube://www.youtube.com/watch?v=FDsdy61m0PI&amp;feature=applinks">
+
+      <meta property="al:android:url" content="vnd.youtube://www.youtube.com/watch?v=FDsdy61m0PI&amp;feature=applinks">
+    <meta property="al:android:app_name" content="YouTube">
+    <meta property="al:android:package" content="com.google.android.youtube">
+    <meta property="al:web:url" content="https://www.youtube.com/watch?v=FDsdy61m0PI&amp;feature=applinks">
+
+    <meta property="og:type" content="video">
+        <meta property="og:video:url" content="https://www.youtube.com/embed/FDsdy61m0PI">
+        <meta property="og:video:secure_url" content="https://www.youtube.com/embed/FDsdy61m0PI">
+        <meta property="og:video:type" content="text/html">
+        <meta property="og:video:width" content="1280">
+        <meta property="og:video:height" content="720">
+        <meta property="og:video:url" content="http://www.youtube.com/v/FDsdy61m0PI?version=3&amp;autohide=1">
+        <meta property="og:video:secure_url" content="https://www.youtube.com/v/FDsdy61m0PI?version=3&amp;autohide=1">
+        <meta property="og:video:type" content="application/x-shockwave-flash">
+        <meta property="og:video:width" content="1280">
+        <meta property="og:video:height" content="720">
+
+
+    <meta property="fb:app_id" content="87741124305">
+
+        <meta name="twitter:card" content="player">
+    <meta name="twitter:site" content="@youtube">
+    <meta name="twitter:url" content="https://www.youtube.com/watch?v=FDsdy61m0PI">
+    <meta name="twitter:title" content="✩ Składanka DISCO/DISCO POLO ✩ NOWOŚĆ 2016 - 30 min ✩">
+    <meta name="twitter:description" content="Tytuły: 0:00 - 2:49 - Łobuzy- ona czuje mnie piniądz LINK: https://youtu.be/_YHa208H-Gc 2:50 - 6:05 - MIG- nie a mocnych Mariolę LINK: https://youtu.be/uF4Fp...">
+    <meta name="twitter:image" content="https://i.ytimg.com/vi/FDsdy61m0PI/maxresdefault.jpg">
+    <meta name="twitter:app:name:iphone" content="YouTube">
+    <meta name="twitter:app:id:iphone" content="544007664">
+    <meta name="twitter:app:name:ipad" content="YouTube">
+    <meta name="twitter:app:id:ipad" content="544007664">
+      <meta name="twitter:app:url:iphone" content="vnd.youtube://www.youtube.com/watch?v=FDsdy61m0PI&amp;feature=applinks">
+      <meta name="twitter:app:url:ipad" content="vnd.youtube://www.youtube.com/watch?v=FDsdy61m0PI&amp;feature=applinks">
+    <meta name="twitter:app:name:googleplay" content="YouTube">
+    <meta name="twitter:app:id:googleplay" content="com.google.android.youtube">
+    <meta name="twitter:app:url:googleplay" content="https://www.youtube.com/watch?v=FDsdy61m0PI">
+      <meta name="twitter:player" content="https://www.youtube.com/embed/FDsdy61m0PI">
+      <meta name="twitter:player:width" content="1280">
+      <meta name="twitter:player:height" content="720">
+
+<style>.yt-uix-button-primary, .yt-uix-button-primary[disabled], .yt-uix-button-primary[disabled]:hover, .yt-uix-button-primary[disabled]:active, .yt-uix-button-primary[disabled]:focus { background-color: #167ac6; }</style></head>  <body dir="ltr" id="body" class="  ltr    exp-mouseover-img exp-responsive exp-scrollable-guide exp-search-big-thumbs   site-center-aligned site-as-giant-card appbar-hidden    visibility-logging-enabled   not-nirvana-dogfood    flex-width-enabled      flex-width-enabled-snap    delayed-frame-styles-not-in  " data-spf-name="watch">
+<div id="early-body"></div><div id="body-container"><div id="a11y-announcements-container" role="alert"><div id="a11y-announcements-message"></div></div><form name="logoutForm" method="POST" action="/logout"><input type="hidden" name="action_logout" value="1"></form><div id="masthead-positioner">  <div id="ticker-content">
+        
+
+  </div>
+  <div id="yt-masthead-container" class="clearfix yt-base-gutter">  <button id="a11y-skip-nav" class="skip-nav" data-target-id="main" tabindex="3">
+Navigáció átugrása
+  </button>
+<div id="yt-masthead"><div class="yt-masthead-logo-container ">  <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-text yt-uix-button-empty yt-uix-button-has-icon appbar-guide-toggle appbar-guide-clickable-ancestor" type="button" onclick=";return false;" aria-label="Útmutató" aria-controls="appbar-guide-menu" id="appbar-guide-button"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-appbar-guide yt-sprite"></span></span></button>
+  <div id="appbar-main-guide-notification-container"></div>
+<span id="yt-masthead-logo-fragment"><a href="/" class="masthead-logo-renderer yt-uix-sessionlink      spf-link " data-sessionlink="itct=CAUQsV4iEwioyKCi4rXVAhXJEhUKHSkgAM8o-B0"  id="logo-container" title="YouTube Főoldal">  <span class="logo masthead-logo-renderer-logo yt-sprite" title="YouTube Főoldal"></span>
+<span class="content-region">HU</span></a></span></div><div id="yt-masthead-signin"><a  href="//www.youtube.com/upload" class="yt-uix-button   yt-uix-sessionlink yt-uix-button-opacity yt-uix-button-size-default yt-uix-button-has-icon yt-uix-tooltip yt-uix-button-empty" data-sessionlink="ei=-E-AWajsOMmlVKnAgPgM&amp;feature=mhsb" id="upload-btn" title="Feltöltés"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-material-upload yt-sprite"></span></span></a><div class="signin-container "><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-primary" type="button" onclick=";window.location.href=this.getAttribute(&#39;href&#39;);return false;" role="link" href="https://accounts.google.com/ServiceLogin?passive=true&amp;hl=hu&amp;continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Ffeature%3Dsign_in_button%26hl%3Dhu%26next%3D%252Fwatch%253Fv%253DFDsdy61m0PI%26action_handle_signin%3Dtrue%26app%3Ddesktop&amp;uilel=3&amp;service=youtube"><span class="yt-uix-button-content">Bejelentkezés</span></button></div></div><div id="yt-masthead-content"><form id="masthead-search" class="  search-form consolidated-form  vve-check" action="/results" onsubmit="if (document.getElementById(&#39;masthead-search-term&#39;).value == &#39;&#39;) return false;" data-clicktracking="CAIQ7VAiEwioyKCi4rXVAhXJEhUKHSkgAM8o-B0" data-visibility-tracking="CAIQ7VAiEwioyKCi4rXVAhXJEhUKHSkgAM8o-B0"><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default search-btn-component search-button" type="submit" onclick="if (document.getElementById(&#39;masthead-search-term&#39;).value == &#39;&#39;) return false; document.getElementById(&#39;masthead-search&#39;).submit(); return false;;return true;" dir="ltr" id="search-btn" tabindex="2"><span class="yt-uix-button-content">Keresés</span></button><div id="masthead-search-terms" class="masthead-search-terms-border" dir="ltr"><input id="masthead-search-term" autocomplete="off"  onkeydown="if (!this.value &amp;&amp; (event.keyCode == 40 || event.keyCode == 32 || event.keyCode == 34)) {this.onkeydown = null; this.blur();}" class="search-term masthead-search-renderer-input yt-uix-form-input-bidi" name="search_query" value="" type="text" tabindex="1" placeholder="Keresés" title="Keresés" aria-label="Keresés"></div></form></div></div></div>
+    <div id="masthead-appbar-container" class="clearfix"><div id="masthead-appbar"><div id="appbar-content" class=""></div></div></div>
+
+</div><div id="masthead-positioner-height-offset"></div><div id="page-container"><div id="page" class="  watch        video-FDsdy61m0PI clearfix"><div id="guide" class="yt-scrollbar">    <div id="appbar-guide-menu" class="appbar-menu appbar-guide-menu-layout appbar-guide-clickable-ancestor">
+    <div id="guide-container">
+      <div class="guide-module-content guide-module-loading">
+          <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+      </div>
+    </div>
+  </div>
+
+</div><div class="alerts-wrapper"><div id="alerts" class="content-alignment">    <div class="yt-alert yt-alert-default yt-alert-info  " id="yt-lang-alert-container">  <div class="yt-alert-icon">
+    <span class="icon master-sprite yt-sprite"></span>
+  </div>
+<div class="yt-alert-content" role="alert">    <div class="yt-alert-message" tabindex="0">
+            Válassz nyelvet.
+
+    </div>
+</div><div class="yt-alert-buttons"><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-close close yt-uix-close" type="button" onclick=";return false;" aria-label="Bezárás" data-close-parent-class="yt-alert"><span class="yt-uix-button-content">Bezárás</span></button></div><div class="yt-alert-panel ">  <div id="yt-lang-alert-content" class="clearfix">
+    <div id="default-language-message">
+      <div class="yt-lang-alert-controls">
+        <a href="//support.google.com/youtube/answer/1738660?hl=hu">További információ</a><br>
+          <a href="javascript:void(0)" onclick="yt.style.toggle('default-language-message', 'default-language-message-english'); return false;">View this message in English</a>
+      </div>
+A YouTube-ot <strong>Magyar</strong> nyelven tekinted meg.
+A beállítást <a href="javascript:void(0)" onclick="yt.www.picker.displayLang();">lent módosíthatod</a>.
+    </div>
+    <div id="default-language-message-english" class="hid">
+      <div class="yt-lang-alert-controls">
+        <a href="//support.google.com/youtube/answer/1738660?hl=en">Learn more</a><br>
+      </div>
+      You're viewing YouTube in <strong>Hungarian</strong>.
+        You can <a href="javascript:void(0)" onclick="yt.www.picker.displayLang();">change this preference below</a>.
+    </div>
+  </div>
+</div></div>
+  
+  <div id="editor-progress-alert-container"></div>
+  <div class="yt-alert yt-alert-default yt-alert-warn hid " id="editor-progress-alert-template">  <div class="yt-alert-icon">
+    <span class="icon master-sprite yt-sprite"></span>
+  </div>
+<div class="yt-alert-content" role="alert"></div><div class="yt-alert-buttons"><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-close close yt-uix-close" type="button" onclick=";return false;" aria-label="Bezárás" data-close-parent-class="yt-alert"><span class="yt-uix-button-content">Bezárás</span></button></div></div>
+
+    <div id="edit-confirmation-alert"></div>
+  <div class="yt-alert yt-alert-actionable yt-alert-info hid " id="edit-confirmation-alert-template">  <div class="yt-alert-icon">
+    <span class="icon master-sprite yt-sprite"></span>
+  </div>
+<div class="yt-alert-content" role="alert">    <div class="yt-alert-message" tabindex="0">
+    </div>
+</div><div class="yt-alert-buttons">  <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-alert-info yt-uix-button-has-icon edit-confirmation-yes" type="button" onclick=";return false;"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-watch-like-invert yt-sprite"></span></span><span class="yt-uix-button-content">Igen, tartsuk meg</span></button>
+  <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-alert-info yt-uix-button-has-icon edit-confirmation-no" type="button" onclick=";return false;"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-watch-unlike-invert yt-sprite"></span></span><span class="yt-uix-button-content">Visszavonás</span></button>
+<button class="yt-uix-button yt-uix-button-size-default yt-uix-button-close close yt-uix-close" type="button" onclick=";return false;" aria-label="Bezárás" data-close-parent-class="yt-alert"><span class="yt-uix-button-content">Bezárás</span></button></div></div>
+
+
+
+</div></div><div id="header"></div><div id="player" class="  content-alignment       watch-small  " role="complementary"><div id="theater-background" class="player-height"></div>  <div id="player-mole-container">
+    <div id="player-unavailable" class="    hid    player-width player-height    player-unavailable ">
+              <img class="icon meh" src="/yts/img/pixel-vfl3z5WfW.gif" data-icon="/yts/img/meh7-vflGevej7.png" alt="">
+  <div class="content">
+    <h1 id="unavailable-message" class="message">
+              A videó nem érhető el.
+
+    </h1>
+    <div id="unavailable-submessage" class="submessage">
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="player-api" class="player-width player-height off-screen-target player-api" tabIndex="-1"></div>
+        <script >if (window.ytcsi) {window.ytcsi.tick("cfg", null, '');}</script>
+    <script >var ytplayer = ytplayer || {};ytplayer.config = {"params":{"allowfullscreen":"true","bgcolor":"#000000","allowscriptaccess":"always"},"sts":17374,"messages":{"player_fallback":["A videó lejátszásához Adobe Flash Player vagy a HTML5 által támogatott böngésző szükséges. \u003ca href=\"https:\/\/get.adobe.com\/flashplayer\/\"\u003eA legújabb Flash Player letöltése \u003c\/a\u003e \u003ca href=\"\/html5\"\u003eTovábbi tudnivalók a HTML5 böngészőre való frissítésről\u003c\/a\u003e"]},"assets":{"css":"\/yts\/cssbin\/player-vflAh7zUE\/www-player.css","js":"\/yts\/jsbin\/player-vflMxBVb2\/hu_HU\/base.js"},"attrs":{"id":"movie_player"},"args":{"adaptive_fmts":"index=709-4784\u0026size=1280x720\u0026type=video%2Fmp4%3B+codecs%3D%22avc1.4d401f%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D15567014%26gir%3Dyes%26itag%3D136%26ipbits%3D0%26lmt%3D1457438938221437%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252Fmp4%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.929%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=136\u0026init=0-708\u0026bitrate=961099\u0026clen=15567014\u0026s=081FF8AC1B1A9D174278FAE036777E84781484FA8.B1C9A4F4C75BF801AE1973AA7431B743FDF5D33D3D\u0026lmt=1457438938221437\u0026quality_label=720p\u0026fps=30\u0026xtags=\u0026projection_type=1,index=243-6183\u0026size=1280x720\u0026type=video%2Fwebm%3B+codecs%3D%22vp9%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D47766754%26gir%3Dyes%26itag%3D247%26ipbits%3D0%26lmt%3D1457440276070661%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252Fwebm%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.896%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=247\u0026init=0-242\u0026bitrate=1018228\u0026clen=47766754\u0026s=6B4B75457BC49C91E88B36754FE1DBCB105FDF14C.C49870FE2E892DEEECFC00721454064266FE119191\u0026lmt=1457440276070661\u0026quality_label=720p\u0026fps=30\u0026xtags=\u0026projection_type=1,index=709-4784\u0026size=854x480\u0026type=video%2Fmp4%3B+codecs%3D%22avc1.4d401f%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D8352027%26gir%3Dyes%26itag%3D135%26ipbits%3D0%26lmt%3D1457438938024184%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252Fmp4%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.929%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=135\u0026init=0-708\u0026bitrate=499837\u0026clen=8352027\u0026s=F206A3A6F580C5810442CF80BF0A37CF76E36C308.1365A329B49B3EA616DDA1456C94396FAF24521414\u0026lmt=1457438938024184\u0026quality_label=480p\u0026fps=30\u0026xtags=\u0026projection_type=1,index=243-6007\u0026size=854x480\u0026type=video%2Fwebm%3B+codecs%3D%22vp9%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D19355558%26gir%3Dyes%26itag%3D244%26ipbits%3D0%26lmt%3D1457440268353753%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252Fwebm%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.896%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=244\u0026init=0-242\u0026bitrate=541555\u0026clen=19355558\u0026s=C8D79A0AF38ACDC9F6889EFC3609A73C12B0CA216.D8D7996E89F796F99C57357ABE47212FD9442C7D7D\u0026lmt=1457440268353753\u0026quality_label=480p\u0026fps=30\u0026xtags=\u0026projection_type=1,index=709-4784\u0026size=640x360\u0026type=video%2Fmp4%3B+codecs%3D%22avc1.4d401e%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D5249496%26gir%3Dyes%26itag%3D134%26ipbits%3D0%26lmt%3D1457438937935940%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252Fmp4%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.929%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=134\u0026init=0-708\u0026bitrate=274779\u0026clen=5249496\u0026s=06D080174198349476F6154AB6E01550F3F7E7894.3901960B65495511744EFC51E4C96195947D1C5B5B\u0026lmt=1457438937935940\u0026quality_label=360p\u0026fps=30\u0026xtags=\u0026projection_type=1,index=243-5962\u0026size=640x360\u0026type=video%2Fwebm%3B+codecs%3D%22vp9%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D11030238%26gir%3Dyes%26itag%3D243%26ipbits%3D0%26lmt%3D1457440268821305%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252Fwebm%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.896%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=243\u0026init=0-242\u0026bitrate=306616\u0026clen=11030238\u0026s=5071360443C10DEA2E3030A369DE27461249D6186.646CE61CAEC1160AC4D741F0F1565B476639539090\u0026lmt=1457440268821305\u0026quality_label=360p\u0026fps=30\u0026xtags=\u0026projection_type=1,index=709-4784\u0026size=426x240\u0026type=video%2Fmp4%3B+codecs%3D%22avc1.4d4015%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D18869749%26gir%3Dyes%26itag%3D133%26ipbits%3D0%26lmt%3D1457438937745185%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252Fmp4%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.929%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=133\u0026init=0-708\u0026bitrate=252129\u0026clen=18869749\u0026s=1CF067C045DB1BCDF49C037953C836CF0854016B0.774337DB76EAE9DD79AB60980E3CF7325B77E1F5F5\u0026lmt=1457438937745185\u0026quality_label=240p\u0026fps=30\u0026xtags=\u0026projection_type=1,index=242-5961\u0026size=426x240\u0026type=video%2Fwebm%3B+codecs%3D%22vp9%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D5912397%26gir%3Dyes%26itag%3D242%26ipbits%3D0%26lmt%3D1457440268361986%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252Fwebm%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.896%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=242\u0026init=0-241\u0026bitrate=174065\u0026clen=5912397\u0026s=694DAC5451AC6216D1A9C83387CB525344B5D5A8A.4D27BF71B3D489C8AE7B814D86085DFD4770146B6B\u0026lmt=1457440268361986\u0026quality_label=240p\u0026fps=30\u0026xtags=\u0026projection_type=1,index=671-4746\u0026size=256x144\u0026type=video%2Fmp4%3B+codecs%3D%22avc1.4d400c%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D12056506%26gir%3Dyes%26itag%3D160%26ipbits%3D0%26lmt%3D1457438938041493%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252Fmp4%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.929%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=160\u0026init=0-670\u0026bitrate=117236\u0026clen=12056506\u0026s=BB9F23C28D7D1AC0597BF4FAB638A703329BF4580.B221072EEE7EBB6FF2D762B7353A2A99E48F5E1E1E\u0026lmt=1457438938041493\u0026quality_label=144p\u0026fps=30\u0026xtags=\u0026projection_type=1,index=242-5960\u0026size=256x144\u0026type=video%2Fwebm%3B+codecs%3D%22vp9%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D5287871%26gir%3Dyes%26itag%3D278%26ipbits%3D0%26lmt%3D1457440268383003%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252Fwebm%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.896%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=278\u0026init=0-241\u0026bitrate=84502\u0026clen=5287871\u0026s=6BD1543A6D790666578B541626AA2C01EA1A07319.CD79A62A1134C2637AA603A403A8B0599632DE3838\u0026lmt=1457440268383003\u0026quality_label=144p\u0026fps=30\u0026xtags=\u0026projection_type=1,index=592-2783\u0026type=audio%2Fmp4%3B+codecs%3D%22mp4a.40.2%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D28557056%26gir%3Dyes%26itag%3D140%26ipbits%3D0%26lmt%3D1457438102475680%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Daudio%252Fmp4%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.990%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=140\u0026init=0-591\u0026bitrate=129452\u0026clen=28557056\u0026s=C47021C70113A6FDE104728AD584D3E69B6BC6C6F.706B5BD5439AA5CEF1B28D057202E607F73127F3F3\u0026lmt=1457438102475680\u0026xtags=\u0026projection_type=1,index=4452-7552\u0026type=audio%2Fwebm%3B+codecs%3D%22vorbis%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D22316254%26gir%3Dyes%26itag%3D171%26ipbits%3D0%26lmt%3D1457439661478039%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Daudio%252Fwebm%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.925%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=171\u0026init=0-4451\u0026bitrate=108519\u0026clen=22316254\u0026s=130CCA09B224C54161334068E01CA67DCBF30682E.6FBC151B46A869B74CDB681AE734D1157563425656\u0026lmt=1457439661478039\u0026xtags=\u0026projection_type=1,index=272-3328\u0026type=audio%2Fwebm%3B+codecs%3D%22opus%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D10974783%26gir%3Dyes%26itag%3D249%26ipbits%3D0%26lmt%3D1457439584904067%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Daudio%252Fwebm%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.921%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=249\u0026init=0-271\u0026bitrate=55932\u0026clen=10974783\u0026s=FC854139BCF5111B7B1C7844506C969BD7C3D184A.9DC60B20AF237A9BDDFBDDE907012811DC0D1E6060\u0026lmt=1457439584904067\u0026xtags=\u0026projection_type=1,index=272-3328\u0026type=audio%2Fwebm%3B+codecs%3D%22opus%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D13149689%26gir%3Dyes%26itag%3D250%26ipbits%3D0%26lmt%3D1457439593618082%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Daudio%252Fwebm%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.921%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=250\u0026init=0-271\u0026bitrate=73719\u0026clen=13149689\u0026s=BA68FB21A30DD6F29DDAC53126D43AD3558835E8C.C5EB73318F64B647A9AE907AA94D474B3C2323B0B0\u0026lmt=1457439593618082\u0026xtags=\u0026projection_type=1,index=272-3382\u0026type=audio%2Fwebm%3B+codecs%3D%22opus%22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D23743848%26gir%3Dyes%26itag%3D251%26ipbits%3D0%26lmt%3D1457439586344580%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Ckeepalive%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Daudio%252Fwebm%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.921%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26keepalive%3Dyes%26ei%3D-E-AWajsOMmlVKnAgPgM\u0026itag=251\u0026init=0-271\u0026bitrate=129709\u0026clen=23743848\u0026s=D326040F70DA6374FB03A8691462F0D0DBB70FCA2.2790C0D3A32EF8F38858544A787C1D42BE1FC16868\u0026lmt=1457439586344580\u0026xtags=\u0026projection_type=1","thumbnail_url":"https:\/\/i.ytimg.com\/vi\/FDsdy61m0PI\/default.jpg","hl":"hu_HU","ismb":"13290000","ldpj":"-39","no_get_video_log":"1","apiary_host_firstparty":"","watch_xlb":"https:\/\/s.ytimg.com\/yts\/xlbbin\/watch-strings-hu_HU-vfllDi63U.xlb","player_response":"{\"playbackTracking\":{},\"videoDetails\":{\"thumbnail\":{\"thumbnails\":[{\"url\":\"https:\/\/i.ytimg.com\/vi\/FDsdy61m0PI\/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==\\u0026rs=AOn4CLC4gI3CJlzIzDjBtJ6gKlYgGwvDZw\",\"width\":168,\"height\":94},{\"url\":\"https:\/\/i.ytimg.com\/vi\/FDsdy61m0PI\/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==\\u0026rs=AOn4CLCISggBYMMhGGkQzun7lHPOBkD4fw\",\"width\":196,\"height\":110},{\"url\":\"https:\/\/i.ytimg.com\/vi\/FDsdy61m0PI\/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=\\u0026rs=AOn4CLBzS47Qe4PgYjlfpoIXKRDKNBKReQ\",\"width\":246,\"height\":138},{\"url\":\"https:\/\/i.ytimg.com\/vi\/FDsdy61m0PI\/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=\\u0026rs=AOn4CLD3hH-96afB-JDRfRTzUrptpBTZJQ\",\"width\":336,\"height\":188}]}},\"adSafetyReason\":{}}","allow_embed":"1","loaderUrl":"https:\/\/www.youtube.com\/watch?v=FDsdy61m0PI","ptk":"youtube_multi","t":"1","avg_rating":"4.46666669846","allow_ratings":"1","loudness":"-13.2489995956","cl":"163658519","cr":"HU","itct":"CAMQu2kiEwioyKCi4rXVAhXJEhUKHSkgAM8o-B0=","fmt_list":"22\/1280x720\/9\/0\/115,43\/640x360\/99\/0\/0,18\/640x360\/9\/0\/115,36\/320x180\/99\/1\/0,17\/176x144\/99\/1\/0","show_pyv_in_related":true,"is_listed":"1","pyv_ad_channel":"PyvWatchInRelated+PyvWatchNoAdX+PyvYTWatch+YtLoPri+afv_ugc+afv_user_id_PEy0kCRisGeyfaewp88Aig+cw+non_lpw+pw+yt_cid_564934+yt_mpvid_-Xp3Mhh874xGcaxS+yt_no_360+yt_no_ap+yt_no_cp+yt_no_wa+ytdevice_1+ytdevicever_1.20170731","ucid":"UCPEy0kCRisGeyfaewp88Aig","cver":"1.20170731","apiary_host":"","idpj":"-2","c":"WEB","tmi":"1","plid":"AAVVriRJpWS1o3fk","enablecsi":"1","video_id":"FDsdy61m0PI","innertube_api_version":"v1","gapi_hint_params":"m;\/_\/scs\/abc-static\/_\/js\/k=gapi.gapi.en.pwuFxAM9sSs.O\/m=__features__\/rt=j\/d=1\/rs=AHpOoo_kFxiSkGFruvghs_M-2UjERAt_Iw","vmap":"\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\u003cvmap:VMAP xmlns:vmap=\"http:\/\/www.iab.net\/videosuite\/vmap\" xmlns:yt=\"http:\/\/youtube.com\" version=\"1.0\"\u003e\u003c\/vmap:VMAP\u003e","probe_url":"https:\/\/r2---sn-5go7yne6.googlevideo.com\/videogoodput?id=o-ACjgERbgYsJcXnXDRbJlwA6UlLoK8-dRS8dYutdtNlG3\u0026source=goodput\u0026range=0-4999\u0026expire=1501584904\u0026ip=88.132.206.231\u0026ms=pm\u0026mm=35\u0026pl=24\u0026nh=IgpwcjAxLmFybjEwKg4yMDkuODUuMTcyLjE4MQ\u0026sparams=id,source,range,expire,ip,ms,mm,pl,nh\u0026signature=0DD97AA4453C6CC606B41E36BB4C0AF2E22E68F2.5A8035541AA4CCA462E2684B114D16B156751D1B\u0026key=cms1","videostats_playback_base_url":"https:\/\/s.youtube.com\/api\/stats\/playback?vm=CAIQARgC\u0026ns=yt\u0026docid=FDsdy61m0PI\u0026cl=163658519\u0026of=UAvdafsDGG_LVTIxmTlgQw\u0026len=1798\u0026plid=AAVVriRJpWS1o3fk\u0026el=detailpage\u0026ei=-E-AWajsOMmlVKnAgPgM\u0026fexp=9422596%2C9431012%2C9434289%2C9446364%2C9449243%2C9456997%2C9457141%2C9461404%2C9463594%2C9466793%2C9466795%2C9466797%2C9467217%2C9467504%2C9468797%2C9468799%2C9468805%2C9476026%2C9476327%2C9478523%2C9480475%2C9482647%2C9484209%2C9484706%2C9485999","innertube_context_client_version":"1.20170731","oid":"qmA0k8HjRsv_pC33eh1UMw.YuK9MwNPgoIZF5b0IgYXAQ.bfAZ38LmZKOVR7tnTMEWBA","length_seconds":"1798","xhr_apiary_host":"youtubei.youtube.com","watermark":",https:\/\/s.ytimg.com\/yts\/img\/watermark\/youtube_watermark-vflHX6b6E.png,https:\/\/s.ytimg.com\/yts\/img\/watermark\/youtube_hd_watermark-vflAzLcD6.png","enablejsapi":"1","author":"ja rek","eventid":"-E-AWajsOMmlVKnAgPgM","timestamp":"1501581305","url_encoded_fmt_stream_map":"type=video%2Fmp4%3B+codecs%3D%22avc1.64001F%2C+mp4a.40.2%22\u0026quality=hd720\u0026s=AB6F42F3F246D957433B04DC595F4C0BD46D9D143.5DCB3FCD5120329B35938824505791C4BF0F1AE4E4\u0026itag=22\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fmm%3D31%26source%3Dyoutube%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Ddur%252Cei%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Cratebypass%252Crequiressl%252Csource%252Cexpire%26ip%3D88.132.206.231%26itag%3D22%26mime%3Dvideo%252Fmp4%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.990%26ratebypass%3Dyes%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26ipbits%3D0%26lmt%3D1471010762772086%26key%3Dyt6%26ei%3D-E-AWajsOMmlVKnAgPgM,type=video%2Fwebm%3B+codecs%3D%22vp8.0%2C+vorbis%22\u0026quality=medium\u0026s=828400378691A7731942A03F91349663045643C41.72DD5F079E033B70E99A9C4F195C45806FFAEDDDDD\u0026itag=43\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D39717386%26ratebypass%3Dyes%26gir%3Dyes%26itag%3D43%26ipbits%3D0%26lmt%3D1457439526199651%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Cratebypass%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252Fwebm%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D0.000%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26ei%3D-E-AWajsOMmlVKnAgPgM,type=video%2Fmp4%3B+codecs%3D%22avc1.42001E%2C+mp4a.40.2%22\u0026quality=medium\u0026s=A2253C71F2ACA9BFE0420E35BA4ACA862AA13EF22.CD3EBB603BBA582C11FA8A4CA5EC304B4406663535\u0026itag=18\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D36713475%26ratebypass%3Dyes%26gir%3Dyes%26itag%3D18%26ipbits%3D0%26lmt%3D1457438226129209%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Cratebypass%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252Fmp4%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1797.990%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26ei%3D-E-AWajsOMmlVKnAgPgM,type=video%2F3gpp%3B+codecs%3D%22mp4v.20.3%2C+mp4a.40.2%22\u0026quality=small\u0026s=2A3D277E36C29E2999EAD4A55CB259C11C2C91B83.BAF9D4AD29065AB5650340D14076C95721B3289A9A\u0026itag=36\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D25483284%26gir%3Dyes%26itag%3D36%26ipbits%3D0%26lmt%3D1457438077970380%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252F3gpp%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1798.013%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26ei%3D-E-AWajsOMmlVKnAgPgM,type=video%2F3gpp%3B+codecs%3D%22mp4v.20.3%2C+mp4a.40.2%22\u0026quality=small\u0026s=80EE769C92D193CF87F067E1D7770B504EA0BD2F5.546187D7EA92F6A9B1767C31566F314DD69694C9C9\u0026itag=17\u0026url=https%3A%2F%2Fr1---sn-2guxaxjvh-c0ql.googlevideo.com%2Fvideoplayback%3Fsource%3Dyoutube%26clen%3D7848776%26gir%3Dyes%26itag%3D17%26ipbits%3D0%26lmt%3D1457438075366391%26mm%3D31%26ip%3D88.132.206.231%26mn%3Dsn-2guxaxjvh-c0ql%26sparams%3Dclen%252Cdur%252Cei%252Cgir%252Cid%252Cinitcwndbps%252Cip%252Cipbits%252Citag%252Clmt%252Cmime%252Cmm%252Cmn%252Cms%252Cmv%252Cpl%252Crequiressl%252Csource%252Cexpire%26mime%3Dvideo%252F3gpp%26id%3Do-AA0iqTZ-PAkYzwABXLmM1CO1Hc2m7tnuWXfbvgPCWyCQ%26dur%3D1798.013%26mt%3D1501581235%26pl%3D18%26mv%3Dm%26ms%3Dau%26requiressl%3Dyes%26expire%3D1501602905%26initcwndbps%3D1661250%26key%3Dyt6%26ei%3D-E-AWajsOMmlVKnAgPgM","token":"1","swf_player_response":"1","fexp":"9422596,9431012,9434289,9446364,9449243,9456997,9457141,9461404,9463594,9466793,9466795,9466797,9467217,9467504,9468797,9468799,9468805,9476026,9476327,9478523,9480475,9482647,9484209,9484706,9485999","vm":"CAIQARgC","view_count":"1128","pltype":"contentugc","relative_loudness":"7.75100040436","title":"✩ Składanka DISCO\/DISCO POLO ✩ NOWOŚĆ 2016 - 30 min ✩","ppv_remarketing_url":"https:\/\/www.googleadservices.com\/pagead\/conversion\/971134070\/?backend=innertube\u0026cname=1\u0026cver=1_20170731\u0026data=backend%3Dinnertube%3Bcname%3D1%3Bcver%3D1_20170731%3Bdactive%3DNone%3Bptype%3Dppv\u0026label=iuZUCLmC72YQ9qiJzwM\u0026ptype=ppv","fflags":"html5_use_adaptive_live_readahead=true\u0026html5_min_readbehind_cap_secs=0\u0026html5_deadzone_multiplier=1.1\u0026html5_min_readbehind_secs=0\u0026enable_live_state_auth=true\u0026kids_asset_theme=server_side_assets\u0026android_enable_thumbnail_overlay_side_panel=false\u0026show_countdown_on_bumper=true\u0026html5_progressive_signature_reload=true\u0026html5_strip_emsg=true\u0026mweb_pu_android_chrome_54_above=true\u0026html5_tight_max_buffer_allowed_impaired_time=0.0\u0026mweb_autonav_paddles=true\u0026html5_aspect_from_adaptive_format=true\u0026disable_new_pause_state3=true\u0026html5_serverside_call_server_on_biscotti_timeout=true\u0026yto_enable_watch_offer_module=true\u0026postroll_notify_time_seconds=5\u0026html5_stale_dash_manifest_retry_factor=1.0\u0026king_crimson_player=false\u0026html5_disable_move_pssh_to_moov=true\u0026html5_default_quality_cap=0\u0026enable_red_carpet_p13n_shelves=true\u0026show_thumbnail_behind_ypc_offer_module=true\u0026report_promotes_terrorism_ios=true\u0026fixed_padding_skip_button=true\u0026html5_source_buffer_retry_interval_ms=100.0\u0026mweb_muted_autoplay_animation=none\u0026html5_suspended_state=true\u0026html5_local_max_byterate_lookahead=15\u0026html5_repredict_interval_secs=0.0\u0026mobile_disable_ad_mob_on_home=true\u0026logo_gaming_src=\u0026signed_out_notification_settings=true\u0026show_thumbnail_on_standard=true\u0026vss_dni_delayping=0\u0026persist_text_on_preview_button=true\u0026lugash_header_warmup=true\u0026html5_max_av_sync_drift=50\u0026logo_src=\u0026youtubei_for_web=true\u0026html5_throttle_rate=0.0\u0026html5_chrome_ambisonics_opus=true\u0026html5_reseek_on_infinite_buffer=true\u0026html5_variability_discount=0.5\u0026html5_serverside_biscotti_id_wait_ms=1000\u0026enable_offer_restricts_for_watch_page_offers=true\u0026html5_new_preloading=true\u0026use_new_skip_icon=true\u0026html5_maximum_readahead_seconds=0.0\u0026interaction_log_delayed_event_batch_size=200\u0026html5_variability_full_discount_thresh=3.0\u0026disable_reporting_html5_no_vast_ads_as_error=true\u0026kids_enable_block_servlet=true\u0026use_fast_fade_in_0s=true\u0026html5_min_vss_watchtime_to_cut_secs_redux=0.0\u0026android_buy_bucket_buy_flows=true\u0026html5_playing_event_buffer_underrun=true\u0026html5_live_disable_dg_pacing=true\u0026lock_fullscreen=false\u0026yto_enable_unlimited_landing_page_yto_features=true\u0026html5_serverside_call_server_on_biscotti_error=true\u0026web_player_api_logging_fraction=0.01\u0026android_native_live_enablement=true\u0026web_player_disable_flash_watch=true\u0026html5_report_conn=true\u0026html5_msi_error_fallback=true\u0026html5_trust_platform_bitrate_limits=true\u0026autoplay_time=8000\u0026dash_manifest_version=5\u0026mweb_enable_skippables_on_iphone=true\u0026enable_ccs_buy_flow_for_chirp=true\u0026max_resolution_for_white_noise=360\u0026html5_min_upgrade_health=0\u0026html5_nnr_downgrade_count=4\u0026html5_post_interrupt_readahead=20\u0026mysubs_highlight_shelf_counterfactual=false\u0026dynamic_ad_break_seek_threshold_sec=0\u0026yto_feature_hub_channel=false\u0026html5_max_vss_watchtime_ratio=0.0\u0026html5_deferred_source_buffer_creation=true\u0026html5_background_quality_cap=360\u0026flex_theater_mode=true\u0026mweb_playsinline=true\u0026html5_platform_minimum_readahead_seconds=0.0\u0026html5_disable_non_contiguous=true\u0026lugash_header_by_service=true\u0026channel_about_page_gadgets=true\u0026watermark_src=\u0026html5_disable_audio_slicing=true\u0026disable_search_mpu=true\u0026player_destroy_old_version=true\u0026kids_eliminate_playlists_in_channels=true\u0026report_promotes_terrorism_android=true\u0026html5_enable_mesh_projection=true\u0026sdk_wrapper_levels_allowed=0\u0026use_push_for_desktop_live_chat=true\u0026html5_pause_manifest_ended=true\u0026html5_hopeless_mode_request_size_secs=15\u0026polymer_report_missing_web_navigation_endpoint=false\u0026signed_out_notifications_inbox=true\u0026enable_bulleit_lidar_integration=true\u0026html5_throttle_burst_secs=15.0\u0026desktop_cleanup_companion_on_instream_begin=true\u0026enable_local_channel=true\u0026doubleclick_gpt_retagging=true\u0026dynamic_ad_break_pause_threshold_sec=0\u0026html5_capstone_avoidance_tolerance=0.4\u0026html5_subsegment_readahead_progress_timeout_fraction=0.8\u0026html5_get_video_info_promiseajax=true\u0026html5_new_fallback=true\u0026html5_fallback_probe_ms=5000\u0026html5_bandwidth_window_size=0\u0026use_new_style=true\u0026html5_adjust_effective_request_size=true\u0026html5_allowable_liveness_drift_chunks=2\u0026html5_request_size_max_secs=0\u0026html5_ad_no_buffer_abort_after_skippable=true\u0026yto_enable_ytr_promo_refresh_assets=true\u0026html5_minimum_readahead_seconds=0.0\u0026mweb_disable_iphone_interstitial_for_ios_10_ads_backend=true\u0026enable_finished_broadcast_reactr_sharing=false\u0026enable_playlist_multi_season=true\u0026html5_always_reload_on_403=true\u0026html5_tight_max_buffer_allowed_bandwidth_stddevs=0.0\u0026sdk_ad_prefetch_time_seconds=-1\u0026html5_min_buffer_to_resume=6\u0026sidebar_renderers=true\u0026pla_shelf_hovercard=true\u0026large_play_button_src=\u0026legacy_autoplay_flag=true\u0026html5_suspend_manifest_on_pause=true\u0026html5_desktop_serverside_get_biscotti_id_from_client=true\u0026html5_subsegment_readahead_tail_margin_secs=0.2\u0026html5_use_mediastream_timestamp=true\u0026html5_always_enable_timeouts=true\u0026live_chunk_readahead=3\u0026html5_min_secs_between_format_selections=8.0\u0026midroll_notify_time_seconds=5\u0026html5_request_size_min_secs=0.0\u0026html5_elbow_tracking_tweaks=true\u0026html5_max_buffer_health_for_downgrade=15\u0026html5_check_for_reseek=true\u0026report_promotes_terrorism_desktop=true\u0026html5_live_pin_to_tail=true\u0026ios_enable_mixin_accessibility_custom_actions=true\u0026stop_using_ima_sdk_gpt_request_activity=true\u0026html5_min_request_size_kb=64\u0026html5_retry_media_element_errors_delay=0\u0026chrome_promo_enabled=true\u0026ios_disable_notification_preprompt=true\u0026html5_preload_size_excludes_metadata=true\u0026html5_live_4k_more_buffer=true\u0026html5_max_buffer_duration=0\u0026html5_min_startup_smooth_target=10.0\u0026disable_max_adsense_channel_limit=true\u0026html5_subsegment_readahead_target_buffer_health_secs=0.5\u0026html5_disable_urgent_upgrade_for_quality=true\u0026kids_enable_post_onboarding_red_flow=true\u0026forced_brand_precap_duration_ms=2000\u0026enable_plus_page_pts=true\u0026html5_idle_preload_secs=1\u0026live_chat_v1_turndown=true\u0026html5_vp9_live_whitelist=false\u0026disable_indisplay_adunit_on_embedded=true\u0026mweb_disable_iphone_interstitial_for_ios_10=true\u0026request_mpu_on_unfilled_ad_break=true\u0026html5_enable_embedded_player_visibility_signals=true\u0026report_promotes_terrorism_polymer=true\u0026uniplayer_dbp=true\u0026html5_source_buffer_required_for_play=0.0\u0026king_crimson_player_redux=true\u0026mpu_visible_threshold_count=2\u0026large_play_button_hover_src=\u0026html5_background_cap_idle_secs=60\u0026kids_enable_server_side_assets=false\u0026kids_enable_terms_servlet=true\u0026html5_connect_timeout_secs=7.0\u0026website_actions_use_companion_image_as_banner=true\u0026playready_on_borg=true\u0026website_actions_throttle_percentage=1.0\u0026mweb_blacklist_progressive_chrome_mobile=true\u0026disable_trusted_ad_domains_player_check=true\u0026live_readahead_seconds_multiplier=0.8\u0026html5_timeupdate_readystate_check=true\u0026segment_volume_reporting=true\u0026html5_reduce_startup_rebuffers=true\u0026enable_pla_desktop_shelf=true\u0026live_fresca_v2=true\u0026send_html5_api_stats_ads_abandon=true\u0026enable_prefetch_for_postrolls=true\u0026html5_variability_no_discount_thresh=1.0\u0026html5_subsegment_readahead_timeout_secs=2.0\u0026html5_seeks_are_not_rebuffers=true\u0026ios_notifications_disabled_subs_tab_promoted_item_promo=true\u0026html5_min_vss_watchtime_to_cut_secs=0.0\u0026fix_gpt_pos_params=true\u0026html5_clearance_fix=true\u0026html5_spherical_bicubic_mode=0\u0026variable_load_timeout_ms=0\u0026html5_request_sizing_multiplier=0.8\u0026html5_disable_vp9_hdr_enc=true\u0026html5_repredict_misses=5\u0026ad_duration_threshold_for_showing_endcap_seconds=15\u0026kids_mqb_use_confirmed_safe_videos_only=false\u0026html5_get_video_info_timeout_ms=0\u0026report_promotes_terrorism_mobile_web=true\u0026ad_video_end_renderer_duration_milliseconds=7000\u0026html5_no_clear_on_quota_exceeded=true\u0026yt_unlimited_pts_skip_ads_promo_desktop_always=true\u0026web_player_flash_fallback_killswitch=true\u0026html5_max_readahead_bandwidth_cap=0\u0026disable_client_side_midroll_freq_capping=true\u0026kids_enable_privacy_notice=true\u0026new_promo_page=true","atc":"a=3\u0026b=ErJ1pc4ENUPSSMtDp_2RDSzZbqA\u0026c=1501581305\u0026d=1\u0026e=FDsdy61m0PI\u0026c3a=24\u0026c1a=1\u0026c6a=1\u0026hh=gyDenAesX__Jrn8a0SXt4cTROdH3ldcfbDR1VBVUYRc","of":"UAvdafsDGG_LVTIxmTlgQw","csi_page_type":"watch,watch7_html5","keywords":"","player_error_log_fraction":"1.0","innertube_api_key":"AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8","host_language":"hu","ssl":"1","account_playback_token":"QUFFLUhqa2g3QUwtTHZNR0pmV0xLV0h5Y0JTMXpmaTZHQXxBQ3Jtc0tsN0cyTXpmT0Z2RU8tdmJ3ZjNHVVppRFRWeVplV1FjZ09pNHk3YVRZZndoeUpkNmM1c1BZbVNEYTNxTU0za2pHRXVOSnplYWRZSFc4MElleEhNZjJuRnVqRDMwWE5Jc2xvbXkzRUMtTk9KaFVJakx0QQ=="},"url":"https:\/\/s.ytimg.com\/yts\/swfbin\/player-vflUF914c\/watch_as3.swf","html5":true,"min_version":"8.0.0"};ytplayer.load = function() {yt.player.Application.create("player-api", ytplayer.config);ytplayer.config.loaded = true;};(function() {if (!!window.yt && yt.player && yt.player.Application) {ytplayer.load();}}());</script>
+
+
+    <div id="watch-queue-mole" class="video-mole mole-collapsed hid"><div id="watch-queue" class="watch-playlist player-height"><div class="main-content"><div class="watch-queue-header"><div class="watch-queue-info"><div class="watch-queue-info-icon"><span class="tv-queue-list-icon yt-sprite"></span></div><h3 class="watch-queue-title">Megtekintési lista</h3><h3 class="tv-queue-title">Várólista</h3><span class="tv-queue-details"></span></div><div class="watch-queue-control-bar control-bar-button"><div class="watch-queue-mole-info"><div class="watch-queue-control-bar-icon"><span class="watch-queue-icon yt-sprite"></span></div><div class="watch-queue-title-container"><span class="watch-queue-count"></span><span class="watch-queue-title">Megtekintési lista</span><span class="tv-queue-title">Várólista</span></div></div>  <span class="dark-overflow-action-menu">
+    
+    
+    <button aria-label="A lejátszási sorral kapcsolatos műveletek" aria-expanded="false" aria-haspopup="true" type="button" class="flip control-bar-button yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" onclick=";return false;" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid" role="menu" aria-haspopup="true"><li role="menuitem"><span class="watch-queue-menu-choice overflow-menu-choice yt-uix-button-menu-item" onclick=";return false;" data-action="remove-all" >Az összes eltávolítása</span></li><li role="menuitem"><span class="watch-queue-menu-choice overflow-menu-choice yt-uix-button-menu-item" onclick=";return false;" data-action="disconnect" >Kapcsolat bontása</span></li></ul></button>
+  </span>
+  <div class="watch-queue-controls">
+    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-empty yt-uix-button-has-icon control-bar-button prev-watch-queue-button yt-uix-button-opacity yt-uix-tooltip yt-uix-tooltip" type="button" onclick=";return false;" title="Előző videó"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-watch-queue-prev yt-sprite"></span></span></button>
+
+    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-empty yt-uix-button-has-icon control-bar-button play-watch-queue-button yt-uix-button-opacity yt-uix-tooltip yt-uix-tooltip" type="button" onclick=";return false;" title="Lejátszás"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-watch-queue-play yt-sprite"></span></span></button>
+
+    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-empty yt-uix-button-has-icon control-bar-button pause-watch-queue-button yt-uix-button-opacity yt-uix-tooltip hid yt-uix-tooltip" type="button" onclick=";return false;" title="Szünet"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-watch-queue-pause yt-sprite"></span></span></button>
+
+    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-empty yt-uix-button-has-icon control-bar-button next-watch-queue-button yt-uix-button-opacity yt-uix-tooltip yt-uix-tooltip" type="button" onclick=";return false;" title="Következő videó"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-watch-queue-next yt-sprite"></span></span></button>
+  </div>
+</div><div class="autoplay-dismiss-bar fade-out"><span class="autoplay-dismiss-title-label">Kezdődik a következő videó</span><span><button class="yt-uix-button yt-uix-button-size-default autoplay-dismiss-button yt-uix-tooltip" type="button" onclick=";return false;" title="leállítás"><span class="yt-uix-button-content">leállítás</span></button></span></div></div><div class="watch-queue-items-container yt-scrollbar-dark yt-scrollbar"><div class="yt-uix-scroller playlist-videos-list"><ol class="watch-queue-items-list" data-scroll-action="yt.www.watchqueue.loadThumbnails">  <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+</ol><div class="autoplay-control-container yt-uix-scroller-scroll-unit hid">  <div class="autoplay-control-bar">
+    <label class="autoplay-label" for=autoplay-toggle-id></label>
+    <label class="yt-uix-form-input-checkbox-container yt-uix-form-input-container yt-uix-form-input-paper-toggle-container "><input class="yt-uix-form-input-checkbox" type="checkbox" id="autoplay-toggle-id"/><div class="yt-uix-form-input-paper-toggle-bg yt-uix-form-input-paper-toggle-bar"></div><div class="yt-uix-form-input-paper-toggle-bg yt-uix-form-input-paper-toggle-button"></div></label>
+  </div>
+</div><div class="up-next-item-container hid"></div></div></div></div>  <div class="hid">
+    <div id="watch-queue-title-msg">
+Megtekintési lista
+    </div>
+
+    <div id="tv-queue-title-msg">Várólista</div>
+
+    <div id="watch-queue-count-msg">
+__total__/__count__
+    </div>
+
+    <div id="watch-queue-loading-template">
+      <!--
+          <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+      -->
+    </div>
+  </div>
+</div></div>
+    <div id="player-playlist" class="  content-alignment    watch-player-playlist  ">
+          
+
+    </div>
+
+  </div>
+
+  <div class="clear"></div>
+</div><div id="content" class="  content-alignment" role="main">      <div id="placeholder-player">
+    <div class="player-api player-width player-height"></div>
+  </div>
+
+  <div id="watch7-container" class="">
+      <div id="player-messages">
+  </div>
+    
+  <div id="watch7-main-container">
+    <div id="watch7-main" class="clearfix">
+      <div id="watch7-preview" class="player-width player-height hid">
+      </div>
+      <div id="watch7-content" class="watch-main-col " itemscope itemid="" itemtype="http://schema.org/VideoObject"
+      >
+              <link itemprop="url" href="https://www.youtube.com/watch?v=FDsdy61m0PI">
+    <meta itemprop="name" content="✩ Składanka DISCO/DISCO POLO ✩ NOWOŚĆ 2016 - 30 min ✩">
+    <meta itemprop="description" content="Tytuły: 0:00 - 2:49 - Łobuzy- ona czuje mnie piniądz LINK: https://youtu.be/_YHa208H-Gc 2:50 - 6:05 - MIG- nie a mocnych Mariolę LINK: https://youtu.be/uF4Fp...">
+    <meta itemprop="paid" content="False">
+
+      <meta itemprop="channelId" content="UCPEy0kCRisGeyfaewp88Aig">
+      <meta itemprop="videoId" content="FDsdy61m0PI">
+
+      <meta itemprop="duration" content="PT29M58S">
+      <meta itemprop="unlisted" content="False">
+
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <link itemprop="url" href="http://www.youtube.com/channel/UCPEy0kCRisGeyfaewp88Aig">
+        </span>
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <link itemprop="url" href="https://plus.google.com/106433518508360212964">
+        </span>
+
+          <script type="application/ld+json" >
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@id": "http:\/\/www.youtube.com\/channel\/UCPEy0kCRisGeyfaewp88Aig",
+            "name": "ja rek"
+          }
+        }
+      ]
+    }
+    </script>
+
+
+    <link itemprop="thumbnailUrl" href="https://i.ytimg.com/vi/FDsdy61m0PI/maxresdefault.jpg">
+    <span itemprop="thumbnail" itemscope itemtype="http://schema.org/ImageObject">
+      <link itemprop="url" href="https://i.ytimg.com/vi/FDsdy61m0PI/maxresdefault.jpg">
+      <meta itemprop="width" content="1280">
+      <meta itemprop="height" content="720">
+    </span>
+
+      <link itemprop="embedURL" href="https://www.youtube.com/embed/FDsdy61m0PI">
+      <meta itemprop="playerType" content="HTML5 Flash">
+      <meta itemprop="width" content="1280">
+      <meta itemprop="height" content="720">
+
+      <meta itemprop="isFamilyFriendly" content="True">
+      <meta itemprop="regionsAllowed" content="AD,AE,AF,AG,AI,AL,AM,AO,AQ,AR,AS,AT,AU,AW,AX,AZ,BA,BB,BD,BE,BF,BG,BH,BI,BJ,BL,BM,BN,BO,BQ,BR,BS,BT,BV,BW,BY,BZ,CA,CC,CD,CF,CG,CH,CI,CK,CL,CM,CN,CO,CR,CU,CV,CW,CX,CY,CZ,DE,DJ,DK,DM,DO,DZ,EC,EE,EG,EH,ER,ES,ET,FI,FJ,FK,FM,FO,FR,GA,GB,GD,GE,GF,GG,GH,GI,GL,GM,GN,GP,GQ,GR,GS,GT,GU,GW,GY,HK,HM,HN,HR,HT,HU,ID,IE,IL,IM,IN,IO,IQ,IR,IS,IT,JE,JM,JO,JP,KE,KG,KH,KI,KM,KN,KP,KR,KW,KY,KZ,LA,LB,LC,LI,LK,LR,LS,LT,LU,LV,LY,MA,MC,MD,ME,MF,MG,MH,MK,ML,MM,MN,MO,MP,MQ,MR,MS,MT,MU,MV,MW,MX,MY,MZ,NA,NC,NE,NF,NG,NI,NL,NO,NP,NR,NU,NZ,OM,PA,PE,PF,PG,PH,PK,PL,PM,PN,PR,PS,PT,PW,PY,QA,RE,RO,RS,RU,RW,SA,SB,SC,SD,SE,SG,SH,SI,SJ,SK,SL,SM,SN,SO,SR,SS,ST,SV,SX,SY,SZ,TC,TD,TF,TG,TH,TJ,TK,TL,TM,TN,TO,TR,TT,TV,TW,TZ,UA,UG,UM,US,UY,UZ,VA,VC,VE,VG,VI,VN,VU,WF,WS,YE,YT,ZA,ZM,ZW">
+      <meta itemprop="interactionCount" content="1128">
+      <meta itemprop="datePublished" content="2016-03-08">
+      <meta itemprop="genre" content="Music">
+
+
+          
+
+        <div id="watch-header" class="yt-card yt-card-has-padding">
+      <div id="watch7-headline" class="clearfix">
+      <span class="yt-subscribe-button-right yt-uix-button-subscription-container yt-material-subscribe-button"><span class="unsubscribe-confirmation-overlay-container">  
+  <div class="yt-uix-overlay "  data-overlay-style="primary" data-overlay-shape="tiny">
+    
+        <div class="yt-dialog hid ">
+    <div class="yt-dialog-base">
+      <span class="yt-dialog-align"></span>
+      <div class="yt-dialog-fg" role="dialog">
+        <div class="yt-dialog-fg-content">
+          <div class="yt-dialog-loading">
+              <div class="yt-dialog-waiting-content">
+      <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+  </div>
+
+          </div>
+          <div class="yt-dialog-content">
+              <div class="unsubscribe-confirmation-overlay-content-container">
+    <div class="unsubscribe-confirmation-overlay-content">
+      <div class="unsubscribe-confirmation-message">
+        Leiratkozol erről: ja rek?
+      </div>
+    </div>
+
+    <div class="yt-uix-overlay-actions">
+      <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default yt-uix-overlay-close" type="button" onclick=";return false;"><span class="yt-uix-button-content">Mégse</span></button>
+      <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-primary overlay-confirmation-unsubscribe-button yt-uix-overlay-close" type="button" onclick=";return false;"><span class="yt-uix-button-content">Leiratkozás</span></button>
+    </div>
+  </div>
+
+          </div>
+          <div class="yt-dialog-working">
+              <div class="yt-dialog-working-overlay"></div>
+  <div class="yt-dialog-working-bubble">
+    <div class="yt-dialog-waiting-content">
+        <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+        Folyamatban...
+    </span>
+  </p>
+
+      </div>
+  </div>
+
+          </div>
+        </div>
+        <div class="yt-dialog-focus-trap" tabindex="0"></div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+</span><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-subscribe-branded yt-uix-button-has-icon no-icon-markup yt-uix-subscription-button yt-can-buffer yt-uix-servicelink vve-check" type="button" onclick=";return false;" aria-live="polite" aria-busy="false" data-style-type="branded" data-visibility-tracking="CDMQmysiEwioyKCi4rXVAhXJEhUKHSkgAM8o-B0yBXdhdGNo" data-channel-external-id="UCPEy0kCRisGeyfaewp88Aig" data-show-unsub-confirm-time-frame="always" data-href="https://accounts.google.com/ServiceLogin?passive=true&amp;hl=hu&amp;continue=http%3A%2F%2Fwww.youtube.com%2Fsignin%3Fnext%3D%252Fchannel%252FUCPEy0kCRisGeyfaewp88Aig%26feature%3Dsubscribe%26hl%3Dhu%26action_handle_signin%3Dtrue%26continue_action%3DQUFFLUhqa2VfZXBjX2RZaGprUUdYcmFZcVB3T2JPUkE2Z3xBQ3Jtc0tuVFVuc1Z4TE1TR04wUllFbnBXSGJBYVRfUFlwTUJ1Unc5d2FxMng1bDRFT1U4SnZaQWQyMktzY0Vwa0FBMm1DdjVoYU5nUTJSWjlISFBsZXg2amhHY1NaaXYzNzZpWXBqNXotck9aMHhLU0ttcExQbUlKdHhvM19OVUJWaVFDdDhLRmxsOW5MUVdjTW9MeTVJY2p1N1lGVHZXSktJa3V2Nm9mN3JCcXFaWjVieGR2b3lPMG8zR290R1JpaEpMVjRaYVVXeFFJcC15LW1kbEdzYkpCNW9QMlN0OU1B%26app%3Ddesktop&amp;uilel=3&amp;service=youtube" data-servicelink="CDMQmysiEwioyKCi4rXVAhXJEhUKHSkgAM8o-B0yBXdhdGNo" data-clicktracking="itct=CDMQmysiEwioyKCi4rXVAhXJEhUKHSkgAM8o-B0yBXdhdGNo" data-subscribed-timestamp="0" data-show-unsub-confirm-dialog="true"><span class="yt-uix-button-content"><span class="subscribe-label" aria-label="Feliratkozás">Feliratkozás</span><span class="subscribed-label" aria-label="Leiratkozás">Feliratkozva</span><span class="unsubscribe-label" aria-label="Leiratkozás">Leiratkozás</span><span class="yt-subscription-button-subscriber-count-branded-horizontal yt-subscriber-count" title="19" aria-label="19" tabindex="0">19</span></span></button><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon yt-uix-subscription-preferences-button" type="button" onclick=";return false;" aria-label="Feliratkozási beállítások" aria-live="polite" aria-role="button" aria-busy="false" data-channel-external-id="UCPEy0kCRisGeyfaewp88Aig"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-subscription-preferences yt-sprite"></span></span></button>  <span class="subscription-preferences-overlay-container">
+    
+  <div class="yt-uix-overlay "  data-overlay-style="primary" data-overlay-shape="tiny">
+    
+        <div class="yt-dialog hid ">
+    <div class="yt-dialog-base">
+      <span class="yt-dialog-align"></span>
+      <div class="yt-dialog-fg" role="dialog">
+        <div class="yt-dialog-fg-content">
+          <div class="yt-dialog-loading">
+              <div class="yt-dialog-waiting-content">
+      <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+  </div>
+
+          </div>
+          <div class="yt-dialog-content">
+              <div class="subscription-preferences-overlay-content-container">
+    <div class="subscription-preferences-overlay-loading ">
+        <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+    </div>
+    <div class="subscription-preferences-overlay-content">
+    </div>
+  </div>
+
+          </div>
+          <div class="yt-dialog-working">
+              <div class="yt-dialog-working-overlay"></div>
+  <div class="yt-dialog-working-bubble">
+    <div class="yt-dialog-waiting-content">
+        <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+        Folyamatban...
+    </span>
+  </p>
+
+      </div>
+  </div>
+
+          </div>
+        </div>
+        <div class="yt-dialog-focus-trap" tabindex="0"></div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+  </span>
+</span>
+    <div id="watch-headline-title">
+      <h1 class="watch-title-container" >
+        
+
+
+  <span id="eow-title" class="watch-title" dir="ltr" title="✩ Składanka DISCO/DISCO POLO ✩ NOWOŚĆ 2016 - 30 min ✩">
+    ✩ Składanka DISCO/DISCO POLO ✩ NOWOŚĆ 2016 - 30 min ✩
+  </span>
+
+      </h1>
+    </div>
+  </div>
+
+    <div id="watch7-user-header" class=" spf-link ">  <a href="/channel/UCPEy0kCRisGeyfaewp88Aig" class="yt-user-photo g-hovercard yt-uix-sessionlink      spf-link " data-ytid="UCPEy0kCRisGeyfaewp88Aig" data-sessionlink="itct=CDIQ4TkiEwioyKCi4rXVAhXJEhUKHSkgAM8o-B0" >
+      <span class="video-thumb  yt-thumb yt-thumb-48 g-hovercard"
+      data-ytid="UCPEy0kCRisGeyfaewp88Aig"
+    >
+    <span class="yt-thumb-square">
+      <span class="yt-thumb-clip">
+        
+  <img src="/yts/img/pixel-vfl3z5WfW.gif" alt="ja rek" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" data-thumb="https://yt3.ggpht.com/-Lp-I13pDKtI/AAAAAAAAAAI/AAAAAAAAAAA/LoMILL4zmks/s88-c-k-no-mo-rj-c0xffffff/photo.jpg" data-ytimg="1" width="48" height="48" >
+
+        <span class="vertical-align"></span>
+      </span>
+    </span>
+  </span>
+
+  </a>
+  <div class="yt-user-info">
+    <a href="/channel/UCPEy0kCRisGeyfaewp88Aig" class="g-hovercard yt-uix-sessionlink       spf-link " data-ytid="UCPEy0kCRisGeyfaewp88Aig" data-sessionlink="itct=CDIQ4TkiEwioyKCi4rXVAhXJEhUKHSkgAM8o-B0" >ja rek</a>
+  </div>
+<span id="watch7-subscription-container"></span></div>
+    <div id="watch8-action-buttons" class="watch-action-buttons clearfix"><div id="watch8-secondary-actions" class="watch-secondary-actions yt-uix-button-group" data-button-toggle-group="optional">    <span class="yt-uix-clickcard">
+      <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-opacity yt-uix-button-has-icon no-icon-markup yt-uix-clickcard-target addto-button pause-resume-autoplay yt-uix-tooltip" type="button" onclick=";return false;" title="Hozzáadás" data-position="bottomleft" data-orientation="vertical"><span class="yt-uix-button-content">Hozzáadás</span></button>
+        <div class="signin-clickcard yt-uix-clickcard-content">
+    <h3 class="signin-clickcard-header">Szeretnéd újra megnézni később?</h3>
+    <div class="signin-clickcard-message">
+      Jelentkezz be, ha szeretnéd hozzáadni ezt a videót egy lejátszási listához.
+    </div>
+    <a  href="https://accounts.google.com/ServiceLogin?passive=true&amp;hl=hu&amp;continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Ffeature%3D__FEATURE__%26hl%3Dhu%26next%3D%252Fwatch%253Fv%253DFDsdy61m0PI%26action_handle_signin%3Dtrue%26app%3Ddesktop&amp;uilel=3&amp;service=youtube" class="yt-uix-button  signin-button yt-uix-sessionlink yt-uix-button-primary yt-uix-button-size-default" data-sessionlink="ei=-E-AWajsOMmlVKnAgPgM"><span class="yt-uix-button-content">Bejelentkezés</span></a>
+  </div>
+
+    </span>
+  <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-opacity yt-uix-button-has-icon no-icon-markup pause-resume-autoplay action-panel-trigger action-panel-trigger-share   yt-uix-tooltip" type="button" onclick=";return false;" title="Megosztás
+" data-trigger-for="action-panel-share" data-button-toggle="true"><span class="yt-uix-button-content">Megosztás
+</span></button>
+<div class="yt-uix-menu " >  <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-opacity yt-uix-button-has-icon no-icon-markup pause-resume-autoplay yt-uix-menu-trigger yt-uix-tooltip" type="button" onclick=";return false;" aria-label="Action menu." aria-haspopup="true" role="button" id="action-panel-overflow-button" aria-pressed="false" title="További műveletek"><span class="yt-uix-button-content">Továbbiak</span></button>
+<div class="yt-uix-menu-content yt-ui-menu-content yt-uix-menu-content-hidden" role="menu"><ul id="action-panel-overflow-menu">  <li>
+      <span class="yt-uix-clickcard" data-card-class=report-card>
+          <button type="button" class="yt-ui-menu-item has-icon action-panel-trigger action-panel-trigger-report report-button yt-uix-clickcard-target"
+ data-position="topright" data-orientation="horizontal">
+    <span class="yt-ui-menu-item-label">Bejelentés</span>
+  </button>
+
+          <div class="signin-clickcard yt-uix-clickcard-content">
+    <h3 class="signin-clickcard-header">Szeretnél bejelentést tenni a videóról?</h3>
+    <div class="signin-clickcard-message">
+      Jelentkezz be a nem megfelelő tartalom bejelentéséhez.
+    </div>
+    <a  href="https://accounts.google.com/ServiceLogin?passive=true&amp;hl=hu&amp;continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Ffeature%3D__FEATURE__%26hl%3Dhu%26next%3D%252Fwatch%253Fv%253DFDsdy61m0PI%26action_handle_signin%3Dtrue%26app%3Ddesktop&amp;uilel=3&amp;service=youtube" class="yt-uix-button  signin-button yt-uix-sessionlink yt-uix-button-primary yt-uix-button-size-default" data-sessionlink="ei=-E-AWajsOMmlVKnAgPgM"><span class="yt-uix-button-content">Bejelentkezés</span></a>
+  </div>
+
+      </span>
+  </li>
+  <a href="/timedtext_video?ref=wt&amp;auto=yes&amp;bl=watch&amp;v=FDsdy61m0PI" class="yt-ui-menu-item has-icon action-panel-trigger-translate" rel="nofollow"
+>
+    <span class="yt-ui-menu-item-label">Fordítás hozzáadása</span>
+  </a>
+</ul></div></div></div><div id="watch8-sentiment-actions"><div id="watch7-views-info"><div class="watch-view-count">1 128 megtekintés</div>
+  <div class="video-extras-sparkbars">
+    <div class="video-extras-sparkbar-likes" style="width: 86.6666666667%"></div>
+    <div class="video-extras-sparkbar-dislikes" style="width: 13.3333333333%"></div>
+  </div>
+</div>
+
+
+
+
+  <span class="like-button-renderer " data-button-toggle-group="optional" >
+    <span class="yt-uix-clickcard">
+      <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-opacity yt-uix-button-has-icon no-icon-markup like-button-renderer-like-button like-button-renderer-like-button-unclicked yt-uix-clickcard-target   yt-uix-tooltip" type="button" onclick=";return false;" aria-label="Tetszik, mint 13 másik embernek" title="Ez tetszik" data-force-position="true" data-position="bottomright" data-orientation="vertical"><span class="yt-uix-button-content">13</span></button>
+          <div class="signin-clickcard yt-uix-clickcard-content">
+    <h3 class="signin-clickcard-header">Tetszik ez a videó?</h3>
+    <div class="signin-clickcard-message">
+      Jelentkezz be, hogy elmondhasd véleményed.
+    </div>
+    <a  href="https://accounts.google.com/ServiceLogin?passive=true&amp;hl=hu&amp;continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Ffeature%3D__FEATURE__%26hl%3Dhu%26next%3D%252Fwatch%253Fv%253DFDsdy61m0PI%26action_handle_signin%3Dtrue%26app%3Ddesktop&amp;uilel=3&amp;service=youtube" class="yt-uix-button  signin-button yt-uix-sessionlink yt-uix-button-primary yt-uix-button-size-default" data-sessionlink="ei=-E-AWajsOMmlVKnAgPgM"><span class="yt-uix-button-content">Bejelentkezés</span></a>
+  </div>
+
+    </span>
+    <span class="yt-uix-clickcard">
+      <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-opacity yt-uix-button-has-icon no-icon-markup like-button-renderer-like-button like-button-renderer-like-button-clicked yt-uix-button-toggled  hid yt-uix-tooltip" type="button" onclick=";return false;" aria-label="Tetszik, mint 13 másik embernek" title="Nem tetszik" data-force-position="true" data-position="bottomright" data-orientation="vertical"><span class="yt-uix-button-content">14</span></button>
+    </span>
+    <span class="yt-uix-clickcard">
+      <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-opacity yt-uix-button-has-icon no-icon-markup like-button-renderer-dislike-button like-button-renderer-dislike-button-unclicked yt-uix-clickcard-target   yt-uix-tooltip" type="button" onclick=";return false;" aria-label="Nem tetszik, mint 2 másik embernek" title="Ez nem tetszik" data-force-position="true" data-position="bottomright" data-orientation="vertical"><span class="yt-uix-button-content">2</span></button>
+          <div class="signin-clickcard yt-uix-clickcard-content">
+    <h3 class="signin-clickcard-header">Nem tetszik ez a videó?</h3>
+    <div class="signin-clickcard-message">
+      Jelentkezz be, hogy elmondhasd véleményed.
+    </div>
+    <a  href="https://accounts.google.com/ServiceLogin?passive=true&amp;hl=hu&amp;continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Ffeature%3D__FEATURE__%26hl%3Dhu%26next%3D%252Fwatch%253Fv%253DFDsdy61m0PI%26action_handle_signin%3Dtrue%26app%3Ddesktop&amp;uilel=3&amp;service=youtube" class="yt-uix-button  signin-button yt-uix-sessionlink yt-uix-button-primary yt-uix-button-size-default" data-sessionlink="ei=-E-AWajsOMmlVKnAgPgM"><span class="yt-uix-button-content">Bejelentkezés</span></a>
+  </div>
+
+    </span>
+    <span class="yt-uix-clickcard">
+      <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-opacity yt-uix-button-has-icon no-icon-markup like-button-renderer-dislike-button like-button-renderer-dislike-button-clicked yt-uix-button-toggled  hid yt-uix-tooltip" type="button" onclick=";return false;" aria-label="Nem tetszik, mint 2 másik embernek" title="Ez nem tetszik" data-force-position="true" data-position="bottomright" data-orientation="vertical"><span class="yt-uix-button-content">3</span></button>
+    </span>
+  </span>
+</div></div>
+  </div>
+
+
+
+
+  
+
+      <div id="watch-action-panels" class="watch-action-panels yt-uix-button-panel hid yt-card yt-card-has-padding">
+      <div id="action-panel-share" class="action-panel-content hid">
+      <div id="watch-actions-share-loading">
+    <div class="action-panel-loading">
+        <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+    </div>
+  </div>
+  <div id="watch-actions-share-panel"></div>
+
+  </div>
+
+      <div id="action-panel-stats" class="action-panel-content hid">
+    <div class="action-panel-loading">
+        <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+    </div>
+  </div>
+
+      <div id="action-panel-report" class="action-panel-content hid"
+      data-auth-required="true"
+  >
+    <div class="action-panel-loading">
+        <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+    </div>
+  </div>
+
+    
+  <div id="action-panel-rental-required" class="action-panel-content hid">
+      <div id="watch-actions-rental-required">
+    <strong>Az értékelés akkor érhető el, ha a videót kikölcsönözték.</strong>
+  </div>
+
+  </div>
+
+  <div id="action-panel-error" class="action-panel-content hid">
+    <div class="action-panel-error">
+      Ez a funkció most nem érhető el. Kérjük, próbáld újra később.
+    </div>
+  </div>
+
+    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup yt-uix-button-opacity yt-uix-close" type="button" onclick=";return false;" aria-label="Bezárás" id="action-panel-dismiss" data-close-parent-id="watch8-action-panels"></button>
+  </div>
+
+
+    <div id="promotion-shelf" class="promotion-shelf-slot yt-card yt-card-has-padding hid"></div>
+
+
+    <div id="action-panel-details" class="action-panel-content yt-uix-expander yt-card yt-card-has-padding yt-uix-expander-collapsed"><div id="watch-description" class="yt-uix-button-panel"><div id="watch-description-content"><div id="watch-description-clip"><div id="watch-uploader-info"><strong class="watch-time-text">Közzététel: 2016. márc. 8.</strong></div><div id="watch-description-text" class=""><p id="eow-description" class="" >Tytuły:<br /><a href="#" onclick="yt.www.watch.player.seekTo(0*60+00);return false;">0:00</a> - <a href="#" onclick="yt.www.watch.player.seekTo(2*60+49);return false;">2:49</a> - Łobuzy- ona czuje mnie piniądz     LINK: <a href="https://youtu.be/_YHa208H-Gc" class="yt-uix-servicelink  " data-url="https://youtu.be/_YHa208H-Gc" data-servicelink="CDAQ6TgYACITCKjIoKLitdUCFckSFQodKSAAzyj4HQ" rel="nofollow noopener" target="_blank">https://youtu.be/_YHa208H-Gc</a><br /><a href="#" onclick="yt.www.watch.player.seekTo(2*60+50);return false;">2:50</a> - <a href="#" onclick="yt.www.watch.player.seekTo(6*60+05);return false;">6:05</a> - MIG- nie a mocnych Mariolę     LINK: <a href="https://youtu.be/uF4FpclWoow" class="yt-uix-servicelink  " data-url="https://youtu.be/uF4FpclWoow" data-servicelink="CDAQ6TgYACITCKjIoKLitdUCFckSFQodKSAAzyj4HQ" rel="nofollow noopener" target="_blank">https://youtu.be/uF4FpclWoow</a><br /><a href="#" onclick="yt.www.watch.player.seekTo(6*60+06);return false;">6:06</a> - <a href="#" onclick="yt.www.watch.player.seekTo(9*60+24);return false;">9:24</a> - Bobi- Ela Ela     LINK: <a href="https://youtu.be/kzunTlebVZU" class="yt-uix-servicelink  " data-url="https://youtu.be/kzunTlebVZU" data-servicelink="CDAQ6TgYACITCKjIoKLitdUCFckSFQodKSAAzyj4HQ" rel="nofollow noopener" target="_blank">https://youtu.be/kzunTlebVZU</a><br /><a href="#" onclick="yt.www.watch.player.seekTo(9*60+25);return false;">9:25</a> - <a href="#" onclick="yt.www.watch.player.seekTo(12*60+12);return false;">12:12</a> - Marek Gwiazdowski (MIG)- tylko ona jedyna     LINK: <a href="https://youtu.be/hY8ByWUca6U" class="yt-uix-servicelink  " data-url="https://youtu.be/hY8ByWUca6U" data-servicelink="CDAQ6TgYACITCKjIoKLitdUCFckSFQodKSAAzyj4HQ" rel="nofollow noopener" target="_blank">https://youtu.be/hY8ByWUca6U</a><br /><a href="#" onclick="yt.www.watch.player.seekTo(12*60+13);return false;">12:13</a> - <a href="#" onclick="yt.www.watch.player.seekTo(16*60+05);return false;">16:05</a> - Long & Junior- Bądź moją królową     LINK: <a href="https://youtu.be/z2K9w8brFIc" class="yt-uix-servicelink  " data-url="https://youtu.be/z2K9w8brFIc" data-servicelink="CDAQ6TgYACITCKjIoKLitdUCFckSFQodKSAAzyj4HQ" rel="nofollow noopener" target="_blank">https://youtu.be/z2K9w8brFIc</a><br /><a href="#" onclick="yt.www.watch.player.seekTo(16*60+06);return false;">16:06</a> - <a href="#" onclick="yt.www.watch.player.seekTo(19*60+16);return false;">19:16</a> - MIG- Wymarzona     LINK: <a href="https://youtu.be/GzjOboh588Y" class="yt-uix-servicelink  " data-url="https://youtu.be/GzjOboh588Y" data-servicelink="CDAQ6TgYACITCKjIoKLitdUCFckSFQodKSAAzyj4HQ" rel="nofollow noopener" target="_blank">https://youtu.be/GzjOboh588Y</a><br /><a href="#" onclick="yt.www.watch.player.seekTo(19*60+17);return false;">19:17</a> - <a href="#" onclick="yt.www.watch.player.seekTo(22*60+50);return false;">22:50</a> - Power Play- Lubisz to lubisz     LINK: <a href="https://youtu.be/j6tH_Jpe-lE" class="yt-uix-servicelink  " data-url="https://youtu.be/j6tH_Jpe-lE" data-servicelink="CDAQ6TgYACITCKjIoKLitdUCFckSFQodKSAAzyj4HQ" rel="nofollow noopener" target="_blank">https://youtu.be/j6tH_Jpe-lE</a><br /><a href="#" onclick="yt.www.watch.player.seekTo(22*60+51);return false;">22:51</a> - <a href="#" onclick="yt.www.watch.player.seekTo(26*60+30);return false;">26:30</a> - MIG- Miód malina     LINK: <a href="https://youtu.be/vwCWwZetRaI" class="yt-uix-servicelink  " data-url="https://youtu.be/vwCWwZetRaI" data-servicelink="CDAQ6TgYACITCKjIoKLitdUCFckSFQodKSAAzyj4HQ" rel="nofollow noopener" target="_blank">https://youtu.be/vwCWwZetRaI</a><br /><a href="#" onclick="yt.www.watch.player.seekTo(26*60+31);return false;">26:31</a> - <a href="#" onclick="yt.www.watch.player.seekTo(29*60+57);return false;">29:57</a> - Veegas- klaszcz i śpiewaj     LINK: <a href="https://youtu.be/FIOvphw8HTA" class="yt-uix-servicelink  " data-url="https://youtu.be/FIOvphw8HTA" data-servicelink="CDAQ6TgYACITCKjIoKLitdUCFckSFQodKSAAzyj4HQ" rel="nofollow noopener" target="_blank">https://youtu.be/FIOvphw8HTA</a></p></div>  <div id="watch-description-extras">
+    <ul class="watch-extras-section">
+            <li class="watch-meta-item yt-uix-expander-body">
+    <h4 class="title">
+      Kategória
+    </h4>
+    <ul class="content watch-info-tag-list">
+        <li><a href="/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ" class="g-hovercard yt-uix-sessionlink      spf-link " data-ytid="UC-9-kyTW8ZkZNDHQJ6FgpwQ" data-sessionlink="ei=-E-AWajsOMmlVKnAgPgM" >Zene</a></li>
+    </ul>
+  </li>
+
+            <li class="watch-meta-item yt-uix-expander-body">
+    <h4 class="title">
+      Licenc
+    </h4>
+    <ul class="content watch-info-tag-list">
+        <li>Normál YouTube-licenc</li>
+    </ul>
+  </li>
+
+            <li class="watch-meta-item yt-uix-expander-body">
+    <h4 class="title">
+      Zene
+    </h4>
+    <ul class="content watch-info-tag-list">
+        <li>„Klaszcz i śpiewaj (Aranż)”, előadó: Veegas (<a href="https://www.youtube.com/cthru?c2b=googlemusic&amp;key=AE_82TcyBRv1hMrGrzfALUBFKgWLNC538DZ9D1IDw9hg8-HNtabzDVwu5oVpkqoAgCPqrdKqgIWgh1HZbfSl_1OiWPhHfZZDB98gGvgbphWYMQMyKWtzCRuMjBfD2-hhMxp3Dw-GGlN3SnwRt6UXr0vc1urrEm-hUIBF1txq7Sm6AZ5rWGY_nFZlvLqdWEaNKfRCfbhIiKpA6Y0Mj5goPQ3spFPkkvl-N9tu9WZaRakSGoKCtEJWw0w&amp;version=2&amp;v=FDsdy61m0PI" class=" yt-uix-sessionlink " data-url="https://www.youtube.com/cthru?c2b=googlemusic&amp;key=AE_82TcyBRv1hMrGrzfALUBFKgWLNC538DZ9D1IDw9hg8-HNtabzDVwu5oVpkqoAgCPqrdKqgIWgh1HZbfSl_1OiWPhHfZZDB98gGvgbphWYMQMyKWtzCRuMjBfD2-hhMxp3Dw-GGlN3SnwRt6UXr0vc1urrEm-hUIBF1txq7Sm6AZ5rWGY_nFZlvLqdWEaNKfRCfbhIiKpA6Y0Mj5goPQ3spFPkkvl-N9tu9WZaRakSGoKCtEJWw0w&amp;version=2&amp;v=FDsdy61m0PI" data-sessionlink="ei=-E-AWajsOMmlVKnAgPgM" >Google Play</a> • <a href="https://www.youtube.com/cthru?c2b=itunes&amp;key=AE_82TcYc8CJjvFUGpC-8Y1Glb-uwSrUouSokyhDkoFrj76Wbh6HYVnk2ZQcugk98_UOSkCrNcHiL5Oxvlro4mDpSYFR4uA9V5PO4O5P1788_ex2Yh34J4cJIXGXJUy2JVvS_JPSgF60NgVie5JY8mEZ1u1ubpvTwixd0OarbfI-ClsP_n3_Fn4nSiq3SMpd7qOuJfZ6P6tC0dvhvNuLR-jwhpEcAxPkQA&amp;version=2&amp;v=FDsdy61m0PI" class=" yt-uix-sessionlink " data-url="https://www.youtube.com/cthru?c2b=itunes&amp;key=AE_82TcYc8CJjvFUGpC-8Y1Glb-uwSrUouSokyhDkoFrj76Wbh6HYVnk2ZQcugk98_UOSkCrNcHiL5Oxvlro4mDpSYFR4uA9V5PO4O5P1788_ex2Yh34J4cJIXGXJUy2JVvS_JPSgF60NgVie5JY8mEZ1u1ubpvTwixd0OarbfI-ClsP_n3_Fn4nSiq3SMpd7qOuJfZ6P6tC0dvhvNuLR-jwhpEcAxPkQA&amp;version=2&amp;v=FDsdy61m0PI" data-sessionlink="ei=-E-AWajsOMmlVKnAgPgM" >iTunes</a>)</li>
+    </ul>
+  </li>
+
+    </ul>
+  </div>
+</div></div></div>  <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-expander yt-uix-expander-head yt-uix-expander-collapsed-body yt-uix-gen204" type="button" onclick=";return false;" data-gen204="feature=watch-show-more-metadata"><span class="yt-uix-button-content">Több</span></button>
+  <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-expander yt-uix-expander-head yt-uix-expander-body" type="button" onclick=";return false;"><span class="yt-uix-button-content">Kevesebb</span></button>
+</div>
+
+
+
+
+
+        <div id="watch-discussion" class="branded-page-box yt-card">
+          <div class="action-panel-loading">
+        <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+    </div>
+
+  </div>
+
+
+      </div>
+      <div id="watch7-sidebar" class="watch-sidebar">
+            <div id="placeholder-playlist" class="watch-playlist player-height  hid"></div>
+
+
+
+  <div id="watch7-sidebar-contents" class="watch-sidebar-gutter   yt-card yt-card-has-padding    yt-uix-expander yt-uix-expander-collapsed">
+      <div id="watch7-sidebar-offer">
+        
+      </div>
+
+    <div id="watch7-sidebar-ads">
+      
+    </div>
+    <div id="watch7-sidebar-modules">
+            <div class="watch-sidebar-section">
+    <div class="autoplay-bar">
+      <div class="checkbox-on-off">
+       <label for="autoplay-checkbox">Automatikus lejátszás</label>
+       <span class="autoplay-hovercard yt-uix-hovercard">
+          <span class="autoplay-info-icon yt-uix-button-opacity yt-uix-hovercard-target yt-sprite" data-position="topright" data-orientation="vertical"></span>
+<span class="yt-uix-hovercard-content">Ha az automatikus lejátszás engedélyezve van, akkor a javasolt videó lejátszása  automatikusan elindul.</span>        </span>
+          <span class="yt-uix-checkbox-on-off ">
+<input id="autoplay-checkbox" class="" type="checkbox"  checked><label for="autoplay-checkbox" id="autoplay-checkbox-label"><span class="checked"></span><span class="toggle"></span><span class="unchecked"></span></label>  </span>
+
+      </div>
+      <h4 class="watch-sidebar-head">
+        Következő
+      </h4>
+        <div class="watch-sidebar-body">
+    <ul class="video-list">
+        <li class="video-list-item related-list-item show-video-time">
+          
+
+    <div class="content-wrapper">
+    <a href="/watch?v=ARaJxomsH54" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCoQpDAYACITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHYXV0b25hdkjyoZvrurnHnRQ"  rel="spf-prefetch" title="🔥MAJÓWKA 2017 🔥★SKŁADANKA DISCO POLO 2017★MEGA HITY★NOWOŚCI★NA IMPREZĘ★NA DOMÓWKĘ" data-visibility-tracking="CCoQpDAYACITCKjIoKLitdUCFckSFQodKSAAzyj4HUCev7DN6LiiiwE=" >
+  <span dir="ltr" class="title" aria-describedby="description-id-469633">
+    🔥MAJÓWKA 2017 🔥★SKŁADANKA DISCO POLO 2017★MEGA HITY★NOWOŚCI★NA IMPREZĘ★NA DOMÓWKĘ
+  </span>
+  <span class="accessible-description" id="description-id-469633">
+     - Időtartam: 20:26.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UCvD-2d82MMBm9DUp6GBfgaA" data-name="autonav">DJAdiMusic</span></span>
+  <span class="stat view-count">35 817 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=ARaJxomsH54" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCoQpDAYACITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHYXV0b25hdkjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CCoQpDAYACITCKjIoKLitdUCFckSFQodKSAAzyj4HUCev7DN6LiiiwE=" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="ARaJxomsH54"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/ARaJxomsH54/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLApceBFLN3F0EoWgisaeRLdpuvQuA" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            20:26
+          </span>
+  </div>
+
+
+        </li>
+    </ul>
+  </div>
+
+    </div>
+  </div>
+
+        
+          <div class="watch-sidebar-section">
+      <hr class="watch-sidebar-separation-line">
+    <div class="watch-sidebar-body">
+      <ul id="watch-related" class="video-list">
+          <li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=rTw9BC3TvYk" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCgQpDAYASITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="LUTY/MARZEC/KWIECIEŃ 2016!!! IMPREZOWA SKŁADANKA DISCO POLO !!! NOWOŚCI !!! HITY!!!" data-visibility-tracking="CCgQpDAYASITCKjIoKLitdUCFckSFQodKSAAzyj4HUCJ-87uwqCPnq0B" >
+  <span dir="ltr" class="title" aria-describedby="description-id-541954">
+    LUTY/MARZEC/KWIECIEŃ 2016!!! IMPREZOWA SKŁADANKA DISCO POLO !!! NOWOŚCI !!! HITY!!!
+  </span>
+  <span class="accessible-description" id="description-id-541954">
+     - Időtartam: 1:06:04.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UCM3sf4GlsKv2Um6br_F_Fqw" data-name="related">DJ Podbiel</span></span>
+  <span class="stat view-count">2 286 352 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=rTw9BC3TvYk" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCgQpDAYASITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CCgQpDAYASITCKjIoKLitdUCFckSFQodKSAAzyj4HUCJ-87uwqCPnq0B" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="rTw9BC3TvYk"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/rTw9BC3TvYk/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLAfvCqF6cH5SMFw34TUPvtNwk0-Aw" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            1:06:04
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=sfb6VWfyduc" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCcQpDAYAiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="Składanka Disco Polo 2017 NOWOŚĆ !!!" data-visibility-tracking="CCcQpDAYAiITCKjIoKLitdUCFckSFQodKSAAzyj4HUDn7cm_1sq--7EB" >
+  <span dir="ltr" class="title" aria-describedby="description-id-106086">
+    Składanka Disco Polo 2017 NOWOŚĆ !!!
+  </span>
+  <span class="accessible-description" id="description-id-106086">
+     - Időtartam: 1:09:08.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UCDUkH09ZFDdCP9bV00P1EzQ" data-name="related">TREC669</span></span>
+  <span class="stat view-count">2 817 695 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=sfb6VWfyduc" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCcQpDAYAiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CCcQpDAYAiITCKjIoKLitdUCFckSFQodKSAAzyj4HUDn7cm_1sq--7EB" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="sfb6VWfyduc"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/sfb6VWfyduc/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLD2btq3kP6SJhaRo3KSlGjs-0av9w" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            1:09:08
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=ZDO0UZbFm14" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCYQpDAYAyITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="Muzyczna Składanka Disco Polo 2015 2016" data-visibility-tracking="CCYQpDAYAyITCKjIoKLitdUCFckSFQodKSAAzyj4HUDetpa2mYrtmWQ=" >
+  <span dir="ltr" class="title" aria-describedby="description-id-825454">
+    Muzyczna Składanka Disco Polo 2015 2016
+  </span>
+  <span class="accessible-description" id="description-id-825454">
+     - Időtartam: 32:46.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UCOncahE6kKoQnKW22j4pt-Q" data-name="related">Mr_Pesos</span></span>
+  <span class="stat view-count">914 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=ZDO0UZbFm14" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCYQpDAYAyITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CCYQpDAYAyITCKjIoKLitdUCFckSFQodKSAAzyj4HUDetpa2mYrtmWQ=" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="ZDO0UZbFm14"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/ZDO0UZbFm14/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLAljuAUb8MmqN8IRd2lH3xHi_e7tQ" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            32:46
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=C9X_pCvHyXM" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCUQpDAYBCITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="SYLWESTER 2016/2017 | ✯Muzyka Dance / Disco Polo✯ | ♫HITY REMIXY♫" data-visibility-tracking="CCUQpDAYBCITCKjIoKLitdUCFckSFQodKSAAzyj4HUDzkp_ewvT_6gs=" >
+  <span dir="ltr" class="title" aria-describedby="description-id-353982">
+    SYLWESTER 2016/2017 | ✯Muzyka Dance / Disco Polo✯ | ♫HITY REMIXY♫
+  </span>
+  <span class="accessible-description" id="description-id-353982">
+     - Időtartam: 1:23:13.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UCfLTmOORZQg3GZHFYZUN9NQ" data-name="related">Adixx aka Adrian Z Official</span></span>
+  <span class="stat view-count">325 051 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=C9X_pCvHyXM" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCUQpDAYBCITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CCUQpDAYBCITCKjIoKLitdUCFckSFQodKSAAzyj4HUDzkp_ewvT_6gs=" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="C9X_pCvHyXM"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/C9X_pCvHyXM/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLBINfP5SpV9ZtNHzvdEhfdXZZqWYQ" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            1:23:13
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=RvpUqUbpx18" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCQQpDAYBSITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="🌟 DISCO POLO! 2016!🌟 MEGA!!! HITY!!! DISCO POLO!  2016" data-visibility-tracking="CCQQpDAYBSITCKjIoKLitdUCFckSFQodKSAAzyj4HUDfjqe3lJWV_UY=" >
+  <span dir="ltr" class="title" aria-describedby="description-id-297106">
+    🌟 DISCO POLO! 2016!🌟 MEGA!!! HITY!!! DISCO POLO!  2016
+  </span>
+  <span class="accessible-description" id="description-id-297106">
+     - Időtartam: 1:02:55.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UC5C-lwYO7AuYhpss_r8bB4w" data-name="related">MOC MUZYKI</span></span>
+  <span class="stat view-count">539 457 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=RvpUqUbpx18" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCQQpDAYBSITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CCQQpDAYBSITCKjIoKLitdUCFckSFQodKSAAzyj4HUDfjqe3lJWV_UY=" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="RvpUqUbpx18"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/RvpUqUbpx18/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLAxQjpg3Gir4CuiPpY7SaDsDASivA" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            1:02:55
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=WIKSbTGzaZ0" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCMQpDAYBiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="KWIECIEŃ - MAJ 2017 💧 SKŁADANKA 💧 MUZYKA NA IMPREZE 💧 DOMÓWKE 💧 DO SAMOCHODU 💧" data-visibility-tracking="CCMQpDAYBiITCKjIoKLitdUCFckSFQodKSAAzyj4HUCd082N082kwVg=" >
+  <span dir="ltr" class="title" aria-describedby="description-id-889403">
+    KWIECIEŃ - MAJ 2017 💧 SKŁADANKA 💧 MUZYKA NA IMPREZE 💧 DOMÓWKE 💧 DO SAMOCHODU 💧
+  </span>
+  <span class="accessible-description" id="description-id-889403">
+     - Időtartam: 34:07.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UCoQcNaVZXW2vVnGcCgscO5g" data-name="related">DJ AMCZI</span></span>
+  <span class="stat view-count">2 032 154 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=WIKSbTGzaZ0" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCMQpDAYBiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CCMQpDAYBiITCKjIoKLitdUCFckSFQodKSAAzyj4HUCd082N082kwVg=" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="WIKSbTGzaZ0"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/WIKSbTGzaZ0/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLDOIitXqWTFa6S8kJcxEGLbGEVQCg" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            34:07
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=0cOOQJz3600" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCIQpDAYByITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="SKŁADANKA DISCO POLO 2016 vol.2 Fancy Music 2016" data-visibility-tracking="CCIQpDAYByITCKjIoKLitdUCFckSFQodKSAAzyj4HUDN1t_nicjj4dEB" >
+  <span dir="ltr" class="title" aria-describedby="description-id-395948">
+    SKŁADANKA DISCO POLO 2016 vol.2 Fancy Music 2016
+  </span>
+  <span class="accessible-description" id="description-id-395948">
+     - Időtartam: 56:47.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UCoRmsYawEY-DCVXS6QVSpFQ" data-name="related">Fancy Music</span></span>
+  <span class="stat view-count">782 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=0cOOQJz3600" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCIQpDAYByITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CCIQpDAYByITCKjIoKLitdUCFckSFQodKSAAzyj4HUDN1t_nicjj4dEB" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="0cOOQJz3600"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/0cOOQJz3600/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLADxoVa7sLCDjd-X0VgAXnyyATy1w" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            56:47
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=HUXp0pTgUzk" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCEQpDAYCCITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="🌟 DISCO POLO! GRUDZIEŃ 2016!!! 🌟 HIT!!! ZA HITEM!!! 🌟 TYLKO MEGA!!! KAWAŁKI!!! 🌟 MIŁEGO SŁUCHANIA!!!" data-visibility-tracking="CCEQpDAYCCITCKjIoKLitdUCFckSFQodKSAAzyj4HUC5poGnqbr6oh0=" >
+  <span dir="ltr" class="title" aria-describedby="description-id-159884">
+    🌟 DISCO POLO! GRUDZIEŃ 2016!!! 🌟 HIT!!! ZA HITEM!!! 🌟 TYLKO MEGA!!! KAWAŁKI!!! 🌟 MIŁEGO SŁUCHANIA!!!
+  </span>
+  <span class="accessible-description" id="description-id-159884">
+     - Időtartam: 1:02:39.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UC5C-lwYO7AuYhpss_r8bB4w" data-name="related">MOC MUZYKI</span></span>
+  <span class="stat view-count">472 472 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=HUXp0pTgUzk" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCEQpDAYCCITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CCEQpDAYCCITCKjIoKLitdUCFckSFQodKSAAzyj4HUC5poGnqbr6oh0=" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="HUXp0pTgUzk"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/HUXp0pTgUzk/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLAR3j7TdVfwLQL9XapZJlORT-F3Xg" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            1:02:39
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=d245yGvXoW8" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCAQpDAYCSITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="Składanka Disco Polo (największe przeboje) - Idealne na impreze!" data-visibility-tracking="CCAQpDAYCSITCKjIoKLitdUCFckSFQodKSAAzyj4HUDvwt7ehrmOt3c=" >
+  <span dir="ltr" class="title" aria-describedby="description-id-812798">
+    Składanka Disco Polo (największe przeboje) - Idealne na impreze!
+  </span>
+  <span class="accessible-description" id="description-id-812798">
+     - Időtartam: 2:34:16.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UC2YfbiOAeYzdJcCCt--XoYA" data-name="related">parys252</span></span>
+  <span class="stat view-count">5 564 587 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=d245yGvXoW8" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCAQpDAYCSITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CCAQpDAYCSITCKjIoKLitdUCFckSFQodKSAAzyj4HUDvwt7ehrmOt3c=" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="d245yGvXoW8"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/d245yGvXoW8/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLCbr7e1HM0UvC41btxRgHnoZHdoaA" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            2:34:16
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=oZhP-0bHUSc" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CB8QpDAYCiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="Składanka Disco Polo  Wiosna/Kwiecień 2016 Nowości!" data-visibility-tracking="CB8QpDAYCiITCKjIoKLitdUCFckSFQodKSAAzyj4HUCnop22tP-TzKEB" >
+  <span dir="ltr" class="title" aria-describedby="description-id-559576">
+    Składanka Disco Polo  Wiosna/Kwiecień 2016 Nowości!
+  </span>
+  <span class="accessible-description" id="description-id-559576">
+     - Időtartam: 32:56.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UCVfkr5OfXPbPOCk8ygVWAAA" data-name="related">Dj OsieJ</span></span>
+  <span class="stat view-count">18 830 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=oZhP-0bHUSc" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CB8QpDAYCiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CB8QpDAYCiITCKjIoKLitdUCFckSFQodKSAAzyj4HUCnop22tP-TzKEB" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="oZhP-0bHUSc"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/oZhP-0bHUSc/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLCW3g0hEFiyTWtFpFKH6hDiPU3TYQ" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            32:56
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=FzlsTH2J3_E" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CB4QpDAYCyITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="IMPREZOWA SKŁADANKA DISCO POLO 2016 ZIMA STYCZEŃ/LUTY/MARZEC-NOWOŚCI / POLOSETY" data-visibility-tracking="CB4QpDAYCyITCKjIoKLitdUCFckSFQodKSAAzyj4HUDxv6fsx4nbnBc=" >
+  <span dir="ltr" class="title" aria-describedby="description-id-927814">
+    IMPREZOWA SKŁADANKA DISCO POLO 2016 ZIMA STYCZEŃ/LUTY/MARZEC-NOWOŚCI / POLOSETY
+  </span>
+  <span class="accessible-description" id="description-id-927814">
+     - Időtartam: 1:28:29.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UC4oWc2avREEclrNY9ko6tgQ" data-name="related">PoloSety</span></span>
+  <span class="stat view-count">3 759 002 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=FzlsTH2J3_E" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CB4QpDAYCyITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CB4QpDAYCyITCKjIoKLitdUCFckSFQodKSAAzyj4HUDxv6fsx4nbnBc=" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="FzlsTH2J3_E"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/FzlsTH2J3_E/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLD27nKeJ6_lvijueoWudzAVGNNDAQ" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            1:28:29
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=2LoibCyfEOI" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CB0QpDAYDCITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="DISCO POLO (Największe przeboje)" data-visibility-tracking="CB0QpDAYDCITCKjIoKLitdUCFckSFQodKSAAzyj4HUDiofzkws2I3dgB" >
+  <span dir="ltr" class="title" aria-describedby="description-id-309431">
+    DISCO POLO (Największe przeboje)
+  </span>
+  <span class="accessible-description" id="description-id-309431">
+     - Időtartam: 20:00.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UCiYlxr9n2WCJmZ-FdwZbYAA" data-name="related">ilovemakarska</span></span>
+  <span class="stat view-count">5 130 608 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=2LoibCyfEOI" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CB0QpDAYDCITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CB0QpDAYDCITCKjIoKLitdUCFckSFQodKSAAzyj4HUDiofzkws2I3dgB" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="2LoibCyfEOI"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/2LoibCyfEOI/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLD7x7CE55FrVPsvEmJQ6g7s-kC24g" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            20:00
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=K0dMW7Ay098" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBwQpDAYDSITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="Urodzinowa Składanka TOP 20 Remixów Disco Polo" data-visibility-tracking="CBwQpDAYDSITCKjIoKLitdUCFckSFQodKSAAzyj4HUDfp8uBu4vToys=" >
+  <span dir="ltr" class="title" aria-describedby="description-id-361044">
+    Urodzinowa Składanka TOP 20 Remixów Disco Polo
+  </span>
+  <span class="accessible-description" id="description-id-361044">
+     - Időtartam: 17:51.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UC7CVy8v0vP1ljWQ1uzuBy_g" data-name="related">Seweryn Michalak</span></span>
+  <span class="stat view-count">2 690 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=K0dMW7Ay098" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBwQpDAYDSITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CBwQpDAYDSITCKjIoKLitdUCFckSFQodKSAAzyj4HUDfp8uBu4vToys=" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="K0dMW7Ay098"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/K0dMW7Ay098/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLCwCr5J4W7KqfP5rTvgTgy56neKsA" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            17:51
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=08QfTppaHH0" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBsQpDAYDiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="SKŁADANKA DISCO POLO 2015 PAŹDZIERNIK-NOWOŚCI" data-visibility-tracking="CBsQpDAYDiITCKjIoKLitdUCFckSFQodKSAAzyj4HUD9uOjS6emH4tMB" >
+  <span dir="ltr" class="title" aria-describedby="description-id-565509">
+    SKŁADANKA DISCO POLO 2015 PAŹDZIERNIK-NOWOŚCI
+  </span>
+  <span class="accessible-description" id="description-id-565509">
+     - Időtartam: 1:36:23.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UC4oWc2avREEclrNY9ko6tgQ" data-name="related">PoloSety</span></span>
+  <span class="stat view-count">1 238 637 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=08QfTppaHH0" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBsQpDAYDiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CBsQpDAYDiITCKjIoKLitdUCFckSFQodKSAAzyj4HUD9uOjS6emH4tMB" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="08QfTppaHH0"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/08QfTppaHH0/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLBcWkbfacSKhpZAh9ikffO6B8Bc3g" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            1:36:23
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=BYpx6uCE1Js" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBoQpDAYDyITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="SKŁADANKA DISCO POLO 2016 KWIECIEŃ-NOWOŚCI / POLOSETY" data-visibility-tracking="CBoQpDAYDyITCKjIoKLitdUCFckSFQodKSAAzyj4HUCbqZOErr2cxQU=" >
+  <span dir="ltr" class="title" aria-describedby="description-id-674045">
+    SKŁADANKA DISCO POLO 2016 KWIECIEŃ-NOWOŚCI / POLOSETY
+  </span>
+  <span class="accessible-description" id="description-id-674045">
+     - Időtartam: 2:17:10.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UCyvO5SeezWYWO2rxhF7DXOA" data-name="related">PoloSety</span></span>
+  <span class="stat view-count">826 236 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=BYpx6uCE1Js" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBoQpDAYDyITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CBoQpDAYDyITCKjIoKLitdUCFckSFQodKSAAzyj4HUCbqZOErr2cxQU=" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="BYpx6uCE1Js"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/BYpx6uCE1Js/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLCN6mmF8xmnGRkMWSRRQO3q_EeafA" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            2:17:10
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=1d_2aR2lUgc" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBkQpDAYECITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="🌟 DISCO POLO! 2016!!! 🌟 HIT!!! ZA HITEM!!! 🌟 TYLKO MEGA!!! KAWAŁKI!!! 🌟" data-visibility-tracking="CBkQpDAYECITCKjIoKLitdUCFckSFQodKSAAzyj4HUCHpJXtkc3979UB" >
+  <span dir="ltr" class="title" aria-describedby="description-id-50448">
+    🌟 DISCO POLO! 2016!!! 🌟 HIT!!! ZA HITEM!!! 🌟 TYLKO MEGA!!! KAWAŁKI!!! 🌟
+  </span>
+  <span class="accessible-description" id="description-id-50448">
+     - Időtartam: 1:02:28.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UC5C-lwYO7AuYhpss_r8bB4w" data-name="related">MOC MUZYKI</span></span>
+  <span class="stat view-count">790 551 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=1d_2aR2lUgc" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBkQpDAYECITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CBkQpDAYECITCKjIoKLitdUCFckSFQodKSAAzyj4HUCHpJXtkc3979UB" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="1d_2aR2lUgc"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/1d_2aR2lUgc/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLBYL-rVQY50Rw-dvBLYY5ohsOMsfA" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            1:02:28
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=8Tf1OfHD548" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBgQpDAYESITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="SKŁADANKA DISCO POLO 2016 LUTY NOWOŚCI / POLOSETY" data-visibility-tracking="CBgQpDAYESITCKjIoKLitdUCFckSFQodKSAAzyj4HUCPz4-On6f9m_EB" >
+  <span dir="ltr" class="title" aria-describedby="description-id-994546">
+    SKŁADANKA DISCO POLO 2016 LUTY NOWOŚCI / POLOSETY
+  </span>
+  <span class="accessible-description" id="description-id-994546">
+     - Időtartam: 1:12:50.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UC4oWc2avREEclrNY9ko6tgQ" data-name="related">PoloSety</span></span>
+  <span class="stat view-count">265 108 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=8Tf1OfHD548" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBgQpDAYESITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CBgQpDAYESITCKjIoKLitdUCFckSFQodKSAAzyj4HUCPz4-On6f9m_EB" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="8Tf1OfHD548"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/8Tf1OfHD548/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLCqpVqcCcozrd0Qi8EMLmS5vG8Ukg" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            1:12:50
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=P5rS6SuSMUc" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBcQpDAYEiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="NAJLEPSZE DISCO POLO 2017!!!-MARZEC / KWIECIEŃ!!!-SKŁADANKA!!!-HITY!!!-NAJNOWSZE!!!-2017!!!" data-visibility-tracking="CBcQpDAYEiITCKjIoKLitdUCFckSFQodKSAAzyj4HUDH4sjckt20zT8=" >
+  <span dir="ltr" class="title" aria-describedby="description-id-549144">
+    NAJLEPSZE DISCO POLO 2017!!!-MARZEC / KWIECIEŃ!!!-SKŁADANKA!!!-HITY!!!-NAJNOWSZE!!!-2017!!!
+  </span>
+  <span class="accessible-description" id="description-id-549144">
+     - Időtartam: 40:31.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UCgUtA2JjVqJ_AgP-BxxgMGg" data-name="related">Składanki Disco Polo</span></span>
+  <span class="stat view-count">54 619 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=P5rS6SuSMUc" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBcQpDAYEiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CBcQpDAYEiITCKjIoKLitdUCFckSFQodKSAAzyj4HUDH4sjckt20zT8=" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="P5rS6SuSMUc"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/P5rS6SuSMUc/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLBe5hhWlXIfccDY9hEv-m8-O8mM_Q" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            40:31
+          </span>
+  </div>
+
+</li><li class="video-list-item related-list-item  show-video-time related-list-item-compact-video">
+
+    <div class="content-wrapper">
+    <a href="/watch?v=z52gxZhPXuo" class=" content-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBYQpDAYEyITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" title="SKŁADANKA DISCO POLO 2016 MARZEC-NOWOŚCI ! / POLOSETY" data-visibility-tracking="CBYQpDAYEyITCKjIoKLitdUCFckSFQodKSAAzyj4HUDqvb3C2Zjozs8B" >
+  <span dir="ltr" class="title" aria-describedby="description-id-571872">
+    SKŁADANKA DISCO POLO 2016 MARZEC-NOWOŚCI ! / POLOSETY
+  </span>
+  <span class="accessible-description" id="description-id-571872">
+     - Időtartam: 2:08:56.
+  </span>
+  <span class="stat attribution"><span class="g-hovercard" data-ytid="UC4oWc2avREEclrNY9ko6tgQ" data-name="related">PoloSety</span></span>
+  <span class="stat view-count">204 323 megtekintés</span>
+</a>
+  </div>
+  <div class="thumb-wrapper">
+
+    <a href="/watch?v=z52gxZhPXuo" class=" vve-check thumb-link spf-link  yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBYQpDAYEyITCKjIoKLitdUCFckSFQodKSAAzyj4HTIHcmVsYXRlZEjyoZvrurnHnRQ"  rel="spf-prefetch" tabindex="-1" data-visibility-tracking="CBYQpDAYEyITCKjIoKLitdUCFckSFQodKSAAzyj4HUDqvb3C2Zjozs8B" aria-hidden="true"><span class="yt-uix-simple-thumb-wrap yt-uix-simple-thumb-related" tabindex="0" data-vid="z52gxZhPXuo"><img src="/yts/img/pixel-vfl3z5WfW.gif" alt="" aria-hidden="true" data-thumb="https://i.ytimg.com/vi/z52gxZhPXuo/hqdefault.jpg?sqp=-oaymwEWCKgBEF5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLAcZKh94RrQmQjm-pdAaHHnGO3zxw" style="top: 0px" width="168" height="94" ></span></a>
+
+          <span class="video-time-overlay video-time-overlay-default" aria-hidden="true">
+            2:08:56
+          </span>
+  </div>
+
+</li>
+                <div id="watch-more-related" class="hid">
+    <li id="watch-more-related-loading">
+További javaslatok betöltése...
+    </li>
+  </div>
+  <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-expander" type="button" onclick=";return false;" id="watch-more-related-button" data-button-action="yt.www.watch.related.loadMore" data-continuation="CBQSFhILRkRzZHk2MW0wUEnAAQDIAQDgAQEYACrRAQiev7DN6LiiiwEIifvO7sKgj56tAQjn7cm_1sq--7EBCN62lraZiu2ZZAjzkp_ewvT_6gsI346nt5SVlf1GCJ3TzY3TzaTBWAjN1t_nicjj4dEBCLmmgaepuvqiHQjvwt7ehrmOt3cIp6KdtrT_k8yhAQjxv6fsx4nbnBcI4qH85MLNiN3YAQjfp8uBu4vToysI_bjo0unph-LTAQibqZOErr2cxQUIh6SV7ZHN_e_VAQiPz4-On6f9m_EBCMfiyNyS3bTNPwjqvb3C2Zjozs8B"><span class="yt-uix-button-content">Több</span></button>
+
+      </ul>
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+</div></div></div></div>  <div id="footer-container" class="yt-base-gutter force-layer"><div id="footer"><div id="footer-main"><div id="footer-logo"><a href="/" id="footer-logo-link" title="YouTube főoldal" data-sessionlink="ei=-E-AWajsOMmlVKnAgPgM&amp;ved=CAEQpmEiEwioyKCi4rXVAhXJEhUKHSkgAM8o-B0" class="yt-uix-sessionlink"><span class="footer-logo-icon yt-sprite"></span></a></div>  <ul class="pickers yt-uix-button-group" data-button-toggle-group="optional">
+      <li>
+            <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default yt-uix-button-has-icon" type="button" onclick=";return false;" id="yt-picker-language-button" data-picker-position="footer" data-button-action="yt.www.picker.load" data-button-menu-id="arrow-display" data-picker-key="language" data-button-toggle="true"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-footer-language yt-sprite"></span></span><span class="yt-uix-button-content">  <span class="yt-picker-button-label">
+Nyelv:
+  </span>
+  Magyar
+</span><span class="yt-uix-button-arrow yt-sprite"></span></button>
+
+
+      </li>
+      <li>
+            <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default" type="button" onclick=";return false;" id="yt-picker-country-button" data-picker-position="footer" data-button-action="yt.www.picker.load" data-button-menu-id="arrow-display" data-picker-key="country" data-button-toggle="true"><span class="yt-uix-button-content">  <span class="yt-picker-button-label">
+A tartalom helye:
+  </span>
+  Magyarország
+</span><span class="yt-uix-button-arrow yt-sprite"></span></button>
+
+
+      </li>
+      <li>
+            <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default" type="button" onclick=";return false;" id="yt-picker-safetymode-button" data-picker-position="footer" data-button-action="yt.www.picker.load" data-button-menu-id="arrow-display" data-picker-key="safetymode" data-button-toggle="true"><span class="yt-uix-button-content">  <span class="yt-picker-button-label">
+Korlátozott mód:
+  </span>
+Ki
+</span><span class="yt-uix-button-arrow yt-sprite"></span></button>
+
+
+      </li>
+  </ul>
+<a  href="/feed/history" class="yt-uix-button  footer-history yt-uix-sessionlink yt-uix-button-default yt-uix-button-size-default yt-uix-button-has-icon" data-sessionlink="ei=-E-AWajsOMmlVKnAgPgM"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-footer-history yt-sprite"></span></span><span class="yt-uix-button-content">Előzmények</span></a>    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default yt-uix-button-has-icon yt-uix-button-reverse yt-google-help-link inq-no-click " type="button" onclick=";return false;" data-ghelp-tracking-param="" data-ghelp-anchor="google-help" id="google-help" data-load-chat-support="" data-feedback-product-id="59"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-questionmark yt-sprite"></span></span><span class="yt-uix-button-content">Súgó
+</span></button>
+      <div id="yt-picker-language-footer" class="yt-picker" style="display: none">
+      <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+  </div>
+
+      <div id="yt-picker-country-footer" class="yt-picker" style="display: none">
+      <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+  </div>
+
+      <div id="yt-picker-safetymode-footer" class="yt-picker" style="display: none">
+      <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+  </div>
+
+</div><div id="footer-links"><ul id="footer-links-primary">  <li><a href="//www.youtube.com/yt/about/hu/">Névjegy</a></li>
+  <li><a href="//www.youtube.com/yt/press/hu/">Sajtó</a></li>
+  <li><a href="//www.youtube.com/yt/copyright/hu/">Szerzői jog</a></li>
+  <li><a href="//www.youtube.com/yt/creators/">Alkotók</a></li>
+  <li><a href="//www.youtube.com/yt/advertise/">Hirdetés</a></li>
+  <li><a href="//www.youtube.com/yt/dev/hu/">Fejlesztők</a></li>
+  <li><a href="https://plus.google.com/+youtube" dir="ltr">+YouTube</a></li>
+</ul><ul id="footer-links-secondary">  <li><a href="/t/terms">Feltételek</a></li>
+  <li><a href="https://www.google.com/intl/hu/policies/privacy/">Adatvédelem</a></li>
+  <li><a href="//www.youtube.com/yt/policyandsafety/hu/">
+Irányelvek és biztonság
+  </a></li>
+  <li><a href="//support.google.com/youtube/?hl=hu" onclick="return yt.www.feedback.start(59);" class="reportbug">Visszajelzés küldése</a></li>
+  <li>
+    <a href="/testtube">Új funkciók tesztelése</a>
+  </li>
+  <li></li>
+</ul></div></div></div>
+
+
+      <div class="yt-dialog hid " id="feed-privacy-lb">
+    <div class="yt-dialog-base">
+      <span class="yt-dialog-align"></span>
+      <div class="yt-dialog-fg" role="dialog">
+        <div class="yt-dialog-fg-content">
+          <div class="yt-dialog-loading">
+              <div class="yt-dialog-waiting-content">
+      <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+Betöltés...
+    </span>
+  </p>
+
+  </div>
+
+          </div>
+          <div class="yt-dialog-content">
+              <div id="feed-privacy-dialog">
+  </div>
+
+          </div>
+          <div class="yt-dialog-working">
+              <div class="yt-dialog-working-overlay"></div>
+  <div class="yt-dialog-working-bubble">
+    <div class="yt-dialog-waiting-content">
+        <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+        Folyamatban...
+    </span>
+  </p>
+
+      </div>
+  </div>
+
+          </div>
+        </div>
+        <div class="yt-dialog-focus-trap" tabindex="0"></div>
+      </div>
+    </div>
+  </div>
+
+
+<div id="hidden-component-template-wrapper" class="hid">    <div id="shared-addto-watch-later-login" class="hid">
+      <a class="sign-in-link" href="https://accounts.google.com/ServiceLogin?passive=true&amp;hl=hu&amp;continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Ffeature%3Dplaylist%26hl%3Dhu%26next%3D%252Fwatch%253Fv%253DFDsdy61m0PI%26action_handle_signin%3Dtrue%26app%3Ddesktop&amp;uilel=3&amp;service=youtube">Jelentkezz be</a>, ha hozzá szeretnéd adni a Megnézendő videókhoz
+
+    </div>
+<div id="yt-uix-videoactionmenu-menu" class="yt-ui-menu-content">  <div class="hide-on-create-pl-panel">
+    <h3>
+Hozzáadás
+    </h3>
+  </div>
+  <div class="add-to-widget">
+      <p class="yt-spinner ">
+        <span class="yt-spinner-img  yt-sprite" title="Betöltés ikon"></span>
+
+    <span class="yt-spinner-message">
+        Lejátszási listák betöltése...
+    </span>
+  </p>
+
+  </div>
+</div></div>    <script>var ytspf = ytspf || {};ytspf.enabled = true;ytspf.config = {'reload-identifier': 'spfreload'};ytspf.config['request-headers'] = {'X-YouTube-Identity-Token': null};ytspf.config['experimental-request-headers'] = ytspf.config['request-headers'];ytspf.config['cache-max'] = 50;ytspf.config['navigate-limit'] = 50;ytspf.config['navigate-lifetime'] = 64800000;ytspf.config['animation-duration'] = 0;</script>
+  <script src="/yts/jsbin/spf-vflTjEGE1/spf.js" type="text/javascript" name="spf/spf" ></script>
+  <script src="/yts/jsbin/www-en_US-vfllLzHg0/base.js"  name="www/base" ></script>
+<script>spf.script.path({'www/': '/yts/jsbin/www-en_US-vfllLzHg0/'});var ytdepmap = {"www/base": null, "www/common": "www/base", "www/angular_base": "www/common", "www/channels_accountupload": "www/common", "www/channels": "www/common", "www/dashboard": "www/common", "www/downloadreports": "www/common", "www/experiments": "www/common", "www/feed": "www/common", "www/instant": "www/common", "www/legomap": "www/common", "www/promo_join_network": "www/common", "www/results_harlemshake": "www/common", "www/results": "www/common", "www/results_starwars": "www/common", "www/subscriptionmanager": "www/common", "www/unlimited": "www/common", "www/watch": "www/common", "www/ypc_bootstrap": "www/common", "www/ypc_core": "www/common", "www/channels_edit": "www/channels", "www/live_dashboard": "www/angular_base", "www/videomanager": "www/angular_base", "www/watch_autoplayrenderer": "www/watch", "www/watch_edit": "www/watch", "www/watch_editor": "www/watch", "www/watch_live": "www/watch", "www/watch_promos": "www/watch", "www/watch_speedyg": "www/watch", "www/watch_transcript": "www/watch", "www/watch_videoshelf": "www/watch", "www/ct_advancedsearch": "www/videomanager", "www/my_videos": "www/videomanager"};spf.script.declare(ytdepmap);</script><script >if (window.ytcsi) {window.ytcsi.tick("je", null, '');}</script>      <script>
+    yt.setConfig({
+      'VIDEO_ID': "FDsdy61m0PI",
+      'THUMB_LOADER_PAUSE_MS': 0,
+      'THUMB_LOADER_GROUP_PX': 400,
+      'THUMB_LOADER_IGNORE_FOLD': false,
+      'WAIT_TO_DELAYLOAD_FRAME_CSS': true,
+      'IS_UNAVAILABLE_PAGE': false,
+      'DROPDOWN_ARROW_URL': "\/yts\/img\/pixel-vfl3z5WfW.gif",
+      'AUTONAV_EXTRA_CHECK': false,
+
+      'JS_PAGE_MODULES': [
+        'www/watch',
+        'www/ypc_bootstrap',
+          'www/watch_autoplayrenderer',
+        ''       ],
+
+
+      'REPORTVIDEO_JS': "\/yts\/jsbin\/www-reportvideo-vfl_BurxI\/www-reportvideo.js",
+      'REPORTVIDEO_CSS': "\/yts\/cssbin\/www-watch-reportvideo-vflT0oVU8.css",
+
+        'IS_RESUMABLE_PLAYBACK': true,
+
+      'TIMING_AFT_KEYS': ['pbp', 'pbs'],
+      'YPC_CAN_RATE_VIDEO': true,
+
+
+        'RELATED_PLAYER_ARGS': {"rvs":"iurlhq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FARaJxomsH54%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLAIIkfucSOK7SrdmbaA0bf_fLL0ew\u0026iurlmq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FARaJxomsH54%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLAIIkfucSOK7SrdmbaA0bf_fLL0ew\u0026endscreen_autoplay_session_data=autonav%3D1%26playnext%3D1%26itct%3DCBQQ4ZIBIhMIqMigouK11QIVyRIVCh0pIADPKPgdMgxyZWxhdGVkLWF1dG9I8qGb67q5x50U\u0026session_data=itct%3DCBMQvU4YACITCKjIoKLitdUCFckSFQodKSAAzyj4HTIJZW5kc2NyZWVuSPKhm-u6ucedFA%253D%253D\u0026author=DJAdiMusic\u0026id=ARaJxomsH54\u0026title=%F0%9F%94%A5MAJ%C3%93WKA+2017+%F0%9F%94%A5%E2%98%85SK%C5%81ADANKA+DISCO+POLO+2017%E2%98%85MEGA+HITY%E2%98%85NOWO%C5%9ACI%E2%98%85NA+IMPREZ%C4%98%E2%98%85NA+DOM%C3%93WK%C4%98\u0026length_seconds=1226\u0026short_view_count_text=35%C2%A0E+megtekint%C3%A9s,iurlhq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FrTw9BC3TvYk%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLBa6tXp40x86HQ-7VxY3X3ellIJtA\u0026iurlmq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FrTw9BC3TvYk%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLBa6tXp40x86HQ-7VxY3X3ellIJtA\u0026session_data=itct%3DCBIQvU4YASITCKjIoKLitdUCFckSFQodKSAAzyj4HTIJZW5kc2NyZWVuSPKhm-u6ucedFA%253D%253D\u0026author=DJ+Podbiel\u0026id=rTw9BC3TvYk\u0026title=LUTY%2FMARZEC%2FKWIECIE%C5%83+2016%21%21%21+IMPREZOWA+SK%C5%81ADANKA+DISCO+POLO+%21%21%21+NOWO%C5%9ACI+%21%21%21+HITY%21%21%21\u0026length_seconds=3964\u0026short_view_count_text=2%2C2%C2%A0M+megtekint%C3%A9s,iurlhq=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fsfb6VWfyduc%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLAr_uS1605X3aA0LGYWa8qWxLzkfg\u0026iurlmq=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fsfb6VWfyduc%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLAr_uS1605X3aA0LGYWa8qWxLzkfg\u0026session_data=itct%3DCBEQvU4YAiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIJZW5kc2NyZWVuSPKhm-u6ucedFA%253D%253D\u0026author=TREC669\u0026id=sfb6VWfyduc\u0026title=Sk%C5%82adanka+Disco+Polo+2017+NOWO%C5%9A%C4%86+%21%21%21\u0026length_seconds=4148\u0026short_view_count_text=2%2C8%C2%A0M+megtekint%C3%A9s,iurlhq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FZDO0UZbFm14%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLBjMPiSycDliyctPIpk9l-e4JaV7Q\u0026iurlmq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FZDO0UZbFm14%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLBjMPiSycDliyctPIpk9l-e4JaV7Q\u0026session_data=itct%3DCBAQvU4YAyITCKjIoKLitdUCFckSFQodKSAAzyj4HTIJZW5kc2NyZWVuSPKhm-u6ucedFA%253D%253D\u0026author=Mr_Pesos\u0026id=ZDO0UZbFm14\u0026title=Muzyczna+Sk%C5%82adanka+Disco+Polo+2015+2016\u0026length_seconds=1966\u0026short_view_count_text=914+megtekint%C3%A9s,iurlhq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FC9X_pCvHyXM%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLDR1A0wKIZsuV7p5HbfvJ9E11jcTw\u0026iurlmq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FC9X_pCvHyXM%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLDR1A0wKIZsuV7p5HbfvJ9E11jcTw\u0026session_data=itct%3DCA8QvU4YBCITCKjIoKLitdUCFckSFQodKSAAzyj4HTIJZW5kc2NyZWVuSPKhm-u6ucedFA%253D%253D\u0026author=Adixx+aka+Adrian+Z+Official\u0026id=C9X_pCvHyXM\u0026title=SYLWESTER+2016%2F2017+%7C+%E2%9C%AFMuzyka+Dance+%2F+Disco+Polo%E2%9C%AF+%7C+%E2%99%ABHITY+REMIXY%E2%99%AB\u0026length_seconds=4993\u0026short_view_count_text=325%C2%A0E+megtekint%C3%A9s,iurlhq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FRvpUqUbpx18%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLDr2o9L46xaA2E8OF3IRzyKQotB-Q\u0026iurlmq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FRvpUqUbpx18%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLDr2o9L46xaA2E8OF3IRzyKQotB-Q\u0026session_data=itct%3DCA4QvU4YBSITCKjIoKLitdUCFckSFQodKSAAzyj4HTIJZW5kc2NyZWVuSPKhm-u6ucedFA%253D%253D\u0026author=MOC+MUZYKI\u0026id=RvpUqUbpx18\u0026title=%F0%9F%8C%9F+DISCO+POLO%21+2016%21%F0%9F%8C%9F+MEGA%21%21%21+HITY%21%21%21+DISCO+POLO%21++2016\u0026length_seconds=3775\u0026short_view_count_text=539%C2%A0E+megtekint%C3%A9s,iurlhq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FWIKSbTGzaZ0%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLAiHDawABa0Ra1_70QBq_Op_8NJQg\u0026iurlmq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FWIKSbTGzaZ0%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLAiHDawABa0Ra1_70QBq_Op_8NJQg\u0026session_data=itct%3DCA0QvU4YBiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIJZW5kc2NyZWVuSPKhm-u6ucedFA%253D%253D\u0026author=DJ+AMCZI\u0026id=WIKSbTGzaZ0\u0026title=KWIECIE%C5%83+-+MAJ+2017+%F0%9F%92%A7+SK%C5%81ADANKA+%F0%9F%92%A7+MUZYKA+NA+IMPREZE+%F0%9F%92%A7+DOM%C3%93WKE+%F0%9F%92%A7+DO+SAMOCHODU+%F0%9F%92%A7\u0026length_seconds=2047\u0026short_view_count_text=2%C2%A0M+megtekint%C3%A9s,iurlhq=https%3A%2F%2Fi.ytimg.com%2Fvi%2F0cOOQJz3600%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLBinFGmp3cAkJsXsdmWQu4yK6rrhA\u0026iurlmq=https%3A%2F%2Fi.ytimg.com%2Fvi%2F0cOOQJz3600%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLBinFGmp3cAkJsXsdmWQu4yK6rrhA\u0026session_data=itct%3DCAwQvU4YByITCKjIoKLitdUCFckSFQodKSAAzyj4HTIJZW5kc2NyZWVuSPKhm-u6ucedFA%253D%253D\u0026author=Fancy+Music\u0026id=0cOOQJz3600\u0026title=SK%C5%81ADANKA+DISCO+POLO+2016+vol.2+Fancy+Music+2016\u0026length_seconds=3407\u0026short_view_count_text=782+megtekint%C3%A9s,iurlhq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHUXp0pTgUzk%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLDHDBxZiA_0swD5Bj5_Jobl4gXmcA\u0026iurlmq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHUXp0pTgUzk%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLDHDBxZiA_0swD5Bj5_Jobl4gXmcA\u0026session_data=itct%3DCAsQvU4YCCITCKjIoKLitdUCFckSFQodKSAAzyj4HTIJZW5kc2NyZWVuSPKhm-u6ucedFA%253D%253D\u0026author=MOC+MUZYKI\u0026id=HUXp0pTgUzk\u0026title=%F0%9F%8C%9F+DISCO+POLO%21+GRUDZIE%C5%83+2016%21%21%21+%F0%9F%8C%9F+HIT%21%21%21+ZA+HITEM%21%21%21+%F0%9F%8C%9F+TYLKO+MEGA%21%21%21+KAWA%C5%81KI%21%21%21+%F0%9F%8C%9F+MI%C5%81EGO+S%C5%81UCHANIA%21%21%21\u0026length_seconds=3759\u0026short_view_count_text=472%C2%A0E+megtekint%C3%A9s,iurlhq=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fd245yGvXoW8%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLDll1ihxC5SqZvYPDLyjPhabuD21g\u0026iurlmq=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fd245yGvXoW8%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLDll1ihxC5SqZvYPDLyjPhabuD21g\u0026session_data=itct%3DCAoQvU4YCSITCKjIoKLitdUCFckSFQodKSAAzyj4HTIJZW5kc2NyZWVuSPKhm-u6ucedFA%253D%253D\u0026author=parys252\u0026id=d245yGvXoW8\u0026title=Sk%C5%82adanka+Disco+Polo+%28najwi%C4%99ksze+przeboje%29+-+Idealne+na+impreze%21\u0026length_seconds=9256\u0026short_view_count_text=5%2C5%C2%A0M+megtekint%C3%A9s,iurlhq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FoZhP-0bHUSc%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLAqoC2goD44WpdNCTCjKftP6ziaPQ\u0026iurlmq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FoZhP-0bHUSc%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLAqoC2goD44WpdNCTCjKftP6ziaPQ\u0026session_data=itct%3DCAkQvU4YCiITCKjIoKLitdUCFckSFQodKSAAzyj4HTIJZW5kc2NyZWVuSPKhm-u6ucedFA%253D%253D\u0026author=Dj+OsieJ\u0026id=oZhP-0bHUSc\u0026title=Sk%C5%82adanka+Disco+Polo++Wiosna%2FKwiecie%C5%84+2016+Nowo%C5%9Bci%21\u0026length_seconds=1976\u0026short_view_count_text=18%C2%A0E+megtekint%C3%A9s,iurlhq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FFzlsTH2J3_E%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLCwiQsu01garneAcj6CfR8s565diA\u0026iurlmq=https%3A%2F%2Fi.ytimg.com%2Fvi%2FFzlsTH2J3_E%2Fhqdefault.jpg%3Fsqp%3D-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE%3D%26rs%3DAOn4CLCwiQsu01garneAcj6CfR8s565diA\u0026session_data=itct%3DCAgQvU4YCyITCKjIoKLitdUCFckSFQodKSAAzyj4HTIJZW5kc2NyZWVuSPKhm-u6ucedFA%253D%253D\u0026author=PoloSety\u0026id=FzlsTH2J3_E\u0026title=IMPREZOWA+SK%C5%81ADANKA+DISCO+POLO+2016+ZIMA+STYCZE%C5%83%2FLUTY%2FMARZEC-NOWO%C5%9ACI+%2F+POLOSETY\u0026length_seconds=5309\u0026short_view_count_text=3%2C7%C2%A0M+megtekint%C3%A9s"},
+
+
+
+          'BG_P': "BKK2oIzl3PxfmLnwqHHHw\/Jvt\/3JCnUgbNwhgwsOQ0QQ04VAQTGKB9jywxkYYIt33FO6dwVS\/V2Lg1fsYzypm8yleyyLnV8yVBlyEhfbh5hXaUzLy9pgtDmSAyb3FYG2rRjFZEg72upqRZh7aV4nTpO9N2nbxd17a2RXHs\/3\/hsLkAhZvzD68U1uA2QBKXAPrXVSbRHbbH3bsQOKyr4QyJw0EwMtSth4F4\/O6Qu9gdOkatkCrljCHa3rKxRYxn6xrAFT0pVKpK4SN2Z10IWge80K74zqIUCjfwMij993oDoRuGefKaSmBoSA5zgRT228jhK6UrccTEQVnYosfaFCT0C2UY8IPH99l95\/FRozP0eLAYHwLSaqjuJygtzURAZW0ecbotQqa0dM2vy4xlHFwRJq\/jaDzQY+xbDWKCzb3Fg6aLWS0cqoqhIDs0JyiOqjDjILoq3SSD2hUIX7NiD7aH8qmwTXbr\/iVhFnShCAboYyCLC7Uvb6nPLc6k9xBVN2rQE412dN5nC816yO8GT66VJc8TIrvOhaxa9bRM3c7JjIS5ahL4bcdwVRo1K8wRUUxGQJNaEOUCmdhdrAQv3v8xkjnW+IMiFgQvyAiJ0mWeUtFP\/yfXLnWW9rIYbAoXsCPavuQ0lChZrCA2roFnGTJuZgaG5usyEjgnZjz2iZ3hpARQK+\/elMnMNsQhqI6VlSBe6p8t\/db\/AJhxcinKjoF1BJSZX9gmh2E\/7k6jE6sdpbU8Agrovtg7\/1sLSplUzOAM3QFGD20ya+gWXdh\/s\/qRXIgCDbX5+XvYE+zp5eatiPAlIxiQvdrO4vGebgFccxhYCWfCxFU83kVf5js\/LpSa7N\/vlWprtEhmsJW+TF+NZ2A7CgnRWDYrlunkJCclWv0H8X+ibWbbIZod9S5qipaPfrghDFiFq3CDxK8XdLbsZsUL76MDuwna+1cZRAdO2fC9tJDVgrferhrx5lpMhcgFx4vHus5BYE9iLJU97aUpB5ptGl2TPwVSZMPYVvX\/6QjO8fiBHlU7fN+ATT7VtzckwvHEaSGsZf6ROFD8LfppLe7j\/qaGjV5m+lGU18ZIuC+SCU7kTzBVim2WReDyNjkQ1FJ1iUCjWsotbjR7SGlN6DHqQmCuklu9VzDmzZYBT4BnP2NOg18Ojyv0ofe6Ncdi5sOKEfcemLGrUrNhgChddiedADgUSdOV6aIIGiixb6C231rTlgptc4GcMHyjT8Jm8Wdll2zfUDUvYQU9ATClwuNdswRQ7Q1LlxNmLeKNWdicgmN5Wue2YlArqmXipUzVhDyaqyZajkiy8M4bNoIzWTkT9NuJINhRY+5HNSHxbRToQjftOQO3W9ANGkVzfGTa1D48zcDT90QzFDsFs2bPP\/N5nq4zV+VeaHrhqg77mS64JAaDYC57LY5HUaHJVvfGeRZd7WrJNKFrAxv4BoaB+djxadgOFu95Jg8UdUv+WlAdscEWxx0EFBgIB4VR0x2Mmro4Kb55qxGVggc3rxa1jh8vMF4HwfIjoVt8SBOLJa8sGPeE1lIW\/UWVFRc+ytlYK\/URY3q22o3P7tNMW8xTKqB7xh8cl4KIIjXGheqF62JrC9qQthy9DGvHqnAGnww0Wt65Ukjq8ZbZZ7YY27JXcK0H+abfuE+P\/MM4w0lXuIOqnkfg0Cud7czhab\/m3cBn8ExZhEyjU8kOrDfbotfHAgnXbReIoEcGcUIbl2rCTA8lYjpcyDlxJ7ykuPdstotdU+WHXkQxilKLGqgX0oOyD1siV+DuJ0SrmOndDGLjtqXR5UbG9H5xR8Z1LRUjJV\/ghna3BYlhJxXAjfPy0It7XE1dwxYeIdRFyKLW8ZNOhGQbxcuHcsknQTx4X6EyVvR2ln3mwZQ\/pDW90VXIE26zLRNKiExLQHh+Ew6t4sdpU+2W4E3HgnNByaFJ4hb7IDcupeB0wzo3z+jfHcYdZsqjYsjiJUM5KbH1rDOBI4Q2o8fM7IaTPOBf96Iml3qTRIlqbKi5sFy6Tbj5q8y0Em4Kyht2soeupXmBoZXyEgvqmtw0wub6KYiE7HT7rIv888RkaGF8fai3ZJgCJdXwzaG8xOYdo9dvARJr5kUNoEtLI5yiVKnCeLfcb2M0vaiIHrTcT7iiXHGUkLJpAxUQ13ok9erkUSS30LagvD44H06NUrFNY1cmK16ki2eVFNIdDG7l5UNvU4RykUTorlsuKe\/MzvhAAnYOr7kmi1W4bK9rNETWvDNVD73Ki+B1xxnE4HqfB1MAWePyx2LGsMR29tF\/L32joHha0eEp+YSeTZO9LPYNDJKWxY1CF2PS5hAwWRu4v80dFWEpmf7ztI+VlbOnXERS778oeQmmeSEt6VZ+QGXFDrgAE3g9UYcMb6dFvDHGHOf5jBA3kVvZviLcwpDYL\/OVLC+UPgx5OXE7Y8bdmZE1L0r\/KZCFbmYTrx0IODegv4frqy2RAHTKqTdNGx8pWSKg86T3XYDbXpD8jl0Eud23\/gx75UPzl\/vVQl1Br7\/FhGKmGEFFeXk9TfuE8kPg3b\/HISDCS4bXyXdNNs9RrEJo2mlUgNGilPiSoKtcqBW7V\/KYZLBzo+XcRiCiBaMOauyjFkO7mBss3K8\/1OXidAXs0bu9xV\/cFhttN8eDUIeq4+2uqUr1M6OBRmzu04bI2SVyCvTwBalL7JPKY3ajRMaco+EUSeS\/KfuJef6PSXeH7NOIvUpeB4O\/xGBh0VZJTAULnPvV78AIjH2F9xDnNzP1aD+3ohFnF\/F9RT0uFahGlJwRiiemhOVOLx\/3AGLC+rCG7DzAbs3yai5Sa6hTgN16cKoarAL\/JW1aaBwftGzdWCovhYnLiExunpyAuAssA0p9\/xFMGRqYkRkywLkqiCHCBSttyAm\/MCfW2llCaLuGxTXc0qWC+OtWw\/poVpGULJ8FZgEL8tDqM0rXTVV9QB\/7vWkmXVHdcXHNhdagodT1ESyNRzrCcviBn8F1CPgNqzsuoouapwj2Cb7l69g1uSk6yJ6GVjqzdcpbPP0MN0vCcU2TyaKe4fuF9q4RMQc+QB6Cj2xMu2P975DGi6nWYlDCBNLvAkaH8XrkNmzxe9I72Da7e0FVeAr0cDrWTE12FzcBfOO0IDA7wXpFGpBBhkLZx334f7L3d1TDjKzeOkvcaoolrx7hN1oDUZ4btJPlH6vZfKlRs9Mr+amGVFD2YOmpG06KoZXkuR2KER5t1JScLdvQ6mgD9xby0K8eLK\/znt59b6y3CckaJ8feD9DQkqwGsaXJvDOwQnvMuq0zQ8QkSkUdWgV\/cbGE0dXdbfhPkmoIqHeEOVVQ84eiMfK2NqWxeQv\/NVD4QRdXeoQo1bepa\/wjF9rH12YpluBfUtUsVE3ZL\/ffkwV9GSXTvT\/\/t+puuGQPyJQ7uw2wWMXvuq6JDIzcidZBDscxgvwONAEsGjeu\/qlw403czRCLD5osKtCzYbiRexAnq1FglsA\/iYQyAMsZ8AV60jpAQLBL\/2tvmMhWV52vEL6r0PGYIpPIVq3PNV6drFOZnGYC4MM8BkGHJB1ZdxmldCXFZ+PKQRh5zr8OhR0Aitu\/OeEz1jkbjPtx9l8sV+5mxeFVeZQauYIhCG0DWXD9TO8iefWZ1IBFdcloF\/jTYE2le+S1q6vf5I6vM3RBk03jEoL4+9U8N8nwphU6FjukwHnAD5evjr+Yh1HZLmkyfq4W6rTTTn7Z3gbir5JKdlWChuxfCMiuBih+V+Oznw7bh0W8oXZVkdOsVGTNdsLttagPzyU5N3dDDAKtxjApNQqPeWDnMo33NzB9bB4rZSLtZE8YJsww+kUjKA6+08F3Oc7SvTfM8+YnRGeLH9YpRMaOKHCIA8wwKKJF+6ACgX08zj98Hm6neytTY4Udkpx87GmF4eFNB1aDM8uymiMC009xhRp68+ixpkfQFRsBtMnxIZDjGFZ8gVbK+LkeMOVTcwrLzz+E0CkHoxDjCoGRi8uW11B8PjNPudcuE82i0nwkbJua8oQd9D5gnwjDDV942SkgSZxmR4LRaLqqCpPoC4QTDY94eikJ9jxjzTQQchdj0uYS4Jwc4vinMtvsRFyuGtIWX9TBKSvs+bSsGLMLFNDaFPyOUeWDUnPYLWuGNe\/Y2zb0k8KHe0\/ThGHwibGXrDqJIf9aVPTw9tVzC\/ierEbk1RUb24tracySRQIhS2EX6VwU+CHW+IpJmbF\/tzAkGgT3euc6vkkuEKpkkYDbJswcSmMZyjW0ECPg2BxPVqMYymutzFXN\/PHKHWBvHrVhJEjXVo7SCEPgLXkcDhPOMeqhudmirEtScCZ6kWgfu3To9NjdB2PgT3Yl3kORbzbDENWAYcefdhnEWHSvjK\/L0+Cdpqq9zo\/VT9fm3eGIx5XoepVM6LU7xePxvCp3Y\/JhcMCjQJdroKcGyqjQg4tB+AvUfPx8BeoK9M1AZABZlfHl230ckaOqzR1i38gbydwebKo9\/MJMv925GeOoqNCJkHE9+2\/D1M90J9OeYTyDMUCQ5jcZgkPm6yS2SmsG6Skft6\/S4yUyk2\/B43BoR1p9Y8EruNCAOvqwoTeZOjPo4F2sReS5ir0pcFqEDZ1M0QLfBMBqXkuayyzwNvbeiQmkyZQQJ+JtLd\/0OWtYXoefdu\/S4z5zzc44KvzKZYUBmLs1Dm7gGhFDxXeE6Wz87z3wdN5CtDV5Vau18L\/PweMdY0rW7WBM8DqUm9p0YU8aBA9rzL\/87ToABnenFIB6bWkQ39NST2ST8ceLrKKNO+f0hoL6gUCA7uv4iElP4bzWH6WLZKPz6as1cTFGm350B8roWAhGch4ovJOxd0+FgXaFvgU6Y++cmR\/FUP\/F5FtmYw1\/eH5F+O60nsuhFl0W94PecTwcQEEH2xNbKAE3S0r+puK\/qrlCmypBQZz1jMjwD6HQFJ0UU3jAXaq6Ke9oTKhKA1bKT2huoDe0olcLLKhn+d3PlVWo3POCH6IfOuOcGx8V8dsF9pPsHxxRfY83n4B8FWaqt645wdjDvYd4vny8LFDfLmbwAssW7G3\/Qz4yQeGgiRwrvpYH7sYLvoYGkutBzYF6hO0XiceLZj4t\/EMvlflKMmT3\/j\/obVFt3t2ycuINXqrQkbYWA5y1QKdqFJqXza\/14c2zV7W6NJmat88UnOAJIUu7EVTikxQ8FrobFlONlZ27iidsLYNRgdJ\/8eIUm9k1Zk6IzRj67x1AsK2bO\/Z4T29wUzhJ96MHxji8ONedBfz5UtCVxqbfm+RdT5ACs4d7e9NorVUQ4QmV6nxUP7VTqBzG+WVDJ\/B7rfWceNHfsbx+suMxK5AFGjTW1Pev5v3i5PEnxBmPLdie9Ev0G43W3R8t4FWUGP4FbgBOZbruHkeFxjYBQ29YyY8OW2+sD7ak3ZQQFcPjwKqDDdPTbHPLspYHx4QtSo1py0iTV7RUJ5KZL98gwIL8ueHGr1dIRXOUaI3jwcbGINJD1vJkqLK1Rc1ZaWrYUl0jmTNjQgpPQ\/lUKVGMCXbx5s9A1bTn7jKl9WK9jSB9Bc4S4Gv9QD4ufP\/KrgIXln14o6v0IxBarITPgFyZkpFN+UNXHhj2k81hCGCd8avdpxWw3M66Ch3BJUAZKoIRe9C1HgjCOoQd98E6lt9Nh6lMnWBmW008\/sz\/xgvMzptSKtZWX4wOsf9bSF6\/aqDBdlf5kSdAxTWJqoDREINvj09TKGj41Vd1tPVvl906pzFKKnqAdKKO4PQAiu417UacE9t0Q61GbSoDkPdLpc9WWcJAyQJutMGosAt6wC2E3bR9RwBp3VZgQGIl8c5W6m9lU8w37NOCiuBe9kDrpuAxoUnt6u5qvezccmL3yulsuTVdLw8AcdpJGbDHEFt7PU9BhstPeYipz8PkdeW4EUj9xaB+LA+fMUNs4DfUOVqun4sSU+JcIOgWeKOQ5fDIQaVGdgEM\/uctybER\/KWXSGE899c1YyJ3rEYfIyVU42ZmEkZWTDvU1TfhQTN3QX9G2cx7AHszQ\/yCm2I2RPPjtHpoMQNBNCHm6SsDrWm25JX6GPu2grqA3MHeuFz9eH8j\/+Et287uYAcN\/W5W\/HmNGrGFlOOoiwwdb1VBLm19eV4lnMz5i\/G0CzCn0HbALNi8GLSmSOzMnkRmpYlsnZ9BYWcc5UH1ug5cDjnum2O8fa\/OWmK\/KEHIk5UXGtcoXNbVGcqscSsI6jOXXsRSJzdgakKzsdtx\/LPj7\/dG20YVdyUk7ukl9PgDJYSVhMeyOO3aSGV1212c02IB9YdfB5zzXui5CNtF3dK770EQYgEAyhsAbxF5bTBYD6fvasycfcs95+IffGcUlbyrXOV0E8GKG5oolJtnYunKmimmxIA12d69dh1e++drtA5goOfALxqSJQU6J7o8EK04zmLBAwFNMUAXIOkca1z3LSngEGSNBfCoDx4xwPnmUN6BFuWmJphMgKsHI3wiaoKcfCKRl0WgKFYQkolt77QdMFz1oCxT\/\/CVfs2DnWOpy+y5GzVvO79Pfn0zDUp+cX2jpdW\/YlW5dsLxo3NWHOdvsybSHutcTpFfLm\/+J6Cfm5dtpbU5vuo0bOM4EHP8dQK9TP\/paDGNdqjUaq5am71+imiSaIg9x7eNk1mZEULiAYnVucg5xwQKdPsO63h7z518l5s\/Wlu29R5T4Odcu9OzNIWL2XQXNJJXPmUib3ytVQIhLZKKtPt3HipRimqEIh7ZANA7vFejBpMtrN6eD1+FnBf4jmFcT9NjJG\/uGeGO\/6IsD7QJFjnNu9QC+exkkV7wFy+zKhRVag+aOjwtTs2Fu9WP1GEhsEDg3WG3iAlTLHnFt5WQ8icpr3EaZDCRFpnBZQAm031x+3EkdEL3nZKmEpB1\/y8e+N7AFGMwIBCa0pJhW0UVq9m5OILqGagT76qypTllpWmbe+1QDa0YExAMXzWF8mB0YrHBlEeuPHV7binbWog94uxIiTUr9qO+iSUedQSve8lVGVb7CLyjccrF8\/E4qGh9ppXUxMeuT0WvCd03z9HDZ+9xQOuQiQ7FJgWaNnVC\/w4q5SjYJepSXZTLX12UPWlw9L4QC1+MJtnJgefy3EA\/B+DzVOp1VHYIOH5PH0qviqiX7PKk2zBznbwuUfaQM6gKYyy7mQuQsyUr\/69RNIyzh",
+          'BG_IU': "\/\/www.google.com\/js\/bg\/CzJg4YZ4qZL-eUcizWUvSm2D8PheENmid5_RDsG-ML4.js",
+
+
+
+        'COMMENTS_TOKEN': "EhYSC0ZEc2R5NjFtMFBJwAEAyAEA4AEBGAY%3D",
+
+      'GET_PLAYER_EVENT_ID': "-E-AWajsOMmlVKnAgPgM",
+      'HL_LOCALE': "hu_HU",
+      'TTS_URL': "",
+      'JS_DELAY_LOAD': 0,
+      'LIST_AUTO_PLAY_VALUE': 1,
+      'SHUFFLE_VALUE': 0,
+      'SKIP_RELATED_ADS': false,
+      'SKIP_TO_NEXT_VIDEO': false,
+      'RESUME_COOKIE_NAME': null,
+      'CONVERSION_CONFIG_DICT': {},
+      'RESOLUTION_TRACKING_ENABLED': false,
+      'WATCH_LEGAL_TEXT_ENABLE_AUTOSCROLL': false,
+      'ADS_DATA': {"show_afv":false,"check_status":false,"afv_vars":{"google_ad_channel":"","google_yt_pt":"","google_loeid":"","google_ad_host":"","google_page_url":"","google_cust_gender":"","google_cust_age":"","google_ad_host_tier_id":"","google_ad_block":"","google_core_dbp":"","google_eids":[],"google_scs":"","google_language":"","google_video_doc_id":"","google_tag_for_child_directed_treatment":"","google_ad_height":"","google_ad_client":"","google_ad_type":"","google_pucrd":"","google_alternate_ad_url":"https:\/\/www.youtube.com\/ad_frame?id=watch-channel-brand-div","google_lact":"","google_targeting":"","google_ad_format":""},"show_pyv":true,"gut_vars":{"tag":""},"show_instream":false,"show_afc":false,"pyv_ad_tag":{"tag":"https:\/\/googleads.g.doubleclick.net\/pagead\/lopri?ad_block=3\u0026ad_type=text\u0026adk=511001906\u0026channel=PyvWatchInRelated%2BPyvWatchNoAdX%2BPyvYTWatch%2BYtLoPri%2Bafv_user_id_PEy0kCRisGeyfaewp88Aig%2Bnon_lpw%2Bpw%2Byt_cid_564934%2Byt_mpvid_-Xp3Mhh874xGcaxS%2Byt_no_ap%2Bytdevice_1%2Bytdevicever_1.20170731\u0026client=ca-pub-6219811747049371\u0026correlator=1501581305017\u0026dbp=ChZVQXZkYWZzREdHX0xWVEl4bVRsZ1F3EAEgASgA\u0026ea=0\u0026eae=2\u0026hl=hu\u0026host=ca-host-pub-1800120140230655\u0026ht_id=389538\u0026isw=0\u0026ish=0\u0026lact=-1\u0026loc=EMPTY\u0026loeid=9422596,9431012,9434289,9451823,9460350,9461404,9482852\u0026num_ads=1\u0026output=js\u0026pucrd=CgYIABAAGAA\u0026pyv=1\u0026top=https%3A\/\/www.youtube.com\/watch%3Fv%3DFDsdy61m0PI%26app%3Ddesktop\u0026url=http%3A%2F%2Fwww.youtube.com%2Fvideo%2FFDsdy61m0PI\u0026video_doc_id=yt_FDsdy61m0PI\u0026ytdevicever=ytdevicever_1.20170731\u0026yt_pt=APb3F2805g4v6Bop17XIfb0jTV8m2nnG11lQgLxNP4zjOMQGmm03n2oMLBB3jFDLt-WkVAJwmHk4fd_q89R0oW-sWp0LuZt-Q7vlmGw-HTX2XUSYZlK5BGWtu2WWNUxH-LujT3IuXdJZ-4a3NaArYwVtnEmTAfLfhET8l48t6nbnZ2KdCjD4eSSrFP52bSYhQXCeN8s-X3BIQ3mVDj4xBZVqpVo3ir37rEqf4lRoMa9lnv-0LO94WcA9CPqNlGDZuW1_hRxIm5BBHGkFn0Ej"},"use_gut":false,"afc_vars":{"eids":[],"lact":"","loeid":"","alternate_ad_url":"https:\/\/www.youtube.com\/ad_frame?id=watch-channel-brand-div","tag_for_child_directed_treatment":"","targeting":"","ad_host_tier_id":"","ad_type":"","ad_client":"","pucrd":"","ad_channel":"","video_doc_id":"","ad_host":"","ad_block":"","language":"","core_dbp":"","format":""}},
+      'PLAYBACK_ID': "AAVVriRJpWS1o3fk",
+      'IS_DISTILLER': true,
+      'SHARE_CAPTION': null,
+      'SHARE_REFERER': "",
+      'PLAYLIST_INDEX': null
+    });
+
+      yt.pushConfigArray('TIMING_WAIT', 'parn');
+
+    yt.setMsg({
+      'EDITOR_AJAX_REQUEST_FAILED': "Valami rosszul sült el, miközben az adatokat lekérted a szervertől. Próbáld újra, vagy töltsd be ismét az oldalt.",
+      'EDITOR_AJAX_REQUEST_503': "Ez a funkció most nem érhető el. Kérjük, próbáld újra később.",
+      'LOADING': "Betöltés..."    });
+
+
+    
+
+
+
+
+
+
+
+    
+
+      yt.setConfig({
+    'GUIDED_HELP_LOCALE': "hu_HU",
+    'GUIDED_HELP_ENVIRONMENT': "prod"
+  });
+
+  </script>
+
+
+<script>yt.setConfig({INNERTUBE_API_VERSION: "v1",INNERTUBE_CONTEXT_CLIENT_NAME: 1,GAPI_HINT_PARAMS: "m;\/_\/scs\/abc-static\/_\/js\/k=gapi.gapi.en.pwuFxAM9sSs.O\/m=__features__\/rt=j\/d=1\/rs=AHpOoo_kFxiSkGFruvghs_M-2UjERAt_Iw",APIARY_HOST_FIRSTPARTY: "",APIARY_HOST: "",INNERTUBE_API_KEY: "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8",INNERTUBE_CONTEXT_CLIENT_VERSION: "1.20170731",XHR_APIARY_HOST: "youtubei.youtube.com",'VISITOR_DATA': "CgtGT3U2bDctcjhwWQ%3D%3D",'GAPI_HOST': "https:\/\/apis.google.com",'GAPI_LOCALE': "hu_HU",'INNERTUBE_CONTEXT_HL': "hu",'INNERTUBE_CONTEXT_GL': "HU",'XHR_APIARY_HOST': "youtubei.youtube.com"});yt.setConfig({'ROOT_VE_CHILDREN': ["CAEQpmEiEwioyKCi4rXVAhXJEhUKHSkgAM8o-B0","CAIQ7VAiEwioyKCi4rXVAhXJEhUKHSkgAM8o-B0"],'ROOT_VE_TYPE': 3832});yt.setConfig({'EVENT_ID': "-E-AWajsOMmlVKnAgPgM",'PAGE_NAME': "watch",'LOGGED_IN': false,'SESSION_INDEX': null,'VALID_SESSION_TEMPDATA_DOMAINS': ["www.youtube.com","gaming.youtube.com"],'PARENT_TRACKING_PARAMS': "",'FORMATS_FILE_SIZE_JS': ["%s B","%s KB","%s MB","%s GB","%s TB"],'DELEGATED_SESSION_ID': null,'ONE_PICK_URL': "",'UNIVERSAL_HOVERCARDS': false,'GOOGLEPLUS_HOST': "https:\/\/plus.google.com",'PAGEFRAME_JS': "\/yts\/jsbin\/www-pageframe-vflks3slD\/www-pageframe.js",'GAPI_LOADER_URL': "\/yts\/jsbin\/www-gapi-loader-vfl12kI6h\/www-gapi-loader.js",'JS_COMMON_MODULE': "\/yts\/jsbin\/www-en_US-vfllLzHg0\/common.js",'PAGE_FRAME_DELAYLOADED_CSS': "\/yts\/cssbin\/www-pageframedelayloaded-vflqCa9-j.css",'EXPERIMENT_FLAGS': {"enable_more_related_ve_logging":true,"optimistically_create_transport_client":true,"app_settings_snapshot_is_logging_enabled":true,"web_gel_lact":true,"comment_deep_link":true,"service_worker_enabled":true,"request_live_dashboard_chat_promotions":true,"autoplay_pause_sampling_fraction":0.0,"web_logging_max_batch":50,"desktop_pyv_on_watch_via_valor":true,"warm_load_nav_start_web":true,"botguard_periodic_refresh":true,"html5_serverside_ignore_biscotti_id_on_retry":true,"desktop_pyv_on_watch_missing_params":true,"block_spf_search_ads_impressions":true,"service_worker_scope":"\/","debug_forced_promo_id":"","service_worker_push_prompt_cap":-1,"desktop_notification_set_title_bar":true,"autoplay_pause_by_lact_sec":0,"same_domain_static_resources_desktop":true,"clear_web_implicit_clicktracking":true,"chat_smoothing_animations":84,"app_settings_snapshot_min_time_between_snapshots_hours":24,"autoplay_pause_by_lact_sampling_fraction":0.0,"log_web_meta_interval_ms":0,"autoescape_tempdata_url":true,"gfeedback_for_signed_out_users_enabled":true,"service_worker_push_prompt_delay_ms":5184000000,"service_worker_push_logged_out_prompt_watches":-1,"youtubei_for_web":true,"enable_server_side_search_pyv":true,"use_push_for_desktop_live_chat":true,"service_worker_push_home_only":true,"cold_load_nav_start_web":true,"remove_web_visibility_batching":true,"log_window_onerror_fraction":0.1,"navigation_only_csi_reset":true,"enable_playlist_visibility":true,"enable_youtubei_innertube":true,"consent_url_override":"","live_chat_replay_milliqps_threshold":5000,"desktop_pyv_on_watch_override_lact":true,"player_swfcfg_cleanup":true,"watch_next_pause_autoplay_lact_sec":0,"use_watch_fragments2":true,"service_worker_push_enabled":true,"live_chat_message_sampling_method":"","live_chat_message_sampling_rate":1.0},'GUIDE_DELAY_LOAD': true,'GUIDE_DELAYLOADED_CSS': "\/yts\/cssbin\/www-guide-vflJFFhnq.css",'GUIDED_HELP_PARAMS': {"logged_in":"0"},'HIGH_CONTRAST_MODE_CSS': "\/yts\/cssbin\/www-highcontrastmode-vflOWSIow.css",'PREFETCH_LINKS': false,'PREFETCH_LINKS_MAX': 1,'PREFETCH_AUTOPLAY': false,'PREFETCH_AUTOPLAY_TIME': 0,'PREFETCH_AUTONAV': false,'PREBUFFER_MAX': 1,'PREBUFFER_LINKS': false,'PREBUFFER_AUTOPLAY': false,'PREBUFFER_AUTONAV': false,'WATCH_LATER_BUTTON': "\n\n  \u003cbutton class=\"yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip\" type=\"button\" onclick=\";return false;\" role=\"button\" title=\"Megnézendő videók\" data-video-ids=\"__VIDEO_ID__\" data-button-menu-id=\"shared-addto-watch-later-login\"\u003e\u003cspan class=\"yt-uix-button-arrow yt-sprite\"\u003e\u003c\/span\u003e\u003c\/button\u003e\n",'WATCH_QUEUE_BUTTON': "  \u003cbutton class=\"yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip\" type=\"button\" onclick=\";return false;\" title=\"Várólista\" data-video-ids=\"__VIDEO_ID__\" data-style=\"tv-queue\"\u003e\u003c\/button\u003e\n",'WATCH_QUEUE_MENU': "  \u003cspan class=\"thumb-menu dark-overflow-action-menu video-actions\"\u003e\n    \u003cbutton type=\"button\" class=\"yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty\" onclick=\";return false;\" aria-haspopup=\"true\" aria-expanded=\"false\" \u003e\u003cspan class=\"yt-uix-button-arrow yt-sprite\"\u003e\u003c\/span\u003e\u003cul class=\"watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid\"\u003e\u003cli role=\"menuitem\" class=\"overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item\" data-action=\"play-next\" onclick=\";return false;\"  data-video-ids=\"__VIDEO_ID__\"\u003e\u003cspan class=\"addto-watch-queue-menu-text\"\u003eLejátszás következőként\u003c\/span\u003e\u003c\/li\u003e\u003cli role=\"menuitem\" class=\"overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item\" data-action=\"play-now\" onclick=\";return false;\"  data-video-ids=\"__VIDEO_ID__\"\u003e\u003cspan class=\"addto-watch-queue-menu-text\"\u003eLejátszás most\u003c\/span\u003e\u003c\/li\u003e\u003c\/ul\u003e\u003c\/button\u003e\n  \u003c\/span\u003e\n",'SAFETY_MODE_PENDING': false,'I18N_PLURAL_RULES': function(n) { return 'other'; },'ZWIEBACK_PING_URLS': ["https:\/\/www.google.hu\/pagead\/lvz?evtid=AERA0fwidb_9Xw9URdwyUdqaENvV81c_db0KtpeihWVneoJ7LqwvDkAAIfxaKuc-8Lz4cNDpRCeY3gnrzv2dKwDGF0Sb1UIScw\u0026req_ts=1501581304\u0026pg=watch\u0026sigh=AEjrV0Wod1-AiVU947p9LIIclI2y4r6bUQ"],'LOCAL_DATE_TIME_CONFIG': {"formatLongDateOnly":"yyyy. MMMM d.","formatShortTime":"H:mm","shortMonths":["jan.","febr.","márc.","ápr.","máj.","jún.","júl.","aug.","szept.","okt.","nov.","dec."],"firstWeekCutoffDay":3,"weekdays":["vasárnap","hétfő","kedd","szerda","csütörtök","péntek","szombat"],"weekendRange":[6,5],"amPms":null,"firstDayOfWeek":0,"shortWeekdays":["V","H","K","Sze","Cs","P","Szo"],"months":["január","február","március","április","május","június","július","augusztus","szeptember","október","november","december"],"formatLongDate":"yyyy. MMMM d. H:mm","formatShortDate":"yyyy. MMM d.","formatWeekdayShortTime":"EE H:mm","dateFormats":["yyyy. MMMM d. H:mm","yyyy. MMMM d.","yyyy. MMM d.","yyyy. MMM d."]},'PAGE_CL': 163658519,'PAGE_BUILD_LABEL': "youtube.ytfe.desktop_20170731_0_RC1",'VARIANTS_CHECKSUM': "a97ec258ea94ef894f20711e1e8d9713",'CLIENT_PROTOCOL': "HTTP\/1.1",'CLIENT_TRANSPORT': "tcp",'MDX_ENABLE_CASTV2': true,'MDX_ENABLE_QUEUE': true,'FEEDBACK_BUCKET_ID': "Watch",'FEEDBACK_LOCALE_LANGUAGE': "hu",'FEEDBACK_LOCALE_EXTRAS': {"logged_in":false,"accept_language":null,"experiments":"9415398,9419979,9420289,9422596,9431012,9432939,9433870,9434289,9438309,9440054,9441194,9442387,9442746,9444189,9446364,9448302,9449243,9451814,9451823,9453167,9454653,9456445,9456628,9456997,9457114,9457141,9457169,9457541,9459292,9459444,9459792,9459798,9460350,9460554,9460829,9460959,9461404,9461765,9463460,9463594,9463616,9463936,9463963,9464207,9464887,9465513,9466518,9466793,9466795,9466797,9466835,9467001,9467217,9467472,9467504,9467508,9467510,9467512,9467655,9467795,9467806,9467820,9467822,9468195,9468797,9468799,9468805,9469615,9469734,9469862,9469883,9469934,9469943,9470040,9470791,9471103,9471264,9471955,9472401,9472500,9472711,9472760,9473198,9473369,9473384,9473404,9473977,9474081,9474396,9474579,9475219,9475340,9475460,9476026,9476077,9476124,9476327,9476522,9476747,9477477,9477902,9477905,9478341,9478523,9478912,9479119,9479200,9479226,9479354,9479416,9479456,9479549,9479723,9479750,9479827,9479958,9480013,9480160,9480312,9480317,9480371,9480475,9480712,9481126,9481498,9481611,9481819,9482087,9482194,9482441,9482524,9482528,9482647,9482655,9482852,9482951,9482977,9482998,9483148,9483199,9483362,9483512,9483583,9483718,9483938,9484089,9484166,9484201,9484209,9484509,9484706,9484782,9485047,9485999,9486004,9486172,9486424,9486443,9486446,9486592"}});   yt.setConfig({
+    'GUIDED_HELP_LOCALE': "hu_HU",
+    'GUIDED_HELP_ENVIRONMENT': "prod"
+  });
+yt.setConfig('SPF_SEARCH_BOX', true);yt.setMsg({'ADDTO_CREATE_NEW_PLAYLIST': "Új lejátszási lista létrehozása\n",'ADDTO_CREATE_PLAYLIST_DYNAMIC_TITLE': "  $dynamic_title_placeholder (új létrehozása)\n",'ADDTO_WATCH_LATER': "Watch later",'ADDTO_WATCH_LATER_ADDED': "Hozzáadva",'ADDTO_WATCH_LATER_ERROR': "Hiba",'ADDTO_WATCH_QUEUE': "Watch Queue",'ADDTO_WATCH_QUEUE_ADDED': "Hozzáadva",'ADDTO_WATCH_QUEUE_ERROR': "Hiba",'ADDTO_TV_QUEUE': "Queue",'ADS_INSTREAM_FIRST_PLAY': "A rendszer videohirdetést játszik le.",'ADS_INSTREAM_SKIPPABLE': "A videóhirdetés átugorható.",'ADS_OVERLAY_IMPRESSION': "A rendszer hirdetést jelenített meg.",'MASTHEAD_NOTIFICATIONS_LABEL': {"case1": "1 olvasatlan \u00e9rtes\u00edt\u00e9s.", "case0": "0 olvasatlan \u00e9rtes\u00edt\u00e9s.", "other": "# olvasatlan \u00e9rtes\u00edt\u00e9s."},'MASTHEAD_NOTIFICATIONS_COUNT_99PLUS': "99+",'MDX_AUTOPLAY_OFF': 'Az automatikus lejátszás ki van kapcsolva','MDX_AUTOPLAY_ON': 'Az automatikus lejátszás be van kapcsolva'});  yt.setConfig('FEED_PRIVACY_CSS_URL', "\/yts\/cssbin\/www-feedprivacydialog-vflWi26th.css");
+  yt.setConfig('FEED_PRIVACY_LIGHTBOX_ENABLED', true);
+yt.setConfig({'SBOX_JS_URL': "\/yts\/jsbin\/www-searchbox-legacy-vflWnb-gh\/www-searchbox-legacy.js",'SBOX_SETTINGS': {"SESSION_INDEX":null,"PQ":"","REQUEST_DOMAIN":"hu","REQUEST_LANGUAGE":"hu","IS_FUSION":false,"PSUGGEST_TOKEN":null,"HAS_ON_SCREEN_KEYBOARD":true,"SUGG_EXP_ID":""},'SBOX_LABELS': {"SUGGESTION_DISMISS_LABEL":"Eltávolítás","SUGGESTION_DISMISSED_LABEL":"Javaslat elvetve"}});  yt.setConfig({
+    'YPC_LOADER_JS': "\/yts\/jsbin\/www-ypc-vflu8-2dF\/www-ypc.js",
+    'YPC_LOADER_CSS': "\/yts\/cssbin\/www-ypc-vflXFWcXr.css",
+    'YPC_SIGNIN_URL': "https:\/\/accounts.google.com\/ServiceLogin?passive=true\u0026hl=hu\u0026continue=http%3A%2F%2Fwww.youtube.com%2Fsignin%3Fhl%3Dhu%26next%3D%252F%26action_handle_signin%3Dtrue%26app%3Ddesktop\u0026uilel=3\u0026service=youtube",
+    'DBLCLK_ADVERTISER_ID': "2542116",
+    'DBLCLK_YPC_ACTIVITY_GROUP': "youtu444",
+    'SUBSCRIPTION_URL': "\/subscription_ajax",
+    'YPC_SWITCH_URL': "\/signin?feature=purchases\u0026next=%2F\u0026action_handle_signin=true\u0026skip_identity_prompt=True",
+    'YPC_GB_LANGUAGE': "hu_HU",
+    'YPC_MB_URL': "https:\/\/payments.youtube.com\/payments\/v4\/js\/integrator.js?ss=md",
+    'YPC_TRANSACTION_URL': "\/transaction_handler",
+    'YPC_SUBSCRIPTION_URL': "\/ypc_subscription_ajax",
+    'YPC_POST_PURCHASE_URL': "\/ypc_post_purchase_ajax",
+    'YTR_FAMILY_CREATION_URL': "https:\/\/families.google.com\/webcreation?usegapi=1",
+    'YTO_GTM_DATA': {'event': 'purchased', 'purchaseStatus': 'success'},
+    'YTO_GTM_1_BUTTON_CLICK_DATA': {'event': 'landingButtonClick', 'buttonPosition': '1'},
+    'YTO_GTM_2_BUTTON_CLICK_DATA': {'event': 'landingButtonClick', 'buttonPosition': '2'}
+  });
+  yt.setMsg({
+    'YPC_OFFER_OVERLAY': "  \n",
+    'YPC_UNSUBSCRIBE_OVERLAY': "  \n"
+  });
+  yt.setConfig('GOOGLE_HELP_CONTEXT', "watch");
+ytcsi.info('st', 233);ytcfg.set({"TIMING_INFO":{"yt_ad":"1","yt_lt":"cold","cver":"1.20170731","c":"WEB","yt_li":"0","yt_pl":0,"GetWatchNext_rid":"0x34ef80bb0016fa7d","GetPlayer_rid":"0x34ef80bb0016fa7d"},"CSI_SERVICE_NAME":"youtube","CSI_VIEWPORT":true,"TIMING_ACTION":"watch,watch7_html5"});;  yt.setConfig({
+      'XSRF_TOKEN': "QUFFLUhqbWFXVTg3clFxTGZCNFotM0RhaGM1OWJzTFNZQXxBQ3Jtc0traDR0VDlsTGR6cWFqZXhFQ1AycTRveUpNdW5BNVI2X1ZxZ2NLcWoyZUlRdW1ERkM2NTBDWGVZNFg5Y1lsb09uMHhLb1RKdDZ2QzR2VzVfYWRoSm5mSmhvRHQ2ZHBhbW5HeFJRTmhqbDY3X0VNRkdCVHVZXzZaSDh5WXBxVk9NYk9KcWRjYVVRNWUwN21XV3hLR2N4YlVUWFRtNlE=",
+      'XSRF_FIELD_NAME': "session_token",
+
+      'XSRF_REDIRECT_TOKEN': "teAijoBVBSJvLLyHTidOVbGEe5B8MTUwMTY2NzcwNUAxNTAxNTgxMzA1"  });
+yt.setConfig('ID_TOKEN', null);window.ytcfg.set('SERVICE_WORKER_KILLSWITCH', false);  yt.setConfig('THUMB_DELAY_LOAD_BUFFER', 0);
+if (window.ytcsi) {window.ytcsi.tick("jl", null, '');}</script>
+</body></html>
