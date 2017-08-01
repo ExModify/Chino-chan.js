@@ -55,17 +55,13 @@ module.exports = {
             });
         }
         else if (property == "play"){
-            musicModule.singlePlay(bot, message.guild.id, message.channel.id, message.author.id, prefix, option, language);
+            musicModule.play(bot, message.guild.id, message.channel.id, message.author.id, prefix, option, language);
         }
-        else if (property == ""){
-
-        }
-
-        if(parameters.length == 1){ //link or query index
-
-        }
-        else if (parameters.length > 1){ //Link with name
-
+        else if (property == "disconnect"){
+            if(message.guild.voiceConnection != undefined || message.guild.voiceConnection != null){
+                message.guild.voiceConnection.disconnect();
+                message.channel.sendMessage(language.MusicDisconnected);
+            }
         }
     }
 };

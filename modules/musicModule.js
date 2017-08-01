@@ -5,8 +5,6 @@ const crypto = require('crypto');
 var exec = require('child_process').exec;
 const execSync = require('child_process').execSync;
 
-//Process with ID, global, multiserver, shows download time, stoppable, eventEmitter
-
 var query = new Map();
 var streams = new Map();
 var volumes = new Map();
@@ -18,7 +16,7 @@ module.exports = {
     add: (bot, guildID, channelID, userID, prefix, link, language) => {
         
     },
-    singlePlay: (bot, guildID, channelID, userID, prefix, fileOrID, language) => {
+    play: (bot, guildID, channelID, userID, prefix, fileOrID, language) => {
         var channel = bot.channels.get(channelID);
 
         if(streams.has(guildID))
@@ -32,15 +30,22 @@ module.exports = {
         } 
         else if(isNaN(parseInt(fileOrID))) // remote file, or youtube
         {
+            fileOrID = fileOrID.trim();
             isYouTube(fileOrID).then(result => {
                 if(result){
                     getYouTubeTitle(fileOrID).then(name => {
-                        channel.sendMessage(language.MusicDownloading.getPrepared('name', name));
-                        downloadYouTube(fileOrID).then(path => {
-                            startPlay(bot, guildID, channelID, userID, prefix, language, path, name);
-                        }).catch(err => {
-                            channel.sendMessage(err.toString());
-                        });
+                        var stream = require('youtube-audio-stream')(fileOrID);
+                        channel.sendMessage(language.MusicStartedPlaying.getPrepared('name', name));
+                        
+                        setTimeout(() => {
+                            connect(bot, guildID, userID, channelID).then(voiceConnection => {
+                                var Dispatcher = voiceConnection.playStream(stream, 
+                                    {
+                                        "volume": volumes.get(guildID)
+                                    });
+                                streams.set(guildID, Dispatcher);
+                            });
+                        }, 2000);
                     });
                     
                 }
@@ -163,27 +168,6 @@ function getYouTubeTitle(link) {
         request('http://www.youtubeinmp3.com/fetch/?format=json&video=' + link, (error, response, body) => {
             var json = JSON.parse(response.body);
             resolve(json.title);
-        });
-    });
-}
-
-function downloadYouTube(link) {
-    return new Promise((resolve, reject) => {
-        request('http://www.youtubeinmp3.com/fetch/?format=json&video=' + link, (error, response, body) => {
-            if(response.statusCode < 300)
-            {
-                try{
-                    var json = JSON.parse(response.body);
-                    downloadFile(json.link, link).then(path => {
-                        resolve(path);
-                        return;
-                    });
-                }
-                catch(err){ reject(new Error('Not valid YouTube link!')); }
-            }
-            else{
-                reject(new Error("Error while checking if it's a YouTube link!"));
-            }
         });
     });
 }

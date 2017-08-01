@@ -48,6 +48,6 @@ Client.on('message', message => {
         message.channel.sendMessage(`\`${(message.member.nickname ? message.member.nickname : message.author.username)}\` ¯\\\_(ツ)_/¯`);
     }
     rerequire('./MessageHandler.js').handle(Client, message, uptime);
-}); 
+});
 Client.login(vars.DiscordToken);
 console.log('ExMoBot logged in!');
