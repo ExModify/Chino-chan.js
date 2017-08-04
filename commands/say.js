@@ -11,6 +11,11 @@ module.exports = {
             if(message.channel.permissionsFor(bot.user).hasPermission("MANAGE_MESSAGES"))
                 message.delete();
         }
+        if(!vars.HasAdmin(message.guild, message.author.id)){
+            message.author.createDM().then(channel => {
+                channel.sendMessage(language.NoPermission);
+            });
+        }
 
         if(parameter == "")
         {

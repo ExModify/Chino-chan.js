@@ -53,11 +53,7 @@ module.exports = {
         else if (property == "volume"){
             if(option.trim() == "")
             {
-                if(!musicModule.volumes.has(message.guild.id)){
-                    musicModule.volumes.set(message.guild.id, 100);
-                    vars.set(message.guild.id, 100, "volumes");
-                }
-                message.channel.sendMessage(language.MusicCurrentVolume.getPrepared('volume', musicModule.volumes.get(message.guild.id)));
+                message.channel.sendMessage(language.MusicCurrentVolume.getPrepared('volume', vars.Settings(message.guild.id).Volume));
             }
             else{
                 var number = parseFloat(option);

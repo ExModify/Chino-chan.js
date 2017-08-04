@@ -6,10 +6,11 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     execute: (bot, message, prefix, command, parameter, language) => {
-        if(parameter === "count"){
-            message.channel.sendMessage(language.NekoCount.getPrepared('count', vars.NekoCount));
+        if(parameter.trim() === "count"){
+            message.channel.send(language.NekoCount.getPrepared('count', vars.NekoCount));
         }else{
-            message.channel.sendFile(vars.NekoPath + vars.NekoFiles[Math.floor(Math.random() * vars.NekoCount)]);
+            var Path = vars.NekoPath + vars.NekoFiles[Math.floor(Math.random() * vars.NekoCount)];
+            message.channel.sendImageEmbed(Path, 'Neko', message.channel);
         }
     }
 };

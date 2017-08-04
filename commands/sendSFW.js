@@ -6,11 +6,12 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     execute: (bot, message, prefix, command, parameter, language) => {
-        if(parameter === "count"){
-            message.channel.sendMessage(language.SFWCount.getPrepared('count', vars.SFWCount));
+        if(parameter.trim() === "count"){
+            message.channel.send(language.SFWCount.getPrepared('count', vars.SFWCount));
         }
         else{
-            message.channel.sendFile(vars.SFWPath + vars.SFWFiles[Math.floor(Math.random() * vars.SFWCount)]);
+            var Path = vars.SFWPath + vars.SFWFiles[Math.floor(Math.random() * vars.SFWCount)];
+            message.channel.sendImageEmbed(Path, 'SFW', message.channel);
         }
     }
 };

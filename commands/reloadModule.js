@@ -1,5 +1,6 @@
 var rerequire = require('./../modules/rerequire.js');
 var fs = require('fs');
+var vars = require('./../global/vars.js');
 
 module.exports = {
     name: 'rmodule',
@@ -7,7 +8,7 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     execute: (bot, message, prefix, command, parameter, language) => {
-        if(message.author.id != '193356184806227969')
+        if(vars.IsOwner(message.author.id))
         {
             message.channel.sendMessage(language.NoPermission);
             return;

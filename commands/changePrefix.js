@@ -9,8 +9,8 @@ module.exports = {
         if(parameter === "")
             message.channel.sendMessage(language.CurrentPrefix.getPrepared('prefix', prefix));
         else{
-            if(vars.Admins.indexOf(message.author.id) >= 0){
-                vars.set(message.guild.id, parameter, 'prefixes');
+            if(vars.HasAdmin(message.guild, message.author.id)){
+                vars.SetPrefix(message.guild == null ? messahe.author.dmChannel.id : message.guild.id);
                 message.channel.sendMessage(language.PrefixChanged.getPrepared(['user', 'prefix'], [`<@${message.author.id}>`, parameter]));
             }
             else{

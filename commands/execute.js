@@ -8,7 +8,7 @@ module.exports = {
     requirePrefix: true,
     aliases: [],
     execute: (bot, message, prefix, command, parameter, language) => {
-        if(message.author.id !== '193356184806227969'){
+        if(!vars.IsOwner(message.author.id)){
             message.channel.sendMessage(`\`\`\`${language.ExecuteNoPermission}\`\`\``);
             return;
         }

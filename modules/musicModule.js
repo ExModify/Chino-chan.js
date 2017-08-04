@@ -9,14 +9,7 @@ const ytdl = require('ytdl-core');
 const url = require('url');
 var vars = require('./../global/vars.js');
 
-var query = new Map();
-var streams = new Map();
-var volumes = new Map();
-
 module.exports = {
-    query: query,
-    streams: streams,
-    volumes: volumes,
     add: (bot, guildID, channelID, userID, prefix, link, language) => {
         
     },
@@ -24,14 +17,13 @@ module.exports = {
 
     },
     play: (bot, guildID, channelID, userID, prefix, fileOrID, language) => {
-        if(!volumes.has(guildID))
-            volumes.set(guildID, 100);
+        var Settings = vars.Settings(guildID);
 
         var channel = bot.channels.get(channelID);
 
-        if(streams.has(guildID))
-            if(streams.get(guildID) != null && streams.get(guildID) != undefined)
-                streams.set(guildID, undefined);
+        if(vars.Streams.has(guildID))
+            if(vars.Streams.get(guildID) != null || vars.Streams.get(guildID) != undefined)
+                vars.Streams.set(guildID, undefined);
         
         if(fileOrID == "") // query first
         {
@@ -43,32 +35,22 @@ module.exports = {
                 getYouTubeTitle(fileOrID).then(name => {
                     var stream = require('youtube-audio-stream')(fileOrID);
                     channel.sendMessage(language.MusicStartedPlaying.getPrepared('name', name));
-                    
-                    setTimeout(() => {
-                        connect(bot, guildID, userID, channelID).then(voiceConnection => {
-                            var Dispatcher = voiceConnection.playStream(stream, 
-                            {
-                                "volume": volumes.get(guildID) / 100
-                            });
 
-                            Dispatcher.on("end", () => {
-                                channel.sendMessage(language.MusicFinishedPlaying.getPrepared('name', name));
-                            });
-                            Dispatcher.on("stopped", () => {
-                                channel.sendMessage(language.MusicStoppedPlaying.getPrepared('name', name));
-                            });
-                            
-                            streams.set(guildID, Dispatcher);
+                    connect(bot, guildID, userID, channelID).then(voiceConnection => {
+                        var Dispatcher = voiceConnection.playStream(stream, 
+                        {
+                            "volume": volumes.get(guildID) / 100
                         });
-                    }, 2000);
+
+                        Dispatcher.on("end", () => {
+                            channel.sendMessage(language.MusicFinishedPlaying.getPrepared('name', name));
+                        });
+                        
+                        vars.Streams.set(guildID, Dispatcher);
+                    });
                 });
             }
             else{
-                downloadFile(fileOrID).then(path => {
-
-                }).catch(reason => {
-
-                });
                 channel.sendMessage(language.MusicOnlyYouTubeSupported);
                 return;
             }
@@ -79,10 +61,9 @@ module.exports = {
     connect: (bot, guildID, userID, channelID) => connect(bot, guildID, userID, channelID),
     setVolume: (bot, guildID, channelID, volume, language) => {
         var channel = bot.channels.get(channelID);
-        volumes.set(guildID, volume);
-        vars.set(guildID, volume, "volumes");
-        if(streams.has(guildID)){
-            var stream = streams.get(guildID);
+        vars.SetVolume(guildID, volume);
+        if(vars.Streams.has(guildID)){
+            var stream = vars.Streams.get(guildID);
             if(stream != undefined){
                 stream.setVolume(parseFloat(volume) / 100);
             }
@@ -90,32 +71,6 @@ module.exports = {
         channel.sendMessage(language.MusicVolumeChanged.getPrepared('volume', volume));
     }
 };
-
-function startPlay(bot, guildID, channelID, userID, prefix, language, file, name){
-    var channel = bot.channels.get(channelID);
-
-    if(file == ""){
-        channel.sendMessage(language.MusicNotContainsAudio);
-        return;
-    }
-
-    connect(bot, guildID, userID).then(recievedConnection => {
-        if(recievedConnection == null){
-            channel.sendMessage(language.MusicConnectionRequired.getPrepared('p', prefix));
-            return;
-        }
-
-        if(!volumes.has(guildID))
-            volumes.set(guildID, 100);
-        
-        var dispatcher = recievedConnection.playFile(file);
-        dispatcher.setVolume(volumes.get(guildID) / 100);
-        
-        streams.set(guildID, dispatcher);
-
-        channel.sendMessage(language.MusicStartedPlaying.getPrepared('name', name ? name : ''));
-    });
-}
 
 function connect(bot, guildID, userID, channelID){
     return new Promise((resolve, reject) => {
@@ -187,8 +142,8 @@ function isYouTube(link) {
 
 function getYouTubeTitle(link) {
     return new Promise((resolve, reject) => {
-        ytdl.getInfo(link).then(gotingo => {
-            resolve(gotingo.title);
+        ytdl.getInfo(link).then(gotinfo => {
+            resolve(gotinfo.title);
         });
     });
 }

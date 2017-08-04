@@ -10,24 +10,12 @@ module.exports = {
         if(message.author.id === bot.user.id)
             return;
 
-        var Prefix = '$';
-        var Language = langHandler.getLanguage('en');
+        var guildID = message.guild == null ? message.channel.id : message.guild.id;
 
-        var guildID = message.guild != null ? message.guild.id : message.channel.id;
-        
-        if(vars.Prefixes().has(guildID))
-        {
-            Prefix = vars.Prefixes().get(guildID);
-        }
-        else
-            vars.set(guildID, '$', 'prefixes');
-        
-        if(vars.Languages().has(guildID))
-        {
-            Language = langHandler.getLanguage(vars.Languages().get(guildID));
-        }
-        else
-            vars.set(guildID, 'en', 'languages');
+        var Settings = vars.Settings(guildID);
+        var Prefix = Settings["Prefix"];
+        var Language = langHandler.getLanguage(Settings["Language"]);
+
 
         var SpaceIndex = message.content.indexOf(' ');
         var Command = GenerateCommand(message.content, Prefix);
@@ -46,6 +34,8 @@ module.exports = {
         });
 
         if(JSModule === undefined){
+            return;
+            
             if(!HasPrefix(message.content, Prefix))
                 return;
 

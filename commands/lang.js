@@ -18,14 +18,14 @@ module.exports = {
                     langs += ', ';
             });
             
-            message.channel.sendMessage(language.ListLanguages.getPrepared('languages', langs));
+            message.channel.sendMessage(language.ListLanguages.getPrepared(['languages', 'currentlang'], [langs, language.name]));
         }else{
             var lang = langHandler.getLanguage(parameter);
             if(lang === undefined){
                 message.channel.sendMessage(language.UnknownLanguage.getPrepared(['prefix', 'command'], [prefix, command]));
             }
             else{
-                vars.set(message.guild.id, lang.id, 'languages');
+                vars.SetLanguage(message.guild == null ? message.author.dmChannel.id : message.guild.id);
                 message.channel.sendMessage(lang.LanguageChanged);
             }
         }

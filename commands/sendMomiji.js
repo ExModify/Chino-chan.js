@@ -6,10 +6,11 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     execute: (bot, message, prefix, command, parameter, language) => {
-        if(parameter === "count"){
-            message.channel.sendMessage(language.MomijiCount.getPrepared('count', vars.MomijiCount));
+        if(parameter.trim() === "count"){
+            message.channel.send(language.MomijiCount.getPrepared('count', vars.MomijiCount));
         }else{
-            message.channel.sendFile(vars.MomijiPath + vars.MomijiFiles[Math.floor(Math.random() * vars.MomijiCount)]);
+            var Path = vars.MomijiPath + vars.MomijiFiles[Math.floor(Math.random() * vars.MomijiCount)];
+            message.channel.sendImageEmbed(Path, 'Momiji', message.channel);
         }
     }
 };

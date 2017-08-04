@@ -2,6 +2,9 @@ process.on('uncaughtException', err => {
     console.log('Error: ' + err.stack);
     process.exit(2);
 });
+
+process.stdin.setEncoding("utf8");
+
 String.prototype.getPrepared = function (from, to) {
     var Prepared = this.toString();
     if(typeof from == "string"){
@@ -22,8 +25,23 @@ String.prototype.getPrepared = function (from, to) {
 };
 
 const Discord = require('discord.js');
-const rerequire = require('./modules/rerequire.js');
 
+var junkChannel;
+
+Discord.TextChannel.prototype.sendImageEmbed = (file, type, channel) => {
+    junkChannel.send({files:[file]}).then(Message => {
+        var Embed = new Discord.RichEmbed();
+        Embed.setImage(Message.attachments.first().url)
+        Embed.setColor(0 << 16 | 255 << 8 | 255);
+        Embed.setTitle(type);
+        Embed.setDescription(file);
+        channel.send({embed:Embed});
+    });
+
+};
+
+const rerequire = require('./modules/rerequire.js');
+const musicModule = require('./modules/musicModule.js');
 
 var vars = require('./global/vars.js');
 
@@ -36,10 +54,10 @@ setInterval(() => {
 }, 1000);
 
 Client.on('ready', () => {
-    if(Client.user.username !== 'ExMoBot')
-        Client.user.setUsername('ExMoBot');
     Client.user.setStatus("online");
     Client.user.setGame('with ExMo');
+    vars.Load();
+    junkChannel = Client.channels.get("342989459609878538");
 });
 Client.on('message', message => {
     if(message.content == "/gamerescape")
@@ -48,6 +66,21 @@ Client.on('message', message => {
         message.channel.sendMessage(`\`${(message.member.nickname ? message.member.nickname : message.author.username)}\` ¯\\\_(ツ)_/¯`);
     }
     rerequire('./MessageHandler.js').handle(Client, message, uptime);
+});
+
+let data;
+
+process.stdin.on('readable', () => {
+    var chunk = process.stdin.read();
+    if(chunk != undefined){
+        data += chunk;
+    }
+});
+process.stdin.on('end', () => {
+    var parsed = data.toString();
+    if(parsed == "quitw")
+        process.exit(0);
+    data = undefined;
 });
 
 Client.login(vars.DiscordToken);

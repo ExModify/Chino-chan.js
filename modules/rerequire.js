@@ -2,7 +2,7 @@
 module.exports = (modulePath) => {
     var module = '';
     if(modulePath.startsWith('./'))
-        module = './../' + modulePath.substring(1);
+        module = './../' + modulePath.substring(2);
     else
         module = modulePath;
     

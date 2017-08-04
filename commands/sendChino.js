@@ -6,10 +6,11 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     execute: (bot, message, prefix, command, parameter, language) => {
-        if(parameter === "count"){
-            message.channel.sendMessage(language.ChinoCount.getPrepared('count', vars.ChinoCount));
+        if(parameter.trim() === "count"){
+            message.channel.send(language.ChinoCount.getPrepared('count', vars.ChinoCount));
         }else{
-            message.channel.sendFile(vars.ChinoPath + vars.ChinoFiles[Math.floor(Math.random() * vars.ChinoCount)]);
+            var Path = vars.ChinoPath + vars.ChinoFiles[Math.floor(Math.random() * vars.ChinoCount)];
+            message.channel.sendImageEmbed(Path, 'Chino', message.channel);
         }
     }
 };
