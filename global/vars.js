@@ -88,11 +88,13 @@ function SaveSettings(){
 }
 function Get(guildID){
     var Base = undefined;
-
-    GuildSettings.forEach((v, i, a) => {
-        if(v["GuildID"] == guildID)
-            Base = v;
+    
+    var index = GuildSettings.findIndex((e, i, a) => {
+        return e.GuildID = guildID;
     });
+
+    if(index >= 0)
+        Base = GuildSettings[index];
 
     if(Base == undefined){
         Base = JSON.parse(`{
@@ -116,8 +118,8 @@ function AddOrSet(guildID, property, value){
     }else{
         Base[property] = value;
     }
-    var index = GuildSettings.findIndex((t, v, i, o) => {
-        return v.GuildID = guildID;
+    var index = GuildSettings.findIndex((e, i, a) => {
+        return e.GuildID = guildID;
     });
     
     GuildSettings[index] = Base;
@@ -132,12 +134,11 @@ function Remove(guildID, property, value){
             Base[property].splice(index, 1);
         }
     }
-    for(var i = 0; i < GuildSettings.length; i++){
-        if(GuildSettings[i]["GuildID"] == guildID)
-        {
-            GuildSettings[i] = Base;
-        }
-    }
+    var index = GuildSettings.findIndex((e, i, a) => {
+        return e.GuildID = guildID;
+    });
+    
+    GuildSettings[index] = Base;
     SaveGuildSettings();
 }
 module.exports = {

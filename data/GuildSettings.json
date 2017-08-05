@@ -1,12 +1,10 @@
 [
     {
-        "GuildID": "193355888696754176",
+        "GuildID": "341882520310251520",
         "Prefix": "$",
         "Language": "en",
-        "Admins": [
-            "139013515666128896"
-        ],
-        "Volume": 100,
+        "Admins": [],
+        "Volume": 30,
         "Query": []
     },
     {
@@ -29,14 +27,6 @@
     },
     {
         "GuildID": "269471675853176833",
-        "Prefix": "$",
-        "Language": "en",
-        "Admins": [],
-        "Volume": 100,
-        "Query": []
-    },
-    {
-        "GuildID": "341882520310251520",
         "Prefix": "$",
         "Language": "en",
         "Admins": [],
