@@ -36,7 +36,7 @@ Discord.TextChannel.prototype.sendImageEmbed = (file, type, channel) => {
         Embed.setColor(0 << 16 | 255 << 8 | 255);
         Embed.setTitle(type);
         if(type.toLowerCase() == "nsfw")
-            Embed.setDescription(file.substring(file.lastIndexOf('\\')));
+            Embed.setDescription("Filename: " + file.substring(file.lastIndexOf('\\') + 1));
         channel.send({embed:Embed});
     });
 
