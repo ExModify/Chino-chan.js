@@ -90,12 +90,12 @@ function Get(guildID){
     var Base = undefined;
     
     var index = GuildSettings.findIndex((e, i, a) => {
-        return e.GuildID = guildID;
+        return e.GuildID == guildID;
     });
 
     if(index >= 0)
         Base = GuildSettings[index];
-
+    
     if(Base == undefined){
         Base = JSON.parse(`{
             "GuildID": "${guildID}",
@@ -119,7 +119,7 @@ function AddOrSet(guildID, property, value){
         Base[property] = value;
     }
     var index = GuildSettings.findIndex((e, i, a) => {
-        return e.GuildID = guildID;
+        return e.GuildID == guildID;
     });
     
     GuildSettings[index] = Base;
@@ -135,7 +135,7 @@ function Remove(guildID, property, value){
         }
     }
     var index = GuildSettings.findIndex((e, i, a) => {
-        return e.GuildID = guildID;
+        return e.GuildID == guildID;
     });
     
     GuildSettings[index] = Base;

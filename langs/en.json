@@ -25,7 +25,12 @@
         "sfw":         "I send a random sfw picture. Use `count` parameter to know how many pictures I have~",
         "voiceinvite": "Voice invitation~",
         "shutdown":    "It turns me off :C",
-        "waifu":       "no."
+        "waifu":       "no.",
+        "git":         "I send the current version and some commit information",
+        "lenny":       "( ͡° ͜ʖ ͡°)",
+        "onlineImage": "I search for an image",
+        "purge":       "I delete every message in the channel where you type it~ Be careful~",
+        "highlight":   "I highlight a message for you~"
     },
     "PrivateMessage": "%MENTION%, Check our private channel c:",
     "ListLanguages": "The available languages: ``%LANGUAGES%``\nCurrently, I'm using **%CURRENTLANG%** c:",
