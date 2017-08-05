@@ -40,6 +40,10 @@ module.exports = {
         }
         else if (property == "disconnect"){
             if(message.guild.voiceConnection != undefined || message.guild.voiceConnection != null){
+                if(vars.Streams.has(message.guild.id)){
+                    vars.Streams.get(message.guild.id).end();
+                    vars.Streams.set(message.guild.id, undefined);
+                }
                 message.guild.voiceConnection.disconnect();
                 message.channel.sendMessage(language.MusicDisconnected);
             }

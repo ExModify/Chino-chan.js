@@ -1,4 +1,5 @@
-const fs = require('fs');
+var fs = require('fs');
+var rerequire = require('./../modules/rerequire.js');
 var GuildSettings = [];
 var Settings = undefined;
 
@@ -17,6 +18,7 @@ var ChinoFiles;
 var MomijiFiles;
 
 function LoadImages(){
+    fs = rerequire('fs');
     SFWFiles = fs.readdirSync(SFWPath).filter((v, i, a) => {
         if (fs.statSync(SFWPath + v).isDirectory())
             return false;

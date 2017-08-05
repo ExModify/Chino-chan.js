@@ -21,9 +21,12 @@ module.exports = {
 
         var channel = bot.channels.get(channelID);
 
-        if(vars.Streams.has(guildID))
-            if(vars.Streams.get(guildID) != null || vars.Streams.get(guildID) != undefined)
-                vars.Streams.set(guildID, undefined);
+        if(vars.Streams.has(guildID)){    
+            var Dispatcher = vars.Streams.get(guildID);
+            if(Dispatcher != null && Dispatcher != undefined){
+                Dispatcher.end();
+            }
+        }
         
         if(fileOrID == "") // query first
         {
@@ -34,12 +37,12 @@ module.exports = {
             if(isYouTube(fileOrID)){
                 getYouTubeTitle(fileOrID).then(name => {
                     var stream = require('youtube-audio-stream')(fileOrID);
-                    channel.sendMessage(language.MusicStartedPlaying.getPrepared('name', name));
+                    channel.send(language.MusicStartedPlaying.getPrepared('name', name));
 
                     connect(bot, guildID, userID, channelID).then(voiceConnection => {
                         var Dispatcher = voiceConnection.playStream(stream, 
                         {
-                            "volume": volumes.get(guildID) / 100
+                            "volume": Settings.Volume / 100
                         });
 
                         Dispatcher.on("end", () => {
@@ -75,6 +78,10 @@ module.exports = {
 function connect(bot, guildID, userID, channelID){
     return new Promise((resolve, reject) => {
         var guild = bot.guilds.get(guildID);
+
+        if(guild.voiceConnection != undefined && guild.voiceConnection != null)
+            resolve(guild.voiceConnection);
+
         var user = guild.members.get(userID);
         var channel = user.voiceChannel;
         

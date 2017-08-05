@@ -2,6 +2,9 @@ process.on('uncaughtException', err => {
     console.log('Error: ' + err.stack);
     process.exit(2);
 });
+process.on('unhandledRejection', (reason, promise) => {
+    console.log('Error: Promise Error: +' + reason.stack);
+});
 
 process.stdin.setEncoding("utf8");
 
@@ -66,6 +69,7 @@ Client.on('message', message => {
         message.channel.sendMessage(`\`${(message.member.nickname ? message.member.nickname : message.author.username)}\` ¯\\\_(ツ)_/¯`);
     }
     rerequire('./MessageHandler.js').handle(Client, message, uptime);
+
 });
 
 let data;
