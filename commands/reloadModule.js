@@ -14,16 +14,15 @@ module.exports = {
             return;
         }
 
+        if(message.deletable)
+            message.delete;
+
         var paramTrimmed = parameter.trim();
 
         if(paramTrimmed == "vars"){
             vars = rerequire('./global/vars.js');
             vars.Load();
             message.channel.sendMessage(language.ModuleReloaded.getPrepared("module", "Global vars"));
-        }
-        else if (paramTrimmed == "images"){
-            vars.ReloadImages();
-            message.channel.sendMessage(language.ModuleReloaded.getPrepared("module", "Images"));
         }
         else{
             var files = fs.readdirSync('./modules/');

@@ -6,8 +6,6 @@ process.on('unhandledRejection', (reason, promise) => {
     console.log('Error: Promise Error: +' + reason.stack);
 });
 
-process.stdin.setEncoding("utf8");
-
 String.prototype.getPrepared = function (from, to) {
     var Prepared = this.toString();
     if(typeof from == "string"){
@@ -37,7 +35,8 @@ Discord.TextChannel.prototype.sendImageEmbed = (file, type, channel) => {
         Embed.setImage(Message.attachments.first().url)
         Embed.setColor(0 << 16 | 255 << 8 | 255);
         Embed.setTitle(type);
-        Embed.setDescription(file);
+        if(type.toLowerCase() == "nsfw")
+            Embed.setDescription(file.substring(file.lastIndexOf('\\')));
         channel.send({embed:Embed});
     });
 
@@ -70,21 +69,6 @@ Client.on('message', message => {
     }
     rerequire('./MessageHandler.js').handle(Client, message, uptime);
 
-});
-
-let data;
-
-process.stdin.on('readable', () => {
-    var chunk = process.stdin.read();
-    if(chunk != undefined){
-        data += chunk;
-    }
-});
-process.stdin.on('end', () => {
-    var parsed = data.toString();
-    if(parsed == "quitw")
-        process.exit(0);
-    data = undefined;
 });
 
 Client.login(vars.DiscordToken);

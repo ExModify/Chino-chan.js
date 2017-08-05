@@ -127,7 +127,7 @@
     "SayWrongServerID": "Sorry, but I couldn't find the server with this id: %ID% :C",
     "SayWrongChannelID": "Sorry, but I couldn't find the channel with this id %ID% in %SERVERNAME% :C",
     "SayNoMessage": "Please type the message too what you want to be said by me, keep it safe and no harassment please :C",
-    "ModuleReloaded": "**%MODULE%** is reloaded!",
+    "ModuleReloaded": "**%MODULE%** module is reloaded!",
     "HighlightHelp": {
       "Top": "```css",
       "Line1": "I send an embed message about the user's last message, or the message with the id~",

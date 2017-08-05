@@ -1,6 +1,9 @@
 process.on('uncaughtException', err => {
     LogError(err.stack);
 });
+process.on('unhandledRejection', (err, promise) => {
+    LogError(err.stack);
+});
 
 const fs = require('fs');
 const chalk = require('chalk');
@@ -27,6 +30,8 @@ Client.on('ready', () => {
 
     LogChannel = Client.channels.get("341885484592791556");
     ErrorChannel = Client.channels.get("342619532613124109");
+
+    run = true;
 });
 Client.on('message', (message) => {
     if (!isOwner(message.author.id)){
@@ -100,7 +105,6 @@ function RunBot(){
     
     Process.on('exit', OnExit);
     LogEntrace('ExMoBot started!');
-    run = true;
 }
 
 function OnExit(code, signal){
@@ -118,7 +122,7 @@ function HandleExit(exitCode){
         Update();
         break;
         default: //Restart
-        LogEntrace('Restarting ExMoBot..');
+        LogEntrace('Restarting Chino-chan..');
         RunBot();
         break;
     }
