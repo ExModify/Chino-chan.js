@@ -5,6 +5,7 @@
     "NoPermission": "Sorry, but you can't use this command :c",
     "UnknownCommand": "I don't know what to do with **%COMMAND%** :C",
     "UnknwonError": "```I don't know what happened, maybe ExMo will, please tell him, so he can fix me c:```",
+    "InDevelopment": "This command is in development~",
     "CommandHelp": {
         "info":        "I write some information about me and the environment where I am~",
         "prefix":      "Server-side prefix~",
@@ -28,7 +29,7 @@
         "waifu":       "no.",
         "git":         "I send the current version and some commit information",
         "lenny":       "( ͡° ͜ʖ ͡°)",
-        "onlineImage": "I search for an image",
+        "image": "I search for an image",
         "purge":       "I delete every message in the channel where you type it~ Be careful~",
         "highlight":   "I highlight a message for you~"
     },
@@ -149,5 +150,18 @@
     "HighlightUnknownMessageID": "Sorry, I couldn't find the message with id: %ID% :C",
     "HighlightBadUsage": "Please follow the rules, or I can't help you :c Type `%P%highlight` for the help~",
     "HighlightNoMessage": "Sorry, but I can't find the last message in this channel from %NAME% :c",
-    "ChannelPurged": "The channel is purged!"
+    "ChannelPurged": "The channel is purged!",
+    "ImageHelp": {
+        "Top": "```css",
+        "Line1": "You can choose from two portals, SankakuComplex and Gelbooru~",
+        "Line2": "",
+        "Line3": "To use gelbooru:",
+        "Line4": "%P%image gelbooru [tags]",
+        "Line5": "",
+        "Line6": "To use sankaku: [Currently developed]",
+        "Line7": "%P%image sankaku [tags]",
+        "Bottom": "```"
+    },
+    "GelbooruNoImage": "Sorry, but I couldn't find any images with these tags: %TAGS% :c",
+    "ProvideTags": "Please give me some tags so I can search for it for you~"
 }

@@ -44,20 +44,13 @@ Client.on('message', (message) => {
         var spaceIndex = message.content.indexOf(' ');
         spaceIndex = spaceIndex < 0 ? message.content.length : spaceIndex;
 
-        var command = message.content.substring(Prefix.length, spaceIndex).trim();
+        var command = message.content.substring(Prefix.length, spaceIndex).trim().toLowerCase();
 
         if(command == "start"){
             RunBot();
         }
-        else if (command == "stopHandler"){
-            if(Process !== undefined){     
-                message.channel.send(Language.ShutDownMessage).then(Msg => {
-                    Client.user.setStatus("invisible").then((usr) => {
-                        process.exit(0);
-                    });
-                });
-            }
-            else{
+        else if (command == "stophandler"){
+            if(Process == undefined){
                 Client.user.setStatus("invisible").then((user) => {
                     process.exit(0);
                 });
@@ -120,6 +113,11 @@ function HandleExit(exitCode){
         break;
         case 1: //Update
         Update();
+        break;
+        case 2:
+        Client.user.setStatus("invisible").then((usr) => {
+            process.exit(0);
+        });
         break;
         default: //Restart
         LogEntrace('Restarting Chino-chan..');
