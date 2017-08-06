@@ -54,6 +54,9 @@ module.exports = {
         else if (property == "play"){
             musicModule.play(bot, message.guild.id, message.channel.id, message.author.id, prefix, option, language);
         }
+        else if (property == "stop"){
+            musicModule.stop(message.guild.id, message.channel, language);
+        }
         else if (property == "volume"){
             if(option.trim() == "")
             {

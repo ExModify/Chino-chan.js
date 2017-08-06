@@ -77,6 +77,7 @@
     "MusicVolumeChanged": "I've changed my volume to **%VOLUME%**% c:",
     "MusicLeftAlready": "Don't send me away, I'm not connected to any voice channels :c",
     "MusicDisconnected": "I've disconnected from the channel~",
+    "NoMusicPlaying": "There's no playing music right now, so I can't stop it, sorry :c",
     "MessageDeleted": "I've deleted **%COUNT%** messages for you~",
     "MessageDeleteWrongProperty": "Please only give me number between 1 and 50, don't make me crash :C",
     "MessageIDsDeleted": "I've deleted the messages which had these ids: %IDS% c:",

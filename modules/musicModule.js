@@ -4,7 +4,10 @@ const crypto = require('crypto');
 
 var exec = require('child_process').exec;
 const execSync = require('child_process').execSync;
+
 const ytdl = require('ytdl-core');
+const ffmpeg = require('fluent-ffmpeg');
+const through = require('through2');
 
 const url = require('url');
 var vars = require('./../global/vars.js');
@@ -36,7 +39,7 @@ module.exports = {
         {
             if(isYouTube(fileOrID)){
                 getYouTubeTitle(fileOrID).then(name => {
-                    var stream = require('youtube-audio-stream')(fileOrID);
+                    var stream = GetMP3Stream(fileOrID);
                     channel.send(language.MusicStartedPlaying.getPrepared('name', name));
 
                     connect(bot, guildID, userID, channelID).then(voiceConnection => {
@@ -59,6 +62,14 @@ module.exports = {
             }
         }else{ //Query x item
             var ID = parseInt(fileOrID);
+        }
+    },
+    stop: (guildID, channel, language) => {
+        if(vars.Streams.get(guildID) == undefined){
+            channel.send(language.NoMusicPlaying);
+        }
+        else{
+            vars.Streams.get(guildID).end();
         }
     },
     connect: (bot, guildID, userID, channelID) => connect(bot, guildID, userID, channelID),
@@ -153,4 +164,16 @@ function getYouTubeTitle(link) {
             resolve(gotinfo.title);
         });
     });
+}
+
+function GetMP3Stream(link) {
+    var stream = ytdl(link);
+    var proc = ffmpeg({source:stream});
+    proc.toFormat('mp3');
+
+    var stream = through();
+    
+    proc.pipe(stream);
+
+    return stream;
 }
