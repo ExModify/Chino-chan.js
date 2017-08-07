@@ -32,7 +32,8 @@
         "image":       "I search for an image",
         "purge":       "I delete every message in the channel where you type it~ Be careful~",
         "highlight":   "I highlight a message for you~",
-        "stophandler": "I'll stop myself :'c"
+        "stophandler": "I'll stop myself :'c",
+        "game":        "My game can be changed by this owo"
     },
     "PrivateMessage": "%MENTION%, Check our private channel c:",
     "ListLanguages": "The available languages: ``%LANGUAGES%``\nCurrently, I'm using **%CURRENTLANG%** c:",
@@ -50,15 +51,15 @@
     "PrefixChanged": "My prefix has been changed by %USER% to ``%PREFIX%``!",
     "MusicHelp": {
         "Top": "```css",
-        "Command1": "%P%music         - I type this guide~\n",
-        "Command2": "%P%music connect - I'll connect to a channel, by name, by id, or where you are c:\n",
-        "Command3": "%P%music play    - I start playing the YouTube video you type c:\n",
-        "Command4": "%P%music query   - I type the current query for you~",
-        "Command5": "%P%music add     - I add a specified song to the query.",
-        "Command6": "%P%music remove  - I remove a specified song from the query",
-        "Command7": "%P%music clear   - I clear the music query\n",
-        "Command8": "%P%music next    - I switch to the next song.",
-        "Command9": "%P%music prev    - I switch to the previous song.",
+        "Command1":  "%P%music         - I type this guide~\n",
+        "Command2":  "%P%music connect - I'll connect to a channel, by name, by id, or where you are c:\n",
+        "Command3":  "%P%music play    - I start playing the YouTube video you type c:\n",
+        "Command4":  "%P%music query   - I type the current query for you~",
+        "Command5":  "%P%music add     - I add a specified song to the query.",
+        "Command6":  "%P%music remove  - I remove a specified song from the query",
+        "Command7":  "%P%music clear   - I clear the music query\n",
+        "Command8":  "%P%music next    - I switch to the next song.",
+        "Command9":  "%P%music prev    - I switch to the previous song.",
         "Command10": "%P%music stop    - I stop playing music",
         "Command11": "%P%music pause   - I pause the current music",
         "Command12": "%P%music resume  - I continue the current music",
@@ -165,5 +166,8 @@
         "Bottom": "```"
     },
     "GelbooruNoImage": "Sorry, but I couldn't find any images with these tags: %TAGS% :c",
-    "ProvideTags": "Please give me some tags so I can search for it for you~"
+    "ProvideTags": "Please give me some tags so I can search for it for you~",
+    "GameChanged": "I'm playing **%GAME%** OwO",
+    "NotPlaying": "I'm not playing with anything, I'm bored, ExMo~",
+    "GameChangeAttempt": "I won't change my game for you, hmpf"
 }
