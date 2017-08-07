@@ -4,7 +4,7 @@ module.exports = {
     name: 'prefix',
     canPrivate: true,
     requirePrefix: false,
-    aliases: [],
+    minimumLevel: 1,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(parameter === "")
             message.channel.sendMessage(language.CurrentPrefix.getPrepared('prefix', prefix));

@@ -1,8 +1,8 @@
 module.exports = {
     name: 'voiceinvite',
-    aliases: [],
     canPrivate: false,
     requirePrefix: true,
+    minimumLevel: 0,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(message.member.voiceChannel == undefined || message.member.voiceChannel == null){
             message.channel.sendMessage(language.VoiceNotConnected);

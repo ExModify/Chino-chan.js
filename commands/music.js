@@ -3,9 +3,9 @@ var vars = require('./../global/vars.js');
 
 module.exports = {
     name: 'music',
-    aliases: [],
     canPrivate: false,
     requirePrefix: true,
+    minimumLevel: 0,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(parameter == ""){
             sendMusicHelp(language, message, prefix);

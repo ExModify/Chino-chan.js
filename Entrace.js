@@ -13,15 +13,16 @@ const Discord = require("discord.js");
 
 var Process = undefined;
 
+var vars = require('./global/vars.js');
+
+vars.Load();
+
 var Client = new Discord.Client();
 
-var token = fs.readFileSync('D:\\txt\\APIToken\\DiscordToken.txt').toString();
 var LanguageHandler = require('./modules/langHandler.js');
 
 var LogChannel = undefined;
 var ErrorChannel = undefined;
-
-var run = true;
 
 Client.on('ready', () => {
     if(Client.user.username !== 'Chino-chan')
@@ -30,11 +31,9 @@ Client.on('ready', () => {
 
     LogChannel = Client.channels.get("341885484592791556");
     ErrorChannel = Client.channels.get("342619532613124109");
-
-    run = true;
 });
 Client.on('message', (message) => {
-    if (!isOwner(message.author.id)){
+    if (!vars.IsOwner(message.author.id)){
         return;
     }
     var Prefix = '$';
@@ -56,19 +55,11 @@ Client.on('message', (message) => {
                 });
             }
         }
-        else if (command == "reload"){
-            message.channel.send(Language.ReloadMessage).then(Msg => {
-                Client.user.setStatus("dnd").then((usr) => {
-                    RunBot();
-                    message.channel.send(Language.Reloaded);
-                });
-            });
-        }
     }
     
 });
 
-Client.login(token).then((token) => {
+Client.login(vars.DiscordToken).then((token) => {
     RunBot();
 });
 
@@ -76,13 +67,12 @@ function hasPrefix(message, prefix){
     return message.content.startsWith(prefix);
 }
 
-function RunBot(){
+function RunBot(channelid){
     if(Process !== undefined)
     {
-        run = false;
         Process.kill();
     }
-    Process = exec('node ExMoBot.js --color');
+    Process = exec('node Chino-chan.js --color');
     Process.stdout.on('data', chunk => {
         var data = chunk.toString();
         var message = data.substring(0, data.length - 1);
@@ -97,12 +87,17 @@ function RunBot(){
     });
     
     Process.on('exit', OnExit);
-    LogEntrace('ExMoBot started!');
+    LogEntrace('Chino-chan started!');
+    if(channelid != undefined){
+        var channel = Client.channels.get(channelid);
+        var guildID = channel.guild == undefined ? channel.id : channel.guild.id;
+        var Language = LanguageHandler.getLanguage(vars.Settings(guildID).Language);
+
+        channel.send(Language.Reloaded);
+    }
 }
 
 function OnExit(code, signal){
-    if(!run)
-        return;
     HandleExit(code);
 }
 
@@ -115,13 +110,17 @@ function HandleExit(exitCode){
         Update();
         break;
         case 2:
+        LogEntrace('Restarting Chino-chan..');
+        RunBot();
+        break;
+        case 20:
         Client.user.setStatus("invisible").then((usr) => {
             process.exit(0);
         });
         break;
         default: //Restart
         LogEntrace('Restarting Chino-chan..');
-        RunBot();
+        RunBot(exitCode.toString());
         break;
     }
 }
@@ -156,7 +155,4 @@ function createEmbed(Color, Message, Title){
     Embed.setDescription(Message);
     Embed.setTitle(Title);
     return Embed;
-}
-function isOwner(id){
-    return id == "193356184806227969";
 }

@@ -5,9 +5,9 @@ var delEvent = new event.EventEmitter();
 
 module.exports = {
     name: 'purge',
-    aliases: [],
     canPrivate: false,
     requirePrefix: true,
+    minimumLevel: 2,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(vars.IsGlobalAdmin(message.author.id)
         || message.author.id == message.guild.ownerID

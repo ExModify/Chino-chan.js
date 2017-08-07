@@ -1,8 +1,8 @@
 module.exports = {
     name: 'lenny',
-    aliases: [],
     canPrivate: true,
     requirePrefix: true,
+    minimumLevel: 0,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(message.deletable)
             message.delete();

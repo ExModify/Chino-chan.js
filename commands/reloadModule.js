@@ -4,9 +4,9 @@ var vars = require('./../global/vars.js');
 
 module.exports = {
     name: 'rmodule',
-    aliases: [],
     canPrivate: true,
     requirePrefix: true,
+    minimumLevel: 3,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(!vars.IsOwner(message.author.id))
         {

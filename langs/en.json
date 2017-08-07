@@ -29,9 +29,10 @@
         "waifu":       "no.",
         "git":         "I send the current version and some commit information",
         "lenny":       "( ͡° ͜ʖ ͡°)",
-        "image": "I search for an image",
+        "image":       "I search for an image",
         "purge":       "I delete every message in the channel where you type it~ Be careful~",
-        "highlight":   "I highlight a message for you~"
+        "highlight":   "I highlight a message for you~",
+        "stophandler": "I'll stop myself :'c"
     },
     "PrivateMessage": "%MENTION%, Check our private channel c:",
     "ListLanguages": "The available languages: ``%LANGUAGES%``\nCurrently, I'm using **%CURRENTLANG%** c:",
@@ -100,7 +101,7 @@
     "IDNotInServerOrNotExist": "I can't find these names :c: [%NAMES%]",
     "ShutDownMessage": "Bye-bye guys, I have to go! :'c",
     "ReloadMessage": "Reloading..",
-    "Reloaded": "Reloaded!",
+    "Reloaded": "I'm reloaded~",
     "ExecuteNoPermission": "You're not allowed to execute this command, hmpf",
     "ExecuteContainsKey" : "Baaaaka, you want to publicate your private info and have them access to me? :C",
     "ExecuteNoResult": "Execution sent no result!",

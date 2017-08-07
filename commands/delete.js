@@ -5,9 +5,9 @@ var delEvent = new event.EventEmitter();
 
 module.exports = {
     name: 'delete',
-    aliases: [],
     canPrivate: false,
     requirePrefix: true,
+    minimumLevel: 1,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(vars.HasAdmin(message.guild, message.author.id)){
             if(parameter == ""){

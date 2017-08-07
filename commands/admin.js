@@ -4,7 +4,7 @@ module.exports = {
     name: 'admin',
     canPrivate: true,
     requirePrefix: true,
-    aliases: [],
+    minimumLevel: 0,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(parameter === "" || parameter.split(" ")[0].toLowerCase() == "help"){
             var admins = vars.GetAdminNames(bot, message.guild.id);

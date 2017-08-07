@@ -6,7 +6,7 @@ module.exports = {
     name: 'execute',
     canPrivate: true,
     requirePrefix: true,
-    aliases: [],
+    minimumLevel: 3,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(!vars.IsOwner(message.author.id)){
             message.channel.sendMessage(`\`\`\`${language.ExecuteNoPermission}\`\`\``);

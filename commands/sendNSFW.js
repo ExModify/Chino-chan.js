@@ -3,9 +3,9 @@ var fs = require('fs');
 
 module.exports = {
     name: 'nsfw',
-    aliases: [],
     canPrivate: true,
     requirePrefix: true,
+    minimumLevel: 0,
     execute: (bot, message, prefix, command, parameter, language) => {
         var parameters = parameter.split(" ");
         if(parameter.trim() === "count"){

@@ -29,7 +29,7 @@ module.exports = {
         var Files = fs.readdirSync('./commands');
         Files.forEach((v, i, a) => {
             var LoadedModule = rerequire(`./commands/${v}`);
-            if(LoadedModule.name.toLowerCase() === Command.toLowerCase() || LoadedModule.aliases.indexOf(Command.toLowerCase()) >= 0)
+            if(LoadedModule.name.toLowerCase() === Command.toLowerCase())
                 JSModule = LoadedModule;
         });
 

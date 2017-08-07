@@ -2,9 +2,9 @@ var vars = require('./../global/vars.js');
 
 module.exports = {
     name: 'say',
-    aliases: [],
     canPrivate: true,
     requirePrefix: true,
+    minimumLevel: 1,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(message.channel.type != "dm")
         {

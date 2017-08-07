@@ -4,7 +4,7 @@ module.exports = {
     name: 'image',
     canPrivate: true,
     requirePrefix: true,
-    aliases: [],
+    minimumLevel: 0,
     execute: (bot, message, prefix, command, parameter, language) => {
         let parameters = parameter.split(' ');
         parameters[0] = parameters[0].toLowerCase();

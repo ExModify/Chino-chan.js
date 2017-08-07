@@ -1,8 +1,8 @@
 module.exports = {
     name: 'id',
-    aliases: [],
     canPrivate: false,
     requirePrefix: true,
+    minimumLevel: 0,
     execute: (bot, message, prefix, command, parameter, language) => {
         var parameters = parameter.split(" ");
         if(message.mentions.users.size == 0){

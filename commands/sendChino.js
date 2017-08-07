@@ -2,9 +2,9 @@ var vars = require('./../global/vars.js');
 
 module.exports = {
     name: 'chino',
-    aliases: [],
     canPrivate: true,
     requirePrefix: true,
+    minimumLevel: 0,
     execute: (bot, message, prefix, command, parameter, language) => {
         if(parameter.trim() === "count"){
             message.channel.send(language.ChinoCount.getPrepared('count', vars.ChinoCount));

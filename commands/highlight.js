@@ -4,7 +4,7 @@ module.exports = {
     name: 'highlight',
     canPrivate: false,
     requirePrefix: true,
-    aliases: [],
+    minimumLevel: 0,
     execute: (bot, message, prefix, command, parameter, language, uptime) => {
         parameter = parameter.trim();
         if(parameter != "" && isNaN(parseInt(parameter))){
