@@ -12,7 +12,7 @@ module.exports = {
             var Embed = new Discord.RichEmbed();
             Embed.setTitle("Github - " + lines[0]);
             Embed.setDescription(lines.slice(1).join('\n'));
-            Embed.setURL("https://github.com/ExModify/ReExMoBot.js");
+            Embed.setURL("https://github.com/ExModify/Chino-chan.js");
             Embed.setColor(0 << 16 | 255 << 8 | 255);
             message.channel.send({embed:Embed});
         });
