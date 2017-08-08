@@ -13,13 +13,13 @@ module.exports = {
         }
         if(!vars.HasAdmin(message.guild, message.author.id)){
             message.author.createDM().then(channel => {
-                channel.sendMessage(language.NoPermission);
+                channel.send(language.NoPermission);
             });
         }
 
         if(parameter == "")
         {
-            message.author.sendMessage(GetHelp(language, prefix));
+            message.author.send(GetHelp(language, prefix));
             return;
         }
         
@@ -28,7 +28,7 @@ module.exports = {
         if(message.channel.type == "dm"){
             if(isNaN(parseInt(parameters[0])))
             {
-                message.channel.sendMessage(GetHelp(language, prefix));
+                message.channel.send(GetHelp(language, prefix));
             }
             else{
                 var ServerID = parameters[0];
@@ -39,7 +39,7 @@ module.exports = {
 
                 var Guild = bot.guilds.get(ServerID);
                 if(Guild == undefined){
-                    message.channel.sendMessage(language.SayWrongServerID.getPrepared("id", ServerID));
+                    message.channel.send(language.SayWrongServerID.getPrepared("id", ServerID));
                     return;
                 }
 
@@ -56,18 +56,18 @@ module.exports = {
                     ChannelID = ServerID;
                 var Channel = Guild.channels.get(ChannelID);
                 if(Channel == undefined){
-                    message.channel.sendMessage(language.SayWrongChannelID.getPrepared(["id", "servername"], [ChannelID, Guild.name]));
+                    message.channel.send(language.SayWrongChannelID.getPrepared(["id", "servername"], [ChannelID, Guild.name]));
                     return;
                 }
 
                 var UserMessage = parameters.slice(skip).join(' ')
                 if(UserMessage.trim() == "")
                 {
-                    message.channel.sendMessage(language.SayNoMessage);
+                    message.channel.send(language.SayNoMessage);
                     return;
                 }
 
-                Channel.sendMessage(UserMessage);
+                Channel.send(UserMessage);
             }
         }
         else{
@@ -81,14 +81,14 @@ module.exports = {
                         parameters[0] = parameters[0].substring(1);
                 }
 
-                message.channel.sendMessage(parameters.join(' '));
+                message.channel.send(parameters.join(' '));
             }
             else{
                 ServerID = parameters[0];
                 
                 var Guild = bot.guilds.get(ServerID);
                 if(Guild == undefined){
-                    message.channel.sendMessage(language.SayWrongServerID.getPrepared("id", ServerID));
+                    message.channel.send(language.SayWrongServerID.getPrepared("id", ServerID));
                     return;
                 }
                 if(isNaN(parseInt(parameters[1]))){
@@ -99,17 +99,17 @@ module.exports = {
                     }
                     ChannelID = ServerID;
                     var Channel = Guild.channels.get(ChannelID);
-                    Channel.sendMessage(parameters.slice(1).join(' '));
+                    Channel.send(parameters.slice(1).join(' '));
                 }
                 else{
                     ChannelID = parameters[1];
                     var Channel = Guild.channels.get(ChannelID);
                     if(Channel == undefined)
                     {
-                        message.channel.sendMessage(language.SayWrongChannelID.getPrepared(["id", "servername"], [ChannelID, Guild.name]));
+                        message.channel.send(language.SayWrongChannelID.getPrepared(["id", "servername"], [ChannelID, Guild.name]));
                         return;
                     }
-                    Channel.sendMessage(parameters.slice(2).join(' '));
+                    Channel.send(parameters.slice(2).join(' '));
                 }
             }
         }

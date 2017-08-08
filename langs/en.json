@@ -1,11 +1,16 @@
 {
     "name": "English",
     "id": "en",
+
     "Connected": "I'm not connected :c",
     "NoPermission": "Sorry, but you can't use this command :c",
+
+
     "UnknownCommand": "I don't know what to do with **%COMMAND%** :C",
     "UnknwonError": "```I don't know what happened, maybe ExMo will, please tell him, so he can fix me c:```",
+
     "InDevelopment": "This command is in development~",
+
     "CommandHelp": {
         "info":        "I write some information about me and the environment where I am~",
         "prefix":      "Server-side prefix~",
@@ -24,7 +29,7 @@
         "neko":        "I send a neko picture. Use `count` parameter to know how many pictures I have~",
         "nsfw":        "I send a nsfw image o//o. Use `count` parameter to know how many pictures I have~",
         "sfw":         "I send a random sfw picture. Use `count` parameter to know how many pictures I have~",
-        "voiceinvite": "Voice invitation~",
+        "voiceinvite": "I send a voice invitation~",
         "shutdown":    "It turns me off :C",
         "waifu":       "no.",
         "git":         "I send the current version and some commit information",
@@ -32,59 +37,104 @@
         "image":       "I search for an image",
         "purge":       "I delete every message in the channel where you type it~ Be careful~",
         "highlight":   "I highlight a message for you~",
-        "stophandler": "I'll stop myself :'c",
-        "game":        "My game can be changed by this owo"
+        "game":        "My game can be changed by this owo",
+        "invite":      "If you'd like to invite me somewhere, you can get the invitation link by this owo"
     },
     "PrivateMessage": "%MENTION%, Check our private channel c:",
+
     "ListLanguages": "The available languages: ``%LANGUAGES%``\nCurrently, I'm using **%CURRENTLANG%** c:",
     "UnknownLanguage": "I don't speak that language :c For the list of the languages, please type ``%PREFIX%%COMMAND%``!",
     "LanguageChanged": "You've changed my language to ``English``!",
+
     "SFWCount": "I have ``%COUNT%`` SFW images C:",
     "NSFWCount": "I have ``%COUNT%`` NSFW images o//o",
-    "NSFWDelete": "```css\nIf I send an image, which is not allowed (baaaka ExMo :C) then please delete it.\n\nThe command's syntax is:\n%P%nsfw delete [Filename with extension]```",
-    "NSFWNotFound": "I couldn't find these files: [%FILES%]",
     "NSFWDeleted": "I deleted these files: [%FILES%]",
     "NekoCount": "I have ``%COUNT%`` Neko images-nyan ^^",
     "ChinoCount": "I have ``%COUNT%`` images only of Chino :'c",
     "MomijiCount": "I have ``%COUNT%`` images of Momiji!",
+    "NoChinoImage": "There aren't any Chino images :C",
+    "NoMomijiImage": "There aren't any Momiji images :C",
+    "NoSFWImage": "There aren't any SFW images :C",
+    "NoNSFWImage": "There aren't any NSFW images :C",
+    "NoNekoImage": "There aren't any Neko images :C",
+
+    "NSFWDelete": "```css\nIf I send an image, which is not allowed (baaaka ExMo :C) then please delete it.\n\nThe command's syntax is:\n%P%nsfw delete [Filename with extension]```",
+    "NSFWNotFound": "I couldn't find these files: [%FILES%]",
+
     "CurrentPrefix": "I listen to this prefix: %PREFIX%!",
     "PrefixChanged": "My prefix has been changed by %USER% to ``%PREFIX%``!",
+
     "MusicHelp": {
         "Top": "```css",
-        "Command1":  "%P%music         - I type this guide~\n",
-        "Command2":  "%P%music connect - I'll connect to a channel, by name, by id, or where you are c:\n",
-        "Command3":  "%P%music play    - I start playing the YouTube video you type c:\n",
-        "Command4":  "%P%music query   - I type the current query for you~",
-        "Command5":  "%P%music add     - I add a specified song to the query.",
-        "Command6":  "%P%music remove  - I remove a specified song from the query",
-        "Command7":  "%P%music clear   - I clear the music query\n",
-        "Command8":  "%P%music next    - I switch to the next song.",
-        "Command9":  "%P%music prev    - I switch to the previous song.",
-        "Command10": "%P%music stop    - I stop playing music",
-        "Command11": "%P%music pause   - I pause the current music",
-        "Command12": "%P%music resume  - I continue the current music",
+        "Command1":  "%P%music            - I write this guide~\n",
+        "Command2":  "%P%music connect    - I'll connect to a channel, by name, by id, or where you are c:\n",
+        "Command3":  "%P%music disconnect - I'll connect to a channel, by name, by id, or where you are c:\n",
+        "Command4":  "%P%music play       - I start playing a YouTube or the query~\n",
+        "Command5":  "%P%music query      - I type the current query for you~",
+        "Command6":  "%P%music add        - I add a specified song to the query.",
+        "Command7":  "%P%music remove     - I remove a specified song from the query",
+        "Command8":  "%P%music clear      - I clear the music query\n",
+        "Command9":  "%P%music next       - I switch to the next song.",
+        "Command10": "%P%music prev       - I switch to the previous song.",
+        "Command11": "%P%music stop       - I stop playing music",
+        "Command12": "%P%music pause      - I pause the current music",
+        "Command13": "%P%music resume     - I continue the current music",
         "Bottom": "```"
     },
     "MusicCantConnect": "Sorry, but some reasons, I can't connect there :c",
     "MusicConnected": "I've connected to **%CHANNEL%** :3",
-    "VoiceNotConnected": "Please connect to a voice channel, so I can send a voice invitation c:",
     "MusicOnlyYouTubeSupported": "Sorry, but because this lazy ExMo, I can only play **YouTube** videos~ :c",
     "MusicConnectionRequired": "Please connect to a voice channel or connect me~ Have a look at %P%music how can I connect~",
     "MusicStartedPlaying": "I'm playing **%NAME%**~",
     "MusicFinishedPlaying": "I've finished playing **%NAME%**~",
-    "MusicStoppedPlaying": "I stopped playing **%NAME%**~",
-    "MusicPausedPlaying": "I paused playing **%NAME%**~",
+    "MusicStoppedPlaying": "I stopped music playing~",
+    "MusicPausedPlaying": "I paused the music playing~",
+    "MusicResumedPlaying": "I resumed the music playing~",
     "MusicVolumeOnlyNumber": "Please type only numbers, don't make me crash :C",
     "MusicCurrentVolume": "My current volume is **%VOLUME%**~",
     "MusicVolumeChanged": "I've changed my volume to **%VOLUME%**% c:",
     "MusicLeftAlready": "Don't send me away, I'm not connected to any voice channels :c",
     "MusicDisconnected": "I've disconnected from the channel~",
     "NoMusicPlaying": "There's no playing music right now, so I can't stop it, sorry :c",
+    "MusicQueryAddNoLink": "Please give me a link so I can add it to the query~",
+    "MusicQueryAdded": "I've added %NAME% to the query~",
+    "MusicQueryRemoveNoID": "Please give me the id you want to remove from the query~",
+    "MusicQueryRemoveWrongID": "Please type `%P%music query` and have a look at the query, because I couldn't find the song with that ID :C",
+    "MusicQueryRemoved": "I've removed %NAME% from the query~",
+    "MusicQueryEmpty": "The query is empty, please fill me with some musics~ (o//o)",
+    "MusicForHelp": "Please type `%P%music help` for the help message~",
+    "MusicQueryDisplay": "```css\n[Query]\n%LINES%```",
+    "MusicNotQueryPlaying": "Sorry, but I can only go to the next song if query is being played~",
+    "MusicPauseNotPlaying": "I'm not playing any musics, so I can't pause it, sorry~",
+    "MusicPauseAlreadyPaused": "The music is already paused, please use `%P%music resume` to continue it~",
+    "MusicResumeNotPlaying": "I didn't pause any music playings, so I can't resume it, sorry~",
+    "MusicClearEmptyQuery": "The query doesn't contain any items, so I can't clear it~",
+    "MusicQueryCleared": "I've cleared the query~",
+
+    "VoiceNotConnected": "Please connect to a voice channel, so I can send a voice invitation c:",
+
+    "MessageDeleteHelp": {
+        "Top": "```css",
+        "Command1":  "[To delete messages]",
+        "Command2":  "[By ids]",
+        "Command3":  "%P%delete ids:[id1],[id2]",
+        "Command4":  "",
+        "Command5":  "[By count]",
+        "Command6":  "%P%delete count:[count]",
+        "Command7":  "Count should be between 1 and 50",
+        "Command8":  "",
+        "Command9":  "[Other attachable parameters]",
+        "Command10": "notify:[false] / [no] - turns off the response message",
+        "Command11": "",
+        "Command12": "selfRemove:[false] / [no] - keeps the original message",
+        "Bottom": "```"
+    },
     "MessageDeleted": "I've deleted **%COUNT%** messages for you~",
     "MessageDeleteWrongProperty": "Please only give me number between 1 and 50, don't make me crash :C",
     "MessageIDsDeleted": "I've deleted the messages which had these ids: %IDS% c:",
     "MessageIDsNotFound": "I'm sorry, but I couldn't find the messages with these ids: %IDS% :c",
     "MessageDeleteNoPermission": "Sorry, but you can't delete messages here~",
+
     "Admins": "My admins are [%NAMES%]",
     "AdminHelp": "My admin management commands~\n%P%admin add [User IDs]    - This is how you can add an admin to me, just wisely~\n%P%admin remove [User IDs] - If there's an unwanted admin, just remove the person and let me be free~",
     "AdminBadArguments": "Please don't make me crash :C Type `%P%admin` for the help message for my admins~",
@@ -98,15 +148,21 @@
     "AdminGlobalAdminRemove": "You can't remove global admins! ExMo trusts in them, so I am, don't worry!",
     "AdminAdded": "They're all my admins now~: [%NAMES%]!",
     "AdminRemoved": "They're not my admins anymore :c: [%NAMES%]!",
+
     "IDUsage": "```css\nThis is how can you use id command:\n%P%id [User mentions or user names(case-sensitive, between \"\")]\n\n[Please don't mix mentions and usernames, because I won't be able to find them!]```",
     "IDNotInServerOrNotExist": "I can't find these names :c: [%NAMES%]",
+
     "ShutDownMessage": "Bye-bye guys, I have to go! :'c",
+
     "ReloadMessage": "Reloading..",
     "Reloaded": "I'm reloaded~",
+
     "ExecuteNoPermission": "You're not allowed to execute this command, hmpf",
     "ExecuteContainsKey" : "Baaaaka, you want to publicate your private info and have them access to me? :C",
     "ExecuteNoResult": "Execution sent no result!",
+
     "Information": "Information about me",
+
     "Uptime": "Uptime",
     "Time": "Time",
     "Hours": "hours",
@@ -117,7 +173,9 @@
     "BotMemoryUsage": "Bot",
     "ComputerMemoryUsage": "Computer",
     "FreeMemory": "free",
+
     "DMTriedExecute": "Sorry, but this command is only server-side~",
+
     "SayHelp":{
         "Top": "```css",
         "Line1": "This is how can you use say:",
@@ -136,7 +194,9 @@
     "SayWrongServerID": "Sorry, but I couldn't find the server with this id: %ID% :C",
     "SayWrongChannelID": "Sorry, but I couldn't find the channel with this id %ID% in %SERVERNAME% :C",
     "SayNoMessage": "Please type the message too what you want to be said by me, keep it safe and no harassment please :C",
+    
     "ModuleReloaded": "**%MODULE%** module is reloaded!",
+
     "HighlightHelp": {
       "Top": "```css",
       "Line1": "I send an embed message about the user's last message, or the message with the id~",
@@ -153,7 +213,9 @@
     "HighlightUnknownMessageID": "Sorry, I couldn't find the message with id: %ID% :C",
     "HighlightBadUsage": "Please follow the rules, or I can't help you :c Type `%P%highlight` for the help~",
     "HighlightNoMessage": "Sorry, but I can't find the last message in this channel from %NAME% :c",
+
     "ChannelPurged": "The channel is purged!",
+
     "ImageHelp": {
         "Top": "```css",
         "Line1": "You can choose from two portals, SankakuComplex and Gelbooru~",
@@ -167,6 +229,7 @@
     },
     "GelbooruNoImage": "Sorry, but I couldn't find any images with these tags: %TAGS% :c",
     "ProvideTags": "Please give me some tags so I can search for it for you~",
+
     "GameChanged": "I'm playing **%GAME%** OwO",
     "NotPlaying": "I'm not playing with anything, I'm bored, ExMo~",
     "GameChangeAttempt": "I won't change my game for you, hmpf"

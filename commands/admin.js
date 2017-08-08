@@ -11,12 +11,11 @@ module.exports = {
             var Message = "```css\n"
             Message += language.Admins.getPrepared("names", admins.join(", "));
             if(vars.IsGlobalAdmin(message.author.id)
-            || vars.IsOwner(message.author.id)
-            || message.author.id == message.guild.id){
+            || vars.IsOwner(message.author.id)){
                 Message += "\n\n" + language.AdminHelp.getPrepared(['p', 'prefix'], [prefix, prefix]);
             }
             Message += "```";
-            message.channel.sendMessage(Message);
+            message.channel.send(Message);
         }
         else{
             var parameters = parameter.split(' ');
@@ -25,7 +24,7 @@ module.exports = {
             if(message.channel.type == "dm" 
                 && !vars.IsOwner(message.author.id) 
                 && (!parameter[0] != "addglobal" || !parameter[0] != "remove")){
-                message.channel.sendMessage(Language.DMTriedExecute);
+                message.channel.send(Language.DMTriedExecute);
                 return;
             }
             if(vars.IsGlobalAdmin(message.author.id)
@@ -35,7 +34,7 @@ module.exports = {
                 if(parameters[0] == "add"){
                     var Ids = parameters.slice(1);
                     if(Ids.length == 0){
-                        message.channel.sendMessage(language.AdminIdentify);
+                        message.channel.send(language.AdminIdentify);
                     }
                     else{
                         var validNames = [];
@@ -68,13 +67,13 @@ module.exports = {
                             Message += "[--Success--]\n" + language.AdminAdded.getPrepared("names", validNames.join(", "));
                         }
                         Message += "```";
-                        message.channel.sendMessage(Message);
+                        message.channel.send(Message);
                     }
                 }
                 else if (parameters[0] == "remove"){
                     var Ids = parameters.slice(1);
                     if(Ids.length == 0){
-                        message.channel.sendMessage(language.AdminIdentify);
+                        message.channel.send(language.AdminIdentify);
                     }
                     else{
                         var validNames = [];
@@ -133,7 +132,7 @@ module.exports = {
                     if(vars.IsOwner(message.author.id)){
                         var Ids = parameters.slice(1);
                         if(Ids.length == 0){
-                            message.channel.sendMessage(language.AdminIdentify);
+                            message.channel.send(language.AdminIdentify);
                         }
                         else{
                             var validNames = [];
@@ -166,16 +165,16 @@ module.exports = {
                                 Message += "[--Success--]\n" + language.AdminAdded.getPrepared("names", validNames.join(", "));
                             }
                             Message += "```";
-                            message.channel.sendMessage(Message);
+                            message.channel.send(Message);
                         }
                     }
                 }
                 else{
-                    message.channel.sendMessage(language.AdminBadArguments.getPrepared("p", prefix));
+                    message.channel.send(language.AdminBadArguments.getPrepared("p", prefix));
                 }
             }
             else{
-                message.channel.sendMessage(language.AdminNotAllowed);
+                message.channel.send(language.AdminNotAllowed);
             }
         }
     }

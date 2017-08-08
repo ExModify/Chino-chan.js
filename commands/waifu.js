@@ -4,6 +4,6 @@ module.exports = {
     requirePrefix: true,
     minimumLevel: 0,
     execute: (bot, message, prefix, command, parameter, language) => {
-        message.channel.sendMessage("no.");
+        message.channel.send("no.");
     }
 };

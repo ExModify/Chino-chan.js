@@ -63,7 +63,7 @@ module.exports = {
                     Name += " ";
                 }
     
-                Message += (Name + " - " + Help + "\n");
+                Message += (prefix + Name + " - " + Help + "\n");
             }
         }
         if(AdminCommandNames.length > 0){
@@ -77,7 +77,7 @@ module.exports = {
                     Name += " ";
                 }
     
-                Message += (Name + " - " + Help + "\n");
+                Message += (prefix + Name + " - " + Help + "\n");
             }
         }
         if(GlobalAdminCommandNames.length > 0){
@@ -91,7 +91,7 @@ module.exports = {
                     Name += " ";
                 }
     
-                Message += (Name + " - " + Help + "\n");
+                Message += (prefix + Name + " - " + Help + "\n");
             }
         }
         if(OwnerCommandNames.length > 0){
@@ -105,18 +105,18 @@ module.exports = {
                     Name += " ";
                 }
     
-                Message += (Name + " - " + Help + "\n");
+                Message += (prefix + Name + " - " + Help + "\n");
             }
         }
 
         Message += '```';
 
         message.author.createDM().then(channel => {
-            channel.sendMessage(Message);
+            channel.send(Message);
         });
 
         if(message.channel.type !== "dm")
-            message.channel.sendMessage(language.PrivateMessage.getPrepared('mention', `<@${message.author.id}>`));
+            message.channel.send(language.PrivateMessage.getPrepared('mention', `<@${message.author.id}>`));
     }
 };
 

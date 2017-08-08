@@ -12,15 +12,15 @@ module.exports = {
                 return v.displayName == parameter || v.user.username == parameter;
             });
             if(User == undefined){
-                message.channel.sendMessage(language.HighlightUnknownUser.getPrepared("name", parameter));
+                message.channel.send(language.HighlightUnknownUser.getPrepared("name", parameter));
             }
             else{
                 LastHightlight(User, message.channel).then(Embed => {
                     if(Embed == undefined){
-                        message.channel.sendMessage(language.HighlightNoMessage.getPrepared("name", User.displayName))
+                        message.channel.send(language.HighlightNoMessage.getPrepared("name", User.displayName))
                     }
                     else{
-                        message.channel.sendEmbed(Embed);
+                        message.channel.send({embed:Embed});
                     }
                     
                 });
@@ -28,13 +28,13 @@ module.exports = {
         }
         else if (parameter != ""){
             message.channel.fetchMessage(parameter).then(Message => {
-                message.channel.sendEmbed(CreateEmbed(Message.member, Message));
+                message.channel.send({embed:CreateEmbed(Message.member, Message)});
             }).catch((reject) => {
-                message.channel.sendMessage(language.HighlightUnknownMessageID.getPrepared("id", parameter));
+                message.channel.send(language.HighlightUnknownMessageID.getPrepared("id", parameter));
             });
         }
         else{
-            message.channel.sendMessage(GenerateHelp(prefix, language));
+            message.channel.send(GenerateHelp(prefix, language));
         }
     }
 };

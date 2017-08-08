@@ -18,14 +18,14 @@ module.exports = {
         || parameter.toLowerCase().indexOf('osu!irc') >= 0
         || parameter.toLowerCase().indexOf('ircpassword') >= 0)
         {
-            message.channel.sendMessage(`\`\`\`${language.ExecuteContainsKey}\`\`\``);
+            message.channel.send(`\`\`\`${language.ExecuteContainsKey}\`\`\``);
             return;
         }
         compile.execute(parameter).then(res => {
             if(res.trim() !== "")
-                message.channel.sendMessage('```' + res + '```');
+                message.channel.send('```' + res + '```');
             else
-                message.channel.sendMessage(`\`\`\`css\n${language.ExecuteNoResult}\`\`\``);
+                message.channel.send(`\`\`\`css\n${language.ExecuteNoResult}\`\`\``);
         });
     }
 };

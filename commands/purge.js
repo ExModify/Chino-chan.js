@@ -13,11 +13,11 @@ module.exports = {
         || message.author.id == message.guild.ownerID
         || vars.IsOwner(message.author.id)){
             deleteMessages(message.channel, language).then(msg => {
-                message.channel.sendMessage(msg);
+                message.channel.send(msg);
             });
         }
         else{
-            message.channel.sendMessage(language.MessageDeleteNoPermission);
+            message.channel.send(language.MessageDeleteNoPermission);
         }
     }
 };

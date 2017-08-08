@@ -10,7 +10,7 @@ module.exports = {
         if(message.author.id === bot.user.id)
             return;
 
-        var guildID = message.guild == null ? message.channel.id : message.guild.id;
+        var guildID = message.guild == undefined ? message.channel.id : message.guild.id;
 
         var Settings = vars.Settings(guildID);
         var Prefix = Settings["Prefix"];
@@ -42,14 +42,14 @@ module.exports = {
             if(Parameter !== "")
                 Command += ' ' + Parameter;
 
-            message.channel.sendMessage(Language.UnknownCommand.getPrepared('command', Command));
+            message.channel.send(Language.UnknownCommand.getPrepared('command', Command));
         }else{
             if(!HasPrefix(message.content, Prefix) && JSModule.requirePrefix)
                 return;
 
             if(message.channel.type == "dm" && !JSModule.canPrivate)
             {
-                message.channel.sendMessage(Language.DMTriedExecute);
+                message.channel.send(Language.DMTriedExecute);
                 return;
             }
             JSModule.execute(bot, message, Prefix, Command, Parameter, Language, uptime);

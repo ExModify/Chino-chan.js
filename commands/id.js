@@ -7,7 +7,7 @@ module.exports = {
         var parameters = parameter.split(" ");
         if(message.mentions.users.size == 0){
             if(parameter == ""){
-                message.channel.sendMessage(language.IDUsage.getPrepared(["p", "prefix"], [prefix, prefix]));
+                message.channel.send(language.IDUsage.getPrepared(["p", "prefix"], [prefix, prefix]));
             }else{
                 var UnknownNames = [];
                 var SuccessfulNames = [];
@@ -33,7 +33,7 @@ module.exports = {
                 }
 
                 Message += "```";
-                message.channel.sendMessage(Message);
+                message.channel.send(Message);
             }
         }
         else{
@@ -44,7 +44,7 @@ module.exports = {
             });
 
             Message += "```";
-            message.channel.sendMessage(Message);
+            message.channel.send(Message);
         }
     }
 };

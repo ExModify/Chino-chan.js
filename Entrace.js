@@ -39,20 +39,14 @@ function RunBot(){
 
 function OnExit(code, signal){
     switch(code){
-        case 0:
-        RunBot();
-        break;
         case 1:
         Update();
-        break;
-        case 2:
-        LogEntrace('Restarting Chino-chan..');
-        RunBot();
         break;
         case 20:
         process.exit(0);
         break;
         default:
+        LogEntrace('Restarting Chino-chan..');
         RunBot();
         break;
     }

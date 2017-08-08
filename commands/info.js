@@ -32,6 +32,6 @@ module.exports = {
         
         Embed.setDescription(Description);
 
-        message.channel.sendEmbed(Embed);
+        message.channel.send({embed:Embed});
     }
 };

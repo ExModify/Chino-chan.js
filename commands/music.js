@@ -39,17 +39,7 @@ module.exports = {
             });
         }
         else if (property == "disconnect"){
-            if(message.guild.voiceConnection != undefined || message.guild.voiceConnection != null){
-                if(vars.Streams.has(message.guild.id)){
-                    vars.Streams.get(message.guild.id).end();
-                    vars.Streams.set(message.guild.id, undefined);
-                }
-                message.guild.voiceConnection.disconnect();
-                message.channel.sendMessage(language.MusicDisconnected);
-            }
-            else{
-                message.channel.sendMessage(language.MusicLeftAlready);
-            }
+            musicModule.disconnect(message, language);
         }
         else if (property == "play"){
             musicModule.play(bot, message.guild.id, message.channel.id, message.author.id, prefix, option, language);
@@ -60,17 +50,41 @@ module.exports = {
         else if (property == "volume"){
             if(option.trim() == "")
             {
-                message.channel.sendMessage(language.MusicCurrentVolume.getPrepared('volume', vars.Settings(message.guild.id).Volume));
+                message.channel.send(language.MusicCurrentVolume.getPrepared('volume', vars.Settings(message.guild.id).Volume));
             }
             else{
                 var number = parseFloat(option);
                 if(isNaN(number)){
-                    message.channel.sendMessage(language.MusicVolumeOnlyNumber);
+                    message.channel.send(language.MusicVolumeOnlyNumber);
                 }
                 else{
                     musicModule.setVolume(bot, message.guild.id, message.channel.id, number, language);
                 }
             }
+        }
+        else if (property == "query"){
+            musicModule.displayQuery(message.channel, language);
+        }
+        else if (property == "add"){
+            musicModule.add(bot, message.guild.id, message.channel.id, message.author.id, prefix, option, language);
+        }
+        else if (property == "remove"){
+            musicModule.remove(bot, message.guild.id, message.channel.id, message.author.id, prefix, option, language);
+        }
+        else if (property == "clear"){
+            musicModule.clear(bot, message.guild.id, message.channel, language);
+        }
+        else if (property == "resume"){
+            musicModule.resume(bot, message.guild.id, message.channel, language);
+        }
+        else if (property == "pause"){
+            musicModule.pause(bot, message.guild.id, prefix, message.channel, language);
+        }
+        else if (property == "next"){
+            musicModule.next(bot, message.guild.id, message.channel, message.author.id, language);
+        }
+        else if (property == "prev"){
+            musicModule.prev(bot, message.guild.id, message.channel, message.author.id, language);
         }
         else{
             sendMusicHelp(language, message, prefix);
@@ -95,5 +109,5 @@ function sendMusicHelp(language, message, prefix){
     Message += language.MusicHelp.Bottom;
     Message = Message.getPrepared(['prefix', 'p'], [prefix, prefix]);
 
-    message.channel.sendMessage(Message);
+    message.channel.send(Message);
 }
