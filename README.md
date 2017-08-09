@@ -1,5 +1,5 @@
 # Chino-chan - In development!
-Chino-chan is a small Discord bot with some entertainment and server management features. She's being hosted from a personal computer, so she's not always online **yet**!
+Chino-chan is a small Discord bot with some entertainment and server management features.! For the invitation link, click [here](https://discordapp.com/oauth2/authorize?client_id=271658919443562506&scope=bot&permissions=0)~
 
 # Default settings
 Language: English (only English is available *yet*)
