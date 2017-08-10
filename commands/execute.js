@@ -1,5 +1,4 @@
 var rerequire = require('./../modules/rerequire.js');
-var compile = rerequire('./modules/compileNodeCommand.js');
 var vars = require('./../global/vars.js');
 
 module.exports = {
@@ -21,11 +20,18 @@ module.exports = {
             message.channel.send(`\`\`\`${language.ExecuteContainsKey}\`\`\``);
             return;
         }
-        compile.execute(parameter).then(res => {
-            if(res.trim() !== "")
-                message.channel.send('```' + res + '```');
-            else
+
+        try{
+            var evalResult = eval(parameter);
+            if(evalResult == undefined){
                 message.channel.send(`\`\`\`css\n${language.ExecuteNoResult}\`\`\``);
-        });
+            }
+            else{
+                message.channel.send('```' + evalResult + '```');
+            }
+        }
+        catch(error){
+            message.channel.send('```' + error.stack + '```');
+        }
     }
 };

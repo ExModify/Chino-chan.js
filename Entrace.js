@@ -1,3 +1,4 @@
+// Handling errors and rejections
 process.on('uncaughtException', err => {
     Send('Error', err.stack);
 });
@@ -5,16 +6,24 @@ process.on('unhandledRejection', (err, promise) => {
     Send('Error', err.stack);
 });
 
+// Module import & Var definition
+
 const fs = require('fs');
 const crypto = require('crypto');
 const chalk = require('chalk');
 const exec = require('child_process').exec;
 const Updater = require('./Update.js');
 const vars = require('./global/vars.js');
-vars.Load();
-
 var BaseServer = require('websocket').server;
 var http = require('http');
+
+var Process = undefined;
+
+// Load informations
+
+vars.Load();
+
+// Websocket
 
 var clientConnection;
 var allowed = false;
@@ -53,15 +62,13 @@ WSServer.on('request', (req) => { // Currently only for owner
                     clientConnection.sendUTF("Validate_Server_Connection_Request_Credentials_JSON_Accepted");
                     allowed = true;
 
-                    clientConnection.closeDescription = "Reconnect";
-
                     Send('WS', "Client connected from: " + clientConnection.remoteAddress);
                     Messages.forEach((v, i, a) => {
                         clientConnection.sendUTF(v);
                     });
                 }
                 else{
-                    clientConnection.closeDescription = "Validate_Server_Connection_Request_Credentials_JSON_Declined";
+                    clientConnection.sendUTF("Validate_Server_Connection_Request_Credentials_JSON_Declined");
                     clientConnection.close();
                 }
             }
@@ -76,7 +83,6 @@ WSServer.on('request', (req) => { // Currently only for owner
     clientConnection.sendUTF("Validate_Server_Connection_Request_Credentials_JSON");
 });
 
-var Process = undefined;
 
 RunBot();
 
@@ -105,23 +111,17 @@ function RunBot(){
 
 function OnExit(code, signal){
     switch(code){
-        case 1:
-        Update();
-        break;
         case 20:
         process.exit(1);
+        break;
+        case 30:
+        process.exit(2);
         break;
         default:
         Send('Main', 'Restarting Chino-chan..');
         RunBot();
         break;
     }
-}
-
-function Update(){
-    Updater.update();
-    Send('Main', 'Restarting Chino-chan...');
-    RunBot();
 }
 
 function Send(type, Message){
@@ -171,6 +171,7 @@ function Form(value){
 
 function handleCommand(command, parameter){
     if(command == "restart"){
+        clientConnection.sendUTF("Server_Restarted_Reconnect");
         process.exit(2);
     }
 }

@@ -7,7 +7,7 @@ const execSync = require('child_process').execSync;
 
 const ytdl = require('ytdl-core');
 const ffmpeg = require('fluent-ffmpeg');
-const through = require('through2');
+var buffer = require('buffered2').BufferedStream;
 
 const url = require('url');
 var vars = require('./../global/vars.js');
@@ -267,6 +267,10 @@ module.exports = {
                 var Settings = vars.Settings(message.guild.id);
                 if(Settings.MusicIsPlaying){
                     vars.SetPlaying(message.guild.id, false);
+                    if(vars.Streams.get(message.guild.id) == undefined){
+                        message.guild.voiceConnection.disconnect();
+                        message.channel.send(language.MusicDisconnected);
+                    }
                     vars.SetCurrentPlaying(message.guild.id, "");
                     vars.SetQueryPlaying(message.guild.id, false);
                     vars.SetMusicPosition(message.guild.id, 0);
@@ -428,13 +432,7 @@ function getYouTubeTitle(link) {
 }
 
 function GetMP3Stream(guildID, link) {
-    var stream = ytdl(link);
-    var proc = ffmpeg({source:stream});
-    proc.toFormat('mp3');
-
-    var stream = through();
-    
-    proc.pipe(stream);
-
+    var stream = new buffer();
+    ytdl(link, {format:"audioonly"}).pipe(stream);
     return stream;
 }

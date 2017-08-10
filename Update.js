@@ -7,8 +7,10 @@ module.exports = {
         var output = execSync('git pull origin master').toString();
         if(output.toLowerCase().indexOf('everything is up-to-date') >= 0){
             console.log(chalk.yellow('[Updater]') + ' No update found!');
+            return false;
         }else{
             console.log(chalk.yellow('[Updater]') + ' Bot is updated!');
+            return true;
         }
 
     }

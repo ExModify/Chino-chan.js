@@ -5,6 +5,28 @@
     "Connected": "I'm not connected :c",
     "NoPermission": "Sorry, but you can't use this command :c",
 
+    "Updating": "Searching for updates~",
+    "Updated": "Updated to **%VERSION%**~ Restarting..",
+    "NoUpdate": "I didn't find any updates~",
+
+    "AvatarHelp": {
+        "Top": "```css",
+        "Command1":  "In Direct Message:",
+        "Command2":  "%P%avatar [Username]",
+        "Command3":  "The username isn't case sensitive~",
+        "Command4":  "",
+        "Command5":  "In Guild:",
+        "Command6":  "%P%avatar [Username or Nickname]",
+        "Command7":  "Either of that is case sensitive~",
+        "Command8":  "",
+        "Command9":  "If there's multiple matches, all of them will be send~",
+        "Command10": "I send embeds up to two matches, after that, I send normal messages~",
+        "Bottom": "```"
+    },
+    "AvatarUserNotFound": "Sorry, but I couldn't find %NAME% :c",
+    "AvatarDescription": "Click on the user's name for the link to the avatar~",
+    "AvatarHasNoAvatar": "```css\nThese users have no avatars: [%NAMES%]```",
+    "AvatarNormalMessage": "These are the avatars:\n%NAMEAVATARS%",
 
     "UnknownCommand": "I don't know what to do with **%COMMAND%** :C",
     "UnknwonError": "```I don't know what happened, maybe ExMo will, please tell him, so he can fix me c:```",
@@ -38,7 +60,9 @@
         "purge":       "I delete every message in the channel where you type it~ Be careful~",
         "highlight":   "I highlight a message for you~",
         "game":        "My game can be changed by this owo",
-        "invite":      "If you'd like to invite me somewhere, you can get the invitation link by this owo"
+        "invite":      "If you'd like to invite me somewhere, you can get the invitation link by this owo",
+        "update":      "I'll search for updates~",
+        "restart":     "Restarts me, also the Entrace which manages me~"
     },
     "PrivateMessage": "%MENTION%, Check our private channel c:",
 
