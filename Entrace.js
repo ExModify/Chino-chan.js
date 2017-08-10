@@ -137,7 +137,7 @@ function Send(type, Message){
         console.log(chalk.blue(Time) + " " + chalk.magenta(Prefix) + " " + Message);
     }
     else if (type == "Git"){
-        console.log(chalk.blue(Time) + " " + chalk.green(Prefix) + " " + Message);
+        console.log(chalk.blue(Time) + " " + chalk.yellow(Prefix) + " " + Message);
     }
     else if (type == "Bot"){
         console.log(chalk.blue(Time) + " " + chalk.cyan(Prefix) + " " + Message);

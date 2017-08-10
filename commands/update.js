@@ -17,7 +17,7 @@ module.exports = {
                 });
             }
             else{
-                message.channel.send(language.NoUpdates);
+                message.channel.send(language.NoUpdate);
             }
         });
     }
