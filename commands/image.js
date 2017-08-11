@@ -21,7 +21,7 @@ module.exports = {
                 var req = request(url, (err, resp, body) => {
                     var json = body.toString();
                     if(json.trim() == ""){
-                        message.channel.send(language.GelbooruNoImage.getPrepared('tags', parameters.slice(1).join(' ')));
+                        message.channel.send(language.ImageNoImage.getPrepared('tags', parameters.slice(1).join(' ')));
                     }
                     else{
                         var jsonParsed = JSON.parse(json);
@@ -29,6 +29,75 @@ module.exports = {
                         var object = jsonParsed[index];
                         message.channel.sendImageEmbedOnline(object.file_url, "Gelbooru", message.channel);
                     }
+                });
+            }
+        }
+        else if (parameters[0] == "yandere" || parameters[0] == "yande.re"){
+            var tags = parameters.slice(1).join('+');
+            if(tags == ""){
+                message.channel.send(language.ProvideTags);
+            }
+            else{
+                var url = `https://yande.re/tag.json?name=${tags}`;
+                request(url, (err, resp, body) => {
+                    var json = body.toString();
+                    var page = 0;
+                    if(json.trim() != ""){
+                        var jsonObject = JSON.parse(json);
+                        if(jsonObject.count != 0){
+                            page = Math.floor(Math.random() * parseInt((jsonObject.count / 40).toFixed(0)));
+                        }
+                    }
+                    url = `https://yande.re/post.json?tags=${tags}&page=${page}`;
+                    request(url, (error, response, bodyPost) => {
+                        var postJson = bodyPost.toString();
+                        if(postJson.trim() == ""){
+                            message.channel.send(language.ImageNoImage.getPrepared('tags', parameters.slice(1).join(' ')));
+                        }
+                        else{
+                            var postJsonObject = JSON.parse(postJson);
+                            var index = Math.floor(Math.random() * postJsonObject.length);
+                            var object = postJsonObject[index];
+                            message.channel.sendImageEmbedOnline(object.file_url, "yande.re", message.channel);
+                        }
+                    });
+                });
+            }
+        }
+        else if (parameters[0] == "danbooru"){
+            var tagsTags = parameters.slice(1).join(',');
+            var tags = parameters.slice(1).join('+');
+            if(tags == ""){
+                message.channel.send(language.ProvideTags);
+            }
+            else{
+                var url = `https://danbooru.donmai.us/tags.json?search[name]=${tagsTags}`;
+                request(url, (err, resp, body) => {
+                    var json = body.toString();
+                    var page = 0;
+                    if(json.trim() != ""){
+                        var jsonObject = JSON.parse(json);
+                        if(jsonObject.count != 0){
+                            page = Math.floor(Math.random() * parseInt((jsonObject.post_count / 20).toFixed(0)));
+                        }
+                    }
+                    url = `https://danbooru.donmai.us/posts.json?tags=${tags}&page=${page}`;
+                    request(url, (error, response, bodyPost) => {
+                        var postJson = bodyPost.toString();
+                        if(postJson.trim() == ""){
+                            message.channel.send(language.ImageNoImage.getPrepared('tags', parameters.slice(1).join(' ')));
+                        }
+                        else{
+                            var postJsonObject = JSON.parse(postJson);
+                            var object = undefined;
+                            do{
+                                var index = Math.floor(Math.random() * postJsonObject.length);
+                                object = postJsonObject[index];
+                            }
+                            while(object.file_url == undefined);
+                            message.channel.sendImageEmbedOnline('https://danbooru.donmai.us' + object.file_url, "danbooru", message.channel);
+                        }
+                    });
                 });
             }
         }
