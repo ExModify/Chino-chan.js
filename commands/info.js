@@ -27,8 +27,7 @@ module.exports = {
         Description += "\n\n";
 
         Description += `---**${language.MemoryUsage}**---\n`;
-        Description += `-${language.BotMemoryUsage}: ${(process.memoryUsage().heapUsed / 1048576).toFixed(2)}MB\n`;
-        Description += `-${language.ComputerMemoryUsage}: ${((os.totalmem() - os.freemem()) / 1048576).toFixed(0)}MB/${(os.totalmem() / 1048576).toFixed(0)}MB, ${language.FreeMemory}: ${(os.freemem() / 1048576).toFixed(0)}MB`;
+        Description += `-${(process.memoryUsage().heapUsed / 1048576).toFixed(2)}MB\n`;
         
         Embed.setDescription(Description);
 

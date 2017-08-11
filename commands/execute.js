@@ -1,5 +1,7 @@
 var rerequire = require('./../modules/rerequire.js');
 var vars = require('./../global/vars.js');
+var fs = require('fs');
+var langHandler = require("./../modules/langHandler.js");
 
 module.exports = {
     name: 'execute',
@@ -27,11 +29,22 @@ module.exports = {
                 message.channel.send(`\`\`\`css\n${language.ExecuteNoResult}\`\`\``);
             }
             else{
-                message.channel.send('```' + evalResult + '```');
+                SendSplit(message.channel, evalResult.toString());
             }
         }
         catch(error){
-            message.channel.send('```' + error.stack + '```');
+            SendSplit(message.channel, error.stack);
         }
     }
 };
+
+function SendSplit(channel, string){
+    if(string.length > 1994){
+        channel.send('```' + string.substring(0, 1994) + '```').then((msg) => {
+            SendSplit(channel, string.substring(1994));
+        });
+    }
+    else{
+        channel.send('```' + string + '```');
+    }
+}

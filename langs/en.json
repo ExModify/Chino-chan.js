@@ -186,7 +186,6 @@
     "ExecuteNoResult": "Execution sent no result!",
 
     "Information": "Information about me",
-
     "Uptime": "Uptime",
     "Time": "Time",
     "Hours": "hours",
@@ -194,9 +193,26 @@
     "Seconds": "seconds",
     "JoinedServers": "Joined servers",
     "MemoryUsage": "Memory usage",
-    "BotMemoryUsage": "Bot",
-    "ComputerMemoryUsage": "Computer",
+
+    "ServerInformation": "Server information",
+    "CPU": "CPU",
+    "Brand": "Brand",
+    "CPUCores": "Cores",
+    "CPUUsage": "CPU usage",
+    "AverageTemp": "Average temperature",
+    "MaxTemp": "Maximum temperature",
+    "CoreTemps": "Cores' temperature",
+    "MemorySpeed": "Memory Speed",
     "FreeMemory": "free",
+    "GraphicInfos": "Graphic card",
+    "VRAMs": "VRAMs",
+    "OS": "Operating System",
+    "Platform": "Platform",
+    "Distro": "Distro",
+    "Drives": "Drives",
+    "INetInfo": "Internet informations",
+    "ReceivedPackages": "Received packages",
+    "TransferedPackages": "Transfered packages",
 
     "DMTriedExecute": "Sorry, but this command is only server-side~",
 

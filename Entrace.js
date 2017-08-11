@@ -31,7 +31,8 @@ var allowed = false;
 var Messages = [];
 
 var HTTPServer = http.createServer((req, resp) => { // Will have a webpage
-    resp.writeHead(404);
+    resp.writeHead(200);
+    resp.write(fs.readFileSync('./webpage/index.html'));
     resp.end();
 });
 
