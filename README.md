@@ -12,7 +12,11 @@ Prefix: `$`
 
 `$admin` - Displays admins according to the server. Global Admins are also mentioned here, even if they're not in the server.
 
-`$info` - Displays some information about the environment, the joined server, memory usage, uptime, etc.-
+`$avatar` - Sends a user's avatar according to the user's username, or if it used on guild, the user's display name, and if there's multiple matches, she sends them all c:
+
+`$info` - Displays some information about her, where is she joined, etc...
+
+`$serverinfo` - Displays some information about the environment where she is running~
 
 `$git` - Displays [this](https://github.com/ExModify/Chino-chan) page, also the version and the changes
 
@@ -68,9 +72,13 @@ Prefix: `$`
 
 `$reload` - She reloads herself
 
+`$restart` - Restarts her, and her handler
+
 `$rmodule` - She reloads one of her modules
 
 `$shutdown` - She turns herself off :c
+
+`$update` - She updates herself
 
 
 # Incoming modules

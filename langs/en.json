@@ -34,7 +34,7 @@
     "InDevelopment": "This command is in development~",
 
     "CommandHelp": {
-        "info":        "I write some information about me and the environment where I am~",
+        "info":        "I write some information about me~",
         "prefix":      "Server-side prefix~",
         "delete":      "You can delete messages~",
         "execute":     "You can execute node.js commands",
@@ -62,7 +62,9 @@
         "game":        "My game can be changed by this owo",
         "invite":      "If you'd like to invite me somewhere, you can get the invitation link by this owo",
         "update":      "I'll search for updates~",
-        "restart":     "Restarts me, also the Entrace which manages me~"
+        "restart":     "Restarts me, also the Entrace which manages me~",
+        "avatar":      "I send a user's avatar, or if there're multiple matches, all of them c:",
+        "serverinfo":  "I tell you some information about the environment where I am~"
     },
     "PrivateMessage": "%MENTION%, Check our private channel c:",
 
