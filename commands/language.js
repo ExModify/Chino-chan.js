@@ -8,6 +8,7 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     minimumLevel: 1,
+    type: "Customization",
     execute: (bot, message, prefix, command, parameter, language) => {
         if(parameter === ""){
             var langs = '';

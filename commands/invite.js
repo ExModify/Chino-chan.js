@@ -5,6 +5,7 @@ module.exports = {
     canPrivate: false,
     requirePrefix: true,
     minimumLevel: 0,
+    type: "Information",
     execute: (bot, message, prefix, command, parameter, language) => {
         var Embed = new Discord.RichEmbed();
         Embed.setAuthor("Chino-chan", bot.user.avatarURL, 'https://discordapp.com/oauth2/authorize?client_id=271658919443562506&scope=bot&permissions=0');

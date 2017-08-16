@@ -3,6 +3,7 @@ module.exports = {
     canPrivate: false,
     requirePrefix: true,
     minimumLevel: 0,
+    type: "Information",
     execute: (bot, message, prefix, command, parameter, language) => {
         if(message.member.voiceChannel == undefined || message.member.voiceChannel == null){
             message.channel.send(language.VoiceNotConnected);

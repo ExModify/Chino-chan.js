@@ -8,6 +8,7 @@ module.exports = {
     canPrivate: false,
     requirePrefix: true,
     minimumLevel: 1,
+    type: "Management",
     execute: (bot, message, prefix, command, parameter, language) => {
         if(vars.HasAdmin(message.guild, message.author.id)){
             var sendNotify = true;

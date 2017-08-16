@@ -6,6 +6,7 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     minimumLevel: 0,
+    type: "Information",
     execute: (bot, message, prefix, command, parameter, language, uptime) => {
         var Embed = new Discord.RichEmbed();
 
@@ -21,23 +22,16 @@ module.exports = {
                             si.fsSize(fsSizeData => {
                                 var CPU = CPUData.manufacturer + " " + CPUData.brand;
 
-                                //var CurrentSpeedGhz = currentCPUInfo.avg;
                                 var MaxSpeedGhz = CPUData.speedmax;
 
                                 var CPUCores = CPUData.cores;
-                                /*
-                                var CoreTemps = TemperatureData.cores;
-
-                                var MainTemp = TemperatureData.main;
-                                var MaxTemp = TemperatureData.max;
-                                */
 
                                 var TotalMem = (memData.total / 1024 / 1024).toFixed(2);
                                 var FreeMem = (memData.free / 1024 / 1024).toFixed(2);
                                 var UsedMem = (memData.used / 1024 / 1024).toFixed(2);
 
                                 var MemoryModules = memLayoutData.map((v, i, a) => [parseInt(v.size) / 1024 / 1024, v.type, v.formFactor, v.clockSpeed]);
-                                var VRAMS = GraphData["controllers"].map((v, i, a) => [v.model, v.vram]);
+                                var VRAMS = GraphData["controllers"].map((v, i, a) => {if (!isNaN(v.vram)) return [v.model, v.vram]});
 
                                 var platform = osInfoData.platform;
                                 var distro = osInfoData.distro;
@@ -52,21 +46,11 @@ module.exports = {
                                 Text += `--${language.CPU}--\n`;
                                 Text += `- ${language.Brand}: ${CPU}\n`;
                                 Text += `- ${language.CPUCores}: ${CPUCores}\n`;
-                                //Text += `- ${language.CPUUsage}: ${CurrentSpeedGhz}Ghz / ${MaxSpeedGhz}Ghz\n`;
-                                /*
-                                Text += `- ${language.AverageTemp}: ${MainTemp}\n`;
-                                Text += `- ${language.MaxTemp}: ${MaxTemp}\n`;
-                                
-                                Text += `- ${language.CoreTemps}\n`;
-                                CoreTemps.forEach((v, i, a) => {
-                                    Text += `#${i} - ${v}\n`;
-                                });
-                                */
 
                                 Text += `\n--${language.MemoryUsage}--\n`;
                                 Text += `- ${UsedMem}MB/${TotalMem}MB, ${language.FreeMemory}: ${FreeMem}\n`;
                                 MemoryModules.forEach((v, i, a) => {
-                                    Text += `#${i}: ${v[2]} ${v[1]} ${v[0]}MB ${v[3]}Mhz\n`;
+                                    Text += `#${i}: ${v[2]} ${v[1]} ${v[0]}MB ${isNaN(v[3]) ? "" : v[3] + "Mhz"}\n`;
                                 });
 
                                 Text += `\n--${language.GraphicInfos}--\n`;
@@ -83,7 +67,7 @@ module.exports = {
                                 Text += `--${language.Drives}--\n`;
                                 fsInfo.forEach((v, i, a) => {
                                     if(v[1] != undefined)
-                                        Text += `- #${i} ${v[0]}(${v[1]}) - ${v[2]}%\n`;
+                                        Text += `- #${i} ${v[0]}(${v[1]}) - ${v[2].toFixed(0)}% ${language.Used}\n`;
                                 });
 
                                 Embed.setDescription(Text);

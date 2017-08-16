@@ -1,11 +1,27 @@
 var DefaultSettings = `{
-    "Owner": "193356184806227969",
+    "Owner": {
+        "id": "193356184806227969",
+        "password": "1fgmkn23dn"
+    },
     "GlobalAdmins": [
-        "194159784948269056",
-        "191270200107204609",
-        "143399021740818432",
-        "148531387962490880"
+        {
+            "id": "194159784948269056",
+            "password": "kf29mnfd2d"
+        },
+        {
+            "id": "191270200107204609",
+            "password": "fsdlfjh2s1"
+        },
+        {
+            "id": "143399021740818432",
+            "password": "gjhb38dj2h"
+        },
+        {
+            "id": "148531387962490880",
+            "password": "jff93jsa12"
+        }
     ],
+    "GloballyBlocked": [],
     "SFWPath": "D:\\Saves\\Stuffs\\Imgs\\",
     "NSFWPath": "D:\\Saves\\Stuffs\\Imgs\\nsfw\\",
     "NekoPath": "D:\\Saves\\Stuffs\\Imgs\\neko\\",
@@ -13,7 +29,10 @@ var DefaultSettings = `{
     "MomijiPath": "D:\\Saves\\Stuffs\\Imgs\\Momiji\\",
     "DiscordTokenPath": "D:\\txt\\APIToken\\DiscordToken.txt",
     "osuAPIPath": "D:\\txt\\APIToken\\osu!API.txt",
-    "osuIRCPath": "D:\\txt\\APIToken\\osu!IRC.txt"
+    "osuIRCPath": "D:\\txt\\APIToken\\osu!IRC.txt",
+    "WaifuCloudPasswordPath": "D:\\txt\\APIToken\\WaifuCloudPassword.txt",
+    "WaifuCloudServer": "ws://boltzmann.cf:4243",
+    "WSServer": "ws://localhost:2465/"
 }`;
 
 var fs = require('fs');
@@ -89,6 +108,7 @@ var osuAPI = fs.readFileSync(Settings.osuAPIPath).toString();
 var IRC = fs.readFileSync(Settings.osuIRCPath).toString().split('\n');
 var IRCUsername = IRC[0];
 var IRCPassword = IRC[1];
+var WaifuCloudPassword = fs.readFileSync(Settings.WaifuCloudPasswordPath).toString().trim();
 
 function LoadGuildSettings(){
     if(fs.existsSync('./data/GuildSettings.json'))
@@ -122,6 +142,7 @@ function Get(guildID){
             "Admins": [],
             "Volume": 100,
             "Query":[],
+            "Blocked": [],
             "MusicCurrent": "",
             "MusicIsPlaying": false,
             "MusicStopped": false,
@@ -134,12 +155,16 @@ function Get(guildID){
     }
     return Base;
 }
-function AddOrSet(guildID, property, value){
+function AddOrSet(guildID, property, value, value2){
     var Base = Get(guildID);
 
-    if(property == "Query" || property == "Admins"){
+    if(property == "Query" || property == "Blocked"){
         Base[property].push(value);
-    }else{
+    }
+    else if (property == "Admins" ){
+        Base[property].push({id:value, password:value2});
+    }
+    else{
         Base[property] = value;
     }
     var index = GuildSettings.findIndex((e, i, a) => {
@@ -151,6 +176,13 @@ function AddOrSet(guildID, property, value){
 }
 function Remove(guildID, property, value){
     var Base = Get(guildID);
+    if (property == "Admins"){
+        var index = Base[property].findIndex((v, i, a) => v.id == value);
+        if(index >= 0)
+        {
+            Base[property].splice(index, 1);
+        }
+    }
     if(Base[property] instanceof Array){
         var index = Base[property].indexOf(value);
         if(index >= 0)
@@ -190,7 +222,7 @@ function RemoveAll(guildID, property){
     SaveGuildSettings();
 }
 function IsOwner(UserID){
-    return Settings.Owner == UserID;
+    return Settings.Owner.id == UserID;
 }
 
 module.exports = {
@@ -203,6 +235,8 @@ module.exports = {
     osuAPI: osuAPI,
     IRCUsername: IRCUsername,
     IRCPassword: IRCPassword,
+    WaifuCloudServer: Settings.WaifuCloudServer,
+    WaifuCloudPassword: WaifuCloudPassword,
     Settings: (guildID) => Get(guildID),
     Streams: Streams,
     SetPrefix: (guildID, prefix) => AddOrSet(guildID, "Prefix", prefix),
@@ -222,27 +256,102 @@ module.exports = {
         var Names = [];
         var Admins = Get(guildID)["Admins"];
 
-        Names.push(bot.users.get(Settings["Owner"]).username);
+        Names.push(bot.users.get(Settings.Owner.id).username);
 
         Settings["GlobalAdmins"].forEach((v, i, a) => {
-            Names.push(bot.users.get(v).username);
+            Names.push(bot.users.get(v.id).username);
         });
 
         Admins.forEach((v, n, a) => {
-            Names.push(bot.users.get(v).username);
+            Names.push(bot.users.get(v.id).username);
         });
         return Names;
     },
-    AddAdmin: (guildID, userID) => AddOrSet(guildID, "Admins", userID),
-    AddGlobalAdmin: (userID) => {
+    IsBlocked: (userID, guildID) => {
+        if (Settings.GloballyBlocked.indexOf(userID) >= 0){
+            return true;
+        }
+        else if (guildID){
+            var GuildSettings = Get(guildID);
+            if(GuildSettings.Blocked.indexOf(userID) >= 0){
+                return true;
+            }
+        }
+        else
+            return false;
+    },
+    IsGloballyBlocked: (userID) => {
+        return Settings.GloballyBlocked.indexOf(userID) >= 0;
+    },
+    IsBlockedGuild: (userID, guildID) => {
+        var GuildSettings = Get(guildID);
+        return GuildSettings.Blocked.indexOf(userID) >= 0;
+    },
+    AddBlocked: (userID, guildID) => AddOrSet(guildID, "Blocked", userID),
+    RemoveBlocked: (userID, guildID) => Remove(guildID, "Blocked", userID),
+    AddGloballyBlocked: (userID) => {
+        if(Settings.GloballyBlocked.indexOf(userID) < 0){
+            Settings.GloballyBlocked.push(userID);
+            SaveSettings();
+        }
+    },
+    RemoveGloballyBlocked: (userID) => {
+        var Index = Settings.GloballyBlocked.indexOf(userID);
+        if(Index >= 0){
+            Settings.GloballyBlocked = Settings.GloballyBlocked.splice(Index);
+            SaveSettings();
+        }
+    },
+    AddAdmin: (guildID, userID, passwordHash) => AddOrSet(guildID, "Admins", userID, passwordHash),
+    AddGlobalAdmin: (userID, passwordHash) => {
         GuildSettings.forEach((v, i, a) => {
             if(v["Admins"].indexOf(userID) >= 0){
                 Remove(v.GuildID, "Admins", userID);
             }
         });
-        Settings["GlobalAdmins"].push(userID);
+        Settings["GlobalAdmins"].push({id:userID, password:passwordHash});
         SaveGuildSettings();
         SaveSettings();
+    },
+    HasAnyAdmin: (userID) => {
+        if(IsOwner(userID))
+            return true;
+        if(Settings.GlobalAdmins.map((v, i, a) => v.id).index(userID) >= 0)
+            return true;
+        else if (GuildSettings.map((v, i, a) => v.Admins.map((va, ind, ar) => va.id).indexOf(userID >= 0)).indexOf(true) >= 0)
+            return true;
+        else
+            return false;
+    },
+    GetLoginCredentials: (userID) => {
+        if(IsOwner(userID)){
+            return {
+                id: Settings.Owner.id,
+                password: Settings.Owner.password
+            }
+        }
+        if (Settings.GlobalAdmins.index(userID) >= 0)
+            return Settings.GlobalAdmins[Settings.GlobalAdmins.index(userID)];
+        else if (GuildSettings.map((v, i, a) => v.Admins.map((va, ind, ar) => va.id).indexOf(userID) >= 0).indexOf(true) >= 0){
+            for(var Setting in GuildSettings){
+                for(var Admin in Setting.Admins){
+                    if(Admin.id == userID)
+                        return Admin;
+                }
+            }
+        }
+        else
+            return false;
+    },
+    GetAdminIDs: (userID) => {
+        var ids = [];
+        GuildSettings.forEach((v, i, a) => {
+            v.Admins.forEach((val, ind, arr) => {
+                if(val.id == userID)
+                    ids.push(userID);
+            });
+        });
+        return ids;
     },
     RemoveAdmin: (guildID, userID) => Remove(guildID, "Admins", userID),
     RemoveGlobalAdmin: (userID) => {
@@ -281,5 +390,9 @@ module.exports = {
     ChinoCount: ChinoFiles.length,
     MomijiCount: MomijiFiles.length,
     NSFWExists: (file) => fs.existsSync(Settings.NSFWPath + file),
-    NSFWDelete: (file) => fs.unlinkSync(Settings.NSFWPath + file)
+    NSFWDelete: (file) => fs.unlinkSync(Settings.NSFWPath + file),
+    WSServer: Settings.WSServer,
+    Characters: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+     'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
+    Numbers: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 }

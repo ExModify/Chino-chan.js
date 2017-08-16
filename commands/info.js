@@ -6,6 +6,7 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     minimumLevel: 0,
+    type: "Information",
     execute: (bot, message, prefix, command, parameter, language, uptime) => {
         var hours = Math.trunc(uptime / 3600);
         var mins = Math.trunc(uptime / 60) - hours * 60;

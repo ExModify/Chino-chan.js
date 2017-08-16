@@ -16,6 +16,10 @@ module.exports = {
         var Prefix = Settings["Prefix"];
         var Language = langHandler.getLanguage(Settings["Language"]);
 
+        if (vars.IsBlocked(message.author.id, guildID)){
+            message.channel.send(language.UserBlocked);
+            return;
+        }
 
         var SpaceIndex = message.content.indexOf(' ');
         var Command = GenerateCommand(message.content, Prefix);

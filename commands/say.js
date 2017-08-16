@@ -5,6 +5,7 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     minimumLevel: 1,
+    type: "Management",
     execute: (bot, message, prefix, command, parameter, language) => {
         if(message.channel.type != "dm")
         {

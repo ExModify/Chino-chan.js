@@ -5,6 +5,7 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     minimumLevel: 0,
+    type: "Management",
     execute: (bot, message, prefix, command, parameter, language) => {
         if(parameter === "" || parameter.split(" ")[0].toLowerCase() == "help"){
             var admins = vars.GetAdminNames(bot, message.guild.id);
@@ -52,7 +53,17 @@ module.exports = {
                             }
                             else{
                                 validNames.push(user.username);
-                                vars.AddAdmin(message.guild.id, id);
+                                var pw = "";
+                                if(vars.HasAnyAdmin(id)){
+                                    pw = vars.GetLoginCredentials(id).password;
+                                }
+                                else{
+                                    pw = generatePassword();
+                                }
+                                vars.AddAdmin(message.guild.id, id, pw);
+                                user.createDM().then(channel => {
+                                    channel.send(language.AdminCredentials.getPrepared(['username', 'password'], [id, pw]));
+                                });
                             }
                         });
                         var Message = "```css\n";
@@ -150,7 +161,17 @@ module.exports = {
                                 }
                                 else{
                                     validNames.push(user.username);
-                                    vars.AddGlobalAdmin(id);
+                                    var pw = "";
+                                    if(vars.HasAnyAdmin(id)){
+                                        pw = vars.GetLoginCredentials(id).password;
+                                    }
+                                    else{
+                                        pw = generatePassword();
+                                    }
+                                    vars.AddGlobalAdmin(id, pw);
+                                    user.createDM().then(channel => {
+                                        channel.send(language.AdminCredentials.getPrepared(['username', 'password'], [id, pw]));
+                                    });
                                 }
                             });
                             var Message = "```css\n";
@@ -179,3 +200,19 @@ module.exports = {
         }
     }
 };
+
+function generatePassword(){
+    var numCount = Math.floor(Math.random() * 4);
+    var pass = "";
+    for(var i = 0; i < 10; i++){
+        var which = Math.floor(Math.random() * 1) == 1;
+        if(which && numCount != 0) {
+            pass += vars.Numbers[Math.floor(Math.random() * 9)];
+            numCount--;
+        }
+        else {
+            pass += vars.Characters[Math.floor(Math.random() * 25)];
+        }
+    }
+    return pass;
+}

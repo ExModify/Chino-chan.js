@@ -6,6 +6,7 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     minimumLevel: 0,
+    type: "Fun - Image",
     execute: (bot, message, prefix, command, parameter, language) => {
         if(vars.NSFWCount > 0){
             var parameters = parameter.split(" ");
@@ -45,7 +46,7 @@ module.exports = {
                 }
             }
             else{
-                var Path = vars.NSFWPath + vars.NSFWFiles[Math.floor(Math.random() * vars.NSFWCount)];
+                var Path = vars.NSFWPath + vars.NSFWFiles[Math.floor(Math.random() * (vars.NSFWCount - 1))];
                 message.channel.sendImageEmbed(Path, 'NSFW', message.channel);
             }
         }

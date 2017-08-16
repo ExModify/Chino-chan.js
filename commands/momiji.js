@@ -5,12 +5,13 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     minimumLevel: 0,
+    type: "Fun - Image",
     execute: (bot, message, prefix, command, parameter, language) => {
         if(vars.MomijiCount > 0){
             if(parameter.trim() === "count"){
                 message.channel.send(language.MomijiCount.getPrepared('count', vars.MomijiCount));
             }else{
-                var Path = vars.MomijiPath + vars.MomijiFiles[Math.floor(Math.random() * vars.MomijiCount)];
+                var Path = vars.MomijiPath + vars.MomijiFiles[Math.floor(Math.random() * (vars.MomijiCount - 1))];
                 message.channel.sendImageEmbed(Path, 'Momiji', message.channel);
             }
         }

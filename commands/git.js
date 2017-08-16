@@ -6,6 +6,7 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     minimumLevel: 0,
+    type: "Fun",
     execute: (bot, message, prefix, command, parameter, language) => {
         var proc = exec('git log --format=%B -n 1', (error, out, err) => {
             var lines = out.split('\n');

@@ -8,6 +8,7 @@ module.exports = {
     canPrivate: false,
     requirePrefix: true,
     minimumLevel: 2,
+    type: "Management",
     execute: (bot, message, prefix, command, parameter, language) => {
         if(vars.IsGlobalAdmin(message.author.id)
         || message.author.id == message.guild.ownerID

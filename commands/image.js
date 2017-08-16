@@ -5,6 +5,7 @@ module.exports = {
     canPrivate: true,
     requirePrefix: true,
     minimumLevel: 0,
+    type: "Fun - Image",
     execute: (bot, message, prefix, command, parameter, language) => {
         let parameters = parameter.split(' ');
         parameters[0] = parameters[0].toLowerCase();
@@ -56,7 +57,7 @@ module.exports = {
                         }
                         else{
                             var postJsonObject = JSON.parse(postJson);
-                            var index = Math.floor(Math.random() * postJsonObject.length);
+                            var index = Math.floor(Math.random() * (postJsonObject.length - 1));
                             var object = postJsonObject[index];
                             message.channel.sendImageEmbedOnline(object.file_url, "yande.re", message.channel);
                         }
@@ -91,7 +92,7 @@ module.exports = {
                             var postJsonObject = JSON.parse(postJson);
                             var object = undefined;
                             do{
-                                var index = Math.floor(Math.random() * postJsonObject.length);
+                                var index = Math.floor(Math.random() * (postJsonObject.length - 1));
                                 object = postJsonObject[index];
                             }
                             while(object.file_url == undefined);
