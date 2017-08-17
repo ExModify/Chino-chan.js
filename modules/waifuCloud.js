@@ -58,7 +58,7 @@ module.exports = {
             var id = rng();
             ResponseEvent.once(id, response => {
                 resolve({
-                    error: reponse.error,
+                    error: response.error,
                     url: response.post.url
                 });
             });
