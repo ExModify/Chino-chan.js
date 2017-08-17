@@ -57,10 +57,9 @@ module.exports = {
             
             var id = rng();
             ResponseEvent.once(id, response => {
-                console.log(response);
                 resolve({
                     error: response.error,
-                    url: response.post.url
+                    url: response.response.url
                 });
             });
             WSConnection.sendUTF(JSON.stringify({
