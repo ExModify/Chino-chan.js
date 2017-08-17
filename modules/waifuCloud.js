@@ -1,8 +1,3 @@
-// Promises
-// WSClient: send request, wait for message
-// array: arrived messages
-// => event: new message
-// promise resolves
 var ws = require('./webserver.js');
 var client = require('websocket').client;
 var event = require('events').EventEmitter;
@@ -44,7 +39,7 @@ module.exports = {
         });
 
         WSClient.connect(vars.WaifuCloudServer, "echo-protocol", JSON.stringify({
-            username: vars.IRCUsername,
+            username: vars.WaifuCloudUsername,
             password: vars.WaifuCloudPassword
         }));
     },
@@ -61,14 +56,14 @@ module.exports = {
                 reject(new Error("Not connected to Waifu Cloud"));
             
             var id = rng();
-            ResponseEvent.on(id, response => {
+            ResponseEvent.once(id, response => {
                 resolve({
                     error: reponse.error,
                     url: response.post.url
                 });
             });
             WSConnection.sendUTF(JSON.stringify({
-                name: "search_tag",
+                name: "search_tags",
                 mode: "random",
                 job_id: id,
                 tags: tags

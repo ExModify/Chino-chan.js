@@ -1,24 +1,12 @@
 var DefaultSettings = `{
     "Owner": {
-        "id": "193356184806227969",
-        "password": "1fgmkn23dn"
+        "id": "000",
+        "password": ""
     },
     "GlobalAdmins": [
         {
-            "id": "194159784948269056",
-            "password": "kf29mnfd2d"
-        },
-        {
-            "id": "191270200107204609",
-            "password": "fsdlfjh2s1"
-        },
-        {
-            "id": "143399021740818432",
-            "password": "gjhb38dj2h"
-        },
-        {
-            "id": "148531387962490880",
-            "password": "jff93jsa12"
+            "id": "0000",
+            "password": ""
         }
     ],
     "GloballyBlocked": [],
@@ -30,7 +18,7 @@ var DefaultSettings = `{
     "DiscordTokenPath": "D:\\txt\\APIToken\\DiscordToken.txt",
     "osuAPIPath": "D:\\txt\\APIToken\\osu!API.txt",
     "osuIRCPath": "D:\\txt\\APIToken\\osu!IRC.txt",
-    "WaifuCloudPasswordPath": "D:\\txt\\APIToken\\WaifuCloudPassword.txt",
+    "WaifuCloudCredentials": "D:\\txt\\APIToken\\WaifuCloudCredentials.txt",
     "WaifuCloudServer": "ws://boltzmann.cf:4243",
     "WSServer": "ws://localhost:2465/"
 }`;
@@ -105,10 +93,14 @@ LoadImages();
 
 var DiscordToken = fs.readFileSync(Settings.DiscordTokenPath).toString();
 var osuAPI = fs.readFileSync(Settings.osuAPIPath).toString();
+
 var IRC = fs.readFileSync(Settings.osuIRCPath).toString().split('\n');
 var IRCUsername = IRC[0];
 var IRCPassword = IRC[1];
-var WaifuCloudPassword = fs.readFileSync(Settings.WaifuCloudPasswordPath).toString().trim();
+
+var WaifuCloud = fs.readFileSync(Settings.WaifuCloudCredentials).toString().split('\n');;
+var WaifuCloudUsername = WaifuCloud[0].trim();
+var WaifuCloudPassword = WaifuCloud[1].trim();
 
 function LoadGuildSettings(){
     if(fs.existsSync('./data/GuildSettings.json'))
@@ -140,7 +132,7 @@ function Get(guildID){
             "Prefix": "$",
             "Language": "en",
             "Admins": [],
-            "Volume": 100,
+            "Volume": 50,
             "Query":[],
             "Blocked": [],
             "MusicCurrent": "",
@@ -237,6 +229,7 @@ module.exports = {
     IRCPassword: IRCPassword,
     WaifuCloudServer: Settings.WaifuCloudServer,
     WaifuCloudPassword: WaifuCloudPassword,
+    WaifuCloudUsername: WaifuCloudUsername,
     Settings: (guildID) => Get(guildID),
     Streams: Streams,
     SetPrefix: (guildID, prefix) => AddOrSet(guildID, "Prefix", prefix),
