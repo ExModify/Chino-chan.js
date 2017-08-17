@@ -10,16 +10,17 @@ module.exports = {
     type: "Information",
     execute: (bot, message, prefix, command, parameter, language) => {
         var CommandNames = [];
-        var Commands = fs.readdirSync('./commands').map((v, i, a) => {
+        var Commands = [];
+        fs.readdirSync('./commands').forEach((v, i, a) => {
             var Module = rerequire('./commands/' + v);
             if (PreconditionMet(message, Module.minimumLevel)){
                 CommandNames.push(Module.name.toLowerCase());
-                return {
+                Commands.push({
                     name: Prefix(Module.minimumLevel) + Module.name,
                     type: Module.type,
                     level: Module.minimumLevel,
                     help: language.CommandHelp[Module.name]
-                };
+                });
             }
         });
 
