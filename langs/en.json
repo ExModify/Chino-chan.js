@@ -335,5 +335,8 @@
         "Bottom":   "```"
     },
     "WaifuCloudNoMatches": "Sorry, but I couldn't find any images with these tags: %TAGS% :c",
-    "WaifuCloudNotConnected": "I couldn't connect to the Waifu Cloud, sorry :c"
+    "WaifuCloudNotConnected": "I couldn't connect to the Waifu Cloud, sorry :c",
+    "WaifuCloudUpdatePosts": "Updating posts for %TYPE%~",
+    "WaifuCloudTypeUpToDate": "%TYPE% is already uploaded~",
+    "WaifuCloudUploaded": "%COUNT% images have been uploaded to %TYPE%~"
 }
