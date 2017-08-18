@@ -122,6 +122,13 @@ Client.on('message', message => {
         message.delete();
         message.channel.send(`\`${(message.member.nickname ? message.member.nickname : message.author.username)}\` ¯\\\_(ツ)_/¯`);
     }
+    var name = message.member ? message.member.displayName : message.author.username;
+    if (message.channel.type == "dm"){
+        ws.LogDeveloper(name, message.content);
+    }
+    else if (message.channel.type == "text"){
+        ws.LogDeveloper(message.guild.name, `${message.channel.name}#${name}: ${message.content}`);
+    }
     rerequire('./MessageHandler.js').handle(Client, message, uptime);
 });
 
@@ -148,7 +155,7 @@ Client.on('channelCreate', channel => {
         wsChannel.type = "NewTextChannel";
         wsChannel.topic = channel.topic;
         wsChannel.messages = [];
-        wsChannel.typingUserIds = [];
+        wsChannel.typingUserIDs = [];
     }
     else{
         wsChannel.type = "NewVoiceChannel"

@@ -15,6 +15,7 @@ var DefaultSettings = `{
     "NekoPath": "D:\\Saves\\Stuffs\\Imgs\\neko\\",
     "ChinoPath": "D:\\Saves\\Stuffs\\Imgs\\Chino\\",
     "MomijiPath": "D:\\Saves\\Stuffs\\Imgs\\Momiji\\",
+    "HibikiPath": "D:\\Saves\\Stuffs\\Imgs\\Hibiki\\",
     "DiscordTokenPath": "D:\\txt\\APIToken\\DiscordToken.txt",
     "osuAPIPath": "D:\\txt\\APIToken\\osu!API.txt",
     "osuIRCPath": "D:\\txt\\APIToken\\osu!IRC.txt",
@@ -49,6 +50,7 @@ var NSFWFiles = [];
 var NekoFiles = [];
 var ChinoFiles = [];
 var MomijiFiles = [];
+var HibikiFiles = [];
 
 function LoadImages(){
     fs = rerequire('fs');
@@ -83,6 +85,13 @@ function LoadImages(){
     if(fs.existsSync(Settings.MomijiPath)){
         MomijiFiles = fs.readdirSync(Settings.MomijiPath).filter((v, i, a) => {
             if (fs.statSync(Settings.MomijiPath + v).isDirectory())
+                return false;
+            return true;
+        });
+    }
+    if(fs.existsSync(Settings.HibikiPath)){
+        HibikiFiles = fs.readdirSync(Settings.HibikiPath).filter((v, i, a) => {
+            if (fs.statSync(Settings.HibikiPath + v).isDirectory())
                 return false;
             return true;
         });
@@ -264,14 +273,14 @@ module.exports = {
         if (Settings.GloballyBlocked.indexOf(userID) >= 0){
             return true;
         }
-        else if (guildID){
+        if (guildID != undefined){
             var GuildSettings = Get(guildID);
             if(GuildSettings.Blocked.indexOf(userID) >= 0){
                 return true;
             }
         }
-        else
-            return false;
+
+        return false;
     },
     IsGloballyBlocked: (userID) => {
         return Settings.GloballyBlocked.indexOf(userID) >= 0;
@@ -371,17 +380,20 @@ module.exports = {
     NekoPath: Settings.NekoPath,
     ChinoPath: Settings.ChinoPath,
     MomijiPath: Settings.MomijiPath,
+    HibikiPath: Settings.HibikiPath,
     SFWFiles: SFWFiles,
     NSFWFiles: NSFWFiles,
     NekoFiles: NekoFiles,
     ChinoFiles: ChinoFiles,
     MomijiFiles: MomijiFiles,
-    AllCount: SFWFiles.length + NSFWFiles.length + NekoFiles.length + ChinoFiles.length + MomijiFiles.length,
+    HibikiFiles: HibikiFiles,
+    AllCount: SFWFiles.length + NSFWFiles.length + NekoFiles.length + ChinoFiles.length + MomijiFiles.length + HibikiFiles.length,
     SFWCount: SFWFiles.length,
     NSFWCount: NSFWFiles.length,
     NekoCount: NekoFiles.length,
     ChinoCount: ChinoFiles.length,
     MomijiCount: MomijiFiles.length,
+    HibikiCount: HibikiFiles.length,
     NSFWExists: (file) => fs.existsSync(Settings.NSFWPath + file),
     NSFWDelete: (file) => fs.unlinkSync(Settings.NSFWPath + file),
     WSServer: Settings.WSServer,
