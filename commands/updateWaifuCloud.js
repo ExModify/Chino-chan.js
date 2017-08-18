@@ -8,7 +8,7 @@ module.exports = {
     minimumLevel: 3,
     type: "Fun - Images",
     execute: (bot, message, prefix, command, parameter, language) => {
-        if (vars.IsOwner(message.author.id)){
+        if (!vars.IsOwner(message.author.id)){
             message.channel.send(language.ExecuteNoPermission);
             return;
         }
