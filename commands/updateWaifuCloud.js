@@ -2,7 +2,7 @@ var vars = require('./../global/vars.js');
 var wc = require('./../modules/waifuCloud.js');
 
 module.exports = {
-    name: 'update',
+    name: 'updatewaifucloud',
     canPrivate: true,
     requirePrefix: true,
     minimumLevel: 3,

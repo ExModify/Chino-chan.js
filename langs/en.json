@@ -104,7 +104,8 @@
         "serverinfo":    "I tell you some information about the environment where I am~",
         "waifucloud":    "Waifu Cloud database access",
         "block":         "Guild-specific user block",
-        "blockglobally": "Global user block"
+        "blockglobally": "Global user block",
+        "updatewaifucloud": "Updated waifucloud with a specified type"
     },
     "PrivateMessage": "%MENTION%, Check our private channel c:",
 
