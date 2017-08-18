@@ -91,10 +91,10 @@ module.exports = {
             var pushedFiles = [];
             if (fs.existsSync(folder)){
                 fs.readdirSync(folder).forEach((v, i, a) => {
-                    if (!fs.existsSync(WaifuCloudPath + v)){
-                        if (fs.existsSync(WaifuCloudPath))
-                            fs.mkdirSync(WaifuCloudPath);
+                    if (!fs.existsSync(WaifuCloudPath))
+                        fs.mkdirSync(WaifuCloudPath);
 
+                    if (!fs.existsSync(WaifuCloudPath + v)){
                         fs.writeFileSync(WaifuCloudPath + v, fs.readFileSync(folder + v));
                         jsonScheme.filename = v;
                         pushedFiles.push(jsonScheme);
