@@ -99,14 +99,13 @@ module.exports = {
                 resolve(0);
     
             ws.LogDeveloper("WaifuCloud", `Adding ${pushedFiles.length} images..`);
-            pushedFiles.forEach((v, i, a) => {
+            ProcessPosts(pushedFiles).then(() => {
                 WSConnection.sendUTF(JSON.stringify({
-                    job_id: rng(),
-                    name: "add_post",
-                    post: v
+                    name: "save",
+                    job_id: rng()
                 }));
+                resolve(pushedFiles.length);
             });
-            resolve(pushedFiles.length);
         });
     }
 };
@@ -115,4 +114,25 @@ function rng(){
     return Math.floor(Math.random() * 11132432211562);
 }
 
-var Connected = WSConnection ? WSConnection.connected : false;
+function ProcessPosts(posts){
+    return new Promise((resolve, reject) => {
+        processImage(posts, 0, resolve);
+    });
+}
+function processImage(posts, index, resolve){
+    var id = rng();
+    ResponseEvent.on(id, () => {
+        if (index == posts.length - 1)
+            resolve();
+
+        processImage(posts, index + 1, resolve);
+    });
+
+    WSConnection.sendUTF(JSON.stringify({
+        job_id: id,
+        name: "add_post",
+        post: posts[index]
+    }));
+}
+
+var Connected = WSConnection == undefined ? WSConnection.connected : false;
