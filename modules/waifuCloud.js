@@ -44,16 +44,10 @@ module.exports = {
             password: vars.WaifuCloudPassword
         }));
     },
-    connected: () => {
-        if (WSConnection){
-            if (WSConnection.connected)
-                return true;
-        }
-        return false;
-    },
+    connected: Connected,
     search: (tags) => {
         return new Promise((resolve, reject) => {
-            if (WSConnection)
+            if (!WSConnection)
                 reject(new Error("Not connected to Waifu Cloud"));
             
             var id = rng();
@@ -75,7 +69,7 @@ module.exports = {
     },
     fill: (folder, tags, toFolder) => {
         return new Promise((resolve, reject) => {
-            if (WSConnection)
+            if (!WSConnection)
                 ws.LogDeveloper("Error", "Not connected to Waifu Cloud");
     
             if(!WSConnection.connected)
@@ -120,3 +114,5 @@ module.exports = {
 function rng(){
     return Math.floor(Math.random() * 11132432211562);
 }
+
+var Connected = WSConnection ? WSConnection.connected : false;
