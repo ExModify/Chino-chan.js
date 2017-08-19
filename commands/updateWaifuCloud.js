@@ -46,6 +46,11 @@ module.exports = {
             from = vars.NekoPath;
             toFolder = "neko";
         }
+        else if (parameter.toLowerCase() == "save"){
+            wc.save().then(() => {
+                message.channel.send(language.WaifuCloudSaved);
+            });
+        }
 
         message.channel.send(language.WaifuCloudUpdatePosts.getPrepared('type', parameter.toLowerCase())).then(msg => {
             wc.fill(from, tags, toFolder).then((count) => {

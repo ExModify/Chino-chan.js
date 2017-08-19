@@ -339,5 +339,6 @@
     "WaifuCloudNotConnected": "I couldn't connect to the Waifu Cloud, sorry :c",
     "WaifuCloudUpdatePosts": "Updating posts for %TYPE%~",
     "WaifuCloudTypeUpToDate": "%TYPE% is already uploaded~",
-    "WaifuCloudUploaded": "%COUNT% images have been uploaded to %TYPE%~"
+    "WaifuCloudUploaded": "%COUNT% images have been uploaded to %TYPE%~",
+    "WaifuCloudSaved": "WaifuCloud saved!"
 }

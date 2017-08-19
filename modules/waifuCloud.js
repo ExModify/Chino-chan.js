@@ -107,6 +107,21 @@ module.exports = {
                 resolve(pushedFiles.length);
             });
         });
+    },
+    save: () => {
+        return new Promise((resolve, reject) => {
+            if (!Connected)
+                reject(new Error("Not connected to Waifu Cloud"));
+            
+            var id = rng();
+            ResponseEvent.once(id, response => {
+                resolve();
+            });
+            WSConnection.sendUTF(JSON.stringify({
+                name: "save",
+                job_id: rng()
+            }));
+        });
     }
 };
 
@@ -135,4 +150,4 @@ function processImage(posts, index, resolve){
     }));
 }
 
-var Connected = WSConnection == undefined ? WSConnection.connected : false;
+var Connected = WSConnection;
