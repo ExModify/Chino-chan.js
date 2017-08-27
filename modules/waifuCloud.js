@@ -44,7 +44,7 @@ module.exports = {
             password: vars.WaifuCloudPassword
         }));
     },
-    connected: Connected,
+    connected: WSConnection,
     search: (tags) => {
         return new Promise((resolve, reject) => {
             if (!WSConnection)
@@ -69,18 +69,17 @@ module.exports = {
     },
     fill: (folder, tags, toFolder) => {
         return new Promise((resolve, reject) => {
-            if (!WSConnection)
+            if(!WSConnection) {
                 ws.LogDeveloper("Error", "Not connected to Waifu Cloud");
+                return;
+            }
     
-            if(!WSConnection.connected)
-                ws.LogDeveloper("Error", "Not connected to Waifu Cloud");
-    
-            var WaifuCloudPath = "D:\\waifucloud\\images\\" + toFolder + "\\";
+            var WaifuCloudPath = vars.WaifuCloudImagePath + toFolder + "\\";
     
             var jsonScheme = {
                 filename: "",
                 tags: tags,
-                url: "Unknwon"
+                url: "Unknown"
             };
             var pushedFiles = [];
             if (fs.existsSync(folder)){
@@ -90,7 +89,7 @@ module.exports = {
 
                     if (!fs.existsSync(WaifuCloudPath + v)){
                         fs.writeFileSync(WaifuCloudPath + v, fs.readFileSync(folder + v));
-                        jsonScheme.filename = v;
+                        jsonScheme.filename = v.substring(0, v.lastIndexOf('.'));
                         pushedFiles.push(jsonScheme);
                     }
                 });
@@ -108,22 +107,40 @@ module.exports = {
             });
         });
     },
-    save: () => {
+    save: () => Save(),
+    delete: (post_id) => {
         return new Promise((resolve, reject) => {
-            if (!Connected)
+            if (!WSConnection)
                 reject(new Error("Not connected to Waifu Cloud"));
             
             var id = rng();
             ResponseEvent.once(id, response => {
-                resolve();
+                resolve(response);
             });
             WSConnection.sendUTF(JSON.stringify({
-                name: "save",
-                job_id: rng()
+                name: "del_post",
+                job_id: rng(),
+                id: post_id
             }));
         });
     }
 };
+
+function Save() {
+    return new Promise((resolve, reject) => {
+        if (!WSConnection)
+            reject(new Error("Not connected to Waifu Cloud"));
+        
+        var id = rng();
+        ResponseEvent.once(id, response => {
+            resolve();
+        });
+        WSConnection.sendUTF(JSON.stringify({
+            name: "save",
+            job_id: rng()
+        }));
+    });
+}
 
 function rng(){
     return Math.floor(Math.random() * 11132432211562);
@@ -149,5 +166,3 @@ function processImage(posts, index, resolve){
         post: posts[index]
     }));
 }
-
-var Connected = WSConnection;

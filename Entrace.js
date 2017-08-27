@@ -6,7 +6,7 @@ process.on('uncaughtException', err => {
     ws.LogDeveloper('Error', err.stack);
 });
 process.on('unhandledRejection', (err, promise) => {
-    Send('Error', err.stack);
+    ws.LogDeveloper('Error', err.stack);
 });
 
 // Module import & Var definition
@@ -19,11 +19,10 @@ var Process = undefined;
 
 RunBot();
 function RunBot(){
-    if(Process !== undefined)
-    {
+    if(Process !== undefined) {
         Process.kill();
     }
-    Process = exec('node Chino-chan.js --color');
+    Process = exec('nodemon Chino-chan.js --color');
     Process.stdout.on('data', chunk => {
         var data = chunk.toString();
         var message = data.substring(0, data.length - 1);
@@ -38,7 +37,6 @@ function RunBot(){
         else
             console.log(message);
     });
-    
     Process.on('exit', OnExit);
     ws.LogDeveloper('Main', 'Chino-chan started!');
 }

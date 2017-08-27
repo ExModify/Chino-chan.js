@@ -62,7 +62,6 @@ Discord.DMChannel.prototype.sendImageEmbedOnline = (url, type, channel, file) =>
 };
 
 
-const rerequire = require('./modules/rerequire.js');
 const musicModule = require('./modules/musicModule.js');
 var waifucloud = require('./modules/waifuCloud.js');
 
@@ -129,11 +128,11 @@ Client.on('message', message => {
     else if (message.channel.type == "text"){
         ws.LogDeveloper(message.guild.name, `${message.channel.name}#${name}: ${message.content}`);
     }
-    rerequire('./MessageHandler.js').handle(Client, message, uptime);
+    require('./MessageHandler.js').handle(Client, message, uptime);
 });
 
 Client.login(vars.DiscordToken).then(token => {
-    console.log("Bot: Chino-chan logged in!");
+    ws.LogDeveloper("Bot", "Chino-chan logged in!");
 });
 
 // WS Information sending

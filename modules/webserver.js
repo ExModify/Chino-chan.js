@@ -546,8 +546,8 @@ function LogConsole(type, Message){
 function GetTime(){
     var date = new Date();
     return Form(date.getFullYear())
-    + "." + Form(date.getMonth())
-    + "." + Form(date.getDay())
+    + "." + Form(date.getMonth() + 1)
+    + "." + Form(date.getDate())
 
     + ". " + Form(date.getHours())
     + ":" + Form(date.getMinutes()) 

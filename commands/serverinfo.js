@@ -31,7 +31,10 @@ module.exports = {
                                 var UsedMem = (memData.used / 1024 / 1024).toFixed(2);
 
                                 var MemoryModules = memLayoutData.map((v, i, a) => [parseInt(v.size) / 1024 / 1024, v.type, v.formFactor, v.clockSpeed]);
-                                var VRAMS = GraphData["controllers"].map((v, i, a) => {if (!isNaN(v.vram)) return [v.model, v.vram]});
+                                var VRAMS = GraphData["controllers"].map((v, i, a) => {
+                                    if (!isNaN(parseInt(v.vram))) 
+                                        return [v.model, v.vram];
+                                });
 
                                 var platform = osInfoData.platform;
                                 var distro = osInfoData.distro;

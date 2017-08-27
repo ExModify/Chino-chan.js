@@ -1,5 +1,4 @@
 const fs = require('fs');
-var rerequire = require('./../modules/rerequire.js');
 var vars = require('./../global/vars.js');
 
 module.exports = {
@@ -12,7 +11,7 @@ module.exports = {
         var CommandNames = [];
         var Commands = [];
         fs.readdirSync('./commands').forEach((v, i, a) => {
-            var Module = rerequire('./commands/' + v);
+            var Module = require('./commands/' + v);
             if (PreconditionMet(message, Module.minimumLevel)){
                 CommandNames.push(Module.name.toLowerCase());
                 Commands.push({

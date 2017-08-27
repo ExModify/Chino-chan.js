@@ -1,7 +1,6 @@
-const rerequire = require('./../modules/rerequire.js');
 var vars = require('./../global/vars.js');
-var fs = rerequire('fs');
-var langHandler = rerequire('./modules/langHandler.js');
+var fs = require('fs');
+var langHandler = require('./../modules/langHandler.js');
 
 module.exports = {
     name: 'language',

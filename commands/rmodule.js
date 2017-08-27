@@ -1,4 +1,3 @@
-var rerequire = require('./../modules/rerequire.js');
 var fs = require('fs');
 var vars = require('./../global/vars.js');
 
@@ -21,7 +20,7 @@ module.exports = {
         var paramTrimmed = parameter.trim();
 
         if(paramTrimmed == "vars"){
-            vars = rerequire('./global/vars.js');
+            vars = require('./../modules/rerequire.js')('./../global/vars.js');
             vars.Load();
             message.channel.send(language.ModuleReloaded.getPrepared("module", "Global vars"));
         }
@@ -31,7 +30,7 @@ module.exports = {
             files.forEach((v, i, n) => {
                 if(v.toLowerCase().indexOf(parameter) >= 0)
                 {
-                    rerequire('./modules/' + v);
+                    require('./../modules/rerequire.js')('./modules/' + v);
                     message.channel.send(language.ModuleReloaded.getPrepared("module", v));
                 }
             });

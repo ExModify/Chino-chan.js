@@ -1,9 +1,7 @@
-const rerequire = require('./modules/rerequire.js');
-
 const vars = require('./global/vars.js');
-const langHandler = rerequire('./modules/langHandler.js');
-const chalk = rerequire('chalk');
-const fs = rerequire('fs');
+const langHandler = require('./modules/langHandler.js');
+const chalk = require('chalk');
+const fs = require('fs');
 
 module.exports = {
     handle: (bot, message, uptime) => {
@@ -32,7 +30,7 @@ module.exports = {
 
         var Files = fs.readdirSync('./commands');
         Files.forEach((v, i, a) => {
-            var LoadedModule = rerequire(`./commands/${v}`);
+            var LoadedModule = require(`./commands/${v}`);
             if(LoadedModule.name.toLowerCase() === Command.toLowerCase())
                 JSModule = LoadedModule;
         });

@@ -1,4 +1,3 @@
-var rerequire = require('./../modules/rerequire.js');
 var vars = require('./../global/vars.js');
 var fs = require('fs');
 var langHandler = require("./../modules/langHandler.js");

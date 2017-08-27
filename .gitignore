@@ -1,2 +1,4 @@
-data/GuildSettings.json
-data/Settings.json
+data
+Images
+.vscode
+.gitignore

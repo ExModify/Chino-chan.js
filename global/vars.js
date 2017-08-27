@@ -21,11 +21,12 @@ var DefaultSettings = `{
     "osuIRCPath": "D:\\txt\\APIToken\\osu!IRC.txt",
     "WaifuCloudCredentials": "D:\\txt\\APIToken\\WaifuCloudCredentials.txt",
     "WaifuCloudServer": "ws://boltzmann.cf:4243",
+    "DefaultWaifuCloudPath": "D:\\waifucloud\\images\\",
     "WSServer": "ws://localhost:2465/"
 }`;
 
 var fs = require('fs');
-var rerequire = require('./../modules/rerequire.js');
+var ws = require('./../modules/webserver.js');
 var GuildSettings = [];
 
 var Settings = undefined;
@@ -44,61 +45,66 @@ LoadSettings();
 
 var Streams = new Map();
 
-
-var SFWFiles = [];
-var NSFWFiles = [];
-var NekoFiles = [];
-var ChinoFiles = [];
-var MomijiFiles = [];
-var HibikiFiles = [];
-
 function LoadImages(){
-    fs = rerequire('fs');
     if(fs.existsSync(Settings.SFWPath)){
-        SFWFiles = fs.readdirSync(Settings.SFWPath).filter((v, i, a) => {
+        var SFWFiles = fs.readdirSync(Settings.SFWPath).filter((v, i, a) => {
             if (fs.statSync(Settings.SFWPath + v).isDirectory())
                 return false;
             return true;
         });
+        module.exports.SFWFiles = SFWFiles;
+        module.exports.SFWCount = SFWFiles.length;
     }
     if(fs.existsSync(Settings.NSFWPath)){
-        NSFWFiles = fs.readdirSync(Settings.NSFWPath).filter((v, i, a) => {
+        var NSFWFiles = fs.readdirSync(Settings.NSFWPath).filter((v, i, a) => {
             if (fs.statSync(Settings.NSFWPath + v).isDirectory())
                 return false;
             return true;
         });
+        module.exports.NSFWFiles = NSFWFiles;
+        module.exports.NSFWCount = NSFWFiles.length;
     }
     if(fs.existsSync(Settings.NekoPath)){
-        NekoFiles = fs.readdirSync(Settings.NekoPath).filter((v, i, a) => {
+        var NekoFiles = fs.readdirSync(Settings.NekoPath).filter((v, i, a) => {
             if (fs.statSync(Settings.NekoPath + v).isDirectory())
                 return false;
             return true;
         });
+        module.exports.NekoFiles = NekoFiles;
+        module.exports.NekoCount = NekoFiles.length;
     }
     if(fs.existsSync(Settings.ChinoPath)){
-        ChinoFiles = fs.readdirSync(Settings.ChinoPath).filter((v, i, a) => {
+        var ChinoFiles = fs.readdirSync(Settings.ChinoPath).filter((v, i, a) => {
             if (fs.statSync(Settings.ChinoPath + v).isDirectory())
                 return false;
             return true;
         });
+        module.exports.ChinoFiles = ChinoFiles;
+        module.exports.ChinoCount = ChinoFiles.length;
     }
     if(fs.existsSync(Settings.MomijiPath)){
-        MomijiFiles = fs.readdirSync(Settings.MomijiPath).filter((v, i, a) => {
+        var MomijiFiles = fs.readdirSync(Settings.MomijiPath).filter((v, i, a) => {
             if (fs.statSync(Settings.MomijiPath + v).isDirectory())
                 return false;
             return true;
         });
+        module.exports.MomijiFiles = MomijiFiles;
+        module.exports.MomijiCount = MomijiFiles.length;
     }
     if(fs.existsSync(Settings.HibikiPath)){
-        HibikiFiles = fs.readdirSync(Settings.HibikiPath).filter((v, i, a) => {
+        var HibikiFiles = fs.readdirSync(Settings.HibikiPath).filter((v, i, a) => {
             if (fs.statSync(Settings.HibikiPath + v).isDirectory())
                 return false;
             return true;
         });
+        module.exports.MomijiFiles = MomijiFiles;
+        module.exports.HibikiCount = HibikiFiles.length;
     }
-}
 
-LoadImages();
+    module.exports.AllCount = SFWFiles.length + NSFWFiles.length + NekoFiles.length + ChinoFiles.length + MomijiFiles.length + HibikiFiles.length;
+
+    ws.LogDeveloper("Images", "All images have been loaded!");
+}
 
 var DiscordToken = fs.readFileSync(Settings.DiscordTokenPath).toString();
 var osuAPI = fs.readFileSync(Settings.osuAPIPath).toString();
@@ -230,6 +236,7 @@ module.exports = {
     Load: () => {
         LoadSettings();
         LoadGuildSettings();
+        LoadImages();        
     },
     ReloadImages: () => LoadImages(),
     DiscordToken: DiscordToken,
@@ -239,6 +246,7 @@ module.exports = {
     WaifuCloudServer: Settings.WaifuCloudServer,
     WaifuCloudPassword: WaifuCloudPassword,
     WaifuCloudUsername: WaifuCloudUsername,
+    WaifuCloudImagePath: Settings.DefaultWaifuCloudPath,
     Settings: (guildID) => Get(guildID),
     Streams: Streams,
     SetPrefix: (guildID, prefix) => AddOrSet(guildID, "Prefix", prefix),
@@ -381,19 +389,6 @@ module.exports = {
     ChinoPath: Settings.ChinoPath,
     MomijiPath: Settings.MomijiPath,
     HibikiPath: Settings.HibikiPath,
-    SFWFiles: SFWFiles,
-    NSFWFiles: NSFWFiles,
-    NekoFiles: NekoFiles,
-    ChinoFiles: ChinoFiles,
-    MomijiFiles: MomijiFiles,
-    HibikiFiles: HibikiFiles,
-    AllCount: SFWFiles.length + NSFWFiles.length + NekoFiles.length + ChinoFiles.length + MomijiFiles.length + HibikiFiles.length,
-    SFWCount: SFWFiles.length,
-    NSFWCount: NSFWFiles.length,
-    NekoCount: NekoFiles.length,
-    ChinoCount: ChinoFiles.length,
-    MomijiCount: MomijiFiles.length,
-    HibikiCount: HibikiFiles.length,
     NSFWExists: (file) => fs.existsSync(Settings.NSFWPath + file),
     NSFWDelete: (file) => fs.unlinkSync(Settings.NSFWPath + file),
     WSServer: Settings.WSServer,
