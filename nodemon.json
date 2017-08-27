@@ -1,0 +1,16 @@
+{
+    "verbose": false,
+    "ignore":[
+        "data/*",
+        ".vscode/*",
+        "Images/*",
+        "langs/*",
+        "webpage/*",
+        "Entrace.js",
+        "run.bat",
+        "run.sh",
+        "package-lock.json",
+        ".gitignore",
+        ".git"
+    ]
+}

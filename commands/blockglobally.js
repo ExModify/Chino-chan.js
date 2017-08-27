@@ -24,7 +24,7 @@ module.exports = {
                         DiscordUser = message.guild.members.find((v, k, a) => v.displayName == user || v.user.username == user);
 
                         if (DiscordUser){
-                            block(user, DiscordUser.displayName, message.guild.id, message.channel, language);
+                            block(DiscordUser.id, DiscordUser.displayName, message.guild.id, message.channel, language);
                         }
                         else{
                             message.channel.send(language.BlockUserNotFound.getPrepared('name', user));
@@ -40,7 +40,7 @@ module.exports = {
                         DiscordUser = message.guild.members.find((v, k, a) => v.displayName == user || v.user.username == user);
 
                         if (DiscordUser){
-                            removeBlock(user, DiscordUser.displayName, message.guild.id, message.channel, language);
+                            removeBlock(DiscordUser.id, DiscordUser.displayName, message.guild.id, message.channel, language);
                         }
                         else{
                             message.channel.send(language.BlockUserNotFound.getPrepared('name', user));

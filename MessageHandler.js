@@ -14,11 +14,6 @@ module.exports = {
         var Prefix = Settings["Prefix"];
         var Language = langHandler.getLanguage(Settings["Language"]);
 
-        if (vars.IsBlocked(message.author.id, guildID)){
-            message.channel.send(language.UserBlocked);
-            return;
-        }
-
         var SpaceIndex = message.content.indexOf(' ');
         var Command = GenerateCommand(message.content, Prefix);
         var Parameter = SpaceIndex > 0 ? message.content.substring(SpaceIndex + 1) : "";
@@ -48,6 +43,11 @@ module.exports = {
         }else{
             if(!HasPrefix(message.content, Prefix) && JSModule.requirePrefix)
                 return;
+
+            if (vars.IsBlocked(message.author.id, guildID)){
+                message.channel.send(Language.UserBlocked);
+                return;
+            }
 
             if(message.channel.type == "dm" && !JSModule.canPrivate)
             {
