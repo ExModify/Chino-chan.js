@@ -44,7 +44,12 @@ module.exports = {
             password: vars.WaifuCloudPassword
         }));
     },
-    connected: WSConnection,
+    connected: () => {
+        if (WSConnection)
+            if (WSConnection.connected)
+                return true;
+        return false;
+    },
     search: (tags) => {
         return new Promise((resolve, reject) => {
             if (!WSConnection)

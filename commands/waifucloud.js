@@ -13,7 +13,7 @@ module.exports = {
             sendWaifuCloudHelp(language, message, prefix);
         }
         else{
-            if (waifu.connected) {
+            if (waifu.connected()) {
                 waifu.search(parameters).then(response => {
                     if(!response.error){
                         message.channel.sendImageEmbed(response.file, "Waifu Cloud", message.channel);

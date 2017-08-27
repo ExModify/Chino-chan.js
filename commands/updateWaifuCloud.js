@@ -7,11 +7,16 @@ module.exports = {
     requirePrefix: true,
     minimumLevel: 3,
     type: "Fun - Images",
-    execute: (bot, message, prefix, command, parameter, language) => {
+    execute: (bot, message, prefix, command, parameter, language, uptime, waifucloud) => {
         if (!vars.IsOwner(message.author.id)){
             message.channel.send(language.ExecuteNoPermission);
             return;
         }
+        if (!waifucloud.connected()) {
+            message.channel.send(language.WaifuCloudNotConnected);
+            return;
+        }
+        
         var tags = [];
         var from = "";
         var toFolder = "";
@@ -50,6 +55,7 @@ module.exports = {
             wc.save().then(() => {
                 message.channel.send(language.WaifuCloudSaved);
             });
+            return;
         }
 
         message.channel.send(language.WaifuCloudUpdatePosts.getPrepared('type', parameter.toLowerCase())).then(msg => {
