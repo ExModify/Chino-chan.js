@@ -128,7 +128,7 @@ Client.on('message', message => {
     else if (message.channel.type == "text"){
         ws.LogDeveloper(message.guild.name, `${message.channel.name}#${name}: ${message.content}`);
     }
-    require('./MessageHandler.js').handle(Client, message, uptime);
+    require('./MessageHandler.js').handle(Client, message, uptime, waifucloud);
 });
 
 Client.login(vars.DiscordToken).then(token => {

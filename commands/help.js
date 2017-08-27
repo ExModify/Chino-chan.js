@@ -11,7 +11,7 @@ module.exports = {
         var CommandNames = [];
         var Commands = [];
         fs.readdirSync('./commands').forEach((v, i, a) => {
-            var Module = require('./commands/' + v);
+            var Module = require('./../commands/' + v);
             if (PreconditionMet(message, Module.minimumLevel)){
                 CommandNames.push(Module.name.toLowerCase());
                 Commands.push({

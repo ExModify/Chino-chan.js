@@ -140,18 +140,18 @@ function CreateEmbed(member, Message){
             let third = "";
     
             if (v.title && v.title.trim() != "")
-                first = "\nTitle: " + (attachURL == "" ? v.title : `[${v.title}](${attachURL})`);
+                first = `\n${language.HighlightTitle}: ` + (attachURL == "" ? v.title : `[${v.title}](${attachURL})`);
     
             if (v.description && v.description.trim() != "")
-                second = "\nDescription: " + v.description;
+                second = `\n${language.HighlightDescription}: ` + v.description;
 
             if (v.footer.text && v.footer.text.trim() != "")
-                third = "\nFooter: " + v.footer.text;
+                third = `\n${language.HighlightFooter}: ` + v.footer.text;
 
             if (Message.embeds.length == 1)
                 Embed.description += first + second + third;
             else
-                Embed.description += `#${i} embed:${first}${second}${third}`;
+                Embed.description += `#${i} ${language.HighlightEmbed}:${first}${second}${third}`;
         }
     });
     Message.attachments.forEach((v, i, a) => {

@@ -308,7 +308,7 @@ module.exports = {
     RemoveGloballyBlocked: (userID) => {
         var Index = Settings.GloballyBlocked.indexOf(userID);
         if(Index >= 0){
-            Settings.GloballyBlocked = Settings.GloballyBlocked.splice(Index);
+            Settings.GloballyBlocked.splice(Index);
             SaveSettings();
         }
     },
@@ -367,7 +367,7 @@ module.exports = {
     RemoveGlobalAdmin: (userID) => {
         var index = Settings["GlobalAdmins"].indexOf(userID);
         if(index >= 0)
-            Settings["GlobalAdmins"].splice(Index, 1);
+            Settings["GlobalAdmins"].splice(index, 1);
         SaveSettings();
     },
     HasAdmin: (guild, userID) => {
@@ -376,9 +376,8 @@ module.exports = {
         else if(guild == undefined)
             return false;
         else
-            return Get(guild.id)["Admins"].indexOf(userID) >= 0 
-                || Settings["Owner"] == userID 
-                || Settings["GlobalAdmins"].indexOf(userID) >= 0 
+            return Get(guild.id)["Admins"].indexOf(userID) >= 0
+                || Settings["GlobalAdmins"].indexOf(userID) >= 0
                 || guild.ownerID == userID;
     },
     IsOwner: (userID) => IsOwner(userID),

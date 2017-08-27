@@ -127,7 +127,7 @@ WSServer.on('request', (req) => {
                     if(channelIndex == -1)
                         return;
                     
-                    Guilds[guildIndex].channels = Guilds[guildIndex].channels.splice(channelIndex, 1);
+                    Guilds[guildIndex].channels.splice(channelIndex, 1);
                 }
 
                 else if (json.type == "NewGuildMember" || json.type == "GuildMemberUpdate") {
@@ -187,7 +187,7 @@ WSServer.on('request', (req) => {
                     if(userIndex == -1)
                         return;
 
-                    Guilds[guildIndex].users = Guilds[guildIndex].users.splice(userIndex, 1);
+                    Guilds[guildIndex].users.splice(userIndex, 1);
 
                     Users.delete(json.userID);
                 }
@@ -214,14 +214,14 @@ WSServer.on('request', (req) => {
                     if(banIndex == -1)
                         return;
                     
-                    Guilds[guildIndex].bans = Guilds[guildIndex].bans.splice(banIndex, 1);
+                    Guilds[guildIndex].bans.splice(banIndex, 1);
                 }
 
                 else if (json.type == "GuildRemove") {
                     if (GuildIDs.indexOf(json.id) > 0) {
                         var index = GuildIDs.indexOf(json.id);
-                        Guilds = Guilds.splice(index, 1);
-                        GuildIDs = GuildIDs.splice(index, 1);
+                        Guilds.splice(index, 1);
+                        GuildIDs.splice(index, 1);
                     }
                 }
 
@@ -282,7 +282,7 @@ WSServer.on('request', (req) => {
                     if(messageIndex == -1)
                         return;
 
-                    Guilds[guildIndex].channels[channelIndex].messages = Guilds[guildIndex].channels[channelIndex].messages.splice(messageIndex, 1);
+                    Guilds[guildIndex].channels[channelIndex].messages.splice(messageIndex, 1);
                 }
 
                 else if (json.type == "RoleCreate") {
@@ -331,7 +331,7 @@ WSServer.on('request', (req) => {
                     var roleIndex = Guilds[guildIndex].roles.findIndex((v, i, a) => v.id == json.id);
 
                     if (roleIndex > -1){
-                        Guilds[guildIndex].roles = Guilds[guildIndex].roles.splice(roleIndex, 1);
+                        Guilds[guildIndex].roles.splice(roleIndex, 1);
                     }
                 }
 
@@ -359,7 +359,7 @@ WSServer.on('request', (req) => {
                     if (channelIndex == -1)
                         return;
 
-                    Guilds[guildIndex].channels[channelIndex].typingUserIDs = Guild[guildIndex].channels[channelIndex].typingUserIDs.splice(json.userID, 1);
+                    Guild[guildIndex].channels[channelIndex].typingUserIDs.splice(json.userID, 1);
                 }
                 ClientConnections.forEach((connection, i, a) => {
                     if(connection.auth)

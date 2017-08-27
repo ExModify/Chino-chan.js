@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const fs = require('fs');
 
 module.exports = {
-    handle: (bot, message, uptime) => {
+    handle: (bot, message, uptime, waifucloud) => {
         if(message.author.id === bot.user.id)
             return;
 
@@ -54,7 +54,7 @@ module.exports = {
                 message.channel.send(Language.DMTriedExecute);
                 return;
             }
-            JSModule.execute(bot, message, Prefix, Command, Parameter, Language, uptime);
+            JSModule.execute(bot, message, Prefix, Command, Parameter, Language, uptime, waifucloud);
         }
     }
 }

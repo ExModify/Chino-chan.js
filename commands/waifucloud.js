@@ -1,5 +1,4 @@
 var vars = require('./../global/vars.js');
-var waifu = require('./../modules/waifuCloud.js');
 var ws = require('./../modules/webserver.js');
 
 module.exports = {
@@ -8,7 +7,7 @@ module.exports = {
     requirePrefix: true,
     minimumLevel: 0,
     type: "Fun - Image",
-    execute: (bot, message, prefix, command, parameter, language, uptime) => {
+    execute: (bot, message, prefix, command, parameter, language, uptime, waifu) => {
         var parameters = parameter.split(' ');
         if (parameters.length == 0){
             sendWaifuCloudHelp(language, message, prefix);
