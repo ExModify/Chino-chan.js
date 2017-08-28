@@ -61,7 +61,8 @@ module.exports = {
                                 Text += `\n--${language.GraphicInfos}--\n`;
                                 Text += `- ${language.VRAMs}\n`;
                                 VRAMS.forEach((v, i, a) => {
-                                    Text += `- #${i}: ${v[0]} - ${parseInt(v[1]) / 1024 / 1024}MB\n`;
+                                    if (v)
+                                        Text += `- #${i}: ${v[0]} - ${parseInt(v[1]) / 1024 / 1024}MB\n`;
                                 });
 
                                 Text += `\n--${language.OS}--\n`;

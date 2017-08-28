@@ -5,7 +5,7 @@ var langHandler = rerequire('./../modules/langHandler.js');
 
 module.exports = {
     name: 'language',
-    canPrivate: true,
+    canPrivate: false,
     requirePrefix: true,
     minimumLevel: 1,
     type: "Customization",

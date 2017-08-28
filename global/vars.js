@@ -132,6 +132,24 @@ function SaveSettings(){
     fs.writeFileSync('./data/Settings.json', JSON.stringify(Settings));
 }
 function Get(guildID){
+    var baseConfig = {
+        "GuildID": guildID,
+        "Prefix": "$",
+        "Language": "en",
+        "Admins": [],
+        "Volume": 50,
+        "Query":[],
+        "Blocked": [],
+        "MusicCurrent": "",
+        "MusicIsPlaying": false,
+        "MusicStopped": false,
+        "QueryPlaying": false,
+        "QueryIndex": 0,
+        "MusicPosition": 0
+    };
+    if (guildID == undefined){
+        return JSON.parse(baseConfig);
+    }
     var Base = undefined;
     
     var index = GuildSettings.findIndex((e, i, a) => {
@@ -142,21 +160,7 @@ function Get(guildID){
         Base = GuildSettings[index];
     
     if(Base == undefined){
-        Base = JSON.parse(`{
-            "GuildID": "${guildID}",
-            "Prefix": "$",
-            "Language": "en",
-            "Admins": [],
-            "Volume": 50,
-            "Query":[],
-            "Blocked": [],
-            "MusicCurrent": "",
-            "MusicIsPlaying": false,
-            "MusicStopped": false,
-            "QueryPlaying": false,
-            "QueryIndex": 0,
-            "MusicPosition": 0
-        }`);
+        Base = JSON.parse(baseConfig);
         GuildSettings.push(Base);
         SaveGuildSettings();
     }

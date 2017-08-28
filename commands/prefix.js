@@ -2,7 +2,7 @@ var vars = require('./../global/vars.js');
 
 module.exports = {
     name: 'prefix',
-    canPrivate: true,
+    canPrivate: false,
     requirePrefix: false,
     minimumLevel: 1,
     type: "Customization",
