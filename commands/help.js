@@ -1,5 +1,6 @@
 const fs = require('fs');
 var vars = require('./../global/vars.js');
+var rerequire = require('./../modules/rerequire.js');
 
 module.exports = {
     name: 'help',
@@ -11,8 +12,8 @@ module.exports = {
         var CommandNames = [];
         var Commands = [];
         fs.readdirSync('./commands').forEach((v, i, a) => {
-            var Module = require('./../commands/' + v);
-            if (PreconditionMet(message, Module.minimumLevel)){
+            var Module = rerequire('./../commands/' + v);
+            if (PreconditionMet(Module.minimumLevel, message.author.id, message.guild)){
                 CommandNames.push(Module.name.toLowerCase());
                 Commands.push({
                     name: Prefix(Module.minimumLevel) + Module.name,
@@ -71,36 +72,20 @@ module.exports = {
     }
 };
 
-function PreconditionMet(message, level){
-    if(level == 0){
-        return true;
-    }
-    else if (vars.IsOwner(message.author.id)){
-        return true;
-    }
-    else{
-        if(level == 1){
-            return vars.HasAdmin(message.guild == undefined ? message.channel.id : message.guild.id, message.author.id);
-        }
-        else if (level == 2){
-            return vars.IsGlobalAdmin(message.author.id);
-        }
-        else if (level == 3){
-            return vars.IsOwner(message.author.id);
-        }
-        else{
-            return true;
-        }
-    }
+function PreconditionMet(level, userID, guild){
+    return vars.GetLevel(userID, guild) >= level;
 }
 function Prefix(level){
     if (level == 1){
         return "[Admin] ";
     }
     else if (level == 2){
-        return "[Global Admin] ";
+        return "[Server Owner] ";
     }
     else if (level == 3){
+        return "[Global Admin] ";
+    }
+    else if (level == 4){
         return "[Owner] ";
     }
     else{

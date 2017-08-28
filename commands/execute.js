@@ -1,18 +1,15 @@
 var vars = require('./../global/vars.js');
 var fs = require('fs');
+var rerequire = require('./../modules/rerequire.js');
 var langHandler = require("./../modules/langHandler.js");
 
 module.exports = {
     name: 'execute',
     canPrivate: true,
     requirePrefix: true,
-    minimumLevel: 3,
+    minimumLevel: 4,
     type: "Developer",
     execute: (bot, message, prefix, command, parameter, language) => {
-        if(!vars.IsOwner(message.author.id)){
-            message.channel.sendMessage(`\`\`\`${language.ExecuteNoPermission}\`\`\``);
-            return;
-        }
         if(parameter.toLowerCase().indexOf('discordtoken') >= 0 
         || parameter.toLowerCase().indexOf('osu!api') >= 0 
         || parameter.toLowerCase().indexOf('osuapi') >= 0 

@@ -7,7 +7,7 @@ module.exports = {
     minimumLevel: 1,
     type: "Customization",
     execute: (bot, message, prefix, command, parameter, language) => {
-        if(parameter === "")
+        if(parameter == "")
             message.channel.send(language.CurrentPrefix.getPrepared('prefix', prefix));
         else{
             if(vars.HasAdmin(message.guild, message.author.id)){

@@ -25,6 +25,7 @@ String.prototype.getPrepared = function (from, to) {
     return Prepared;
 };
 
+const rerequire = require("./modules/rerequire.js");
 const Discord = require('discord.js');
 var BaseClient = require('websocket').client;
 var crypto = require('crypto');
@@ -62,7 +63,7 @@ Discord.DMChannel.prototype.sendImageEmbedOnline = (url, type, channel, file) =>
 };
 
 
-const musicModule = require('./modules/musicModule.js');
+var musicModule = require('./modules/musicModule.js');
 var waifucloud = require('./modules/waifuCloud.js');
 
 var vars = require('./global/vars.js');
@@ -128,7 +129,7 @@ Client.on('message', message => {
     else if (message.channel.type == "text"){
         ws.LogDeveloper(message.guild.name, `${message.channel.name}#${name}: ${message.content}`);
     }
-    require('./MessageHandler.js').handle(Client, message, uptime, waifucloud);
+    rerequire('./MessageHandler.js').handle(Client, message, uptime, waifucloud);
 });
 
 Client.login(vars.DiscordToken).then(token => {

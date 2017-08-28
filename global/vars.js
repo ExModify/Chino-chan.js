@@ -168,7 +168,7 @@ function AddOrSet(guildID, property, value, value2){
     if(property == "Query" || property == "Blocked"){
         Base[property].push(value);
     }
-    else if (property == "Admins" ){
+    else if (property == "Admins"){
         Base[property].push({id:value, password:value2});
     }
     else{
@@ -230,6 +230,18 @@ function RemoveAll(guildID, property){
 }
 function IsOwner(UserID){
     return Settings.Owner.id == UserID;
+}
+function IsGlobalAdmin(userID){
+    var index = Settings.GlobalAdmins.findIndex((v, i, a) => v.id == userID);
+    return index >= 0;
+}
+function IsGuildAdmin(guildID, userID){
+    var Settings = Get(guildID);
+    if (Settings.Admins.length >= 0){
+        var index = Settings.Admins.findIndex((v, i, a) => v.id == userID);
+        return index >= 0;
+    }
+    return false;
 }
 
 module.exports = {
@@ -326,21 +338,24 @@ module.exports = {
     HasAnyAdmin: (userID) => {
         if(IsOwner(userID))
             return true;
-        if(Settings.GlobalAdmins.map((v, i, a) => v.id).index(userID) >= 0)
+
+        if(IsGlobalAdmin(userID))
             return true;
-        else if (GuildSettings.map((v, i, a) => v.Admins.map((va, ind, ar) => va.id).indexOf(userID >= 0)).indexOf(true) >= 0)
-            return true;
-        else
-            return false;
+
+        var isAdmin = false;
+        GuildSettings.forEach((v, i, a) => {
+            if (IsGuildAdmin(v.guildID, userID)) {
+                isAdmin = true;
+                return;
+            }
+        });
+        return isAdmin;
     },
     GetLoginCredentials: (userID) => {
         if(IsOwner(userID)){
-            return {
-                id: Settings.Owner.id,
-                password: Settings.Owner.password
-            }
+            return Settings.Owner;
         }
-        if (Settings.GlobalAdmins.index(userID) >= 0)
+        if (IsGlobalAdmin(userID))
             return Settings.GlobalAdmins[Settings.GlobalAdmins.index(userID)];
         else if (GuildSettings.map((v, i, a) => v.Admins.map((va, ind, ar) => va.id).indexOf(userID) >= 0).indexOf(true) >= 0){
             for(var Setting in GuildSettings){
@@ -376,8 +391,8 @@ module.exports = {
         else if(guild == undefined)
             return false;
         else
-            return Get(guild.id)["Admins"].indexOf(userID) >= 0
-                || Settings["GlobalAdmins"].indexOf(userID) >= 0
+            return IsGuildAdmin(guild.id, userID)
+                || IsGlobalAdmin(userID)
                 || guild.ownerID == userID;
     },
     IsOwner: (userID) => IsOwner(userID),
@@ -393,5 +408,23 @@ module.exports = {
     WSServer: Settings.WSServer,
     Characters: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
      'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-    Numbers: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    Numbers: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+    GetLevel: (userID, guild) => {
+        if (IsOwner(userID))
+            return 4;
+        if (IsGlobalAdmin(userID))
+            return 3;
+
+        var guildID;
+        if (guild){
+            if (guild.owner.id == userID)
+                return 2;
+            guildID = guild.id;
+        }
+        
+        if (guildID)
+            if (IsGuildAdmin(guildID, userID))
+                return 1;
+        return 0;
+    }
 }

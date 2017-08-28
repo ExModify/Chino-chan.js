@@ -1,26 +1,21 @@
 var fs = require('fs');
 var vars = require('./../global/vars.js');
+var rerequire = require('./../modules/rerequire.js');
 
 module.exports = {
     name: 'rmodule',
     canPrivate: true,
     requirePrefix: true,
-    minimumLevel: 3,
+    minimumLevel: 4,
     type: "Developer",
     execute: (bot, message, prefix, command, parameter, language) => {
-        if(!vars.IsOwner(message.author.id))
-        {
-            message.channel.send(language.NoPermission);
-            return;
-        }
-
         if(message.deletable)
             message.delete;
 
         var paramTrimmed = parameter.trim();
 
         if(paramTrimmed == "vars"){
-            vars = require('./../modules/rerequire.js')('./../global/vars.js');
+            vars = rerequire('./../global/vars.js');
             vars.Load();
             message.channel.send(language.ModuleReloaded.getPrepared("module", "Global vars"));
         }
@@ -30,7 +25,7 @@ module.exports = {
             files.forEach((v, i, n) => {
                 if(v.toLowerCase().indexOf(parameter) >= 0)
                 {
-                    require('./../modules/rerequire.js')('./modules/' + v);
+                    rerequire('./modules/' + v);
                     message.channel.send(language.ModuleReloaded.getPrepared("module", v));
                 }
             });

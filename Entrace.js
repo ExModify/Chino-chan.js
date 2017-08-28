@@ -22,7 +22,7 @@ function RunBot(){
     if(Process !== undefined) {
         Process.kill();
     }
-    Process = exec('nodemon --config nodemon.json Chino-chan.js --color');
+    Process = exec('node Chino-chan.js --color');
     Process.stdout.on('data', chunk => {
         var data = chunk.toString();
         var message = data.substring(0, data.length - 1);

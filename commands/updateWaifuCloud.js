@@ -5,13 +5,9 @@ module.exports = {
     name: 'updatewaifucloud',
     canPrivate: true,
     requirePrefix: true,
-    minimumLevel: 3,
+    minimumLevel: 4,
     type: "Fun - Images",
     execute: (bot, message, prefix, command, parameter, language, uptime, waifucloud) => {
-        if (!vars.IsOwner(message.author.id)){
-            message.channel.send(language.ExecuteNoPermission);
-            return;
-        }
         if (!waifucloud.connected()) {
             message.channel.send(language.WaifuCloudNotConnected);
             return;

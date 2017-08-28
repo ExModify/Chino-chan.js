@@ -4,6 +4,7 @@
 
     "Connected": "I'm not connected :c",
     "NoPermission": "Sorry, but you can't use this command :c",
+    "NoPermissionOwner": "You're not ExMo, you can't do this :<",
 
     "BlockHelp": {
         "Top": "```css",
@@ -42,7 +43,7 @@
     "NotEveryoneCanUse": "Because not everyone can use this command, I send it to you in direct message~",
 
     "Updating": "Searching for updates~",
-    "Updated": "Updated to **%VERSION%**~ Restarting..",
+    "Updated": "Updated~ Restarting..",
     "NoUpdate": "I didn't find any updates~",
 
     "AvatarHelp": {
@@ -210,7 +211,7 @@
     "AdminBadArguments": "Please don't make me crash :C Type `%P%admin` for the help message for my admins~",
     "AdminNotAllowed": "I only listen to global admins, the server owner or ExMo about this command, hmpf",
     "AdminOnlyOwner": "Are you ExMo? Because only he can manage Global Admins, I won't listen to you, hmpf",
-    "AdminIdentify": "Please give the person's id~",
+    "AdminIdentify": "Please give the person's id or username~",
     "AdminInvalidID": "Sorry, I couldn't find these ids: [%IDS%]!",
     "AdminAlreadyAdded": "They're already one of my admins~: [%NAMES%]!",
     "AdminSelfRemove": "Don't you want to be one of my admins? You make me sad :c Well, if that's, then ask an admin, because I won't allow to remove yourself.",

@@ -4,7 +4,7 @@ module.exports = {
     name: 'game',
     canPrivate: true,
     requirePrefix: true,
-    minimumLevel: 3,
+    minimumLevel: 4,
     type: "Developer",
     execute: (bot, message, prefix, command, parameter, language) => {
         if(vars.IsOwner(message.author.id)){

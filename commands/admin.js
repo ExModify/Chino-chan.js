@@ -44,6 +44,9 @@ module.exports = {
 
                         Ids.forEach((id, index, array) => {
                             var user = bot.users.get(id);
+                            if (!user){
+                                user = bot.users.find((v, i, a) => v.username == id);
+                            }
 
                             if(vars.HasAdmin(message.guild, id)){
                                 alreadyIn.push(user.username);
@@ -54,15 +57,15 @@ module.exports = {
                             else{
                                 validNames.push(user.username);
                                 var pw = "";
-                                if(vars.HasAnyAdmin(id)){
-                                    pw = vars.GetLoginCredentials(id).password;
+                                if(vars.HasAnyAdmin(user.id)){
+                                    pw = vars.GetLoginCredentials(user.id).password;
                                 }
                                 else{
                                     pw = generatePassword();
                                 }
-                                vars.AddAdmin(message.guild.id, id, pw);
+                                vars.AddAdmin(message.guild.id, user.id, pw);
                                 user.createDM().then(channel => {
-                                    channel.send(language.AdminCredentials.getPrepared(['username', 'password'], [id, pw]));
+                                    channel.send(language.AdminCredentials.getPrepared(['username', 'password'], [user.id, pw]));
                                 });
                             }
                         });
@@ -95,24 +98,30 @@ module.exports = {
                         var TriedToRemoveSelf = false;
 
                         Ids.forEach((id, index, array) => {
-                            if(vars.HasAdmin(message.guild, id))
+                            var userid = id;
+                            var user = bot.users.find((v, i, a) => v.username == id);
+                            if (user){
+                                if (!bot.users.get(id))
+                                    userid = user.id;
+                            }
+                            if(vars.HasAdmin(message.guild, userid))
                             {
-                                if(message.author.id == id){
+                                if(message.author.id == userid){
                                     TriedToRemoveSelf = true;
                                 }
-                                else if(vars.IsOwner(id)){
+                                else if(vars.IsOwner(userid)){
                                     TriedToRemoveExModify = true;
                                 }
-                                else if (vars.IsGlobalAdmin(id) && !vars.IsOwner(message.author.id)){
+                                else if (vars.IsGlobalAdmin(userid) && !vars.IsOwner(message.author.id)){
                                     TriedToRemoveGlobalAdmin = true;
                                 }
                                 else{
-                                    vars.RemoveAdmin(message.guild.id, id);
-                                    validNames.push(bot.users.get(id).username);
+                                    vars.RemoveAdmin(message.guild.id, userid);
+                                    validNames.push(bot.users.get(userid).username);
                                 }
                             }
                             else{
-                                invalidIDs.push(id);
+                                invalidIDs.push(userid);
                             }
                         });
                         var Message = "```css\n";
@@ -152,6 +161,10 @@ module.exports = {
     
                             Ids.forEach((id, index, array) => {
                                 var user = bot.users.get(id);
+
+                                if (!user){
+                                    user = bot.users.find((v, i, a) => v.username == id);
+                                }
     
                                 if(vars.IsGlobalAdmin(id)){
                                     alreadyIn.push(user.username);

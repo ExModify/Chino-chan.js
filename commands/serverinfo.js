@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
-const si = require('systeminformation');
+var rerequire = require('./../modules/rerequire.js');
+const si = rerequire('systeminformation');
 
 module.exports = {
     name: 'serverinfo',
@@ -12,7 +13,7 @@ module.exports = {
 
         Embed.setColor(255 << 16 | 050 << 8 | 230);
 
-        Embed.setTitle(`**${language.Information}**`);
+        Embed.setTitle(`**${language.ServerInformation}**`);
 
         si.cpu(CPUData => {
             si.mem(memData => {
@@ -32,8 +33,9 @@ module.exports = {
 
                                 var MemoryModules = memLayoutData.map((v, i, a) => [parseInt(v.size) / 1024 / 1024, v.type, v.formFactor, v.clockSpeed]);
                                 var VRAMS = GraphData["controllers"].map((v, i, a) => {
-                                    if (!isNaN(parseInt(v.vram))) 
-                                        return [v.model, v.vram];
+                                    if (v.vram)
+                                        if (!isNaN(parseInt(v.vram))) 
+                                            return [v.model, v.vram];
                                 });
 
                                 var platform = osInfoData.platform;

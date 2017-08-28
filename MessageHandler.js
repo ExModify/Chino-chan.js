@@ -1,4 +1,5 @@
 const vars = require('./global/vars.js');
+var rerequire = require('./modules/rerequire.js');
 const langHandler = require('./modules/langHandler.js');
 const chalk = require('chalk');
 const fs = require('fs');
@@ -7,6 +8,7 @@ module.exports = {
     handle: (bot, message, uptime, waifucloud) => {
         if(message.author.id === bot.user.id)
             return;
+        
 
         var guildID = message.guild == undefined ? message.channel.id : message.guild.id;
 
@@ -25,7 +27,7 @@ module.exports = {
 
         var Files = fs.readdirSync('./commands');
         Files.forEach((v, i, a) => {
-            var LoadedModule = require(`./commands/${v}`);
+            var LoadedModule = rerequire(`./commands/${v}`);
             if(LoadedModule.name.toLowerCase() === Command.toLowerCase())
                 JSModule = LoadedModule;
         });
@@ -44,21 +46,36 @@ module.exports = {
             if(!HasPrefix(message.content, Prefix) && JSModule.requirePrefix)
                 return;
 
-            if (vars.IsBlocked(message.author.id, guildID)){
+            let guildID = undefined;
+            if (message.guild)
+                guildID = message.guild.id;
+
+            if (vars.IsBlocked(message.author.id, guildID)) {
                 message.channel.send(Language.UserBlocked);
                 return;
             }
 
-            if(message.channel.type == "dm" && !JSModule.canPrivate)
-            {
+            if(message.channel.type == "dm" && !JSModule.canPrivate) {
                 message.channel.send(Language.DMTriedExecute);
                 return;
             }
+                
+            if (!PreconditionMet(JSModule.minimumLevel, message.author.id, message.guild)){
+                if (JSModule.minimumLevel == 3)
+                    message.channel.send(Language.NoPermissionOwner);
+                else
+                    message.channel.send(Language.NoPermission);
+
+                return;
+            }
+            
             JSModule.execute(bot, message, Prefix, Command, Parameter, Language, uptime, waifucloud);
         }
     }
 }
-
+function PreconditionMet(level, userID, guild){
+    return vars.GetLevel(userID, guild) >= level;
+}
 function HasPrefix(message, prefix){
     return message.startsWith(prefix);
 }

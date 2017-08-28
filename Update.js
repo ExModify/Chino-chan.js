@@ -1,15 +1,16 @@
 const execSync = require('child_process').execSync;
 const chalk = require('chalk');
+const ws = require("./modules/webserver.js");
 
 module.exports = {
     update: () => {
-        console.log('Git: Searching for updates...');
+        ws.LogDeveloper("Git", "Searching for updates..");
         var output = execSync('git pull origin master').toString();
         if(output.toLowerCase().startsWith('already up-to-date')){
-            console.log('Git: No update found!');
+            ws.LogDeveloper("Git", "Updated already");
             return false;
         }else{
-            console.log('Git: Bot is updated!');
+            ws.LogDeveloper("Git", "Updated!");
             return true;
         }
 

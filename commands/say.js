@@ -9,13 +9,8 @@ module.exports = {
     execute: (bot, message, prefix, command, parameter, language) => {
         if(message.channel.type != "dm")
         {
-            if(message.channel.permissionsFor(bot.user).hasPermission("MANAGE_MESSAGES"))
+            if(message.deletable)
                 message.delete();
-        }
-        if(!vars.HasAdmin(message.guild, message.author.id)){
-            message.author.createDM().then(channel => {
-                channel.send(language.NoPermission);
-            });
         }
 
         if(parameter == "")

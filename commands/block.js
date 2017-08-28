@@ -7,53 +7,48 @@ module.exports = {
     minimumLevel: 1,
     type: "Management",
     execute: (bot, message, prefix, command, parameter, language, uptime) => {
-        if (vars.HasAdmin(message.guild, message.author.id)){
-            var parameters = parameter.split(' ');
-            if(parameters.length != 2){
+        var parameters = parameter.split(' ');
+        if(parameters.length != 2){
+            sendBlockHelp(message.channel, language, prefix);
+        }
+        else {
+            var user = parameters[1];
+            
+            if (parameters[0] == "add"){
+                var DiscordUser = message.guild.members.get(user);
+                if (DiscordUser) {
+                    block(user, DiscordUser.displayName, message.guild.id, message.channel, language);
+                }
+                else {
+                    DiscordUser = message.guild.members.find((v, k, a) => v.displayName == user || v.user.username == user);
+
+                    if (DiscordUser){
+                        block(DiscordUser.id, DiscordUser.displayName, message.guild.id, message.channel, language);
+                    }
+                    else{
+                        message.channel.send(language.BlockUserNotFound.getPrepared('name', user));
+                    }
+                }
+            }
+            else if (parameters[0] == "remove"){
+                var DiscordUser = message.guild.members.get(user);
+                if (DiscordUser) {
+                    removeBlock(user, DiscordUser.displayName, message.guild.id, message.channel, language);
+                }
+                else {
+                    DiscordUser = message.guild.members.find((v, k, a) => v.displayName == user || v.user.username == user);
+
+                    if (DiscordUser){
+                        removeBlock(DiscordUser.id, DiscordUser.displayName, message.guild.id, message.channel, language);
+                    }
+                    else{
+                        message.channel.send(language.BlockUserNotFound.getPrepared('name', user));
+                    }
+                }
+            }
+            else{
                 sendBlockHelp(message.channel, language, prefix);
             }
-            else {
-                var user = parameters[1];
-                
-                if (parameters[0] == "add"){
-                    var DiscordUser = message.guild.members.get(user);
-                    if (DiscordUser) {
-                        block(user, DiscordUser.displayName, message.guild.id, message.channel, language);
-                    }
-                    else {
-                        DiscordUser = message.guild.members.find((v, k, a) => v.displayName == user || v.user.username == user);
-
-                        if (DiscordUser){
-                            block(DiscordUser.id, DiscordUser.displayName, message.guild.id, message.channel, language);
-                        }
-                        else{
-                            message.channel.send(language.BlockUserNotFound.getPrepared('name', user));
-                        }
-                    }
-                }
-                else if (parameters[0] == "remove"){
-                    var DiscordUser = message.guild.members.get(user);
-                    if (DiscordUser) {
-                        removeBlock(user, DiscordUser.displayName, message.guild.id, message.channel, language);
-                    }
-                    else {
-                        DiscordUser = message.guild.members.find((v, k, a) => v.displayName == user || v.user.username == user);
-
-                        if (DiscordUser){
-                            removeBlock(DiscordUser.id, DiscordUser.displayName, message.guild.id, message.channel, language);
-                        }
-                        else{
-                            message.channel.send(language.BlockUserNotFound.getPrepared('name', user));
-                        }
-                    }
-                }
-                else{
-                    sendBlockHelp(message.channel, language, prefix);
-                }
-            }
-        }
-        else{
-            message.channel.send(language.NoPermission);
         }
     }
 };

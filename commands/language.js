@@ -1,6 +1,7 @@
 var vars = require('./../global/vars.js');
 var fs = require('fs');
-var langHandler = require('./../modules/langHandler.js');
+var rerequire = require('./../modules/rerequire.js');
+var langHandler = rerequire('./../modules/langHandler.js');
 
 module.exports = {
     name: 'language',
@@ -9,7 +10,7 @@ module.exports = {
     minimumLevel: 1,
     type: "Customization",
     execute: (bot, message, prefix, command, parameter, language) => {
-        if(parameter === ""){
+        if(parameter == ""){
             var langs = '';
             langHandler.languages.forEach((v, i, a) => {
                 var lang = JSON.parse(fs.readFileSync('./langs/' + v, 'utf8').toString());
