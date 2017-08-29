@@ -10,7 +10,7 @@ module.exports = {
             return;
         
 
-        var guildID = message.guild == undefined ? message.channel.id : message.guild.id;
+        var guildID = message.guild ? message.guild.id : undefined;
 
         var Settings = vars.Settings(guildID);
         var Prefix = Settings["Prefix"];

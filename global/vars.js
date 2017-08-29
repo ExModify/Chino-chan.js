@@ -133,22 +133,22 @@ function SaveSettings(){
 }
 function Get(guildID){
     var baseConfig = {
-        "GuildID": guildID,
-        "Prefix": "$",
-        "Language": "en",
-        "Admins": [],
-        "Volume": 50,
-        "Query":[],
-        "Blocked": [],
-        "MusicCurrent": "",
-        "MusicIsPlaying": false,
-        "MusicStopped": false,
-        "QueryPlaying": false,
-        "QueryIndex": 0,
-        "MusicPosition": 0
+        GuildID: guildID,
+        Prefix: $,
+        Language: en,
+        Admins: [],
+        Volume: 50,
+        Query:[],
+        Blocked: [],
+        MusicCurrent: "",
+        MusicIsPlaying: false,
+        MusicStopped: false,
+        QueryPlaying: false,
+        QueryIndex: 0,
+        MusicPosition: 0
     };
     if (guildID == undefined){
-        return JSON.parse(baseConfig);
+        return baseConfig;
     }
     var Base = undefined;
     
@@ -160,7 +160,7 @@ function Get(guildID){
         Base = GuildSettings[index];
     
     if(Base == undefined){
-        Base = JSON.parse(baseConfig);
+        Base = baseConfig;
         GuildSettings.push(Base);
         SaveGuildSettings();
     }
