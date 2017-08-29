@@ -134,11 +134,11 @@ function SaveSettings(){
 function Get(guildID){
     var baseConfig = {
         GuildID: guildID,
-        Prefix: $,
-        Language: en,
+        Prefix: '$',
+        Language: 'en',
         Admins: [],
         Volume: 50,
-        Query:[],
+        Query: [],
         Blocked: [],
         MusicCurrent: "",
         MusicIsPlaying: false,
