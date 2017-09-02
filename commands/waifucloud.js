@@ -16,7 +16,7 @@ module.exports = {
             if (waifu.connected()) {
                 waifu.search(parameters).then(response => {
                     if(!response.error){
-                        message.channel.sendImageEmbed(response.file, "Waifu Cloud", message.channel);
+                        message.channel.sendImageEmbedOnline(response.url, "Waifu Cliud", message.channel);
                     }
                     else{
                         message.channel.send(language.WaifuCloudNoMatches.getPrepared("tags", parameter));

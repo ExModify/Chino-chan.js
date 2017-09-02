@@ -2,6 +2,7 @@ var ws = require('./webserver.js');
 var fs = require('fs');
 var client = require('websocket').client;
 var event = require('events').EventEmitter;
+var ws = require('./../modules/webserver.js');
 
 var WSClient = new client();
 var WSConnection;
@@ -28,15 +29,24 @@ module.exports = {
                         response = JSON.parse(data.utf8Data);
                     }
                     catch(excpt){
-                        console.log("Error: Wrong JSON got from WaifuCloud!\n" + data.utf8Data);
+                        console.log(JSON.stringify({
+                            type: "Error",
+                            message: "Got wrong JSON from WaifuCloud: " + data.utf8Data
+                        }));
                     }
                     ResponseEvent.emit(response.job_id, response);
                 }
             });
-            ws.LogDeveloper("WaifuCloud", "Connected to Waifu Cloud server successfully!");
+            console.log(JSON.stringify({
+                type: "WaifuCloud",
+                message: "Connected to WaifuCloud successfully!"
+            }));
         });
         WSClient.on("connectFailed", (error) => {
-            ws.LogDeveloper("WaifuCloud", "Connection Failed!\n" + error.stack);
+            console.log(JSON.stringify({
+                type: "WaifuCloud",
+                message: "Connection Failed!\n" + error.stack
+            }));
         });
 
         WSClient.connect(vars.WaifuCloudServer, "echo-protocol", JSON.stringify({
@@ -75,7 +85,10 @@ module.exports = {
     fill: (folder, tags, toFolder) => {
         return new Promise((resolve, reject) => {
             if(!WSConnection) {
-                ws.LogDeveloper("Error", "Not connected to Waifu Cloud");
+                console.log(JSON.stringify({
+                    type: "Error",
+                    message: "Not connected to WaifuCloud!"
+                }));
                 return;
             }
     
@@ -102,7 +115,10 @@ module.exports = {
             if (pushedFiles.length == 0)
                 resolve(0);
     
-            ws.LogDeveloper("WaifuCloud", `Adding ${pushedFiles.length} images..`);
+            console.log(JSON.stringify({
+                type: "WaifuCloud",
+                message: `Adding ${pushedFiles.length} images..`
+            }));
             ProcessPosts(pushedFiles).then(() => {
                 WSConnection.sendUTF(JSON.stringify({
                     name: "save",

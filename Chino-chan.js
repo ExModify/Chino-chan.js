@@ -1,3 +1,21 @@
+var fs = require('fs');
+if (fs.existsSync('lock')){
+    var pid = fs.readFileSync('lock');
+    try{
+        if (process.kill(parseInt(pid), 0)) {
+            process.exit(10);
+        }
+    }
+    catch (excpt){
+        if (excpt.code == "EPERM") {
+            process.exit(10);
+        }
+    }
+}
+if (fs.existsSync('lock'))
+    fs.unlinkSync('lock');
+fs.writeFileSync('lock', process.pid);
+
 process.on('uncaughtException', err => {
     console.log('Error: ' + err.stack);
     process.exit(2);
@@ -95,7 +113,10 @@ Client.on('ready', () => {
                     obj = JSON.parse(message.utf8Data);
                 }
                 catch(exception){
-                    console.log("Error: Got wrong JSON: " + message.utf8Data);
+                    console.log(JSON.stringify({
+                        type: "Error",
+                        message: "Got wrong JSON: " + message.utf8Data
+                    }));
                 }
                 if(obj.type == "sendMessage"){
                     var User = Client.users.get(obj.id);
@@ -122,18 +143,14 @@ Client.on('message', message => {
         message.delete();
         message.channel.send(`\`${(message.member.nickname ? message.member.nickname : message.author.username)}\` ¯\\\_(ツ)_/¯`);
     }
-    var name = message.member ? message.member.displayName : message.author.username;
-    if (message.channel.type == "dm"){
-        ws.LogDeveloper(name, message.content);
-    }
-    else if (message.channel.type == "text"){
-        ws.LogDeveloper(message.guild.name, `${message.channel.name}#${name}: ${message.content}`);
-    }
     rerequire('./MessageHandler.js').handle(Client, message, uptime, waifucloud);
 });
 
 Client.login(vars.DiscordToken).then(token => {
-    ws.LogDeveloper("Bot", "Chino-chan logged in!");
+    console.log(JSON.stringify({
+        type: "Bot",
+        message: "Chino-chan logged in!"
+    }));
 });
 
 // WS Information sending

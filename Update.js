@@ -4,13 +4,22 @@ const ws = require("./modules/webserver.js");
 
 module.exports = {
     update: () => {
-        ws.LogDeveloper("Git", "Searching for updates..");
+        console.log(JSON.stringify({
+            type: "Git",
+            message: "Searching for updates.."
+        }));
         var output = execSync('git pull origin master').toString();
         if(output.toLowerCase().startsWith('already up-to-date')){
-            ws.LogDeveloper("Git", "Updated already");
+            console.log(JSON.stringify({
+                type: "Git",
+                message: "Already up-to-date!"
+            }));
             return false;
         }else{
-            ws.LogDeveloper("Git", "Updated!");
+            console.log(JSON.stringify({
+                type: "Git",
+                message: "Updated!"
+            }));
             return true;
         }
 

@@ -103,7 +103,10 @@ function LoadImages(){
 
     module.exports.AllCount = SFWFiles.length + NSFWFiles.length + NekoFiles.length + ChinoFiles.length + MomijiFiles.length + HibikiFiles.length;
 
-    ws.LogDeveloper("Images", "All images have been loaded!");
+    console.log(JSON.stringify({
+        type: "Images",
+        message: "All images have been loaded!"
+    }));
 }
 
 var DiscordToken = fs.readFileSync(Settings.DiscordTokenPath).toString();

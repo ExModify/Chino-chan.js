@@ -61,7 +61,7 @@ module.exports = {
             }
                 
             if (!PreconditionMet(JSModule.minimumLevel, message.author.id, message.guild)){
-                if (JSModule.minimumLevel == 3)
+                if (JSModule.minimumLevel == 4)
                     message.channel.send(Language.NoPermissionOwner);
                 else
                     message.channel.send(Language.NoPermission);
@@ -70,6 +70,20 @@ module.exports = {
             }
             
             JSModule.execute(bot, message, Prefix, Command, Parameter, Language, uptime, waifucloud);
+            var name = message.member ? message.member.displayName : message.author.username;
+            
+            if (message.channel.type == "dm"){
+                console.log(JSON.stringify({
+                    type: name,
+                    message: message.content
+                }));
+            }
+            else if (message.channel.type == "text"){
+                console.log(JSON.stringify({
+                    type: message.guild.name,
+                    message: `${message.channel.name}#${name}: ${message.content}`
+                }));
+            }
         }
     }
 }
