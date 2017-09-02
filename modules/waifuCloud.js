@@ -67,7 +67,7 @@ module.exports = {
             ResponseEvent.once(id, response => {
                 resolve({
                     error: response.error,
-                    url: response.response.url,
+                    url: response.response.fileurl,
                     file: response.response.filepath
                 });
             });
