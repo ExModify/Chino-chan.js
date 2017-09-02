@@ -26,7 +26,6 @@ var DefaultSettings = `{
 }`;
 
 var fs = require('fs');
-var ws = require('./../modules/webserver.js');
 var GuildSettings = [];
 
 var Settings = undefined;

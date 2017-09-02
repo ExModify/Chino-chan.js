@@ -1,6 +1,5 @@
 const execSync = require('child_process').execSync;
 const chalk = require('chalk');
-const ws = require("./modules/webserver.js");
 
 module.exports = {
     update: () => {

@@ -86,8 +86,6 @@ var waifucloud = require('./modules/waifuCloud.js');
 
 var vars = require('./global/vars.js');
 
-var ws = require('./modules/webserver.js');
-
 var WSConnection;
 var WSClient = new BaseClient();
 

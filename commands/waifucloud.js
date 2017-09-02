@@ -1,5 +1,4 @@
 var vars = require('./../global/vars.js');
-var ws = require('./../modules/webserver.js');
 
 module.exports = {
     name: 'waifucloud',

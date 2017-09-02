@@ -1,8 +1,6 @@
-var ws = require('./webserver.js');
 var fs = require('fs');
 var client = require('websocket').client;
 var event = require('events').EventEmitter;
-var ws = require('./../modules/webserver.js');
 
 var WSClient = new client();
 var WSConnection;
