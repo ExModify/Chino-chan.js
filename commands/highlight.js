@@ -22,7 +22,7 @@ module.exports = {
                 message.channel.send(language.HighlightUnknownUser.getPrepared("name", parameter));
             }
             else{
-                LastHightlight(User, message.channel).then(Embed => {
+                LastHightlight(User, message.channel, language).then(Embed => {
                     if(Embed == undefined){
                         message.channel.send(language.HighlightNoMessage.getPrepared("name", User.displayName))
                     }
@@ -35,7 +35,7 @@ module.exports = {
         }
         else if (parameter != ""){
             message.channel.fetchMessage(parameter).then(fetchedMessage => {
-                var embed = CreateEmbed(fetchedMessage.member, fetchedMessage);
+                var embed = CreateEmbed(fetchedMessage.member, fetchedMessage, language);
                 message.channel.send({embed:embed});
             }).catch((reject) => {
                 message.channel.send(language.HighlightUnknownMessageID.getPrepared("id", parameter));
@@ -74,12 +74,12 @@ function SplitAtLast(text, character){
     Base.push(text.substring(LastIndex));
     return Base;
 }
-function LastHightlight(member, channel){
+function LastHightlight(member, channel, language){
     return new Promise((resolve, reject) => {
-        MessageRec(member, channel, 50, channel.lastMessageID, resolve);
+        MessageRec(member, channel, 50, channel.lastMessageID, resolve, language);
     });
 }
-function MessageRec(member, channel, count, lastID, resolve){
+function MessageRec(member, channel, count, lastID, resolve, language){
     channel.fetchMessages({limit: count, before: lastID}).then(MessageCollection => {
         var Message = MessageCollection.find((v, k, n) => {
             return v.author.id == member.id;
@@ -89,15 +89,15 @@ function MessageRec(member, channel, count, lastID, resolve){
                 resolve(undefined);
             }
             else{
-                MessageRec(member, channel, count, MessageCollection.array()[MessageCollection.size - 1].id, resolve);
+                MessageRec(member, channel, count, MessageCollection.array()[MessageCollection.size - 1].id, resolve, language);
             }
         }
         else{
-            resolve(CreateEmbed(member, Message));
+            resolve(CreateEmbed(member, Message, language));
         }
     });
 }
-function CreateEmbed(member, Message){
+function CreateEmbed(member, Message, language){
     var Embed = new Discord.RichEmbed();
     Embed.setAuthor(member.displayName, Message.author.avatarURL);
     Embed.setColor(member.highestRole.color);
