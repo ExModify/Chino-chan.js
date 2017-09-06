@@ -6,7 +6,7 @@ module.exports = {
     requirePrefix: true,
     minimumLevel: 3,
     type: "Management",
-    execute: (bot, message, prefix, command, parameter, language, uptime) => {
+    execute: (bot, message, prefix, command, parameter, language) => {
         var parameters = parameter.split(' ');
         if(parameters.length != 2){
             sendBlockHelp(message.channel, language, prefix);

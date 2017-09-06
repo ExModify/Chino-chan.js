@@ -7,7 +7,7 @@ module.exports = {
     requirePrefix: true,
     minimumLevel: 4,
     type: "Fun - Images",
-    execute: (bot, message, prefix, command, parameter, language, uptime, waifucloud) => {
+    execute: (bot, message, prefix, command, parameter, language, waifucloud) => {
         if (!waifucloud.connected()) {
             message.channel.send(language.WaifuCloudNotConnected);
             return;

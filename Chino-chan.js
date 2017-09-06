@@ -43,7 +43,6 @@ String.prototype.getPrepared = function (from, to) {
     return Prepared;
 };
 
-const rerequire = require("./modules/rerequire.js");
 const Discord = require('discord.js');
 var BaseClient = require('websocket').client;
 var crypto = require('crypto');
@@ -86,16 +85,12 @@ var waifucloud = require('./modules/waifuCloud.js');
 
 var vars = require('./global/vars.js');
 
+var msgHandler = require('./MessageHandler.js');
+
 var WSConnection;
 var WSClient = new BaseClient();
 
 var Client = new Discord.Client();
-
-var uptime = 0;
-
-setInterval(() => {
-    uptime++;
-}, 1000);
 
 Client.on('ready', () => {
     Client.user.setStatus("online");
@@ -141,7 +136,7 @@ Client.on('message', message => {
         message.delete();
         message.channel.send(`\`${(message.member.nickname ? message.member.nickname : message.author.username)}\` ¯\\\_(ツ)_/¯`);
     }
-    rerequire('./MessageHandler.js').handle(Client, message, uptime, waifucloud);
+    msgHandler.handle(Client, message, waifucloud);
 });
 
 Client.login(vars.DiscordToken).then(token => {

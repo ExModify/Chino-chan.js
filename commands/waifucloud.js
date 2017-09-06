@@ -6,7 +6,7 @@ module.exports = {
     requirePrefix: true,
     minimumLevel: 0,
     type: "Fun - Image",
-    execute: (bot, message, prefix, command, parameter, language, uptime, waifu) => {
+    execute: (bot, message, prefix, command, parameter, language, waifu) => {
         var parameters = parameter.split(' ');
         if (parameters.length == 0){
             sendWaifuCloudHelp(language, message, prefix);

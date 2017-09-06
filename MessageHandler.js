@@ -1,11 +1,10 @@
 const vars = require('./global/vars.js');
-var rerequire = require('./modules/rerequire.js');
 const langHandler = require('./modules/langHandler.js');
 const chalk = require('chalk');
 const fs = require('fs');
 
 module.exports = {
-    handle: (bot, message, uptime, waifucloud) => {
+    handle: (bot, message, waifucloud) => {
         if(message.author.id === bot.user.id)
             return;
         
@@ -27,7 +26,7 @@ module.exports = {
 
         var Files = fs.readdirSync('./commands');
         Files.forEach((v, i, a) => {
-            var LoadedModule = rerequire(`./commands/${v}`);
+            var LoadedModule = require(`./commands/${v}`);
             if(LoadedModule.name.toLowerCase() === Command.toLowerCase())
                 JSModule = LoadedModule;
         });
@@ -69,7 +68,7 @@ module.exports = {
                 return;
             }
             
-            JSModule.execute(bot, message, Prefix, Command, Parameter, Language, uptime, waifucloud);
+            JSModule.execute(bot, message, Prefix, Command, Parameter, Language, waifucloud);
             var name = message.member ? message.member.displayName : message.author.username;
             
             if (message.channel.type == "dm"){

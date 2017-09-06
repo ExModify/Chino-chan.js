@@ -1,7 +1,6 @@
 var vars = require('./../global/vars.js');
 var fs = require('fs');
-var rerequire = require('./../modules/rerequire.js');
-var langHandler = rerequire('./../modules/langHandler.js');
+var langHandler = require('./../modules/langHandler.js');
 
 module.exports = {
     name: 'language',

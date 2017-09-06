@@ -12,7 +12,7 @@ module.exports = {
     requirePrefix: true,
     minimumLevel: 0,
     type: "Fun",
-    execute: (bot, message, prefix, command, parameter, language, uptime) => {
+    execute: (bot, message, prefix, command, parameter, language) => {
         parameter = parameter.trim();
         if(parameter != "" && isNaN(parseInt(parameter))){
             var User = message.guild.members.find((v, i, a) => {

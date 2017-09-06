@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
-var rerequire = require('./../modules/rerequire.js');
-const si = rerequire('systeminformation');
+const si = require('systeminformation');
 
 module.exports = {
     name: 'serverinfo',
@@ -8,7 +7,7 @@ module.exports = {
     requirePrefix: true,
     minimumLevel: 0,
     type: "Information",
-    execute: (bot, message, prefix, command, parameter, language, uptime) => {
+    execute: (bot, message, prefix, command, parameter, language) => {
         var Embed = new Discord.RichEmbed();
 
         Embed.setColor(255 << 16 | 050 << 8 | 230);

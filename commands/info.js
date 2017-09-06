@@ -7,7 +7,8 @@ module.exports = {
     requirePrefix: true,
     minimumLevel: 0,
     type: "Information",
-    execute: (bot, message, prefix, command, parameter, language, uptime) => {
+    execute: (bot, message, prefix, command, parameter, language) => {
+        var uptime = Math.floor(process.uptime());
         var hours = Math.trunc(uptime / 3600);
         var mins = Math.trunc(uptime / 60) - hours * 60;
         var secs = uptime - (mins * 60) - (hours * 3600);
