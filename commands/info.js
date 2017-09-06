@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const os = require('os');
+var vars = require('./../global/vars.js');
 
 module.exports = {
     name: 'info',
@@ -9,7 +10,9 @@ module.exports = {
     type: "Information",
     execute: (bot, message, prefix, command, parameter, language) => {
         var uptime = Math.floor(process.uptime());
-        var hours = Math.trunc(uptime / 3600);
+
+        var days = Math.trunc(uptime / 3600 / 24);
+        var hours = Math.trunc(uptime / 3600) - days * 24;
         var mins = Math.trunc(uptime / 60) - hours * 60;
         var secs = uptime - (mins * 60) - (hours * 3600);
 
@@ -18,20 +21,20 @@ module.exports = {
 
         Embed.setColor(255 << 16 | 050 << 8 | 230);
 
-        Embed.setTitle(`**${language.Information}**`);
+        Embed.setDescription(`**${language.Information}**`);
+        Embed.setAuthor(bot.user.username, bot.user.avatarURL);
 
-        var Description = `---**${language.Uptime}**--\n`;
-        Description += `-${language.Time}: ${hours} ${language.Hours}, ${mins} ${language.Minutes}, ${secs} ${language.Seconds}`;
-        Description += "\n\n";
-
-        Description += `---**${language.JoinedServers}**---\n`;
-        Description += `${JoinedServers}`;
-        Description += "\n\n";
-
-        Description += `---**${language.MemoryUsage}**---\n`;
-        Description += `-${(process.memoryUsage().heapUsed / 1048576).toFixed(2)}MB\n`;
+        Embed.addField(language.MemoryUsage, `${(process.memoryUsage().heapUsed / 1048576).toFixed(2)}MB\n`, true);
         
-        Embed.setDescription(Description);
+        Embed.addField(language.Library, "discord.js", true);
+        var Owner = bot.users.get(vars.OwnerID);
+        Embed.addField(language.Creator, Owner.username + "#" + Owner.discriminator, true);
+
+        Embed.addField(language.Users, bot.users.size, true);
+
+        Embed.addField(language.Uptime, `${days} ${language.Days} ${hours} ${language.Hours}, ${mins} ${language.Minutes}, ${secs} ${language.Seconds}`, false);
+        
+        Embed.addField(language.JoinedServers, JoinedServers, false);
 
         message.channel.send({embed:Embed});
     }

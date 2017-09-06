@@ -402,6 +402,7 @@ module.exports = {
                 || guild.ownerID == userID;
     },
     IsOwner: (userID) => IsOwner(userID),
+    OwnerID: Settings.Owner.id,
     IsGlobalAdmin: (userID) => Settings.GlobalAdmins.indexOf(userID) >= 0,
     SFWPath: Settings.SFWPath,
     NSFWPath: Settings.NSFWPath,
