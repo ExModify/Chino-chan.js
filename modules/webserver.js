@@ -15,8 +15,7 @@ var ClientConnections = [];
 var guildReadyCount = -1;
 var ready = false;
 
-var Guilds = [];
-var GuildIDs = [];
+var Guilds = new Map();
 var Users = new Map();
 
 var Logs = [];
@@ -31,12 +30,12 @@ var HTTPServer = http.createServer((req, resp) => { // Will have a webpage
     return;
 
     fs.readFile('webpage' + reqFor, (err, data) => {
-        if(err){
-            resp.writeHead(404, {'Content-Type': 'text/html'});
+        if (err) {
+            resp.writeHead(404, { 'Content-Type': 'text/html' });
             resp.write("Not found");
         }
-        else{
-            resp.writeHead(200, {'Content-Type': 'text/html'}); 
+        else {
+            resp.writeHead(200, { 'Content-Type': 'text/html' });
             resp.write(data.toString());
         }
         resp.end();
@@ -49,22 +48,23 @@ var WSServer = new BaseServer({
 });
 
 WSServer.on('request', (req) => {
-    if(IsChinoOrigin(req.origin)){
+    if (IsChinoOrigin(req.origin)) {
         Chino_chan = req.accept("echo-protocol", req.origin);
         Chino_chan.on("message", (data) => {
-            if(data.type == "utf8"){
+            var Ids = new Array(Guilds.keys());
+            if (data.type == "utf8") {
                 var json = JSON.parse(data.utf8Data);
-                if (json.type == "GuildCount"){
+                if (json.type == "GuildCount") {
                     guildReadyCount = json.count;
-                    if (Guilds.length == guildReadyCount)
+                    if (Guilds.size == guildReadyCount)
                         ready = true;
                 }
-                else if (json.type == "GuildAvailable" || json.type == "NewGuild"){
-                    if (GuildIDs.indexOf(json.guildID) < 0) {
-                        GuildIDs.push(json.guildID);
-                        Guilds.push({
+                else if (json.type == "GuildAvailable" || json.type == "NewGuild") {
+                    if (Ids.indexOf(json.guildID) < 0) {
+                        Guilds.set(json.guildID, {
                             users: json.users,
-                            channels: json.channels,
+                            textChannels: json.textChannels,
+                            voiceChannels: json.voiceChannels,
                             roles: json.roles,
                             bans: json.bans,
                             name: json.name,
@@ -73,67 +73,92 @@ WSServer.on('request', (req) => {
                             ownerID: json.ownerID,
                             region: json.region
                         });
-                        json.users.forEach((v, i, a) => {
-                            Users.set(v.userID, v.user);
-                        });
-                        if (Guilds.length == guildReadyCount)
+                        if (Guilds.size == guildReadyCount)
                             ready = true;
                     }
                 }
-
-                else if (json.type == "NewTextChannel" || json.type == "NewVoiceChannel"){
-                    var index = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    if(index == -1)
+                else if (json.type == "ClientUsers"){
+                    json.users.forEach((v, i, a) => {
+                        Users.set(v.userID, v);
+                    });
+                }
+                else if (json.type == "NewTextChannel") {
+                    if (!Guilds[json.guildID])
                         return;
 
                     var channel = {
                         name: json.name,
-                        id: json.id
+                        id: json.id,
+                        topic: json.topic,
+                        type: "text",
+                        messages: json.messages,
+                        typingUserIDs: json.typingUserIDs,
+                        permissionOverwrites: json.permissionOverwrites
                     };
-                    if(json.type == "NewTextChannel"){
-                        channel.topic = json.topic;
-                        channel.type = "text";
-                    }
-                    else{
-                        channel.type = "voice";
-                    }
-                    Guilds[index].channels.push(channel);
+                    Guilds[json.guildID].textChannels.push(channel);
                 }
-                else if (json.type == "TextChannelUpdate" || json.type == "VoiceChannelUpdate") {
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-
-                    if(guildIndex == -1)
+                else if (json.type == "NewVoiceChannel"){
+                    if (!Guilds[json.guildID])
                         return;
 
-                    var channelIndex = Guilds[guildIndex].channels.findIndex((v, i, a) => v.id == json.id);
-                    
-                    if(channelIndex == -1)
-                        return;
-
-                    Guilds[guildIndex].channels[channelIndex].name = json.name;
-
-                    if(json.type == "TextChannelUpdate"){
-                        Guilds[guildIndex].channels[channelIndex].topic = json.topic;
-                    }
+                    var channel = {
+                        name: json.name,
+                        id: json.id,
+                        type: "voice",
+                        permissionOverwrites: json.permissionOverwrites
+                    };
+                    Guilds[json.guildID].voiceChannels.push(channel);
                 }
-                else if (json.type == "ChannelDeleted"){
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                else if (json.type == "TextChannelUpdate") {
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
                         return;
 
-                    var channelIndex = Guilds[guildIndex].channels.findIndex((v, i, a) => v.id == json.id);
-                    
-                    if(channelIndex == -1)
+                    var channelIndex = guild.textChannels.findIndex((v, i, a) => v.id == json.id);
+
+                    if (channelIndex == -1)
                         return;
+
+                    Guilds[json.guildID].textChannels[channelIndex].name = json.name;
+                    Guilds[json.guildID].textChannels[channelIndex].topic = json.topic;
+                    Guilds[json.guildID].textChannels[channelIndex].permissionOverwrites = json.permissionOverwrites;
+                }
+                else if (json.type == "VoiceChannelUpdate"){
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
+                        return;
+
+                    var channelIndex = guild.voiceChannels.findIndex((v, i, a) => v.id == json.id);
+
+                    if (channelIndex == -1)
+                        return;
+
+                    Guilds[json.guildID].voiceChannels[channelIndex].name = json.name;
+                    Guilds[json.guildID].voiceChannels[channelIndex].permissionOverwrites = json.permissionOverwrites;
+                }
+                else if (json.type == "ChannelDeleted") {
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
+                        return;
+
+                    var channelIndex = guild.textChannels.findIndex((v, i, a) => v.id == json.id);
+
+                    if (channelIndex < 0){
+                        channelIndex = guild.voiceChannels.findIndex((v, i, a) => v.id == json.id);
+                        
+                        if (channelIndex < 0){
+                            return;
+                        }
+                    }
                     
-                    Guilds[guildIndex].channels.splice(channelIndex, 1);
+                    Guilds[json.guildID].channels.splice(channelIndex, 1);
                 }
 
                 else if (json.type == "NewGuildMember" || json.type == "GuildMemberUpdate") {
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                    if (!Guilds[json.guildID])
                         return;
 
                     var user = {
@@ -145,98 +170,91 @@ WSServer.on('request', (req) => {
                         roleIDs: json.roleIDs
                     };
 
-                    Users.set(user.userID, user);
+                    if (!Users.has(json.userID))
+                        Users.set(json.userID, user);
 
-                    if(json.type == "NewGuildMember"){
-                        Guilds[guildIndex].users.push(user);
+                    if (json.type == "NewGuildMember") {
+                        Guilds[json.guildID].users.push(user);
                     }
-                    else{
-                        var userIndex = Guilds[guildIndex].users.findIndex((v, i, a) => v.userID = json.userID);
+                    else {
+                        var userIndex = Guilds[json.guildID].users.findIndex((v, i, a) => v.userID = json.userID);
 
-                        if(userIndex == -1)
+                        if (userIndex == -1)
                             return;
 
-                        Guilds[guildIndex].users[userID] = user;
+                        Guilds[json.guildID].users[userID] = user;
                     }
-                    
+
                 }
-                else if (json.type == "GuildMemberPresenceUpdate"){
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                else if (json.type == "GuildMemberPresenceUpdate") {
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
                         return;
 
-                    var userIndex = Guilds[guildIndex].users.findIndex((v, i, a) => v.userID = json.userID);
+                    var userIndex = guild.users.findIndex((v, i, a) => v.userID = json.userID);
 
-                    if(userIndex == -1)
+                    if (userIndex == -1)
                         return;
 
-                    Guilds[guildIndex].users[userIndex].status = json.status;
-                    Guilds[guildIndex].users[userIndex].game = json.game;
-                    
-                    Users.set(json.userID, Guilds[guildIndex].users[userIndex]);
+                    Guilds[json.guildID].users[userIndex].status = json.status;
+                    Guilds[json.guildID].users[userIndex].game = json.game;
                 }
-                else if (json.type == "GuildMemberLeft"){
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                else if (json.type == "GuildMemberLeft") {
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
                         return;
 
-                    var userIndex = Guilds[guildIndex].users.findIndex((v, i, a) => v.userID = json.userID);
+                    var userIndex = guild.users.findIndex((v, i, a) => v.userID = json.userID);
 
-                    if(userIndex == -1)
+                    if (userIndex == -1)
                         return;
 
-                    Guilds[guildIndex].users.splice(userIndex, 1);
-
-                    Users.delete(json.userID);
+                    Guilds[json.guildID].users.splice(userIndex, 1);
                 }
 
-                else if (json.type == "NewBan"){
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                else if (json.type == "NewBan") {
+                    if (!Guilds[json.guildID])
                         return;
-                    
-                    Guilds[guildIndex].bans.push({
+
+                    Guilds[json.guildID].bans.push({
                         id: json.userID,
                         username: json.username
                     });
                 }
-                else if (json.type == "RemoveBan"){
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                else if (json.type == "RemoveBan") {
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
                         return;
 
-                    var banIndex = Guilds[guildIndex].bans.findIndex((v, i, a) => v.id = json.userID);
+                    var banIndex = guild.bans.findIndex((v, i, a) => v.id = json.userID);
 
-                    if(banIndex == -1)
+                    if (banIndex == -1)
                         return;
-                    
-                    Guilds[guildIndex].bans.splice(banIndex, 1);
+
+                    Guilds[json.guildID].bans.splice(banIndex, 1);
                 }
 
                 else if (json.type == "GuildRemove") {
-                    if (GuildIDs.indexOf(json.id) > 0) {
-                        var index = GuildIDs.indexOf(json.id);
-                        Guilds.splice(index, 1);
-                        GuildIDs.splice(index, 1);
+                    if (Ids.indexOf(json.id) > 0) {
+                        Guilds.delete(json.id);
                     }
                 }
 
                 else if (json.type == "NewMessage") {
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
                         return;
 
-                    var channelIndex = Guilds[guildIndex].channels.findIndex((v, i, a) => v.id = json.channelID);
+                    var channelIndex = guild.channels.findIndex((v, i, a) => v.id = json.channelID);
 
-                    if(channelIndex == -1)
+                    if (channelIndex == -1)
                         return;
 
-                    Guilds[guildIndex].channels[channelIndex].messages.push({
+                    Guilds[json.guildID].channels[channelIndex].messages.push({
                         id: json.id,
                         userID: json.userID,
                         content: json.content,
@@ -245,53 +263,53 @@ WSServer.on('request', (req) => {
                         time: new Date(json.time)
                     });
                 }
-                else if (json.type == "MessageUpdated"){
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                else if (json.type == "MessageUpdated") {
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
                         return;
 
-                    var channelIndex = Guilds[guildIndex].channels.findIndex((v, i, a) => v.id = json.channelID);
+                    var channelIndex = guild.channels.findIndex((v, i, a) => v.id = json.channelID);
 
-                    if(channelIndex == -1)
+                    if (channelIndex == -1)
                         return;
 
-                    var messageIndex = Guilds[guildIndex].channels[channelIndex].messages.findIndex((v, i, a) => v.id == json.id);
+                    var messageIndex = guild.channels[channelIndex].messages.findIndex((v, i, a) => v.id == json.id);
 
-                    if(messageIndex == -1)
+                    if (messageIndex == -1)
                         return;
 
-                    Guilds[guildIndex].channels[channelIndex].messages[messageIndex].content = json.content;
-                    Guilds[guildIndex].channels[channelIndex].messages[messageIndex].attachments = json.attachments;
-                    Guilds[guildIndex].channels[channelIndex].messages[messageIndex].embeds = json.embeds;
-                    Guilds[guildIndex].channels[channelIndex].messages[messageIndex].editedTime = new Date(json.editedTime)
+                    Guilds[json.guildID].channels[channelIndex].messages[messageIndex].content = json.content;
+                    Guilds[json.guildID].channels[channelIndex].messages[messageIndex].attachments = json.attachments;
+                    Guilds[json.guildID].channels[channelIndex].messages[messageIndex].embeds = json.embeds;
+                    Guilds[json.guildID].channels[channelIndex].messages[messageIndex].editedTime = new Date(json.editedTime)
                 }
                 else if (json.type == "MessageDelete") {
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
                         return;
 
-                    var channelIndex = Guilds[guildIndex].channels.findIndex((v, i, a) => v.id = json.channelID);
+                    var channelIndex = guild.channels.findIndex((v, i, a) => v.id = json.channelID);
 
-                    if(channelIndex == -1)
+                    if (channelIndex == -1)
                         return;
 
-                    var messageIndex = Guilds[guildIndex].channels[channelIndex].messages.findIndex((v, i, a) => v.id == json.id);
+                    var messageIndex = guild.channels[channelIndex].messages.findIndex((v, i, a) => v.id == json.id);
 
-                    if(messageIndex == -1)
+                    if (messageIndex == -1)
                         return;
 
-                    Guilds[guildIndex].channels[channelIndex].messages.splice(messageIndex, 1);
+                    Guilds[json.guildID].channels[channelIndex].messages.splice(messageIndex, 1);
                 }
 
                 else if (json.type == "RoleCreate") {
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
                         return;
 
-                    Guilds[guildIndex].roles.push({
+                    Guilds[json.guildID].roles.push({
                         name: json.name,
                         id: json.id,
                         mentionable: json.mentionable,
@@ -300,13 +318,13 @@ WSServer.on('request', (req) => {
                     });
                 }
                 else if (json.type == "RoleUpdate") {
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
                         return;
 
-                    var roleIndex = Guilds[guildIndex].roles.findIndex((v, i, a) => v.id == json.id);
-                    
+                    var roleIndex = guild.roles.findIndex((v, i, a) => v.id == json.id);
+
                     var role = {
                         name: json.name,
                         id: json.id,
@@ -315,55 +333,59 @@ WSServer.on('request', (req) => {
                         color: json.color
                     };
 
-                    if(roleIndex == -1){
-                        Guilds[guildIndex].roles.push(role);
+                    if (roleIndex == -1) {
+                        Guilds[json.guildID].roles.push(role);
                     }
-                    else{
-                        Guilds[guildIndex].roles[roleIndex] = role;
-                    }
-                }
-                else if (json.type == "RoleDeleted"){
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
-                        return;
-
-                    var roleIndex = Guilds[guildIndex].roles.findIndex((v, i, a) => v.id == json.id);
-
-                    if (roleIndex > -1){
-                        Guilds[guildIndex].roles.splice(roleIndex, 1);
+                    else {
+                        Guilds[json.guildID].roles[roleIndex] = role;
                     }
                 }
+                else if (json.type == "RoleDeleted") {
+                    var guild = Guilds[json.guildID];
 
-                else if (json.type == "TypingStarted"){
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                    if (!guild)
                         return;
 
-                    var channelIndex = Guilds[guildIndex].channels.findIndex((v, i, a) => v.id == json.channelID);
+                    var roleIndex = guild.roles.findIndex((v, i, a) => v.id == json.id);
+
+                    if (roleIndex > -1) {
+                        Guilds[json.guildID].roles.splice(roleIndex, 1);
+                    }
+                }
+
+                else if (json.type == "TypingStarted") {
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
+                        return;
+
+                    var channelIndex = guild.channels.findIndex((v, i, a) => v.id == json.channelID);
 
                     if (channelIndex == -1)
                         return;
 
-                    Guilds[guildIndex].channels[channelIndex].typingUserIDs.push(json.userID);
+                    Guilds[json.guildID].channels[channelIndex].typingUserIDs.push(json.userID);
                 }
-                else if (json.type == "TypingStarted"){
-                    var guildIndex = Guilds.findIndex((v, i, a) => v.guildID == json.guildID);
-                    
-                    if(guildIndex == -1)
+                else if (json.type == "TypingStopped") {
+                    var guild = Guilds[json.guildID];
+
+                    if (!guild)
                         return;
 
-                    var channelIndex = Guilds[guildIndex].channels.findIndex((v, i, a) => v.id == json.channelID);
+                    var channelIndex = Guilds[json.guildID].channels.findIndex((v, i, a) => v.id == json.channelID);
 
                     if (channelIndex == -1)
                         return;
 
-                    Guild[guildIndex].channels[channelIndex].typingUserIDs.splice(json.userID, 1);
+                    Guilds[json.guildID].channels[channelIndex].typingUserIDs.splice(json.userID, 1);
                 }
                 ClientConnections.forEach((connection, i, a) => {
-                    if(connection.auth)
-                        connection.client.sendUTF(data.utf8Data);
+                    if (connection.auth){
+                        connection.client.sendUTF(JSON.stringify({
+                            type: json.type,
+                            data: data.utf8Data
+                        }));
+                    }
                 });
             }
         });
@@ -379,90 +401,171 @@ WSServer.on('request', (req) => {
         arrayIndex: ClientConnections.length - 1
     };
     Connection.client.on('message', (data) => {
-        if(data.type == "utf8"){
+        if (data.type == "utf8") {
             var msg;
-            try{
+            try {
                 msg = JSON.parse(data.utf8Data);
             }
-            catch(exception){
-                Connection.client.sendUTF(JSON.stringify({ type: "Error", data: "Wrong_Message_Provided" }));
+            catch (exception) {
+                Connection.client.sendUTF(JSON.stringify({
+                    type: "Error",
+                    data: JSON.stringify({
+                        message: "Wrong_Message_Provided",
+                        error: exception.stack
+                    })
+                }));
                 return;
             }
-            if(msg.type == "credentials"){
+            if (msg.type == "Credentials") {
                 var creds;
-                try{
+                try {
                     creds = JSON.parse(msg.data);
                 }
-                catch(excpt){
-                    Connection.client.sendUTF(JSON.stringify({ type: "Error", data: "Wrong_Message_Provided" }));
+                catch (excpt) {
+                    Connection.client.sendUTF(JSON.stringify({
+                        type: "Credentials",
+                        data: JSON.stringify({
+                            message: "Wrong_Message_Provided",
+                            error: excpt.stack
+                        })
+                    }));
                     return;
                 }
                 var userID = creds.userID;
                 var passwordHash = creds.password;
-                if(userID == undefined || passwordHash == undefined){
-                    Connection.client.sendUTF(JSON.stringify({ type: "Error", data: "Wrong_Message_Provided" }));
+                if (userID == undefined || passwordHash == undefined) {
+                    Connection.client.sendUTF(JSON.stringify({
+                        type: "Credentials",
+                        data: JSON.stringify({
+                            message: "Wrong_Message_Provided",
+                            error: "Missing UserID or Password Hash!"
+                        })
+                    }));
                     return;
                 }
-                else{
-                    if(vars.HasAnyAdmin(userID)){
-                        if(passwordHash.trim() == ""){
-                            Connection.client.sendUTF(JSON.stringify({ type: "Credentials", data: "Wrong_Message_Provided_Missing_Password" }));
+                else {
+                    if (vars.HasAnyAdmin(userID)) {
+                        if (passwordHash.trim() == "") {
+                            Connection.client.sendUTF(JSON.stringify({
+                                type: "Credentials",
+                                data: JSON.stringify({
+                                    message: "Wrong_Message_Provided",
+                                    error: "Missing UserID or Password Hash!"
+                                })
+                            }));
                         }
-                        else{
+                        else {
                             var Credentials = vars.GetLoginCredentials(userID);
-                            if(crypto.createHash('md5').update(Credentials.password).digest("hex") == passwordHash){
-                                Connection.client.sendUTF(JSON.stringify({ type: "Credentials", data: "Validate_Server_Connection_Request_Credentials_JSON_Accepted" }));
-                                Connection.auth = true;
+                            if (crypto.createHash('md5').update(Credentials.password).digest("hex") == passwordHash) {
+                                Connection.client.sendUTF(JSON.stringify({
+                                    type: "Credentials",
+                                    data: JSON.stringify({
+                                        message: "Auth_Accepted"
+                                    })
+                                }));
 
-                                if(vars.IsOwner(userID)){
+                                Connection.auth = true;
+                                Connection.name = Users.get(userID).username;
+
+                                if (vars.IsOwner(userID)) {
                                     Connection.level = 3;
-                                    SendSpecified(Connection, "WS", "Welcome here~");
+                                    SendSpecified(Connection, "Message", "Welcome here~");
                                     Logs.forEach((v, i, a) => {
-                                        Connection.client.sendUTF(JSON.stringify({ type: "log", data: v }));
+                                        Connection.client.sendUTF(JSON.stringify({
+                                            type: "Log",
+                                            data: JSON.stringify({
+                                                message: v
+                                            })
+                                        }));
                                     });
                                 }
-                                else if (vars.IsGlobalAdmin(userID)){
+                                else if (vars.IsGlobalAdmin(userID)) {
                                     Connection.level = 2;
                                 }
-                                else{
+                                else {
                                     Connection.adminAt = vars.GetAdminIDs(userID);
                                     Connection.level = 1;
                                 }
 
-                                Connection.name = Users.get(userID).username;
-
                                 sendDiscordMessage(userID, "Logged into Chino-chan webserver with IP: " + Connection.client.remoteAddress);
                             }
-                            else{
-                                Connection.client.sendUTF("Validate_Server_Connection_Request_Credentials_JSON_Declined");
+                            else {
+                                Connection.client.sendUTF(JSON.stringify({
+                                    type: "Credentials",
+                                    data: JSON.stringify({
+                                        message: "Auth_Declined"
+                                    })
+                                }));
                                 Connection.client.close();
                             }
                         }
                     }
                 }
             }
-            else if (msg.type == "message"){
-                if(msg.data.startsWith('!')){
+            else if (msg.type == "Message") {
+                if (msg.data.startsWith('!')) {
                     var command = msg.data.split(' ')[0].substring(1);
-                    var parameter = msg.data.split(' ').slice(0, 1).join(' ');
+                    var parameter = msg.data.split(' ').splice(0, 1).join(' ');
                     handleCommand(Connection, command, paramter)
                 }
-                else{
+                else {
                     SendAll("Chat", Connection.name, msg.data);
+                }
+            }
+            else if (msg.type == "RequestDiscordInfo"){
+                let info;
+                let requestedObject;
+                try{
+                    info = JSON.parse(msg.data);
+                }
+                catch(e) {
+                    Connection.client.sendUTF(JSON.stringify({
+                        type: "Error",
+                        data: JSON.stringify({
+                            message: "Wrong_Message_Provided",
+                            error: e.stack
+                        })
+                    }));
+                }
+                if (info.type == "Guild"){
+                    requestedObject = Guilds.get(info.id);
+                    if (requestedObject){
+                        Connection.client.sendUTF(JSON.stringify({
+                            type: "Guild",
+                            success: true,
+                            data: JSON.stringify(requestedObject)
+                        }));
+                    }
+                    else{
+                        Connection.client.sendUTF(JSON.stringify({
+                            type: "Guild",
+                            success: false,
+                            data: "NotFound"
+                        }));
+                    }
                 }
             }
         }
     });
     Connection.client.on('close', (number, desc) => {
-        ClientConnections.slice(Connection.arrayIndex, 1);
-        for(var i = Connection.arrayIndex; i < ClientConnections.length; i++){
-            if(ClientConnections[i] != undefined)
+        LogOwner("WS", Connection.name + " has been disconnected!");
+        ClientConnections.splice(Connection.arrayIndex, 1);
+        for (var i = Connection.arrayIndex; i < ClientConnections.length; i++) {
+            if (ClientConnections[i] != undefined)
                 ClientConnections[i].arrayIndex--;
+        }
+        if (ClientConnections.length == 0){
+            event.emit("everyoneDisconnected");
         }
     });
 
     ClientConnections.push(Connection);
-    Connection.client.sendUTF(JSON.stringify({ type: "Credentials", data: "Validate_Server_Connection_Request_Credentials_JSON" }));
+    Connection.client.sendUTF(JSON.stringify({
+        type: "Credentials",
+        data: JSON.stringify({
+            message: "Auth_Requested"
+        })
+    }));
 });
 
 module.exports = {
@@ -474,113 +577,140 @@ module.exports = {
     LogDeveloper: (type, Message) => LogOwner(type, Message)
 };
 
-function handleCommand(client, command, parameter){
-    if(command == "restart" && client.level == 3){
+function handleCommand(client, command, parameter) {
+    if (command == "restart" && client.level == 3) {
         ClientConnections.forEach((v, i, a) => {
             v.client.sendUTF(JSON.stringify({
-                type: "WS",
-                data: "Server_Restarting_Reconnect_Two_Seconds"
+                type: "WebSocket",
+                data: JSON.stringify({
+                    message: "Restarting_WebSocket_Server"
+                })
             }));
         });
-        setTimeout(() => process.exit(2), 2000);
+        event.once("everyoneDisconnected", () => {
+            process.exit(2)
+        });
+        setTimeout(() => {
+            DisconnectEveryone();
+        }, 2000);
     }
 }
 
-function SendSpecified(connection, type, message){
+function SendSpecified(connection, type, message) {
     LogOwner("WS", `Said to ${connection.name}: ${message}`);
     var Time = `[${GetTime()}]`;
     var Prefix = `[${type}]`;
-    connection.client.sendUTF(JSON.stringify({ type: "message", data: `${Time} ${Prefix} ${message}`}));
+    connection.client.sendUTF(JSON.stringify({
+        type: "Message",
+        data: JSON.stringify({
+            message: `${Time} ${Prefix} ${message}`
+        })
+    }));
 }
 
-function SendAll(type, who, message){
+function SendAll(type, who, message) {
     LogConsole("WS", who + " said: " + message);
     var Time = `[${GetTime()}]`;
     var Prefix = `[${type}]`;
     ClientConnections.forEach((v, i, a) => {
-        v.client.sendUTF(JSON.stringify({ type: "message", data: `${Time} ${Prefix} ${who}: ${message}` }));
+        v.client.sendUTF(JSON.stringify({
+            type: "Message",
+            data: JSON.stringify({
+                message: `${Time} ${Prefix} ${who}: ${message}`
+            })
+        }));
     });
 }
 
-function LogOwner(type, Message){
+function LogOwner(type, Message) {
     LogConsole(type, Message);
     var Time = `[${GetTime()}]`;
     var Prefix = `[${type}]`;
     var connection = getOwner();
-    if (connection != undefined){
-        if (connection.connected){
-            connection.sendUTF({type: "log", data: Time + " " + Prefix + " " + Message});
+    if (connection != undefined) {
+        if (connection.connected) {
+            connection.sendUTF({
+                type: "Log",
+                data: JSON.stringify({
+                    message: Time + " " + Prefix + " " + Message
+                })
+            });
         }
     }
     Logs.push(Time + " " + Prefix + " " + Message);
 }
-function LogConsole(type, Message){
+function LogConsole(type, Message) {
     var Time = `[${GetTime()}]`;
     var Prefix = `[${type}]`;
-    if(type == "WS"){
+    if (type == "WS") {
         console.log(chalk.blue(Time) + " " + chalk.yellow(Prefix) + " " + Message);
     }
-    else if (type == "Error"){
+    else if (type == "Error") {
         console.log(chalk.blue(Time) + " " + chalk.red(Prefix) + " " + Message);
     }
-    else if (type == "IRC"){
+    else if (type == "IRC") {
         console.log(chalk.blue(Time) + " " + chalk.magenta(Prefix) + " " + Message);
     }
-    else if (type == "Git"){
+    else if (type == "Git") {
         console.log(chalk.blue(Time) + " " + chalk.yellow(Prefix) + " " + Message);
     }
-    else if (type == "Bot"){
+    else if (type == "Bot") {
         console.log(chalk.blue(Time) + " " + chalk.cyan(Prefix) + " " + Message);
     }
-    else if (type == "Main"){
+    else if (type == "Main") {
         console.log(chalk.blue(Time) + " " + chalk.green(Prefix) + " " + Message);
     }
-    else if (type == "HTML"){
+    else if (type == "HTML") {
         console.log(chalk.blue(Time) + " " + chalk.green(Prefix) + " " + Message);
     }
-    else if (type = "WaifuCloud"){
+    else if (type = "WaifuCloud") {
         console.log(chalk.blue(Time) + " " + chalk.magenta(Prefix) + " " + Message);
     }
 }
 
-function GetTime(){
+function GetTime() {
     var date = new Date();
     return Form(date.getFullYear())
-    + "." + Form(date.getMonth() + 1)
-    + "." + Form(date.getDate())
+        + "." + Form(date.getMonth() + 1)
+        + "." + Form(date.getDate())
 
-    + ". " + Form(date.getHours())
-    + ":" + Form(date.getMinutes()) 
-    + ":" + Form(date.getSeconds());
+        + ". " + Form(date.getHours())
+        + ":" + Form(date.getMinutes())
+        + ":" + Form(date.getSeconds());
 }
-function Form(value){
-    if(value < 10)
+function Form(value) {
+    if (value < 10)
         return "0" + value;
     else
         return value;
 }
 
-function IsChinoOrigin(value){
+function IsChinoOrigin(value) {
     return value == crypto.createHash('sha1').update(crypto.createHash('md5').update(vars.IRCPassword).digest("hex")).digest("hex");
 }
-function getOwner(){
+function getOwner() {
     var index = ClientConnections.findIndex((v, i, a) => {
         return v.level == 3;
     });
-    if(index == -1)
+    if (index == -1)
         return undefined;
     else
         ClientConnections[index];
 }
 
-function sendDiscordMessage(userID, message){
-    if(Chino_chan != undefined){
-        if(Chino_chan.connected){
-            Chino_chan.sendUTF({
-                type: "sendMessage",
+function sendDiscordMessage(userID, message) {
+    if (Chino_chan != undefined) {
+        if (Chino_chan.connected) {
+            Chino_chan.sendUTF(JSON.stringify({
+                type: "SendMessage",
                 id: userID,
                 message: message
-            });
+            }));
         }
     }
+}
+function DisconnectEveryone(){
+    ClientConnections.forEach((v, i, a) => {
+        v.close();
+    });
 }

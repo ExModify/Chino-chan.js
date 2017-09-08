@@ -94,7 +94,7 @@ var Client = new Discord.Client();
 
 Client.on('ready', () => {
     Client.user.setStatus("online");
-    Client.user.setGame('with ExMo');
+    Client.user.setActivity("with ExMo");
     vars.Load();
     junkChannel = Client.channels.get("342989459609878538");
 
@@ -108,10 +108,11 @@ Client.on('ready', () => {
                 catch(exception){
                     console.log(JSON.stringify({
                         type: "Error",
-                        message: "Got wrong JSON: " + message.utf8Data
+                        message: "Got wrong JSON: " + exception.stack + "\r\n" + message.utf8Data.toString()
                     }));
+                    return;
                 }
-                if(obj.type == "sendMessage"){
+                if(obj.type == "SendMessage"){
                     var User = Client.users.get(obj.id);
                     User.createDM().then(channel => {
                         channel.send(obj.message);
@@ -126,6 +127,10 @@ Client.on('ready', () => {
         Client.guilds.forEach((guild, i, a) => {
             sendGuildInfo(guild, connection, "GuildAvailable");
         });
+        connection.sendUTF(JSON.stringify({
+            type: "ClientUsers",
+            users: convertClientUsers(Client.users)
+        }));
         WSConnection = connection;
     });
     WSClient.connect(vars.WSServer, "echo-protocol", crypto.createHash('sha1').update(crypto.createHash('md5').update(vars.IRCPassword).digest("hex")).digest("hex"));
@@ -337,7 +342,8 @@ Client.on("message", (msg) => {
         content: msg.content,
         attachments: convertAttachments(msg.attachments),
         embeds: convertEmbeds(msg.embeds),
-        time: msg.createdAt.toJSON()
+        time: msg.createdAt.toJSON(),
+        editedTime: msg.createdAt.toJSON()
     }));
 });
 Client.on("messageUpdate", (oldMsg, newMsg) => {
@@ -462,6 +468,24 @@ function convertMembers(users) {
 
     return Users;
 }
+function convertClientUsers(users) {
+    var Users = [];
+
+    if(users.length == 0)
+        return Users;
+
+    users.forEach((v, i, a) => {
+        Users.push({
+            userID: v.id,
+            username: v.username,
+            status: v.presence.status,
+            game: v.presence.game
+        });
+    });
+
+    return Users;
+}
+/*
 function convertChannels(channels) {
     var Channels = [];
     if(channels.length == 0)
@@ -483,6 +507,37 @@ function convertChannels(channels) {
         Channels.push(channel);
     });
     return Channels;
+}
+*/
+function convertChannels(channels) {
+    var textChannels = [];
+    var voiceChannels = [];
+    if(channels.length == 0)
+        return [];
+
+    channels.forEach((v, i, a) => {
+        var channel = {
+            id: v.id,
+            name: v.name,
+            type: v.type,
+            permissionOverwrites: convertPermissionOverwrites(v.permissionOverwrites)
+        };
+        if(channel.type == "text")
+        {
+            channel.topic = v.topic;
+            channel.messages = [];
+            channel.typingUserIDs = [];
+
+            textChannels.push(channel);
+        }
+        else{
+            voiceChannels.push(channel);
+        }
+    });
+    return {
+        textChannels: textChannels,
+        voiceChannels: voiceChannels
+    };
 }
 function convertRoles(roles) {
     var Roles = [];
@@ -570,39 +625,40 @@ function convertBans(bans){
     return Bans;
 }
 function sendGuildInfo(guild, connection, type){
-    guild.fetchMembers().then(Members => {
-        if (guild.members.get(Client.user.id).hasPermission("BAN_MEMBERS") ||
-            guild.members.get(Client.user.id).hasPermission("ADMINISTRATOR")){
-            guild.fetchBans().then(Bans => {
-                connection.sendUTF(JSON.stringify({
-                    type: type,
-                    users: convertMembers(Members.members),
-                    channels: convertChannels(guild.channels),
-                    roles: convertRoles(guild.roles),
-                    bans: convertBans(Bans),
-                    name: guild.name,
-                    icon: guild.iconURL,
-                    guildID: guild.id,
-                    ownerID: guild.ownerID,
-                    region: guild.region
-                }));
-            });
-        }
-        else{
+    var chns = convertChannels(guild.channels);
+    if (guild.members.get(Client.user.id).hasPermission("BAN_MEMBERS") ||
+        guild.members.get(Client.user.id).hasPermission("ADMINISTRATOR")){
+        guild.fetchBans().then(Bans => {
             connection.sendUTF(JSON.stringify({
                 type: type,
-                users: convertMembers(Members.members),
-                channels: convertChannels(guild.channels),
+                users: convertMembers(guild.members),
+                textChannels: chns.textChannels,
+                voiceChannels: chns.voiceChannels,
                 roles: convertRoles(guild.roles),
-                bans: [],
+                bans: convertBans(Bans),
                 name: guild.name,
                 icon: guild.iconURL,
                 guildID: guild.id,
                 ownerID: guild.ownerID,
                 region: guild.region
             }));
-        }
-    });
+        });
+    }
+    else{
+        connection.sendUTF(JSON.stringify({
+            type: type,
+            users: convertMembers(guild.members),
+            textChannels: chns.textChannels,
+            voiceChannels: chns.voiceChannels,
+            roles: convertRoles(guild.roles),
+            bans: [],
+            name: guild.name,
+            icon: guild.iconURL,
+            guildID: guild.id,
+            ownerID: guild.ownerID,
+            region: guild.region
+        }));
+    }
 }
 
 function convertRole(role) {
@@ -632,8 +688,8 @@ function convertPermissionOverwrites(pw){
     pw.forEach((v, i, a) => {
         permissionOverwrites.push({
             id: v.id,
-            allow: v.allow,
-            deny: v.deny,
+            allow: v.allowed.bitfield,
+            deny: v.denied.bitfield,
             type: v.type
         });
     });
