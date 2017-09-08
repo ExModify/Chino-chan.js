@@ -61,7 +61,7 @@ Discord.DMChannel.prototype.sendImageEmbed = (file, type, channel) => {
 };
 
 Discord.TextChannel.prototype.sendImageEmbedOnline = (url, type, channel, file) => {
-    var Embed = new Discord.RichEmbed();
+    var Embed = new Discord.MessageEmbed();
     Embed.setImage(url.startsWith('//') ? "https:" + url : url);
     Embed.setColor(0 << 16 | 255 << 8 | 255);
     Embed.setTitle(type);
@@ -70,7 +70,7 @@ Discord.TextChannel.prototype.sendImageEmbedOnline = (url, type, channel, file) 
     channel.send({embed:Embed});
 };
 Discord.DMChannel.prototype.sendImageEmbedOnline = (url, type, channel, file) => {
-    var Embed = new Discord.RichEmbed();
+    var Embed = new Discord.MessageEmbed();
     Embed.setImage(url.startsWith('//') ? "https:" + url : url);
     Embed.setColor(0 << 16 | 255 << 8 | 255);
     Embed.setTitle(type);

@@ -46,7 +46,7 @@ module.exports = {
             }
             else{
                 if (Names.length <= 2){
-                    var embed = new Discord.RichEmbed();
+                    var embed = new Discord.MessageEmbed();
                     embed.setColor(0 << 16 | 255 << 8 | 255);
                     Names.forEach((v, i, a) => {
                         embed.setAuthor(v, Avatars[i], Avatars[i]);
@@ -60,7 +60,7 @@ module.exports = {
                         Message += Names[i] + " - [link](" + Avatars[i] + ")\n";
                     }
                     if(Message != ""){
-                        var embed = new Discord.RichEmbed();
+                        var embed = new Discord.MessageEmbed();
                         embed.setColor(0 << 16 | 255 << 8 | 255);
                         embed.setTitle("Avatars");
                         embed.setDescription(Message);

@@ -17,7 +17,7 @@ module.exports = {
         var secs = uptime - (mins * 60) - (hours * 3600);
 
         var JoinedServers = "-**" + bot.guilds.array().map((guild) => guild.name).join("**\n-**") + "**";
-        var Embed = new Discord.RichEmbed();
+        var Embed = new Discord.MessageEmbed();
 
         Embed.setColor(255 << 16 | 050 << 8 | 230);
 

@@ -98,7 +98,7 @@ function MessageRec(member, channel, count, lastID, resolve, language){
     });
 }
 function CreateEmbed(member, Message, language){
-    var Embed = new Discord.RichEmbed();
+    var Embed = new Discord.MessageEmbed();
     Embed.setAuthor(member.displayName, Message.author.avatarURL);
     Embed.setColor(member.highestRole.color);
     Embed.setDescription(Message.content);

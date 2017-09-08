@@ -9,7 +9,7 @@ module.exports = {
     type: "Fun",
     execute: (bot, message, prefix, command, parameter, language) => {
         var proc = exec('git log --format=%B -n 1', (error, out, err) => {
-            var Embed = new Discord.RichEmbed();
+            var Embed = new Discord.MessageEmbed();
             Embed.setTitle("Github");
             Embed.setDescription(out);
             Embed.setURL("https://github.com/ExModify/Chino-chan.js");
