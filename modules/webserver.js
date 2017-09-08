@@ -488,6 +488,15 @@ WSServer.on('request', (req) => {
                                 }
 
                                 sendDiscordMessage(userID, "Logged into Chino-chan webserver with IP: " + Connection.client.remoteAddress);
+
+                                Connection.client.sendUTF(JSON.stringify({
+                                    type: "UserInformation",
+                                    data: JSON.stringify({
+                                        level: Connection.level,
+                                        availableGuilds: Connection.adminAt,
+                                        name: Connection.name
+                                    })
+                                }));
                             }
                             else {
                                 Connection.client.sendUTF(JSON.stringify({
