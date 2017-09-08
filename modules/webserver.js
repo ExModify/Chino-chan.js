@@ -13,7 +13,6 @@ var Chino_chan = undefined;
 var ClientConnections = [];
 
 var guildReadyCount = -1;
-var ready = false;
 
 var Guilds = new Map();
 var Users = new Map();
@@ -57,7 +56,7 @@ WSServer.on('request', (req) => {
                 if (json.type == "GuildCount") {
                     guildReadyCount = json.count;
                     if (Guilds.size == guildReadyCount)
-                        ready = true;
+                        LogOwner("WS", "Ready to handle connections!");
                 }
                 else if (json.type == "GuildAvailable" || json.type == "NewGuild") {
                     if (Ids.indexOf(json.guildID) < 0) {
@@ -74,7 +73,7 @@ WSServer.on('request', (req) => {
                             region: json.region
                         });
                         if (Guilds.size == guildReadyCount)
-                            ready = true;
+                            LogOwner("WS", "Ready to handle connections!");
                     }
                 }
                 else if (json.type == "ClientUsers"){
@@ -487,7 +486,7 @@ WSServer.on('request', (req) => {
                                     Connection.level = 1;
                                 }
 
-                                sendDiscordMessage(userID, "Logged into Chino-chan webserver with IP: " + Connection.client.remoteAddress);
+                                sendDiscordDMMessage(userID, "Logged into Chino-chan webserver with IP: " + Connection.client.remoteAddress);
 
                                 Connection.client.sendUTF(JSON.stringify({
                                     type: "UserInformation",
@@ -496,6 +495,22 @@ WSServer.on('request', (req) => {
                                         availableGuilds: Connection.adminAt,
                                         name: Connection.name
                                     })
+                                }));
+                                var guildsToSend = [];
+                                if (Connection.adminAt.length == 0){
+                                    Guilds.forEach((v, k, a) => {
+                                        guildsToSend.push(v);
+                                    });
+                                }
+                                else{
+                                    Connection.adminAt.forEach((v, i, a) => {
+                                        guildsToSend.push(Guilds.get(v));
+                                    });
+                                }
+
+                                Connection.client.sendUTF(JSON.stringify({
+                                    type: "DiscordInformation",
+                                    data: JSON.stringify(guildsToSend)
                                 }));
                             }
                             else {
@@ -520,6 +535,23 @@ WSServer.on('request', (req) => {
                 else {
                     SendAll("Chat", Connection.name, msg.data);
                 }
+            }
+            else if (msg.type == "DiscordChannelMessage"){
+                var msgContent;
+                try {
+                    msgContent = JSON.parse(msg.data);
+                }
+                catch (excpt) {
+                    Connection.client.sendUTF(JSON.stringify({
+                        type: "Error",
+                        data: JSON.stringify({
+                            message: "Wrong_Message_Provided",
+                            error: excpt.stack
+                        })
+                    }));
+                    return;
+                }
+                sendDiscordChannelMessage(msgContent.id, msgContent.message);
             }
             else if (msg.type == "RequestDiscordInfo"){
                 let info;
@@ -707,12 +739,23 @@ function getOwner() {
         ClientConnections[index];
 }
 
-function sendDiscordMessage(userID, message) {
+function sendDiscordDMMessage(userID, message) {
+    if (Chino_chan != undefined) {
+        if (Chino_chan.connected) {
+            Chino_chan.sendUTF(JSON.stringify({
+                type: "SendDMMessage",
+                id: userID,
+                message: message
+            }));
+        }
+    }
+}
+function sendDiscordChannelMessage(id, message){
     if (Chino_chan != undefined) {
         if (Chino_chan.connected) {
             Chino_chan.sendUTF(JSON.stringify({
                 type: "SendMessage",
-                id: userID,
+                id: id,
                 message: message
             }));
         }

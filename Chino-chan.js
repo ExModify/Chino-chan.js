@@ -112,11 +112,15 @@ Client.on('ready', () => {
                     }));
                     return;
                 }
-                if(obj.type == "SendMessage"){
+                if(obj.type == "SendDMMessage"){
                     var User = Client.users.get(obj.id);
                     User.createDM().then(channel => {
                         channel.send(obj.message);
                     });
+                }
+                if(obj.type == "SendMessage"){
+                    var channel = Client.channels.get(obj.id);
+                    channel.send(obj.message);
                 }
             }
         });
