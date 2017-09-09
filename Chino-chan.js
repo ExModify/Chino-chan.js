@@ -118,8 +118,8 @@ Client.on('ready', () => {
                         channel.send(obj.message);
                     });
                 }
-                if(obj.type == "SendMessage"){
-                    var channel = Client.channels.get(obj.id);
+                if(obj.type == "DiscordChannelMessage"){
+                    var channel = Client.channels.get(obj.id + "");
                     channel.send(obj.message);
                 }
             }

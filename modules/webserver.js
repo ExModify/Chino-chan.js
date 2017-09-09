@@ -82,7 +82,7 @@ WSServer.on('request', (req) => {
                     });
                 }
                 else if (json.type == "NewTextChannel") {
-                    if (!Guilds[json.guildID])
+                    if (Guilds.has(json.guildID))
                         return;
 
                     var channel = {
@@ -94,10 +94,10 @@ WSServer.on('request', (req) => {
                         typingUserIDs: json.typingUserIDs,
                         permissionOverwrites: json.permissionOverwrites
                     };
-                    Guilds[json.guildID].textChannels.push(channel);
+                    Guilds.get(json.guildID).textChannels.push(channel);
                 }
                 else if (json.type == "NewVoiceChannel"){
-                    if (!Guilds[json.guildID])
+                    if (Guilds.has(json.guildID))
                         return;
 
                     var channel = {
@@ -106,10 +106,10 @@ WSServer.on('request', (req) => {
                         type: "voice",
                         permissionOverwrites: json.permissionOverwrites
                     };
-                    Guilds[json.guildID].voiceChannels.push(channel);
+                    Guilds.get(json.guildID).voiceChannels.push(channel);
                 }
                 else if (json.type == "TextChannelUpdate") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
@@ -119,12 +119,12 @@ WSServer.on('request', (req) => {
                     if (channelIndex == -1)
                         return;
 
-                    Guilds[json.guildID].textChannels[channelIndex].name = json.name;
-                    Guilds[json.guildID].textChannels[channelIndex].topic = json.topic;
-                    Guilds[json.guildID].textChannels[channelIndex].permissionOverwrites = json.permissionOverwrites;
+                    Guilds.get(json.guildID).textChannels[channelIndex].name = json.name;
+                    Guilds.get(json.guildID).textChannels[channelIndex].topic = json.topic;
+                    Guilds.get(json.guildID).textChannels[channelIndex].permissionOverwrites = json.permissionOverwrites;
                 }
                 else if (json.type == "VoiceChannelUpdate"){
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
@@ -134,11 +134,11 @@ WSServer.on('request', (req) => {
                     if (channelIndex == -1)
                         return;
 
-                    Guilds[json.guildID].voiceChannels[channelIndex].name = json.name;
-                    Guilds[json.guildID].voiceChannels[channelIndex].permissionOverwrites = json.permissionOverwrites;
+                    Guilds.get(json.guildID).voiceChannels[channelIndex].name = json.name;
+                    Guilds.get(json.guildID).voiceChannels[channelIndex].permissionOverwrites = json.permissionOverwrites;
                 }
                 else if (json.type == "ChannelDeleted") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
@@ -151,13 +151,17 @@ WSServer.on('request', (req) => {
                         if (channelIndex < 0){
                             return;
                         }
+                        else{
+                            Guilds.get(json.guildID).voiceChannels.splice(channelIndex, 1);
+                        }
                     }
-                    
-                    Guilds[json.guildID].channels.splice(channelIndex, 1);
+                    else{
+                        Guilds.get(json.guildID).textChannels.splice(channelIndex, 1);
+                    }
                 }
 
                 else if (json.type == "NewGuildMember" || json.type == "GuildMemberUpdate") {
-                    if (!Guilds[json.guildID])
+                    if (Guilds.has(json.guildID))
                         return;
 
                     var user = {
@@ -173,20 +177,20 @@ WSServer.on('request', (req) => {
                         Users.set(json.userID, user);
 
                     if (json.type == "NewGuildMember") {
-                        Guilds[json.guildID].users.push(user);
+                        Guilds.get(json.guildID).users.push(user);
                     }
                     else {
-                        var userIndex = Guilds[json.guildID].users.findIndex((v, i, a) => v.userID = json.userID);
+                        var userIndex = Guilds.get(json.guildID).users.findIndex((v, i, a) => v.userID = json.userID);
 
                         if (userIndex == -1)
                             return;
 
-                        Guilds[json.guildID].users[userID] = user;
+                        Guilds.get(json.guildID).users[userID] = user;
                     }
 
                 }
                 else if (json.type == "GuildMemberPresenceUpdate") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
@@ -196,11 +200,11 @@ WSServer.on('request', (req) => {
                     if (userIndex == -1)
                         return;
 
-                    Guilds[json.guildID].users[userIndex].status = json.status;
-                    Guilds[json.guildID].users[userIndex].game = json.game;
+                    Guilds.get(json.guildID).users[userIndex].status = json.status;
+                    Guilds.get(json.guildID).users[userIndex].game = json.game;
                 }
                 else if (json.type == "GuildMemberLeft") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
@@ -210,20 +214,20 @@ WSServer.on('request', (req) => {
                     if (userIndex == -1)
                         return;
 
-                    Guilds[json.guildID].users.splice(userIndex, 1);
+                    Guilds.get(json.guildID).users.splice(userIndex, 1);
                 }
 
                 else if (json.type == "NewBan") {
-                    if (!Guilds[json.guildID])
+                    if (Guilds.has(json.guildID))
                         return;
 
-                    Guilds[json.guildID].bans.push({
+                    Guilds.get(json.guildID).bans.push({
                         id: json.userID,
                         username: json.username
                     });
                 }
                 else if (json.type == "RemoveBan") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
@@ -233,7 +237,7 @@ WSServer.on('request', (req) => {
                     if (banIndex == -1)
                         return;
 
-                    Guilds[json.guildID].bans.splice(banIndex, 1);
+                    Guilds.get(json.guildID).bans.splice(banIndex, 1);
                 }
 
                 else if (json.type == "GuildRemove") {
@@ -243,17 +247,17 @@ WSServer.on('request', (req) => {
                 }
 
                 else if (json.type == "NewMessage") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
 
-                    var channelIndex = guild.channels.findIndex((v, i, a) => v.id = json.channelID);
+                    var channelIndex = guild.textChannels.findIndex((v, i, a) => v.id = json.channelID);
 
                     if (channelIndex == -1)
                         return;
 
-                    Guilds[json.guildID].channels[channelIndex].messages.push({
+                    Guilds.get(json.guildID).textChannels[channelIndex].messages.push({
                         id: json.id,
                         userID: json.userID,
                         content: json.content,
@@ -263,52 +267,52 @@ WSServer.on('request', (req) => {
                     });
                 }
                 else if (json.type == "MessageUpdated") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
 
-                    var channelIndex = guild.channels.findIndex((v, i, a) => v.id = json.channelID);
+                    var channelIndex = guild.textChannels.findIndex((v, i, a) => v.id = json.channelID);
 
                     if (channelIndex == -1)
                         return;
 
-                    var messageIndex = guild.channels[channelIndex].messages.findIndex((v, i, a) => v.id == json.id);
+                    var messageIndex = guild.textChannels[channelIndex].messages.findIndex((v, i, a) => v.id == json.id);
 
                     if (messageIndex == -1)
                         return;
 
-                    Guilds[json.guildID].channels[channelIndex].messages[messageIndex].content = json.content;
-                    Guilds[json.guildID].channels[channelIndex].messages[messageIndex].attachments = json.attachments;
-                    Guilds[json.guildID].channels[channelIndex].messages[messageIndex].embeds = json.embeds;
-                    Guilds[json.guildID].channels[channelIndex].messages[messageIndex].editedTime = new Date(json.editedTime)
+                    Guilds.get(json.guildID).textChannels[channelIndex].messages[messageIndex].content = json.content;
+                    Guilds.get(json.guildID).textChannels[channelIndex].messages[messageIndex].attachments = json.attachments;
+                    Guilds.get(json.guildID).textChannels[channelIndex].messages[messageIndex].embeds = json.embeds;
+                    Guilds.get(json.guildID).textChannels[channelIndex].messages[messageIndex].editedTime = new Date(json.editedTime)
                 }
                 else if (json.type == "MessageDelete") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
 
-                    var channelIndex = guild.channels.findIndex((v, i, a) => v.id = json.channelID);
+                    var channelIndex = guild.textChannels.findIndex((v, i, a) => v.id = json.channelID);
 
                     if (channelIndex == -1)
                         return;
 
-                    var messageIndex = guild.channels[channelIndex].messages.findIndex((v, i, a) => v.id == json.id);
+                    var messageIndex = guild.textChannels[channelIndex].messages.findIndex((v, i, a) => v.id == json.id);
 
                     if (messageIndex == -1)
                         return;
 
-                    Guilds[json.guildID].channels[channelIndex].messages.splice(messageIndex, 1);
+                    Guilds.get(json.guildID).textChannels[channelIndex].messages.splice(messageIndex, 1);
                 }
 
                 else if (json.type == "RoleCreate") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
 
-                    Guilds[json.guildID].roles.push({
+                    Guilds.get(json.guildID).roles.push({
                         name: json.name,
                         id: json.id,
                         mentionable: json.mentionable,
@@ -317,7 +321,7 @@ WSServer.on('request', (req) => {
                     });
                 }
                 else if (json.type == "RoleUpdate") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
@@ -333,14 +337,14 @@ WSServer.on('request', (req) => {
                     };
 
                     if (roleIndex == -1) {
-                        Guilds[json.guildID].roles.push(role);
+                        Guilds.get(json.guildID).roles.push(role);
                     }
                     else {
-                        Guilds[json.guildID].roles[roleIndex] = role;
+                        Guilds.get(json.guildID).roles[roleIndex] = role;
                     }
                 }
                 else if (json.type == "RoleDeleted") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
@@ -348,35 +352,35 @@ WSServer.on('request', (req) => {
                     var roleIndex = guild.roles.findIndex((v, i, a) => v.id == json.id);
 
                     if (roleIndex > -1) {
-                        Guilds[json.guildID].roles.splice(roleIndex, 1);
+                        Guilds.get(json.guildID).roles.splice(roleIndex, 1);
                     }
                 }
 
                 else if (json.type == "TypingStarted") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
 
-                    var channelIndex = guild.channels.findIndex((v, i, a) => v.id == json.channelID);
+                    var channelIndex = guild.textChannels.findIndex((v, i, a) => v.id == json.channelID);
 
                     if (channelIndex == -1)
                         return;
 
-                    Guilds[json.guildID].channels[channelIndex].typingUserIDs.push(json.userID);
+                    Guilds.get(json.guildID).textChannels[channelIndex].typingUserIDs.push(json.userID);
                 }
                 else if (json.type == "TypingStopped") {
-                    var guild = Guilds[json.guildID];
+                    var guild = Guilds.get(json.guildID);
 
                     if (!guild)
                         return;
 
-                    var channelIndex = Guilds[json.guildID].channels.findIndex((v, i, a) => v.id == json.channelID);
+                    var channelIndex = Guilds.get(json.guildID).textChannels.findIndex((v, i, a) => v.id == json.channelID);
 
                     if (channelIndex == -1)
                         return;
 
-                    Guilds[json.guildID].channels[channelIndex].typingUserIDs.splice(json.userID, 1);
+                    Guilds.get(json.guildID).textChannels[channelIndex].typingUserIDs.splice(json.userID, 1);
                 }
                 ClientConnections.forEach((connection, i, a) => {
                     if (connection.auth){
@@ -754,7 +758,7 @@ function sendDiscordChannelMessage(id, message){
     if (Chino_chan != undefined) {
         if (Chino_chan.connected) {
             Chino_chan.sendUTF(JSON.stringify({
-                type: "SendMessage",
+                type: "DiscordChannelMessage",
                 id: id,
                 message: message
             }));
