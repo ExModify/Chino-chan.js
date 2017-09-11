@@ -8,7 +8,7 @@ module.exports = {
     minimumLevel: 0,
     type: "Fun - Image",
     execute: (bot, message, prefix, command, parameter, language) => {
-        if (guildID == "264060704313573377" && message.channel.id != "337985479943258114") // Hardcoded protection
+        if (message.guild ? message.guild.id : undefined == "264060704313573377" && message.channel.id != "337985479943258114") // Hardcoded protection
             return;
         if(vars.NSFWCount > 0){
             var parameters = parameter.split(" ");
