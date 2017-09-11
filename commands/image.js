@@ -10,7 +10,7 @@ module.exports = {
         let parameters = parameter.split(' ');
         parameters[0] = parameters[0].toLowerCase();
 
-        if (message.guild ? message.guild.id : undefined == "264060704313573377" && message.channel.id != "337985479943258114") // Hardcoded protection
+        if ((message.guild ? message.guild.id : undefined) == "264060704313573377" && message.channel.id != "337985479943258114") // Hardcoded protection
             parameters.push("rating:safe");
         
         if(parameters[0] == "sankaku"){
