@@ -7,6 +7,9 @@ module.exports = {
     minimumLevel: 0,
     type: "Fun - Image",
     execute: (bot, message, prefix, command, parameter, language, waifu) => {
+        if (guildID == "264060704313573377" && message.channel.id != "337985479943258114") // Hardcoded protection
+            return;
+
         var parameters = parameter.split(' ');
         if (parameters.length == 0){
             sendWaifuCloudHelp(language, message, prefix);

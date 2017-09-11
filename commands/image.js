@@ -9,6 +9,10 @@ module.exports = {
     execute: (bot, message, prefix, command, parameter, language) => {
         let parameters = parameter.split(' ');
         parameters[0] = parameters[0].toLowerCase();
+        
+        if (guildID == "264060704313573377" && message.channel.id != "337985479943258114") // Hardcoded protection
+            parameters.push("rating:safe");
+        
         if(parameters[0] == "sankaku"){
             message.channel.send(language.InDevelopment);
         }

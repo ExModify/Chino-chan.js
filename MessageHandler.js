@@ -20,10 +20,12 @@ module.exports = {
         var Command = GenerateCommand(message.content, Prefix);
         var Parameter = SpaceIndex > 0 ? message.content.substring(SpaceIndex + 1) : "";
         
-        if (Language[Command.toLowerCase()]){
-            if (Language[Command.toLowerCase()] instanceof Array){
-                var random = Language[Command.toLowerCase()][Math.round(Math.random() * (Language[Command.toLowerCase()].length - 1))];
-                message.channel.send(random);
+        if (guildID == "264060704313573377" && message.channel.id == "335004443609137152"){ // Hardcoded fast protection
+            if (Language[Command.toLowerCase()]){
+                if (Language[Command.toLowerCase()] instanceof Array){
+                    var random = Language[Command.toLowerCase()][Math.round(Math.random() * (Language[Command.toLowerCase()].length - 1))];
+                    message.channel.send(random);
+                }
             }
         }
 
