@@ -54,26 +54,33 @@ WSServer.on('request', (req) => {
             if (data.type == "utf8") {
                 var json = JSON.parse(data.utf8Data);
                 if (json.type == "GuildCount") {
-                    guildReadyCount = json.count;
-                    if (Guilds.size == guildReadyCount)
-                        LogOwner("WS", "Ready to handle connections!");
+                    if (guildReadyCount != -2) {
+                        guildReadyCount = json.count;
+                        if (Guilds.size == guildReadyCount) {
+                            LogOwner("WS", "Ready to handle connections!");
+                            guildReadyCount = -2;
+                        }
+                    }
                 }
                 else if (json.type == "GuildAvailable" || json.type == "NewGuild") {
-                    if (Ids.indexOf(json.guildID) < 0) {
-                        Guilds.set(json.guildID, {
-                            users: json.users,
-                            textChannels: json.textChannels,
-                            voiceChannels: json.voiceChannels,
-                            roles: json.roles,
-                            bans: json.bans,
-                            name: json.name,
-                            icon: json.icon,
-                            guildID: json.guildID,
-                            ownerID: json.ownerID,
-                            region: json.region
-                        });
-                        if (Guilds.size == guildReadyCount)
+                    Guilds.set(json.guildID, {
+                        users: json.users,
+                        textChannels: json.textChannels,
+                        voiceChannels: json.voiceChannels,
+                        roles: json.roles,
+                        bans: json.bans,
+                        name: json.name,
+                        icon: json.icon,
+                        guildID: json.guildID,
+                        ownerID: json.ownerID,
+                        region: json.region
+                    });
+                    if (guildReadyCount != -2) {
+                        guildReadyCount = json.count;
+                        if (Guilds.size == guildReadyCount) {
                             LogOwner("WS", "Ready to handle connections!");
+                            guildReadyCount = -2;
+                        }
                     }
                 }
                 else if (json.type == "ClientUsers"){
