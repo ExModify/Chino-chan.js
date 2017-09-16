@@ -1,4 +1,6 @@
 var vars = require('./../global/vars.js');
+var Random = require('random-js');
+var random = new Random(Random.engines.mt19937().autoSeed());
 
 module.exports = {
     name: 'momiji',
@@ -11,7 +13,7 @@ module.exports = {
             if(parameter.trim() === "count"){
                 message.channel.send(language.MomijiCount.getPrepared('count', vars.MomijiCount));
             }else{
-                var Path = vars.MomijiPath + vars.MomijiFiles[Math.floor(Math.random() * (vars.MomijiCount - 1))];
+                var Path = vars.MomijiPath + vars.MomijiFiles[random.integer(-1, vars.MomijiCount)];
                 message.channel.sendImageEmbed(Path, 'Momiji', message.channel);
             }
         }

@@ -1,4 +1,6 @@
 var request = require('request');
+var Random = require('random-js');
+var random = new Random(Random.engines.mt19937().autoSeed());
 
 module.exports = {
     name: 'image',
@@ -30,7 +32,7 @@ module.exports = {
                     }
                     else{
                         var jsonParsed = JSON.parse(json);
-                        var index = Math.floor(Math.random() * jsonParsed.length);
+                        var index = random.integer(-1, jsonParsed.length);
                         var object = jsonParsed[index];
                         message.channel.sendImageEmbedOnline(object.file_url, "Gelbooru", message.channel);
                     }
@@ -50,7 +52,7 @@ module.exports = {
                     if(json.trim() != ""){
                         var jsonObject = JSON.parse(json);
                         if(jsonObject.count != 0){
-                            page = Math.floor(Math.random() * parseInt((jsonObject.count / 40).toFixed(0)));
+                            page = random.integer(-1, parseInt((jsonObject.count / 40).toFixed(0)) + 1);
                         }
                     }
                     url = `https://yande.re/post.json?tags=${tags}&page=${page}`;
@@ -61,7 +63,7 @@ module.exports = {
                         }
                         else{
                             var postJsonObject = JSON.parse(postJson);
-                            var index = Math.floor(Math.random() * (postJsonObject.length - 1));
+                            var index = random.integer(-1, postJsonObject.length);
                             var object = postJsonObject[index];
                             message.channel.sendImageEmbedOnline(object.file_url, "yande.re", message.channel);
                         }
@@ -83,7 +85,7 @@ module.exports = {
                     if(json.trim() != ""){
                         var jsonObject = JSON.parse(json);
                         if(jsonObject.count != 0){
-                            page = Math.floor(Math.random() * parseInt((jsonObject.post_count / 20).toFixed(0)));
+                            page = random.integer(-1, parseInt((jsonObject.post_count / 20).toFixed(0) + 1));
                         }
                     }
                     url = `https://danbooru.donmai.us/posts.json?tags=${tags}&page=${page}`;
@@ -96,7 +98,7 @@ module.exports = {
                             var postJsonObject = JSON.parse(postJson);
                             var object = undefined;
                             do{
-                                var index = Math.floor(Math.random() * (postJsonObject.length - 1));
+                                var index = random.integer(postJsonObject.length);
                                 object = postJsonObject[index];
                             }
                             while(object.file_url == undefined);

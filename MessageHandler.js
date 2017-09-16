@@ -2,6 +2,8 @@ const vars = require('./global/vars.js');
 const langHandler = require('./modules/langHandler.js');
 const chalk = require('chalk');
 const fs = require('fs');
+var Random = require('random-js');
+var random = new Random(Random.engines.mt19937().autoSeed());
 
 module.exports = {
     handle: (bot, message, waifucloud) => {
@@ -23,7 +25,7 @@ module.exports = {
         if (guildID == "264060704313573377" && message.channel.id == "335004443609137152"){ // Hardcoded fast protection
             if (Language[Command.toLowerCase()]){
                 if (Language[Command.toLowerCase()] instanceof Array){
-                    var random = Language[Command.toLowerCase()][Math.round(Math.random() * (Language[Command.toLowerCase()].length - 1))];
+                    var random = Language[Command.toLowerCase()][random.integer(-1, Language[Command.toLowerCase()].length)];
                     message.channel.send(random);
                 }
             }

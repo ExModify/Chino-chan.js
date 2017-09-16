@@ -1,5 +1,7 @@
 var vars = require('./../global/vars.js');
 var fs = require('fs');
+var Random = require('random-js');
+var random = new Random(Random.engines.mt19937().autoSeed());
 
 module.exports = {
     name: 'nsfw',
@@ -48,7 +50,7 @@ module.exports = {
                 }
             }
             else{
-                var Path = vars.NSFWPath + vars.NSFWFiles[Math.floor(Math.random() * (vars.NSFWCount - 1))];
+                var Path = vars.NSFWPath + vars.NSFWFiles[random.integer(-1, vars.NSFWCount)];
                 message.channel.sendImageEmbed(Path, 'NSFW', message.channel);
             }
         }

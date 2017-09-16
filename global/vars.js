@@ -9,6 +9,8 @@ var DefaultSettings = `{
             "password": ""
         }
     ],
+    "BoltzmannHostname": "Boltzmann",
+    "JunkChannelID": "342989459609878538",
     "GloballyBlocked": [],
     "SFWPath": "D:\\Saves\\Stuffs\\Imgs\\",
     "NSFWPath": "D:\\Saves\\Stuffs\\Imgs\\nsfw\\",
@@ -433,5 +435,7 @@ module.exports = {
             if (IsGuildAdmin(guildID, userID))
                 return 1;
         return 0;
-    }
+    },
+    JunkChannelID: Settings.JunkChannelID,
+    BoltzmannHostname: Settings.BoltzmannHostname
 }

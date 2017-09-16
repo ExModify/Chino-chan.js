@@ -1,4 +1,6 @@
 var vars = require('./../global/vars.js');
+var Random = require('random-js');
+var random = new Random(Random.engines.mt19937().autoSeed());
 
 module.exports = {
     name: 'neko',
@@ -11,7 +13,7 @@ module.exports = {
             if(parameter.trim() === "count"){
                 message.channel.send(language.NekoCount.getPrepared('count', vars.NekoCount));
             }else{
-                var Path = vars.NekoPath + vars.NekoFiles[Math.floor(Math.random() * (vars.NekoCount - 1))];
+                var Path = vars.NekoPath + vars.NekoFiles[random.integer(-1, vars.NekoCount)];
                 message.channel.sendImageEmbed(Path, 'Neko', message.channel);
             }
         }

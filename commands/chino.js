@@ -1,4 +1,6 @@
 var vars = require('./../global/vars.js');
+var Random = require('random-js');
+var random = new Random(Random.engines.mt19937().autoSeed());
 
 module.exports = {
     name: 'chino',
@@ -11,7 +13,7 @@ module.exports = {
             if(parameter.trim() === "count"){
                 message.channel.send(language.ChinoCount.getPrepared('count', vars.ChinoCount));
             }else{
-                var Path = vars.ChinoPath + vars.ChinoFiles[Math.floor(Math.random() * (vars.ChinoCount - 1))];
+                var Path = vars.ChinoPath + vars.ChinoFiles[random.integer(0, vars.ChinoCount)];
                 message.channel.sendImageEmbed(Path, 'Chino', message.channel);
             }
         }

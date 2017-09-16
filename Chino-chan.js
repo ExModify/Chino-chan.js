@@ -17,11 +17,17 @@ if (fs.existsSync('lock'))
 fs.writeFileSync('lock', process.pid);
 
 process.on('uncaughtException', err => {
-    console.log('Error: ' + err.stack);
+    console.log(JSON.stringify({
+        type: "Error",
+        message: err.stack
+    }));
     process.exit(2);
 });
 process.on('unhandledRejection', (reason, promise) => {
-    console.log('Error: Promise Error: +' + reason.stack);
+    console.log(JSON.stringify({
+        type: "Error",
+        message: "Promise: " + reason.stack
+    }));
 });
 
 String.prototype.getPrepared = function (from, to) {
@@ -96,7 +102,7 @@ Client.on('ready', () => {
     Client.user.setStatus("online");
     Client.user.setActivity("with ExMo");
     vars.Load();
-    junkChannel = Client.channels.get("342989459609878538");
+    junkChannel = Client.channels.get(vars.JunkChannelID);
 
     WSClient.on("connect", (connection) => {
         connection.on("message", (message) => {

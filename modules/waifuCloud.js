@@ -1,4 +1,9 @@
 var fs = require('fs');
+var Random = require('random-js');
+var random = new Random(Random.engines.mt19937().autoSeed());
+
+var execSync = require('child_process').execSync;
+
 var client = require('websocket').client;
 var event = require('events').EventEmitter;
 
@@ -35,22 +40,41 @@ module.exports = {
                     ResponseEvent.emit(response.job_id, response);
                 }
             });
+            WSConnection.on("close", (code, description) => {
+                console.log(`Connection closed! Code: ${ code }\nDescription: ${ description }`);
+                //Connect();
+            });
+            WSConnection.on("error", (error) => {
+                console.log(`Connection error! Error: ${ error.toString() }`);
+                //Connect();
+            });
             console.log(JSON.stringify({
                 type: "WaifuCloud",
                 message: "Connected to WaifuCloud successfully!"
             }));
         });
         WSClient.on("connectFailed", (error) => {
-            console.log(JSON.stringify({
-                type: "WaifuCloud",
-                message: "Connection Failed!\n" + error.stack
-            }));
+            if (error.toString().indexOf('ECONNREFUSED') >= 0) {
+                var hostname = execSync("hostname").toString();
+                if (hostname.trim() == vars.BoltzmannHostname){
+                    Connect();
+                }
+                else{
+                    console.log(JSON.stringify({
+                        type: "WaifuCloud",
+                        message: "Can't connect to WaifuCloud because I'm not on the same server where it is."
+                    }));
+                }
+            }
+            else{
+                console.log(JSON.stringify({
+                    type: "WaifuCloud",
+                    message: "Connection Failed!\n" + error.stack
+                }));
+            }
         });
 
-        WSClient.connect(vars.WaifuCloudServer, "echo-protocol", JSON.stringify({
-            username: vars.WaifuCloudUsername,
-            password: vars.WaifuCloudPassword
-        }));
+        Connect();
     },
     connected: () => {
         if (WSConnection)
@@ -162,7 +186,7 @@ function Save() {
 }
 
 function rng(){
-    return Math.floor(Math.random() * 11132432211562);
+    return random.integer(0, 11132432211562);
 }
 
 function ProcessPosts(posts){
@@ -183,5 +207,12 @@ function processImage(posts, index, resolve){
         job_id: id,
         name: "add_post",
         post: posts[index]
+    }));
+}
+
+function Connect(){
+    WSClient.connect(vars.WaifuCloudServer, "echo-protocol", JSON.stringify({
+        username: vars.WaifuCloudUsername,
+        password: vars.WaifuCloudPassword
     }));
 }

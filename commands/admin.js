@@ -1,4 +1,6 @@
 var vars = require('./../global/vars.js');
+var Random = require('random-js');
+var random = new Random(Random.engines.mt19937().autoSeed());
 
 module.exports = {
     name: 'admin',
@@ -215,16 +217,16 @@ module.exports = {
 };
 
 function generatePassword(){
-    var numCount = Math.floor(Math.random() * 4);
+    var numCount = random.integer(0, 5);
     var pass = "";
     for(var i = 0; i < 10; i++){
-        var which = Math.floor(Math.random() * 1) == 1;
+        var which = random.bool();
         if(which && numCount != 0) {
-            pass += vars.Numbers[Math.floor(Math.random() * 9)];
+            pass += vars.Numbers[random.integer(0, 10)];
             numCount--;
         }
         else {
-            pass += vars.Characters[Math.floor(Math.random() * 25)];
+            pass += vars.Characters[random.integer(0, 26)];
         }
     }
     return pass;
