@@ -140,7 +140,7 @@ function deleteRecursive(channel, ids){
     });
 }
 function deleteRecursiveInside(channel, index, ids, deletedids, notfoundids, resolve){
-    channel.fetchMessage(ids[index]).then(Message => {
+    channel.messages.fetch(ids[index]).then(Message => {
         if(Message == undefined){
             notfoundids.push(ids[index]);
         }

@@ -34,7 +34,7 @@ module.exports = {
             }
         }
         else if (parameter != ""){
-            message.channel.fetchMessage(parameter).then(fetchedMessage => {
+            message.channel.messages.fetch(parameter).then(fetchedMessage => {
                 var embed = CreateEmbed(fetchedMessage.member, fetchedMessage, language);
                 message.channel.send({embed:embed});
             }).catch((reject) => {
@@ -80,7 +80,7 @@ function LastHightlight(member, channel, language){
     });
 }
 function MessageRec(member, channel, count, lastID, resolve, language){
-    channel.fetchMessages({limit: count, before: lastID}).then(MessageCollection => {
+    channel.fetch({limit: count, before: lastID}).then(MessageCollection => {
         var Message = MessageCollection.find((v, k, n) => {
             return v.author.id == member.id;
         });
