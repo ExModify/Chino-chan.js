@@ -41,6 +41,11 @@ module.exports = {
                 }
             });
             WSConnection.on("close", (code, description) => {
+                console.log(JSON.stringify({
+                    type: "WaifuCloud",
+                    message: "Disconnected from WaifuCloud!"
+                }));
+
                 if (code == 1006)
                     Connect();
             });
