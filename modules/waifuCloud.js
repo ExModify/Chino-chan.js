@@ -41,18 +41,8 @@ module.exports = {
                 }
             });
             WSConnection.on("close", (code, description) => {
-                console.log(JSON.stringify({
-                    type: "WaifuCloud",
-                    message: "Closed! Code: " + code + "\nDescription: " + description
-                }));
-                //Connect();
-            });
-            WSConnection.on("error", (error) => {
-                console.log(JSON.stringify({
-                    type: "WaifuCloud",
-                    message: "Error: " + error.toString()
-                }));
-                //Connect();
+                if (code == 1006)
+                    Connect();
             });
             console.log(JSON.stringify({
                 type: "WaifuCloud",
