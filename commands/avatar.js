@@ -17,9 +17,9 @@ module.exports = {
             if (message.guild){ // Username and Nickname <- Guild
                 message.guild.members.forEach((v, i, a) => {
                     if(v.user.username.toLowerCase() == check || v.displayName.toLowerCase() == check){
-                        if(v.user.avatarURL){
+                        if(v.user.avatarURL()){
                             Names.push(v.displayName);
-                            Avatars.push(v.user.avatarURL);
+                            Avatars.push(v.user.avatarURL({ size: 2048 }));
                         }
                         else{
                             HasNoAvatar.push(v.displayName);
@@ -30,9 +30,9 @@ module.exports = {
             else{ // Username <- DM
                 bot.users.forEach((v, i, a) => {
                     if(v.username.toLowerCase() == check){
-                        if(v.avatarURL){
+                        if(v.avatarURL()){
                             Names.push(v.username);
-                            Avatars.push(v.avatarURL);
+                            Avatars.push(v.avatarURL({ size: 2048 }));
                         }
                         else{
                             HasNoAvatar.push(v.username);
