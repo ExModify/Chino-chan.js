@@ -22,7 +22,7 @@ module.exports = {
         Embed.setColor(255 << 16 | 050 << 8 | 230);
 
         Embed.setDescription(`**${language.Information}**`);
-        Embed.setAuthor(bot.user.username, bot.user.avatarURL({ size: 2048 }));
+        Embed.setAuthor(bot.user.username, bot.user.avatarURL({ size: 2048, format: "png" }));
 
         Embed.addField(language.MemoryUsage, `${(process.memoryUsage().heapUsed / 1048576).toFixed(2)}MB\n`, true);
         

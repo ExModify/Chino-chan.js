@@ -99,7 +99,7 @@ function MessageRec(member, channel, count, lastID, resolve, language){
 }
 function CreateEmbed(member, Message, language){
     var Embed = new Discord.MessageEmbed();
-    Embed.setAuthor(member.displayName, Message.author.avatarURL({ size: 2048 }));
+    Embed.setAuthor(member.displayName, Message.author.avatarURL({ size: 2048, format: "png" }));
     Embed.setColor(member.highestRole.color);
     Embed.setDescription(Message.content);
     Message.embeds.forEach((v, i, a) => {

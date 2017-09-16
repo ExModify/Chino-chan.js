@@ -19,7 +19,7 @@ module.exports = {
                     if(v.user.username.toLowerCase() == check || v.displayName.toLowerCase() == check){
                         if(v.user.avatarURL()){
                             Names.push(v.displayName);
-                            Avatars.push(v.user.avatarURL({ size: 2048 }));
+                            Avatars.push(v.user.avatarURL({ size: 2048, format: "png" }));
                         }
                         else{
                             HasNoAvatar.push(v.displayName);
@@ -32,7 +32,7 @@ module.exports = {
                     if(v.username.toLowerCase() == check){
                         if(v.avatarURL()){
                             Names.push(v.username);
-                            Avatars.push(v.avatarURL({ size: 2048 }));
+                            Avatars.push(v.avatarURL({ size: 2048, format: "png" }));
                         }
                         else{
                             HasNoAvatar.push(v.username);
