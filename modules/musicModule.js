@@ -435,6 +435,6 @@ function getYouTubeTitle(link) {
 
 function GetMP3Stream(guildID, link) {
     var stream = new buffer();
-    ytdl(link, {format:"audioonly"}).pipe(stream);
+    ytdl(link, {quality: "highest", filter: "audioonly"}).pipe(stream);
     return stream;
 }
