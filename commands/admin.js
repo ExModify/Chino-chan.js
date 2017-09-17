@@ -147,7 +147,7 @@ module.exports = {
                             Message += language.AdminRemoved.getPrepared("names", validNames.join(", "));
                         }
                         Message += "```";
-                        message.channel.sendMessage(Message);
+                        message.channel.send(Message);
                     }
                 }
                 else if (parameters[0] == "addglobal"){

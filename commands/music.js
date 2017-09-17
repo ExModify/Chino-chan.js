@@ -32,10 +32,10 @@ module.exports = {
             }
             musicModule.connect(bot, message.guild.id, message.member.id, channelID).then(connection => {
                 if(connection == undefined || connection == null){
-                    message.channel.sendMessage(language.MusicCantConnect);
+                    message.channel.send(language.MusicCantConnect);
                 }
                 else{
-                    message.channel.sendMessage(language.MusicConnected.getPrepared("channel", connection.channel.name));
+                    message.channel.send(language.MusicConnected.getPrepared("channel", connection.channel.name));
                 }
             });
         }

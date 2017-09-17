@@ -337,16 +337,18 @@ function PlayYouTube(bot, link, channelID, language, guildID, userID, Settings, 
 
         connect(bot, guildID, userID, channelID).then(voiceConnection => {
             var stream = GetMP3Stream(guildID, link);
-            var Dispatcher = voiceConnection.playStream(stream, 
-            {
-                "volume": Settings.Volume / 100
-            });
-
-            Dispatcher.on("end", endCallback);
-            
-            vars.Streams.set(guildID, Dispatcher);
-            vars.SetPlaying(guildID, true);
-            vars.SetCurrentPlaying(guildID, link);
+            setTimeout(() => {
+                var Dispatcher = voiceConnection.playStream(stream, 
+                {
+                    "volume": Settings.Volume / 100
+                });
+    
+                Dispatcher.on("end", endCallback);
+                
+                vars.Streams.set(guildID, Dispatcher);
+                vars.SetPlaying(guildID, true);
+                vars.SetCurrentPlaying(guildID, link);
+            }, 500);
         });
     });
 }

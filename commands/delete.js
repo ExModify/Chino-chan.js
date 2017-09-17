@@ -92,13 +92,13 @@ module.exports = {
 
             if(count > 50 || count < 1)
             {
-                message.channel.sendMessage(language.MessageDeleteWrongProperty);
+                message.channel.send(language.MessageDeleteWrongProperty);
             }
             else
             {
                 deleteMessages(message, count, language, true).then(msg => {
                     if(sendNotify)
-                        message.channel.sendMessage(msg);
+                        message.channel.send(msg);
                 });
             }
         }
