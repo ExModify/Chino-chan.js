@@ -214,6 +214,6 @@ function processImage(posts, index, resolve){
 function Connect(){
     WSClient.connect(vars.WaifuCloudServer, "echo-protocol", JSON.stringify({
         username: vars.WaifuCloudUsername,
-        password: vars.WaifuCloudPassword
+        password: vars.WaifuCloudPassword.trim()
     }));
 }
